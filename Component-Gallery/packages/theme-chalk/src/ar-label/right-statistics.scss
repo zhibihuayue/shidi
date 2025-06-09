@@ -1,0 +1,993 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+@import '../mixins/theme-date-picker-mixins';
+
+@mixin ar-right-statistics-zj-class() {
+  .ar-right-statistics-zj {
+    .copy-icon-class {
+      cursor: pointer;
+      margin-left: px-to-rem(6);
+    }
+    .title {
+      width: 100%;
+      height: px-to-rem(48);
+      line-height: px-to-rem(48);
+      background: linear-gradient(to right, #5a7cb08a, #1725378a);
+      border-radius: px-to-rem(8) px-to-rem(8) px-to-rem(0) px-to-rem(0);
+      display: flex;
+      align-items: center;
+      font-size: px-to-rem(22);
+      background: url('~@component-gallery/assets/image/ar-label/ar_label_head_img.png') no-repeat left center;
+      background-size: 100% 100%; /* 拉伸背景图像到完全覆盖容器 */
+    }
+    .title-left {
+      width: 70%;
+      display: flex;
+      align-items: center;
+      padding-left: px-to-rem(16);
+    }
+    .title-left-icon {
+      font-size: px-to-rem(20);
+      color: #e8f2fe;
+      font-weight: bold;
+      vertical-align: middle;
+      ::v-deep .ct-icon {
+        display: flex;
+        .icon-ctw {
+          color: #E8F3FE !important;
+          font-size: px-to-rem(18);
+        }
+      }
+    }
+    .title-left-title {
+      font-size: px-to-rem(16);
+      margin-left: px-to-rem(8);
+      font-weight: bold;
+      white-space: nowrap;
+      color: #e8f2fe;
+      vertical-align: middle;
+      line-height: px-to-rem(48);
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .title-right {
+      position: absolute;
+      right: px-to-rem(16);
+    }
+    .title-right-icon {
+      cursor: pointer;
+      color: #e8f2fe;
+      display: inline-block;
+      margin-left: px-to-rem(12);
+      line-height: px-to-rem(46);
+    }
+    .title-close {
+      cursor: pointer;
+      position: absolute;
+      display: block;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+      color: #c5d9f7;
+    }
+    .pop-content {
+      width: 100%;
+      padding: px-to-rem(20) px-to-rem(20) px-to-rem(10);
+      line-height: px-to-rem(22);
+    }
+    .pop-tab {
+      position: relative;
+      width: 100%;
+      padding: px-to-rem(16) px-to-rem(225) px-to-rem(0);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      color: rgba(214, 232, 255, 0.7);
+      cursor: pointer;
+      font-size: px-to-rem(16);
+    }
+    .choose-tab div {
+      width: 100%;
+      height: px-to-rem(32);
+      position: relative;
+      font-weight: 700;
+      text-shadow: 0 0 1em rgba(69, 158, 249, 0.22),
+      0 0 1em rgba(69, 158, 249, 0.22), 0 0 1em rgba(69, 158, 249, 0.22),
+      0 0 1em rgba(69, 158, 249, 0.22);
+      // text-shadow: 0.2em 0 0.5em rgba(0, 126, 255, 0.85),
+      // -0.2em 0 0.5em rgba(0, 126, 255, 0.85),
+      // 0 0.2em 0.5em rgba(0, 126, 255, 0.85),
+      // 0 -0.2em 0.5em rgba(0, 126, 255, 0.85);
+    }
+
+    .pop-tab:after {
+      content: '';
+      width: 100%;
+      height: px-to-rem(1);
+      position: absolute;
+      bottom: px-to-rem(0);
+      left: px-to-rem(16);
+      background-image: linear-gradient(
+          to right,
+          rgba(85, 108, 139, 0) 0%,
+          rgba(85, 108, 139, 0.3) 10%,
+          #556c8d 50%,
+          rgba(85, 108, 139, 0.3) 90%,
+          rgba(85, 108, 139, 0) 100%
+      );
+    }
+    .choose-tab div:after {
+      content: '';
+      width: 100%;
+      height: px-to-rem(2);
+      position: absolute;
+      bottom: px-to-rem(0);
+      left: px-to-rem(0);
+      background-image: url('~@component-gallery/assets/image/ar-label/warn_img.png');
+    }
+    .choose-tab {
+      background-image: url('~@component-gallery/assets/image/ar-label/warn_img.png');
+      background-position: 40% 95%;
+      background-repeat: no-repeat;
+      color: rgba(232, 243, 254, 1);
+      width: px-to-rem(120);
+      text-align: center;
+    }
+    .el-col {
+      padding: px-to-rem(4) px-to-rem(5);
+    }
+
+    .block {
+      float: left;
+      width: px-to-rem(300);
+      text-align: center;
+      color: #e8f3fe;
+      border-radius: px-to-rem(4);
+      margin-right: px-to-rem(12);
+      @include el_date-picker_styles();
+    }
+    .block.fd-sjpc {
+      width: px-to-rem(106);
+      margin-right: px-to-rem(12);
+    }
+    .type-btn {
+      text-align: center;
+      background: rgba(93, 129, 179, 0.54);
+      border-radius: px-to-rem(4);
+      margin-bottom: px-to-rem(5);
+      color: #e8f3fe;
+      cursor: pointer;
+      padding: px-to-rem(0) px-to-rem(5);
+      height: px-to-rem(24);
+      line-height: px-to-rem(24);
+      margin-right: px-to-rem(6);
+    }
+    .btn-choose {
+      background: rgba(19, 115, 230, 1);
+    }
+    .block ::v-deep .el-range-input {
+      color: #e8f3fe;
+      background: none;
+      border: none;
+    }
+    .block ::v-deep .el-input__inner {
+      color: #e8f3fe;
+      background: none;
+      border: none;
+    }
+    .block ::v-deep .el-range-separator {
+      color: #e8f3fe;
+    }
+    .rightStatisticsWeb {
+      height: px-to-rem(368);
+      padding: px-to-rem(12) px-to-rem(12) px-to-rem(0);
+      .rightStatistic {
+        font-size: px-to-rem(14);
+        font-weight: 400;
+        color: #b7cae1;
+        line-height: px-to-rem(28);
+        display: flex;
+        .rightStaticSpan_1 {
+          width: px-to-rem(98);
+          display: inline-block;
+          color: rgba(232, 243, 254, 0.7);
+        }
+        .rightStaticSpan_2 {
+          color: #e8f3fe;
+          margin-right: px-to-rem(3);
+
+          i {
+            top: px-to-rem(2);
+            position: relative;
+          }
+        }
+      }
+    }
+    .icon-weishoucang,
+    .icon-lishijilu-shanchu {
+      color: #e8f2fe;
+    }
+    ::v-deep .el-icon-date:before {
+      font-family: 'iconfont_tools' !important;
+      content: '\E85C' !important;
+      font-size: px-to-rem(18);
+      color: #fff !important;
+    }
+
+    // 时间选择
+    ::v-deep.datePosition {
+      left: px-to-rem(0) !important;
+    }
+    ::v-deep.eventPopperClass.el-date-range-picker {
+      width: px-to-rem(527) !important;
+      top: px-to-rem(28) !important;
+      left: 0 !important;
+      transform-origin: center top !important;
+    }
+    ::v-deep.eventPopperClass .el-picker-panel__sidebar {
+      background: #0f1926;
+      opacity: 0.95;
+      border-radius: px-to-rem(8);
+    }
+    ::v-deep.eventPopperClass .el-picker-panel__body {
+      background: #0f1926;
+      opacity: 0.95;
+      border-radius: px-to-rem(8);
+    }
+    .eventSearchTime {
+      width: px-to-rem(336);
+      height: px-to-rem(40);
+      background: rgba(255, 255, 255, 0.1);
+      border: px-to-rem(1) solid rgba(255, 255, 255, 0.31);
+      border-radius: px-to-rem(21);
+      margin-top: px-to-rem(10);
+    }
+    ::v-deep.eventSearchTimeCol .el-input--small .el-input__inner {
+      background-color: transparent;
+      border: 0;
+      font-size: px-to-rem(14);
+      font-weight: 400;
+      color: #ffffff;
+    }
+
+    ::v-deep.eventSearchTimeCol .el-range-editor--small .el-range__icon {
+      margin-top: px-to-rem(2) !important;
+      margin-left: px-to-rem(4) !important;
+      margin-right: px-to-rem(4) !important;
+    }
+    ::v-deep.eventSearchTimeCol .el-range-editor--small .el-range__close-icon {
+      margin-top: px-to-rem(2) !important;
+    }
+    ::v-deep.eventSearchTimeCol .el-range-editor--small .el-range-input {
+      background: transparent !important;
+      color: #e8f3fe !important;
+      font-size: px-to-rem(14);
+    }
+
+    ::v-deep.eventSearchTimeCol .el-date-editor .el-range-separator {
+      color: #e8f3fe;
+    }
+    // .eventSearchTime ::v-deep.in-range {
+    //   background-color: rgba(19, 115, 230, 0.2) !important;
+    // }
+    ::v-deep.eventPopperClass .el-date-table td.in-range div {
+      height: px-to-rem(28) !important;
+      background-color: rgba(19, 115, 230, 0.2) !important;
+    }
+    .eventSearchTimeCol .el-range-editor--small .el-range-input {
+      color: #e8f3fe !important;
+    }
+
+    .eventSearchTime {
+      border-radius: px-to-rem(4);
+      background: rgba(130, 181, 255, 0.2);
+      margin-top: px-to-rem(2);
+      border: none;
+      height: px-to-rem(32);
+    }
+    .eventSearchTime
+    .el-picker-panel__body
+    .el-date-range-picker__content
+    .el-date-range-picker__header
+    div {
+      font-size: px-to-rem(14) !important;
+      color: #e8f3fe;
+    }
+    ::v-deep .el-picker-panel__shortcut {
+      color: #e8f3fe !important;
+    }
+    ::v-deep .el-picker-panel__sidebar,
+    ::v-deep .el-date-range-picker__content.is-left {
+      border-right: px-to-rem(1) solid rgba(220, 235, 255, 0.2) !important;
+    }
+    ::v-deep .el-date-table th {
+      border-bottom: px-to-rem(1) solid rgba(220, 235, 255, 0.2) !important;
+    }
+
+    ::v-deep.eventPopperClass .el-date-table td.end-date span {
+      background: linear-gradient(90deg, #4d9af7 0%, #0862cd 100%) !important;
+      border-radius: px-to-rem(4);
+    }
+
+    ::v-deep.eventPopperClass .el-date-table td.start-date span {
+      background: linear-gradient(90deg, #4d9af7 0%, #0862cd 100%) !important;
+      border-radius: px-to-rem(4);
+    }
+
+    ::v-deep.el-date-table td.disabled div {
+      color: #e8f3fe;
+      opacity: 0.3;
+    }
+
+    .el-date-table td.available:hover {
+      color: #1373e6;
+    }
+
+    .eventPopperClass .el-picker-panel__shortcut:hover {
+      color: #1373e6;
+    }
+    .el-date-table td span {
+      width: px-to-rem(28);
+      height: px-to-rem(28);
+    }
+    ::v-deep.eventPopperClass .el-date-table td div {
+      height: px-to-rem(28) !important;
+    }
+
+    ::v-deep .el-popper[x-placement^='bottom'] .popper__arrow {
+      border: none;
+    }
+    ::v-deep .el-popper[x-placement^='top'] .popper__arrow::after {
+      border: none;
+    }
+    ::v-deep.el-popper[x-placement^='top'] .popper__arrow {
+      border: none;
+    }
+    ::v-deep.el-icon-arrow-up:before {
+      content: '\EC0C';
+      font-family: 'iconfont_tools';
+      font-size: px-to-rem(20);
+    }
+
+    ::v-deep.el-table.el-table--scrollable-y .has-gutter > tr > th.gutter {
+      background-color: transparent !important;
+    }
+
+    .noData {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .noData-img {
+        background: url('~@component-gallery/assets/image/ar-label/noData.png') no-repeat;
+        width: px-to-rem(80);
+        height: px-to-rem(80);
+      }
+      .noData-text {
+        text-align: center;
+        margin-top: px-to-rem(10);
+        height: px-to-rem(13);
+        font-size: px-to-rem(14);
+        font-weight: 400;
+        color: #e8f2fe;
+      }
+    }
+    ::v-deep .el-button.el-button--small {
+      width: px-to-rem(108);
+      height: px-to-rem(32);
+      background: rgba(79, 159, 255, 0.2);
+      border: none;
+      font-size: px-to-rem(14);
+      font-weight: bold;
+      color: #cce3ff;
+    }
+    ::v-deep .el-button.el-button--small.searchSubBtnTwo {
+      margin-left: px-to-rem(7);
+    }
+    ::v-deep .el-button.el-button--small:hover {
+      opacity: 0.6;
+    }
+    ::v-deep .el-button.el-button--small:active {
+      opacity: 0.8;
+    }
+    ::v-deep .el-button--primary {
+      height: px-to-rem(32) !important;
+      background: linear-gradient(90deg, #4d9af7 0%, #0862cd 100%) !important;
+      border-radius: px-to-rem(4) !important;
+      border: none !important;
+      width: px-to-rem(108) !important;
+      font-size: px-to-rem(14) !important;
+      font-weight: bold !important;
+      color: #cce3ff !important;
+    }
+    ::v-deep .el-button.el-button--small.fd-text-btn {
+      width: px-to-rem(54);
+      background: transparent;
+    }
+    ::v-deep .el-button.el-button--small.fd-table-text-but {
+      background: transparent;
+      width: auto;
+      height: auto;
+      color: #4f9fff !important;
+    }
+    .searchSubBtnTwo.fl {
+      margin-left: px-to-rem(12);
+    }
+
+    .c-no-datas {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding-bottom: px-to-rem(8);
+      color: #fff;
+      font-size: px-to-rem(14);
+      text-align: center;
+      transform: translate(-50%, -50%);
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+
+  .ar-right-statistics-zj {
+    position: fixed;
+    left: px-to-rem(350);
+    top: px-to-rem(100);
+    width: px-to-rem(846);
+    // height: 390px;
+    background: rgba(23, 37, 55, 0.8);
+    z-index: 2000;
+    border-radius: px-to-rem(8);
+  }
+  .ar-right-statistics-zj .el-col-6 {
+    color: rgba(214, 232, 255, 0.7);
+  }
+  .ar-right-statistics-zj .el-col-18 {
+    color: #e8f2fe;
+  }
+}
+
+[data-theme='theme-wiseblue'] {
+  // 睿智蓝
+  @include ar-right-statistics-zj-class;
+}
+
+[data-theme='theme-terracotta'] {
+  // 赤土黄
+  @include ar-right-statistics-zj-class;
+
+  .ar-right-statistics-zj{
+    border-radius: px-to-rem(0)!important;
+    position: absolute;
+    &:before{
+      content: "";
+      width: px-to-rem(15);
+      height: px-to-rem(15);
+      top: px-to-rem(-4);
+      left: px-to-rem(-4);
+      position: absolute;
+      background: none;
+      border-top: px-to-rem(4) solid #A9A158;
+      border-left: px-to-rem(4) solid #A9A158;
+    }
+    &:after{
+      content: "";
+      width: px-to-rem(15);
+      height: px-to-rem(15);
+      top: px-to-rem(-4);
+      right: px-to-rem(-4);
+      z-index: -1;
+      position: absolute;
+      background: none;
+      border-top: px-to-rem(4) solid #A9A158;
+      border-right: px-to-rem(4) solid #A9A158;
+      border-radius: 0 px-to-rem(4) 0 0;
+    }
+    .info-result-hf{
+      &:before{
+        content: "";
+        width: px-to-rem(15);
+        height: px-to-rem(15);
+        border-bottom: px-to-rem(4) solid #A9A158;
+        border-left: px-to-rem(4) solid #A9A158;
+        bottom: px-to-rem(-4);
+        left: px-to-rem(-4);
+        position: absolute;
+        background: none;
+        border-radius: 0 px-to-rem(4) 0 0;
+      }
+      &:after{
+        content: "";
+        width: px-to-rem(15);
+        height: px-to-rem(15);
+        border-bottom: px-to-rem(4) solid #A9A158;
+        border-right: px-to-rem(4) solid #A9A158;
+        bottom: px-to-rem(-4);
+        right: px-to-rem(-4);
+        z-index: -1;
+        position: absolute;
+        background: none;
+      }
+    }
+    .title{
+      background: none;
+      .title-left-icon{
+        transform: translateX( px-to-rem(-10000));
+        filter: drop-shadow(#FFEEB1 px-to-rem(10000) 0);
+        ::v-deep .ct-icon .icon-ctw {
+          color: #FFEEB1 !important;
+        }
+      }
+      .title-left-title{
+        color: #FFFFFF;
+        text-shadow: px-to-rem(0) px-to-rem(1) px-to-rem(4) #DCD277;
+      }
+      .title-close{
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        content: url('~@component-gallery/assets/image/ar-label/icon-cancel.png');
+      }
+      .title-right{
+        color: #FFEEB1;
+      }
+    }
+    .pop-tab{
+      color: #E4E7C1;
+      .choose-tab{
+        background-image: url('~@component-gallery/assets/image/ar-label/singleTabSel.png')!important;
+      }
+      .choose-tab div{
+        width: 100%;
+        height: px-to-rem(32);
+        position: relative;
+        font-weight: 700;
+        text-shadow: px-to-rem(1) px-to-rem(0) px-to-rem(4) #DCD277;
+        color: #FFFFFF;
+      }
+    }
+    .tabLeft{
+      .textSty{
+        color: #E4E7C1!important;
+      }
+      .block{
+        background: none!important;
+        color: rgba(228, 231, 193, 1)!important;
+        .el-input__inner{
+          background: rgba(100,86,46,0.4) !important;
+          color: rgba(228, 231, 193, 1)!important;
+        }
+      }
+      .labelSty{
+        &::-webkit-scrollbar {
+          /*width: 6px !important;*/
+        }
+        &::-webkit-scrollbar-thumb {
+          background: rgba(121, 107, 61, 0.76) !important;
+          border-radius: px-to-rem(2) !important;
+          border: 0 !important;
+        }
+        &::-webkit-scrollbar-track {
+          background: transparent !important;
+        }
+      }
+      ::v-deep .el-range-editor--small .el-range-input{
+        color: rgba(228, 231, 193, 1) !important;
+      }
+
+      ::v-deep .el-icon-date:before{
+        transform: translateX( px-to-rem(-10000));
+        filter: drop-shadow(#FFEEB1 px-to-rem(10000) 0);
+        color: rgba(255, 238, 177, 1)!important;
+      }
+
+      .el-input__inner ::v-deep .el-range-separator{
+        color: rgba(228, 231, 193, 1)!important;
+      }
+
+      ::v-deep.eventPopperClass.el-picker-panel{
+        background: none !important;
+        color: rgba(228, 231, 193, 1)!important;
+        opacity: 0.9!important;
+        border: px-to-rem(1) solid #6E674E!important;
+        overflow: hidden!important;
+      }
+      ::v-deep.el-picker-panel__body-wrapper{
+        background: linear-gradient(355deg, rgba(0,0,0,0.9), rgba(0,0,0,0.9) 50%, rgba(73,58,20,0.77)),linear-gradient(3650deg, #eee380, rgba(105,95,42,0.18) 81%, rgba(98,88,38,0) 100%, rgba(76,66,24,0) 100%) !important;
+      }
+      ::v-deep.eventPopperClass .el-picker-panel__sidebar {
+        background: transparent!important;
+        opacity: 1!important;
+      }
+      ::v-deep.eventPopperClass .el-picker-panel__body{
+        background: transparent!important;
+        opacity: 1!important;
+      }
+      ::v-deep.el-picker-panel__shortcut{
+        color: rgba(228, 231, 193, 1) !important;
+      }
+      ::v-deep.eventSearchTime .el-picker-panel__body .el-date-range-picker__content .el-date-range-picker__header div{
+        color: rgba(228, 231, 193, 1)!important;
+      }
+      ::v-deep.el-icon-d-arrow-left:before{
+        font-weight: 600!important;
+        color: rgba(255, 238, 177, 1)!important;
+      }
+      ::v-deep.el-icon-arrow-left:before{
+        font-weight: 600;
+        color: rgba(255, 238, 177, 1)!important;
+      }
+      ::v-deep.el-icon-d-arrow-right:before{
+        font-weight: 600;
+        color: rgba(255, 238, 177, 1)!important;
+      }
+      ::v-deep.el-icon-arrow-right:before{
+        font-weight: 600;
+        color: rgba(255, 238, 177, 1)!important;
+      }
+      ::v-deep.eventPopperClass .el-date-table th{
+        color: rgba(228, 231, 193, 1)!important;
+      }
+      ::v-deep.el-date-table td.next-month,
+      ::v-deep.el-date-table td.prev-month{
+        color: rgba(228, 231, 193, 0.35)!important;
+      }
+      ::v-deep.eventPopperClass .el-date-table td.start-date span{
+        background: rgba(159, 152, 83, 1) !important;
+        color: #fff;
+      }
+      ::v-deep.eventPopperClass .el-date-table td.end-date span{
+        background: rgba(159, 152, 83, 1) !important;
+        color: #fff;
+      }
+      ::v-deep.eventPopperClass .el-date-table td.in-range div{
+        background-color: rgba(122, 113, 61, 0.36) !important;
+      }
+      ::v-deep.el-date-table td.available:hover{
+        color: #fffa28!important;
+      }
+      ::v-deep.el-date-table td.today span{
+        color: #fffa28!important;
+      }
+      ::v-deep .el-date-table td{
+        color: #E4E7C1!important;
+      }
+    }
+    .pop-tab:after{
+      background: linear-gradient(90deg, rgba(255,222,76,0), #ffde4c, rgba(255,222,76,0));
+    }
+    .choose-tab{
+      color: #FFFFFF;
+      text-shadow: px-to-rem(0) px-to-rem(1) px-to-rem(4) #DCD277;
+    }
+    .choose-tab:after{
+      background: url('~@component-gallery/assets/image/ar-label/singleTabSel.png') no-repeat center bottom;
+    }
+    .rightStatistic .rightStaticSpan_1{
+      color: rgba(228, 231, 193, 0.70) !important;
+      opacity: 1;
+    }
+    .rightStatistic .rightStaticSpan_2{
+      color: #E4E7C1 !important;
+    }
+    .copy-icon-class{
+      color: #FFEEB1 !important;
+    }
+    .type-btn{
+      color: #E4E7C1!important;
+      background: rgba(122,113,61,0.2)!important;
+    }
+    .btn-choose{
+      color: #FFEA9E!important;
+      background: rgba(255,224,72,0.2)!important;
+    }
+  }
+  .searchSubBtnTwo{
+    background: rgba(100,86,46,0.71)!important;
+    color: rgba(255,238,177,0.71)!important;
+    //border: 1px solid #6E674E!important;
+  }
+  .searchSubBtn {
+    position: relative !important;
+    color: #FFEEB1!important;
+    text-shadow: 0 px-to-rem(2) px-to-rem(7) rgba(255,225,44,0.5)!important;
+    background: radial-gradient(circle at 50% -250%, rgba(255,219,117,0.81) 0%, rgba(0,0,0,0) 89%),linear-gradient(180deg, rgba(255,224,72,0.34) 0%, rgba(255,241,126,0.1) 100%)!important;
+    &:before,
+    &:after,
+    span:before,
+    span:after {
+      content: "";
+      width: px-to-rem(8);
+      height: px-to-rem(9);
+      position: absolute;
+      left: unset;
+      background: unset;
+    }
+    &:after{
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      background: url('~@component-gallery/assets/image/ar-label/btn_l_t.png') no-repeat left top, url('~@component-gallery/assets/image/ar-label/btn_l_b.png') no-repeat left bottom, url('~@component-gallery/assets/image/ar-label/btn_r_t.png') no-repeat right top, url('~@component-gallery/assets/image/ar-label/btn_r_b.png') no-repeat right bottom;
+    }
+    span:before {
+      border-bottom: px-to-rem(2) solid #C5B57D;
+      border-left: px-to-rem(2) solid #C5B57D;
+      border-radius: 0 0 0 px-to-rem(4);
+      bottom: 0;
+      left: 0;
+    }
+    span:after {
+      border-bottom: px-to-rem(2) solid #C5B57D;
+      border-right: px-to-rem(2) solid #C5B57D;
+      border-radius: 0 0 px-to-rem(4) 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
+
+[data-theme='theme-aquamarine'] {
+  // 碧山绿
+  @include ar-right-statistics-zj-class;
+
+  .ar-right-statistics-zj{
+    .rightStatistic{
+      color: #fff;
+    }
+    .title-right-icon img.linye{
+      transform: translateX( px-to-rem(-10000));
+      filter: drop-shadow(#faff83 px-to-rem(10000) 0);
+    }
+    .title-right-icon img{
+      transform: translateX(px-to-rem(-10000));
+      filter: drop-shadow(#fff px-to-rem(10000) 0);
+    }
+    .add-btn{
+      width: px-to-rem(108);
+      height: px-to-rem(32);
+      line-height: px-to-rem(30);
+      background: none;
+      position: relative;
+      color: #FFFFFF;
+      border: px-to-rem(1) dashed rgba(2,137,109,0.15);
+      text-align: center;
+      float: left;
+      &:hover{
+        opacity: 0.6;
+      }
+      &:active{
+        opacity: 0.8;
+      }
+      &.grey{
+        background: none;
+        color: #FFFFFF;
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+      &:after{
+        content: "";
+        width: calc(100% - px-to-rem(2));
+        height: calc(100% - px-to-rem(2));
+        position: absolute;
+        left: px-to-rem(1);
+        top: px-to-rem(1);
+        //z-index: -1;
+        background: rgba(2,137,109,0.1);
+        box-shadow: inset px-to-rem(0) px-to-rem(0) px-to-rem(3) px-to-rem(0) rgba(2,137,109,0.6);
+        text-align: center;
+      }
+
+    }
+    .title{
+      height: px-to-rem(48);
+      border-radius: 0;
+      background: linear-gradient(91deg, rgba(2,137,109,0.2) 0%, rgba(2,137,109,0.15) 23%, rgba(2,137,109,0) 100%);
+      position: relative;
+      &:before{
+        display: block;
+        content: '';
+        width: px-to-rem(8);
+        height: px-to-rem(1);
+        background: #FFFFFF;
+        box-shadow: px-to-rem(0) px-to-rem(0) px-to-rem(6) px-to-rem(0) #02896D, inset px-to-rem(0) px-to-rem(0) px-to-rem(2) px-to-rem(0) #00FFF8;
+        position: absolute;
+        top: px-to-rem(-1);
+        left: 0;
+      }
+      &:after{
+        display: block;
+        content: '';
+        width: px-to-rem(8);
+        height: px-to-rem(1);
+        background: #FFFFFF;
+        box-shadow: px-to-rem(0) px-to-rem(0) px-to-rem(6) px-to-rem(0) #02896D, inset px-to-rem(0) px-to-rem(0) px-to-rem(2) px-to-rem(0) #00FFF8;
+        position: absolute;
+        top: px-to-rem(-1);
+        right: 0;
+      }
+      .title-left{
+        background: url('~@component-gallery/assets/image/ar-label/leftTitle-bg.png') left center no-repeat;
+        padding-left: px-to-rem(12);
+        background-size: px-to-rem(168) px-to-rem(48);
+        .title-left-icon{
+          background: url('~@component-gallery/assets/image/ar-label/left_title_icon.png') center no-repeat;
+          width: px-to-rem(8);
+          height: px-to-rem(8);
+          background-size: 100%;
+          margin-right: px-to-rem(-12);
+          .iconfont_tools{
+            display: none;
+          }
+          ::v-deep .ct-icon .icon-ctw {
+            display: none;
+          }
+        }
+        .title-left-title{
+          color: #FFFFFF;
+          text-shadow: px-to-rem(0) px-to-rem(0) px-to-rem(18) rgba(0,245,193,0.7);
+          flex: 1;
+          height: px-to-rem(48);
+          line-height: px-to-rem(48);
+          padding-left: px-to-rem(18);
+          margin-left: px-to-rem(2);
+        }
+      }
+    }
+    .title-close{
+      width: px-to-rem(26);
+      height: px-to-rem(26);
+      z-index: 9;
+      content: url('~@component-gallery/assets/image/ar-label/icon-cancel-l2.png');
+    }
+    .pop-tab{
+      color:#0DC985 !important;
+      &:after{
+        height: px-to-rem(1);
+        opacity: 0.2;
+        border: px-to-rem(1) solid;
+        border-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)) 1 1;
+      }
+      .choose-tab{
+        font-weight: 600;
+        color: #FFFFFF;
+        text-shadow: px-to-rem(0) px-to-rem(0) px-to-rem(18) rgba(0,245,193,0.7);
+        background: url('~@component-gallery/assets/image/ar-label/singleTabSel-ly.png') no-repeat center bottom;
+        >div{
+          text-shadow: px-to-rem(0) px-to-rem(0) px-to-rem(18) rgba(0,245,193,0.7);
+          &:after{
+            background: url('~@component-gallery/assets/image/ar-label/singleTabSel.png') no-repeat center bottom;
+          }
+        }
+      }
+    }
+    .rightStatistic .rightStaticSpan_2{
+      color: #FFFFFF;
+    }
+    .rightStatistic .rightStaticSpan_1{
+      color: rgba(255,255,255,0.7);
+    }
+    .block{
+      background: none!important;
+      color: #FFFFFF !important;
+      .el-input__inner{
+        background: rgba(2,137,109,0.2);
+        box-shadow: inset px-to-rem(0) px-to-rem(0) px-to-rem(3) px-to-rem(0) rgba(2,137,109,0.6);
+      }
+    }
+    .type-btn,
+    .btn-choose{
+      background: url('~@component-gallery/assets/image/ar-label/bg_bq-center.png') center repeat-x;
+      position: relative;
+      border-radius: 0;
+      margin-left: px-to-rem(14);
+      color: #F9FF6C;
+      background-size: 100% px-to-rem(24);
+      &:before{
+        width: px-to-rem(14);
+        height: px-to-rem(24);
+        background: url('~@component-gallery/assets/image/ar-label/bg_bq-left.png') center no-repeat;
+        position: absolute;
+        content:'';
+        display: block;
+        left: px-to-rem(-14);
+        top: 0;
+        background-size: 100% 100%;
+      }
+      &:after{
+        width: px-to-rem(14);
+        height: px-to-rem(24);
+        background: url('~@component-gallery/assets/image/ar-label/bg_bq-right.png') center no-repeat;
+        position: absolute;
+        content:'';
+        display: block;
+        right: px-to-rem(-14);
+        top: 0;
+        background-size: 100% 100%;
+      }
+    }
+    // 时间范围选择器样式
+    .tabLeft{
+      ::v-deep.eventPopperClass .el-date-table td.end-date span {
+        background: #02896D !important;
+        border-radius: px-to-rem(14);
+      }
+      ::v-deep.eventPopperClass .el-date-table td.start-date span {
+        background: #02896D !important;
+        border-radius: px-to-rem(14);
+      }
+      ::v-deep.eventPopperClass .el-date-table td.in-range div{
+        height: px-to-rem(32) !important;
+        line-height: px-to-rem(32);
+        background-color: rgba(2, 137, 109, .4) !important;
+        padding: px-to-rem(2);
+        border: 0;
+      }
+      ::v-deep.eventPopperClass .el-date-table td.start-date div{
+        margin-left: 0 !important;
+      }
+      ::v-deep.eventPopperClass .el-date-table td.end-date div{
+        margin-right: 0 !important;
+      }
+      ::v-deep.eventPopperClass .el-date-table td.today span {
+        color: #0DC985 !important;
+      }
+      ::v-deep.eventPopperClass .el-date-table td.available:hover div span{
+        background-color: rgba(2, 137, 109,0.4) !important;
+        color:#FFFFFF;
+        border-radius: px-to-rem(14);
+      }
+      ::v-deep .el-picker-panel__body-wrapper {
+        background: linear-gradient(180deg, rgba(0,67,63,0.85) 0%, rgba(0,19,30,0.74) 21%, #00131E 100%) !important;
+        border: px-to-rem(1) solid #075B4A;
+        border-radius: px-to-rem(3);
+      }
+      ::v-deep .eventPopperClass .el-picker-panel__sidebar {
+        background: transparent;
+        border-radius: 0;
+      }
+      ::v-deep.eventPopperClass .el-date-table td div{
+        height: px-to-rem(32) !important;
+      }
+      ::v-deep .eventPopperClass .el-picker-panel__body {
+        background: transparent;
+        border-radius: 0;
+      }
+      ::v-deep .el-date-table td span {
+        width: px-to-rem(28);
+        height: px-to-rem(28);
+        line-height: px-to-rem(28);
+      }
+      ::v-deep .el-date-table td {
+        padding: 0;
+      }
+      .block ::v-deep .el-range-input,
+      .block ::v-deep .el-range-separator,
+      ::v-deep .eventPopperClass .el-date-table th,
+      ::v-deep .el-picker-panel__shortcut,
+      ::v-deep .eventPopperClass.el-picker-panel,
+      ::v-deep .eventSearchTime .el-picker-panel__body .el-date-range-picker__content .el-date-range-picker__header div,
+      ::v-deep .el-date-table td.next-month,
+      ::v-deep .el-date-table td.prev-month{
+        color: #fff !important;
+      }
+      ::v-deep .el-picker-panel__shortcut{
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+      }
+      ::v-deep .eventPopperClass .el-picker-panel__shortcut:hover{
+        background-color: rgba(2, 137, 109, .4) !important;
+      }
+      ::v-deep .eventPopperClass .el-picker-panel__shortcut.active{
+        background-color: rgba(2, 137, 109, .4) !important;
+        color: #0DC985 !important;
+      }
+      ::v-deep .el-date-table td.disabled div {
+        color: rgba(255,255,255,.7);
+      }
+    }
+  }
+}

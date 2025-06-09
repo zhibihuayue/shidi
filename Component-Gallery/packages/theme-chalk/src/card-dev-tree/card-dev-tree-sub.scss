@@ -1,0 +1,6 @@
+@import "../mixins/px-to-rem";
+
+.el-tooltip__popper.gwcsp{
+    transform: translate(px-to-rem(6), px-to-rem(8));
+    line-height: px-to-rem(20);
+}

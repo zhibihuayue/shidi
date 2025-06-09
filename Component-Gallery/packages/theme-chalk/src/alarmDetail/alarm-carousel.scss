@@ -1,0 +1,333 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.alarm-file-carousel-box {
+  @include themeify(false) {
+    width: 100%;
+    height: 100%;
+
+    /* 隐藏跑马灯控制条 */
+    ::v-deep .el-carousel {
+      .el-carousel__indicators {
+        display: none;
+      }
+    }
+
+    .carousel-video-min {
+      width: 100%;
+      height: 100%;
+      border-radius: px-to-rem(5);
+      object-fit: fill;
+    }
+
+    .carousel-img-err-box {
+      display: flex;
+      place-content: center center;
+      width: 100%;
+      height: 100%;
+      flex-wrap: wrap;
+    }
+
+    .carousel-img-err {
+      width: 100%;
+      height: 100%;
+      border-radius: px-to-rem(5);
+      // width: px-to-rem(20);
+      // height: px-to-rem(20);
+      // transform: translateX(-10000px);
+      // filter: drop-shadow(#fff 10000px 0);
+    }
+
+    .carousel-img-min {
+      width: 100%;
+      height: px-to-rem(194);
+      border-radius: px-to-rem(5);
+    }
+
+    .carousel-video-play {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      display: flex;
+      place-content: center center;
+      width: px-to-rem(40);
+      height: px-to-rem(40);
+      border-radius: 50%;
+      @if $theme-name == 'theme-terracotta' {
+        color: #ffeeb1;
+      } @else {
+        color: #fff;
+      }
+
+      flex-wrap: wrap;
+
+      .video-play-class {
+        transform: scale(2);
+        transform-origin: center;
+      }
+    }
+
+    .full-btn-class {
+      position: relative;
+      top: px-to-rem(-112);
+      left: px-to-rem(295);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: px-to-rem(40);
+      height: px-to-rem(40);
+      background: themed('alarm-detail-compare-full-bg') !important;
+      @if $theme-name == 'theme-terracotta' {
+        color: #ffeeb1;
+      } @else {
+        color: #fff;
+      }
+      @if $theme-name != 'theme-aquamarine' {
+        border-radius: px-to-rem(8);
+      }
+      flex-flow: row wrap;
+      cursor: pointer;
+    }
+    .file-full-btn-class {
+      position: absolute;
+      top: px-to-rem(142);
+      left: px-to-rem(295);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: px-to-rem(40);
+      height: px-to-rem(40);
+      background: themed('alarm-detail-compare-full-bg') !important;
+      @if $theme-name == 'theme-terracotta' {
+        color: #ffeeb1;
+      } @else {
+        color: #fff;
+      }
+      @if $theme-name != 'theme-aquamarine' {
+        border-radius: px-to-rem(8);
+      }
+      flex-flow: row wrap;
+      cursor: pointer;
+    }
+    .down-btn-class {
+      position: absolute;
+      top: px-to-rem(142) !important;
+      left: px-to-rem(245) !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: px-to-rem(40);
+      height: px-to-rem(40);
+      background: themed('alarm-detail-compare-full-bg') !important;
+      @if $theme-name == 'theme-terracotta' {
+        color: #ffeeb1;
+      } @else {
+        color: #fff;
+      }
+      @if $theme-name != 'theme-aquamarine' {
+        border-radius: px-to-rem(8);
+      }
+      flex-flow: row wrap;
+      cursor: pointer;
+      .el-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: px-to-rem(40);
+        height: px-to-rem(40);
+        background: none;
+        @if $theme-name == 'theme-aquamarine' {
+          // background: themed('alarm-detail-compare-full-bg') !important;
+          border: 0;
+        }
+        @if $theme-name == 'theme-terracotta' {
+          background: none;
+          border: 0;
+          color: #ffeeb1 !important;
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          background: none;
+          border: 0;
+        }
+
+        border-radius: px-to-rem(8);
+        color: #fff;
+
+        .iconfont_tools {
+          font-size: px-to-rem(22);
+        }
+      }
+      .el-button.is-disabled{
+        opacity: .4;
+        .iconfont_tools{
+          cursor: not-allowed;
+        }
+      }
+      ::v-deep .el-card .waring-btn-tip {
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        background: rgb(12 31 46 / 40%);
+        border-color: #fff;
+        border-radius: px-to-rem(4);
+      }
+    }
+
+    .isImg {
+      top: px-to-rem(-72);
+    }
+
+    .bottom-file-btn-box {
+      display: flex;
+      margin-top: px-to-rem(12);
+      width: 100%;
+      height: px-to-rem(32);
+
+      .bottom-left-btn {
+        display: flex;
+        place-content: center center;
+        width: px-to-rem(11);
+        height: 100%;
+        background: themed('alarm-carousel-btn');
+        border-radius: px-to-rem(4);
+        color: #fff;
+        flex-wrap: wrap;
+        cursor: pointer;
+
+        &:hover {
+          background: themed('alarm-carousel-btn');
+        }
+      }
+
+      .bottom-content-box {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        width: px-to-rem(322);
+        height: 100%;
+
+        .bottom-content-box-list {
+          height: 100%;
+          display: flex;
+        }
+
+        .bottom-content-item {
+          margin: 0 px-to-rem(3);
+          width: px-to-rem(58);
+          min-width: px-to-rem(58);
+          height: 100%;
+          border-radius: px-to-rem(4);
+          position: relative;
+
+          .carousel-video-botttom {
+            width: px-to-rem(58);
+            height: 100%;
+            border-radius: px-to-rem(5);
+            object-fit: fill;
+            position: absolute
+          ;
+          }
+
+          .carousel-img-bottom {
+            width: px-to-rem(58);
+            height: 100%;
+            border-radius: px-to-rem(4);
+          }
+
+          .carousel-img-bottom-err {
+            width: 100%;
+            height: 100%;
+            // width: px-to-rem(20);
+            // height: px-to-rem(20);
+            // transform: translateX(-10000px);
+            // filter: drop-shadow(#fff 10000px 0);
+          }
+        }
+
+        .err {
+          display: flex;
+          place-content: center center;
+          background: themed('alarm-detail-input-background');
+          flex-wrap: wrap;
+        }
+
+        .choose {
+          @if $theme-name == 'theme-wiseblue' {
+            border: 2px solid #4f9fff;
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            border: 2px solid #F9FF6C;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            border: 2px solid  #FFFA28;
+          }
+
+          .carousel-video-botttom {
+            width: px-to-rem(54);
+          }
+
+          .carousel-img-bottom {
+            width: px-to-rem(54);
+          }
+        }
+      }
+
+      .bottom-right-btn {
+        display: flex;
+        place-content: center center;
+        width: px-to-rem(11);
+        height: 100%;
+        background: themed('alarm-carousel-btn');
+        border-radius: px-to-rem(4);
+        @if $theme-name == 'theme-terracotta' {
+          color: #E4E7C1;;
+        }@else{
+          color: #fff;
+        }
+        flex-wrap: wrap;
+        cursor: pointer;
+
+        &:hover {
+          background: themed('alarm-carousel-btn-hover');
+          color: #fff;
+        }
+      }
+
+      .disable-btn {
+        opacity: 0.4;
+        cursor: no-drop;
+
+        &:hover {
+          background: unset !important;
+        }
+      }
+    }
+
+    // 图片视频放大样式
+    .max-file-box {
+      position: absolute;
+      top: px-to-rem(58);
+      left: px-to-rem(382);
+      overflow: hidden;
+      width: px-to-rem(926);
+      height: px-to-rem(522);
+      background: themed('fire-warning-bg-forest-warning-dialog');
+      border-radius: px-to-rem(8);
+      border-image: themed('fire-warning-bg-forest-warning-dialog-border') 1 1;
+      .carousel-img-big {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    // 轮播图左右切换按钮
+    ::v-deep .el-carousel .el-carousel__container .el-carousel__arrow {
+      background: themed('alarm-detail-compare-arrow-bg-color');
+    }
+
+    ::v-deep .el-carousel .el-carousel__container .el-carousel__arrow:hover {
+      background: themed('alarm-detail-compare-arrow-bg-color');
+    }
+  }
+}

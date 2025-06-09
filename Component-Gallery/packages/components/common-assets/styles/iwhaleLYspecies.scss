@@ -1,0 +1,953 @@
+// 用于大屏场景（industryAPPContainer）使用的全局通用部分样式，这为简易方案，后续对接也方便
+// 这个版本为【林业绿底版】样式
+
+// 注意，这个文件中，所有的样式必须写在iwhale-前缀样式（如iwhale-speciesLYstyle）之下，以保证不会影响到其他厂商；
+// 也因此，这个文件暂时不能用于覆盖popper弹出层样式！依然必须在popper-class内附带专用的iwhale-speciesLYstyle
+
+// ！！！这个文件是全局样式，这里使用到的样式禁止!important声明！！！
+// 保留实际组件覆盖的机会。这里的样式仅仅是用于尽可能的涵盖通用样式，以减少目前填坑的工作量
+// .container{
+//   background: red !important;
+// }
+$tooltip-bg-color: rgb(0 34 27 / 95%);
+$disable-text-color: rgb(255 255 255 / 70%);
+$pop-bg-color: linear-gradient(
+  180deg,
+  rgb(0 67 63 / 85%) 0%,
+  rgb(0 19 30 / 74%) 21%,
+  #00131e 100%
+);
+$tooltip-offset: 6px;
+
+.iwhale-speciesLYstyle {
+  .el-tag,
+  .el-select__tags .el-tag.el-tag--info {
+    background-color: rgb(13 201 133 / 20%);
+    border-color: transparent;
+    color: #0dc985;
+
+    .el-tag__close.el-icon-close {
+      color: #0dc985;
+
+      &:hover {
+        background-color: #0dc985;
+        color: #fff;
+      }
+    }
+  }
+
+  // 按钮覆写
+  .el-button {
+    padding: 0;
+    height: 32px;
+    border-color: transparent;
+    border-radius: 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-weight: 400;
+
+    &.el-button--text.el-picker-panel__link-btn {
+      color: #fff;
+    }
+
+    &.el-button--default {
+      position: relative;
+      padding: 5px 15px;
+      background: rgb(2 137 109 / 10%);
+      border: 2px solid transparent;
+      box-shadow: inset 0 0 3px 0 rgb(2 137 109 / 60%);
+      color: #fff;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border: 1px dotted rgb(2 137 109 / 50%);
+      }
+    }
+
+    &.el-button--primary {
+      position: relative;
+      background: none;
+      border: 1px dotted rgb(2 137 109 / 50%);
+      color: #fff;
+
+      > span {
+        position: relative;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border: 4px solid transparent;
+        border-image-source: url('~@component-gallery/assets/image/btn_primarybg.png');
+        border-image-slice: 9 fill;
+      }
+    }
+
+    &.el-button--danger {
+      background: rgb(237 83 90 / 20%);
+      color: #fff;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+
+    &.is-disabled {
+      opacity: 0.4;
+    }
+  }
+
+  // 树组件覆写
+  .el-tree {
+    background: transparent;
+    color: #fff;
+
+    .el-tree-node:focus > .el-tree-node__content {
+      background: transparent;
+    }
+
+    .el-tree-node__content {
+      height: 32px;
+    }
+
+    .el-tree-node__content:hover {
+      background: transparent;
+    }
+
+    .el-tree-node__expand-icon:not(.is-leaf) {
+      color: #fff;
+    }
+  }
+
+  // 表单级
+  .el-form {
+    .el-form-item__label {
+      color: #fff;
+    }
+  }
+
+  // 开关覆写
+  .el-switch {
+    span.el-switch__core {
+      height: 18px;
+      background: rgb(2 137 109 / 30%);
+      border-color: transparent;
+      box-shadow: inset 0 0 3px 0 rgb(2 137 109 / 60%);
+
+      &::after {
+        top: 1.5px;
+        left: 2px;
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    &.is-checked {
+      span.el-switch__core {
+        background: rgb(2 137 109 / 70%);
+        border-color: transparent;
+        box-shadow: inset 0 0 4px 0 #02896d;
+
+        &::after {
+          left: 100%;
+          margin-left: -15px;
+        }
+      }
+    }
+  }
+
+  // 输入框覆写
+  .el-input {
+    .el-input__inner {
+      background: rgb(2 137 109 / 20%);
+      border-color: transparent;
+      color: rgb(255 255 255 / 100%);
+      font-size: 14px;
+
+      &::placeholder {
+        color: rgb(255 255 255 / 70%);
+      }
+
+      &:not([readonly], [disabled]) {
+        &:focus {
+          border-color: #02896d;
+        }
+
+        &:hover {
+          border-color: rgb(2 137 109 / 60%);
+        }
+      }
+
+      &:disabled {
+        opacity: 0.4;
+      }
+    }
+
+    &.is-focus {
+      .el-input__inner {
+        border-color: #02896d;
+      }
+    }
+
+    .el-icon-circle-close::before {
+      color: rgb(255 255 255 / 100%);
+      font-size: 12px;
+
+      // 统一覆写所有的el-icon-circle-close。注意，这会使得系统里失去原来那个空心版本
+      content: '\E6DB'; // FIXME 注意，这个是基于iconfont的值，应该是涂色版的关闭图标，如果图标库有变动会出问题
+      font-weight: 600;
+    }
+
+    .iconfont_tools {
+      color: #fff;
+      line-height: 32px;
+      font-size: 20px;
+    }
+
+    .el-input__prefix {
+      color: rgb(255 255 255 / 60%);
+    }
+  }
+
+  // 轮播图覆写
+  .el-carousel__indicator {
+    button {
+      background: rgb(255 255 255 / 70%);
+      border-radius: 3px;
+    }
+
+    &.is-active {
+      button {
+        background: #f9ff6c;
+      }
+    }
+  }
+
+  // 复选框覆写
+  .el-checkbox {
+    display: inline-block;
+    margin-right: 3px;
+
+    .el-checkbox__inner {
+      width: 16px;
+      height: 16px;
+      background: rgb(2 137 109 / 30%);
+      border: none;
+      border-radius: 3px;
+      box-shadow: inset 0 0 3px 0 rgb(2 137 109 / 60%);
+
+      &::after {
+        top: 2px;
+        left: 5px;
+        border: 2px solid #fff;
+        border-left: 0;
+        border-top: 0;
+      }
+    }
+
+    .el-checkbox__label {
+      color: #fff;
+      font-weight: 400;
+    }
+
+    &.is-checked {
+      .el-checkbox__inner {
+        background: rgb(2 137 109 / 70%);
+        box-shadow: inset 0 0 4px 0 #02896d;
+      }
+
+      .el-checkbox__label {
+        color: rgb(249 255 108 / 100%);
+      }
+    }
+
+    .is-indeterminate {
+      .el-checkbox__inner {
+        background: rgb(2 137 109 / 70%);
+        box-shadow: inset 0 0 4px 0 #02896d;
+
+        &::before {
+          top: 6px;
+          height: 4px;
+        }
+      }
+    }
+  }
+
+  // 下拉框覆写
+  .el-select {
+    .el-tag__close.el-icon-close {
+      background-color: transparent;
+    }
+
+    .el-input .el-select__caret.el-icon-arrow-up {
+      transform: rotate(0deg);
+      color: #fff;
+      font-size: 20px;
+
+      &.is-reverse {
+        transform: rotate(180deg);
+      }
+
+      &::before {
+        content: '\EA83';
+        font-family: 'iconfont_tools';
+      }
+    }
+
+    &:hover {
+      .el-input__inner {
+        border-color: rgb(2 137 109 / 60%);
+      }
+    }
+  }
+
+  &.el-select-dropdown {
+    margin-top: 13px;
+    margin-bottom: 13px;
+    background: linear-gradient(
+      180deg,
+      rgb(0 67 63 / 85%) 0%,
+      rgb(0 19 30 / 74%) 21%,
+      #00131e 100%
+    );
+    border-color: #075b4a;
+
+    .el-select-dropdown__list {
+      padding: 0;
+    }
+
+    .el-select-dropdown__empty {
+      color: #fff;
+    }
+
+    .el-select-dropdown__item {
+      color: #fff;
+      font-weight: 400;
+
+      &.hover,
+      &.selected.hover {
+        background-color: rgb(2 137 109 / 40%);
+      }
+
+      &.selected {
+        background-color: rgb(2 137 109 / 40%);
+        color: #f9ff6c;
+      }
+    }
+
+    .popper__arrow {
+      display: none;
+    }
+  }
+
+  // 工具提示覆写
+  &.el-tooltip__popper.is-dark {
+    padding: 6px 12px;
+    background: $tooltip-bg-color;
+
+    &.el-tooltip__popper[x-placement^='top'] {
+      margin-bottom: $tooltip-offset;
+
+      .popper__arrow {
+        border-top-color: $tooltip-bg-color;
+
+        &::after {
+          border-top-color: $tooltip-bg-color;
+        }
+      }
+    }
+
+    &.el-tooltip__popper[x-placement^='left'] {
+      .popper__arrow {
+        border-left-color: $tooltip-bg-color;
+
+        &::after {
+          border-left-color: $tooltip-bg-color;
+        }
+      }
+    }
+
+    &.el-tooltip__popper[x-placement^='right'] {
+      .popper__arrow {
+        border-right-color: $tooltip-bg-color;
+
+        &::after {
+          border-right-color: $tooltip-bg-color;
+        }
+      }
+    }
+
+    &.el-tooltip__popper[x-placement^='bottom'] {
+      margin-top: $tooltip-offset;
+
+      .popper__arrow {
+        border-bottom-color: $tooltip-bg-color;
+
+        &::after {
+          border-bottom-color: $tooltip-bg-color;
+        }
+      }
+    }
+  }
+
+  &.el-popper[x-placement^='top'] {
+    margin-bottom: $tooltip-offset;
+
+    .popper__arrow {
+      border-top-color: $tooltip-bg-color;
+
+      &::after {
+        border-top-color: $tooltip-bg-color;
+      }
+    }
+  }
+
+  &.el-popper[x-placement^='left'] {
+    .popper__arrow {
+      border-left-color: $tooltip-bg-color;
+
+      &::after {
+        border-left-color: $tooltip-bg-color;
+      }
+    }
+  }
+
+  &.el-popper[x-placement^='right'] {
+    .popper__arrow {
+      border-right-color: $tooltip-bg-color;
+
+      &::after {
+        border-right-color: $tooltip-bg-color;
+      }
+    }
+  }
+
+  &.el-popper[x-placement^='bottom'] {
+    margin-top: $tooltip-offset;
+
+    .popper__arrow {
+      border-bottom-color: $tooltip-bg-color;
+
+      &::after {
+        border-bottom-color: $tooltip-bg-color;
+      }
+    }
+  }
+
+  // 时间选择器覆写
+  .el-date-editor {
+    .el-range-input {
+      background: transparent;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .el-range-separator {
+      width: 20px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 32px;
+    }
+
+    &.el-input__inner {
+      align-items: center;
+      padding: 0 10px;
+      height: 32px;
+      background: rgb(2 137 109 / 20%);
+      border-color: transparent;
+    }
+
+    // 设计师好像要求的是这个图标，对使用这个图标的日期选择器做统一处理
+    i.iconfont_tools.icon-tongyong-shaixuanriqi {
+      margin-right: 12px;
+      color: #fff;
+      font-size: 18px;
+      line-height: 32px;
+
+      &::before {
+        // vertical-align: middle;
+        // margin-top: 4px;
+        margin-left: 12px;
+      }
+    }
+  }
+
+  // 分页组件
+  .el-pagination {
+    .btn-prev,
+    .btn-next {
+      background: none;
+      color: #fff;
+    }
+
+    li.number {
+      background-color: transparent;
+      border-radius: 4px;
+      color: #fff;
+
+      &:not(.disabled):hover {
+        color: rgb(2 137 109 / 100%);
+      }
+
+      &:not(.disabled).active {
+        background-color: rgb(2 137 109 / 100%);
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  // 滚动条覆写
+  // 使用element的叠加滚动条的组件，单独修改叠加滚动条的样式
+  .el-scrollbar {
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    .el-scrollbar__wrap {
+      margin-right: 0 !important;
+
+      // el-scrollbar的偏移量会导致尺寸异常，推测这是它用来规避原生滚动条尺寸的
+      // 强行覆盖它
+      margin-bottom: 0 !important;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: transparent;
+      }
+
+      .el-scrollbar__view > div {
+        &::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .el-scrollbar__bar {
+      right: 0;
+    }
+  }
+
+  .el-scrollbar__thumb {
+    background-color: rgb(2 136 109 / 40%);
+  }
+
+  // 其他普通滚动条使用保底的覆盖样式
+  ::-webkit-scrollbar,
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(2 136 109 / 40%);
+    border: 0;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover,
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(2 136 109 / 40%);
+  }
+
+  // 以下是不在组件库样式中的、定制使用的额外通用样式
+
+  // 标红版本的alert，这个方式适合配合warning状态的alert组件使用，显示成红色
+  // 通常用于表单组件需要一个在表单内占位的报错时使用
+  .iw-erroralert {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(237 81 88 / 20%);
+    color: rgb(237 81 88 / 100%);
+  }
+}
+
+.lyDataBoxDatetimerangeFooterCom {
+  top: 90px !important;
+  left: 80px !important;
+  width: 595px !important;
+  background: linear-gradient(
+    180deg,
+    rgb(0 67 63 / 85%) 0%,
+    rgb(0 19 30 / 74%) 21%,
+    #00131e 100%
+  );
+  border: 1px solid #075b4a;
+  border-radius: 8px;
+  color: #fff;
+
+  .el-picker-panel__body-wrapper {
+    .el-picker-panel__sidebar {
+      width: 80px;
+      background: transparent;
+      border-right: 1px solid rgb(255 255 255 / 20%);
+
+      .el-picker-panel__shortcut {
+        color: #fff;
+
+        &:hover {
+          color: '';
+        }
+      }
+    }
+  }
+
+  .popper__arrow {
+    display: none;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .el-date-range-picker__content.is-left {
+    border-right: 1px solid rgb(228 231 193 / 24%);
+  }
+
+  .el-picker-panel__body {
+    padding: 0;
+    margin-left: 80px;
+
+    .el-date-range-picker__header {
+      .el-picker-panel__icon-btn {
+        color: #fff;
+      }
+    }
+
+    .el-picker-panel__content {
+      padding: 6px 12px;
+    }
+
+    .el-date-table {
+      th {
+        padding: 0;
+        font-weight: 400;
+        border-bottom: solid 1px rgb(255 255 255 / 20%);
+        color: #e8f3fe;
+      }
+
+      td {
+        color: #e8f3fe;
+      }
+
+      td.available {
+        // &:hover {}
+      }
+
+      td.in-range {
+        div {
+          background: rgb(2 137 109 / 40%);
+
+          &:hover {
+            background: rgb(2 137 109 / 40%);
+          }
+        }
+      }
+
+      td.start-date,
+      td.end-date {
+        span {
+          background: #02896d;
+        }
+      }
+
+      td.today {
+        span {
+          color: #0dc985;
+        }
+      }
+    }
+
+    .el-date-table td div {
+      padding: 0;
+      height: 24px;
+      box-sizing: border-box;
+    }
+
+    .el-date-table td.disabled div {
+      background-color: transparent;
+      opacity: 1;
+      cursor: not-allowed;
+      color: rgb(255 255 255 / 40%);
+    }
+  }
+}
+
+// 用于工具箱使用的，地图功能相关自定义样式。此前缀会在地图初始化后，被自动添加到地图容器之上。
+.iwhale-mapcustom {
+  .ctmap-ol-measure-tooltip,
+  .ctmap-ol-measure-tooltip--static {
+    color: #fff;
+  }
+}
+
+// 时间弹出面板覆写
+.iwhale-speciesLYstyle.el-date-range-picker.el-picker-panel {
+  overflow: hidden;
+  width: 490px;
+  background: $pop-bg-color;
+  border-color: #075b4a;
+  border-radius: 8px;
+  color: #fff;
+
+  .el-picker-panel__content.el-date-range-picker__content {
+    padding: 0;
+
+    &.is-left {
+      border-right: 1px solid rgb(255 255 255 / 20%);
+    }
+  }
+
+  &.has-sidebar {
+    width: 576px;
+  }
+
+  .el-picker-panel *[slot='sidebar'],
+  .el-picker-panel__sidebar {
+    width: 80px;
+    border-right: 1px solid rgb(255 255 255 / 20%);
+
+    + .el-picker-panel__body {
+      margin-left: 80px;
+    }
+  }
+
+  .popper__arrow {
+    display: none;
+  }
+
+  .el-date-range-picker__time-header {
+    border-color: #3d4756;
+
+    .el-icon-arrow-right {
+      color: #e8f3fe;
+    }
+  }
+
+  .el-picker-panel__sidebar {
+    padding-top: 0;
+    background: transparent;
+
+    .el-picker-panel__shortcut {
+      color: #fff;
+
+      &:hover {
+        background: rgb(2 137 109 / 60%);
+        border-right: 1px solid rgb(255 255 255 / 20%);
+      }
+    }
+  }
+
+  .el-picker-panel__body {
+    min-width: auto;
+  }
+
+  .el-date-range-picker__header {
+    padding: 10px 8px;
+    margin-top: 12px;
+    height: 32px;
+    color: #fff;
+    line-height: 12px;
+
+    div {
+      display: flex;
+      justify-content: center;
+      margin-right: 40px;
+      margin-left: 40px;
+      font-size: 14px;
+    }
+
+    .el-picker-panel__icon-btn {
+      padding: 0;
+      margin-top: -4px;
+      color: #fff;
+      font-size: 20px;
+
+      &.el-icon-d-arrow-left {
+        font-family: 'iconfont_tools' !important;
+
+        &::before {
+          content: '\ea80';
+        }
+      }
+
+      &.el-icon-arrow-left {
+        font-family: 'iconfont_tools' !important;
+
+        &::before {
+          content: '\ea49';
+        }
+      }
+
+      &.el-icon-d-arrow-right {
+        font-family: 'iconfont_tools' !important;
+
+        &::before {
+          content: '\ea7e';
+        }
+      }
+
+      &.el-icon-arrow-right {
+        font-family: 'iconfont_tools' !important;
+
+        &::before {
+          content: '\ea47';
+        }
+      }
+    }
+  }
+
+  .el-date-table {
+    padding: 0 12px 12px;
+    font-size: 14px;
+
+    tr {
+      th {
+        color: #fff;
+        text-align: center;
+        border-bottom: 1px solid rgb(255 255 255 / 20%);
+      }
+    }
+
+    th {
+      padding: 0;
+    }
+
+    td {
+      padding: 0;
+      height: 32px;
+
+      &.prev-month,
+      &.next-month {
+        color: rgb(255 255 255 / 40%);
+      }
+
+      div {
+        height: 32px;
+      }
+
+      span {
+        top: 2px;
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+      }
+
+      &.today {
+        span {
+          color: #0dc985;
+        }
+      }
+
+      &.today.in-range {
+        span {
+          color: #fff;
+        }
+      }
+
+      &.start-date {
+        div {
+          margin-left: 0;
+        }
+      }
+
+      &.end-date {
+        div {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .el-date-table td.available:hover {
+    color: #fff;
+
+    span {
+      background-color: #006c56;
+    }
+  }
+
+  .el-date-table td.disabled div {
+    background-color: transparent;
+    color: rgb(255 255 255 / 40%);
+  }
+
+  .el-date-table td.in-range div {
+    background-color: rgb(2 137 109 / 40%);
+  }
+
+  .el-date-table td.start-date span,
+  .el-date-table td.end-date span {
+    background: #02896d;
+  }
+}
+
+::v-deep .toolbox-toolboxsp {
+  // 工具提示覆写
+  &.el-tooltip__popper.is-dark {
+    padding: 6px 12px;
+    height: 26px;
+    background: rgb(0 34 27 / 100%);
+
+    .popper__arrow {
+      top: calc(50% - 6.5px) !important; // 强制修改定位，希望这样能够居中
+      border-right-color: rgb(0 34 27 / 100%);
+      border-left-color: rgb(0 34 27 / 100%);
+
+      &::after {
+        border-right-color: transparent;
+        border-left-color: transparent;
+      }
+    }
+  }
+}
+
+.c-no-datas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  padding-bottom: 8px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-style: normal;
+  font-weight: normal;
+
+  &::before {
+    content: url('../image/noData-ly.png');
+    display: block;
+    margin: 0 !important;
+  }
+}

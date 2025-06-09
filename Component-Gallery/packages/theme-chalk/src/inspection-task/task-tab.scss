@@ -1,0 +1,74 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/bem-mixins.scss';
+
+@include b('task-tab') {
+  @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+      &-item {
+        > span {
+          text-shadow: 0px 0px px-to-rem(24) rgba(0, 92, 245, 0.35);
+        }
+      }
+    }
+    margin: px-to-rem(12) 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: px-to-rem(16);
+    line-height: 1;
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      top: unset;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: themed('inspection-task-tab-after');
+      opacity: 0.35;
+    }
+
+    &-item {
+      position: relative;
+      flex: 1;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: px-to-rem(48);
+      cursor: pointer;
+
+      > span {
+        font-weight: 400;
+        color: themed('inspection-task-tab-text-color');
+      }
+    }
+
+    .is-selected {
+      > span {
+        font-weight: 600;
+        color: themed('inspection-task-tab-text-active-color');
+        text-shadow: themed('inspection-task-tab-text-shadow');
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: px-to-rem(180);
+          height: px-to-rem(10);
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+    .is-selected {
+      > span {
+        &:after {
+          background: themed('alarm-list-base-head-selected-foot-img');
+        }
+      }
+    }
+  }
+}

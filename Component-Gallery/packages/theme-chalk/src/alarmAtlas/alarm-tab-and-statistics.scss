@@ -1,0 +1,82 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+.tab-and-statistics {
+  @include themeify(false) {
+    .alarmListTab {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      @if $theme-name == 'theme-wiseblue' {
+        border-bottom: px-to-rem(1) solid rgba(232, 243, 254, 0.2);
+      }
+      @if $theme-name == 'theme-aquamarine' {
+        border-bottom: px-to-rem(1) solid;
+        border-image: linear-gradient(
+            270deg,
+            rgba(255, 255, 255, 0) 0%,
+            #ffffff 50%,
+            rgba(255, 255, 255, 0) 100%
+          )
+          1
+          1;
+      }
+      @if $theme-name == 'theme-terracotta' {
+        border-bottom: px-to-rem(1) solid;
+        border-image: linear-gradient(
+            90deg,
+            rgba(255, 222, 76, 0),
+            rgba(255, 222, 76, .35),
+            rgba(255, 222, 76, 0)
+          )
+          1
+          1;
+      }
+      .tabItem {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 px-to-rem(10);
+        height: px-to-rem(48);
+        color: themed('alarm-atlas-tab-title-color');
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(48);
+        cursor: pointer;
+      }
+
+      .active {
+        font-weight: 600;
+        text-shadow: themed('alarm-atlas-tab-title-text-shadow');
+        color: themed('alarm-atlas-tab-title-active-color');
+        font-size: px-to-rem(14);
+        position: relative;
+        &::after {
+          content: '';
+          display: block;
+          background: themed('alarm-atlas-tab-title-guang');
+          width: px-to-rem(141);
+          height: px-to-rem(10);
+          position: absolute;
+          bottom: -1px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+    .atlas-split-line {
+      // height: 1px;
+      // background: themed('alarm-atlas-split-bg');
+      // @if $theme-name == 'theme-terracotta' {
+      //   opacity: 0.35;
+      // }
+    }
+    .atlas-stitistics-info {
+      width: calc(100% - px-to-rem(24));
+      margin: px-to-rem(12) px-to-rem(12) 0;
+      height: px-to-rem(96);
+      background: themed('alarm-atlas-statistics-bg');
+    }
+  }
+}

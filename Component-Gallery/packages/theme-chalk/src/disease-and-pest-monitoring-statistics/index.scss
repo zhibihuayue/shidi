@@ -1,0 +1,38 @@
+@import '../mixins/px-to-rem';
+
+.disease-and-pest-monitoring-statistics {
+    &-container {
+        --active-color: #4f9fff;
+        --text-ordinary-color: #e8f3fe;
+        height: px-to-rem(628);
+        ::v-deep{
+            .innercomp-sccontainer-body{
+                height: calc(100% - px-to-rem(48));
+            }
+        }
+        .listContainer{
+            height: calc(100% - px-to-rem(145));
+            > div{
+                height: 100% !important;
+            }
+        }
+    }
+}
+
+
+// 林业
+[data-theme="theme-aquamarine"] .disease-and-pest-monitoring-statistics{
+    &-container {
+        --active-color: #F9FF6C;
+        --text-ordinary-color: #fff;
+    }
+}
+
+
+// 国土
+[data-theme="theme-terracotta"] .disease-and-pest-monitoring-statistics{
+    &-container {
+        --active-color: #FFFA28;
+        --text-ordinary-color: #E4E7C1;
+    }
+}

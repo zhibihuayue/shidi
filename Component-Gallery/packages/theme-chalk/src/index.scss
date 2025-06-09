@@ -1,0 +1,15 @@
+@use './reset.scss';
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/theme-tooltip-mixins';
+@import 'mixins/theme-dialog-header-mixins';
+@import 'mixins/theme-date-range-picker-active.scss';
+@import 'csscp/index';
+
+@import 'base/index';
+
+body {
+  @include el_tooltip_styles;
+  @include el_dialog_header_styles;
+  @include el_date_range_picker_active;
+}

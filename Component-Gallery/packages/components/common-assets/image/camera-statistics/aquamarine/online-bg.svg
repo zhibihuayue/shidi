@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="358px" height="102px" viewBox="0 0 358 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bg_摄像机在线率</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#4E85D1" stop-opacity="0.340198864" offset="0%"></stop>
+            <stop stop-color="#4E85D1" stop-opacity="0.16" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#6F9EDF" stop-opacity="0.391635708" offset="0%"></stop>
+            <stop stop-color="#4E85D1" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.35">
+        <g id="画板" transform="translate(-57.000000, -41.000000)" fill="url(#linearGradient-1)" stroke="url(#linearGradient-2)">
+            <g id="bg_摄像机在线率" transform="translate(57.000000, 41.000000)">
+                <path d="M354,0.5 C354.966498,0.5 355.841498,0.891750844 356.474874,1.52512627 C357.108249,2.15850169 357.5,3.03350169 357.5,4 L357.5,98 C357.5,98.9664983 357.108249,99.8414983 356.474874,100.474874 C355.841498,101.108249 354.966498,101.5 354,101.5 L4,101.5 C3.03350169,101.5 2.15850169,101.108249 1.52512627,100.474874 C0.891750844,99.8414983 0.5,98.9664983 0.5,98 L0.5,4 C0.5,3.03350169 0.891750844,2.15850169 1.52512627,1.52512627 C2.15850169,0.891750844 3.03350169,0.5 4,0.5 Z" id="矩形"></path>
+            </g>
+        </g>
+    </g>
+</svg>

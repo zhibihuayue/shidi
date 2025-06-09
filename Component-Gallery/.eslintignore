@@ -1,0 +1,13 @@
+vue.config.js
+dist
+
+
+# 忽略构建脚本的eslint检查
+internal/**
+packages/components/common-assets/iconfont
+packages/components/common-assets/font
+packages/components/common-inner-utils/player
+packages/components/**/demo/*.demo.vue
+packages/theme-chalk/gulpfile.js
+packages/components/common-comp-video/src/assets/font
+packages/components/common-assets/weatherSvg/*

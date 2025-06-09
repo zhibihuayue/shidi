@@ -1,0 +1,323 @@
+@import "mixins/px-to-rem";
+
+.tree-resource-statistics {
+  &-container{
+    --tab-color: rgb(232 243 254 / 70%);
+    --tab-active-color: #E8F3FE;
+    --tab-active-shadow-color: rgb(74 141 254 / 70%);
+    --tree-info-color: #E8F3FE;
+    --tree-info-shadow-color: rgb(19 115 230 / 90%);
+    --tree-group-color: #E8F3FE;
+    --tree-group-shadow-color: #1373E6;
+
+    display: flex;
+    flex-flow: column;
+    width: px-to-rem(370);
+  }
+
+  &-body{
+    flex-grow: 1;
+
+    .contentBox{
+      overflow: hidden;
+      height: px-to-rem(180);
+    }
+  }
+
+  &-tab{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: px-to-rem(48);
+
+    &__tabItem{
+      height: 100%;
+      color: var(--tab-color);
+      font-size: px-to-rem(16);
+      text-align: center;
+      flex: 1;
+      cursor: pointer;
+      line-height: px-to-rem(48);
+    }
+
+    .tab_active {
+      position: relative;
+      text-shadow: 0 0 px-to-rem(18) var(--tab-active-shadow-color);
+      color: var(--tab-active-color);
+      font-weight: 600;
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: inline-block;
+        width: px-to-rem(180);
+        height: px-to-rem(10);
+        background: url('~@component-gallery/assets/image/tree-group/ty/select-tab-bg.png') no-repeat center 100%;
+        background-size: px-to-rem(117) px-to-rem(11);
+        content: "";
+      }
+    }
+  }
+
+  &-treeInfo{
+    margin-top: px-to-rem(12);
+    height: px-to-rem(38);
+    background: url('~@component-gallery/assets/image/tree-group/ty/line-bg.png') no-repeat center/100% 100%;
+    color: var(--tree-info-color);
+    font-size: px-to-rem(16);
+    text-align: center;
+    line-height: px-to-rem(38);
+
+    span{
+      margin-right: px-to-rem(6);
+      margin-left: px-to-rem(6);
+      text-shadow: 0 0 px-to-rem(18) var(--tree-info-shadow-color);
+      font-weight: 600;
+    }
+  }
+
+  &-item{
+    display: flex;
+    justify-content: space-between;
+    margin-top: px-to-rem(12);
+    height: px-to-rem(118);
+    font-size: px-to-rem(14);
+    text-align: center;
+    line-height: 1;
+
+    > div{
+      width: px-to-rem(88);
+      height: 100%;
+      font-weight: 600;
+      background-repeat: no-repeat;
+      background-size: px-to-rem(88) px-to-rem(118);
+      cursor: pointer;
+    }
+
+    .itemName{
+      margin-top: px-to-rem(82);
+      margin-bottom: px-to-rem(6);
+      font-weight: 600;
+    }
+
+    .itemValue{
+      font-size: px-to-rem(16);
+      font-weight: 600;
+    }
+
+    .levelOne {
+      background-image: url('~@component-gallery/assets/image/tree-group/ty/tree-img-1.png');
+      text-shadow:
+      0 0 px-to-rem(2) #00568E,
+      0 0 px-to-rem(4) #00568E,
+      0 0 px-to-rem(6) #00568E,
+      0 0 px-to-rem(8) #00568E,
+      0 0 px-to-rem(10) #00568E;
+    }
+
+    .levelTwo {
+      background-image: url('~@component-gallery/assets/image/tree-group/ty/tree-img-2.png');
+      text-shadow:
+      0 0 px-to-rem(2) #531717,
+      0 0 px-to-rem(4) #531717,
+      0 0 px-to-rem(6) #531717,
+      0 0 px-to-rem(8) #531717,
+      0 0 px-to-rem(10) #531717;
+    }
+
+    .levelThree {
+      background-image: url('~@component-gallery/assets/image/tree-group/ty/tree-img-3.png');
+      text-shadow:
+      0 0 px-to-rem(2) #04428C,
+      0 0 px-to-rem(4) #04428C,
+      0 0 px-to-rem(6) #04428C,
+      0 0 px-to-rem(8) #04428C,
+      0 0 px-to-rem(10) #04428C;
+    }
+
+    .levelFour {
+      background-image: url('~@component-gallery/assets/image/tree-group/ty/tree-img-4.png');
+      text-shadow:
+      0 0 px-to-rem(2) #7E5F00,
+      0 0 px-to-rem(4) #7E5F00,
+      0 0 px-to-rem(6) #7E5F00,
+      0 0 px-to-rem(8) #7E5F00,
+      0 0 px-to-rem(10) #7E5F00;
+    }
+  }
+
+  &-treeGroup{
+    position: relative;
+    padding-top: px-to-rem(60);
+    padding-left: px-to-rem(162);
+    margin: px-to-rem(12) 0 0 0;
+    width: px-to-rem(370);
+    height: px-to-rem(156);
+    background: url('~@component-gallery/assets/image/tree-group/ty/tree-group-bg.png') no-repeat center/ contain;
+    text-shadow: 0 0 px-to-rem(7) var(--tree-group-shadow-color);
+    color: var(--tree-group-color);
+    font-size: px-to-rem(16);
+    font-family: PingFangSC, "PingFang SC";
+    font-weight: 500;
+    cursor: pointer;
+
+    span{
+      position: absolute;
+      top: px-to-rem(60);
+      right: px-to-rem(32);
+      font-weight: 500;
+    }
+  }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .tree-resource-statistics{
+  &-container{
+    --tab-color: #0DC985;
+    --tab-active-color: #fff;
+    --tab-active-shadow-color: rgb(0 245 193 / 70%);
+    --tree-info-color: #fff;
+    --tree-info-shadow-color: rgb(0 245 193 / 90%);
+    --tree-group-color: #fff;
+    --tree-group-shadow-color: #7E5F00;
+  }
+
+  &-tab{
+    &__tabItem{
+      // text-shadow: 0 0 px-to-rem(18) rgb(0 245 193 / 70%);
+    }
+
+    .tab_active {
+      text-shadow: 0 0 px-to-rem(18) rgb(0 245 193 / 70%);
+      &::after {
+        background: url('~@component-gallery/assets/image/tree-group/ly/select-tab-bg.png') no-repeat center 100%;
+        background-size: 100% px-to-rem(10);
+      }
+    }
+  }
+
+  &-treeInfo{
+    background-image: url('~@component-gallery/assets/image/tree-group/ly/line-bg.png');
+  }
+
+  &-item{
+    .levelOne {
+      background-image: url('~@component-gallery/assets/image/tree-group/ly/tree-img-1.png');
+      text-shadow:
+      0 0 px-to-rem(2) #005E36,
+      0 0 px-to-rem(4) #005E36,
+      0 0 px-to-rem(6) #005E36,
+      0 0 px-to-rem(8) #005E36,
+      0 0 px-to-rem(10) #005E36;
+    }
+
+    .levelTwo {
+      background-image: url('~@component-gallery/assets/image/tree-group/ly/tree-img-2.png');
+      text-shadow:
+      0 0 px-to-rem(2) #531717,
+      0 0 px-to-rem(4) #531717,
+      0 0 px-to-rem(6) #531717,
+      0 0 px-to-rem(8) #531717,
+      0 0 px-to-rem(10) #531717;
+    }
+
+    .levelThree {
+      background-image: url('~@component-gallery/assets/image/tree-group/ly/tree-img-3.png');
+      text-shadow:
+      0 0 px-to-rem(2) #00568E,
+      0 0 px-to-rem(4) #00568E,
+      0 0 px-to-rem(6) #00568E,
+      0 0 px-to-rem(8) #00568E,
+      0 0 px-to-rem(10) #00568E;
+    }
+
+    .levelFour {
+      background-image: url('~@component-gallery/assets/image/tree-group/ly/tree-img-4.png');
+      text-shadow:
+      0 0 px-to-rem(2) #7E5F00,
+      0 0 px-to-rem(4) #7E5F00,
+      0 0 px-to-rem(6) #7E5F00,
+      0 0 px-to-rem(8) #7E5F00,
+      0 0 px-to-rem(10) #7E5F00;
+    }
+  }
+
+  &-treeGroup{
+    background-size: px-to-rem(370) px-to-rem(183);
+    background-image: url('~@component-gallery/assets/image/tree-group/ly/tree-group-bg.png');
+  }
+}
+
+
+// 国土
+[data-theme="theme-terracotta"] .tree-resource-statistics{
+  &-container{
+    --tab-color: #E4E7C1;
+    --tab-active-color: #fff;
+    --tab-active-shadow-color: #DCD277;
+    --tree-info-color: #E4E7C1;
+    --tree-info-shadow-color: rgb(220 210 119 / 90%);
+    --tree-group-color: #E8F3FE;
+    --tree-group-shadow-color: #7E5F00;
+  }
+
+  &-tab{
+    .tab_active {
+      &::after {
+        background: url('~@component-gallery/assets/image/tree-group/gt/select-tab-bg.png') no-repeat center 100%;
+        background-size: px-to-rem(117) px-to-rem(16);
+      }
+    }
+  }
+
+  &-treeInfo{
+    background-image: url('~@component-gallery/assets/image/tree-group/gt/line-bg.png');
+  }
+
+  &-item{
+    .levelOne {
+      background-image: url('~@component-gallery/assets/image/tree-group/gt/tree-img-1.png');
+      text-shadow:
+      0 0 px-to-rem(2) #335E00,
+      0 0 px-to-rem(4) #335E00,
+      0 0 px-to-rem(6) #335E00,
+      0 0 px-to-rem(8) #335E00,
+      0 0 px-to-rem(10) #335E00;
+    }
+
+    .levelTwo {
+      background-image: url('~@component-gallery/assets/image/tree-group/gt/tree-img-2.png');
+      text-shadow:
+      0 0 px-to-rem(2) #531F17,
+      0 0 px-to-rem(4) #531F17,
+      0 0 px-to-rem(6) #531F17,
+      0 0 px-to-rem(8) #531F17,
+      0 0 px-to-rem(10) #531F17;
+    }
+
+    .levelThree {
+      background-image: url('~@component-gallery/assets/image/tree-group/gt/tree-img-3.png');
+      text-shadow:
+      0 0 px-to-rem(2) #623A03,
+      0 0 px-to-rem(4) #623A03,
+      0 0 px-to-rem(6) #623A03,
+      0 0 px-to-rem(8) #623A03,
+      0 0 px-to-rem(10) #623A03;
+    }
+
+    .levelFour {
+      background-image: url('~@component-gallery/assets/image/tree-group/gt/tree-img-4.png');
+      text-shadow:
+      0 0 px-to-rem(2) #7E5F00,
+      0 0 px-to-rem(4) #7E5F00,
+      0 0 px-to-rem(6) #7E5F00,
+      0 0 px-to-rem(8) #7E5F00,
+      0 0 px-to-rem(10) #7E5F00;
+    }
+  }
+
+  &-treeGroup{
+    background-image: url('~@component-gallery/assets/image/tree-group/gt/tree-group-bg.png');
+  }
+}

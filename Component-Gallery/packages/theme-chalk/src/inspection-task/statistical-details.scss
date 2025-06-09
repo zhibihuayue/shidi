@@ -1,0 +1,142 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/bem-mixins.scss';
+@import '../mixins/theme-checkbox-mixins';
+
+@include b('statistical-details') {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+  @include themeify(false) {
+    &.innercomp-abcontainer.highlight-title {
+      background: themed('inspection-task-track-popup-map-dialog-bg');
+    }
+    &-body {
+      .date-time-picker {
+        flex: 1;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        padding-right: px-to-rem(12);
+        .title {
+          text-wrap: nowrap;
+          margin-right: px-to-rem(12);
+          font-size: px-to-rem(14);
+        }
+        .tree-select {
+          width: px-to-rem(202);
+        }
+      }
+      &__table {
+        padding: 0 px-to-rem(12) px-to-rem(12);
+        width: 100%;
+        height: 100%;
+        ::v-deep .el-table {
+          border-color: themed('alarm-list-item-line') !important;
+          background: transparent;
+          &.table-header {
+            height: px-to-rem(32) !important;
+            overflow: hidden;
+          }
+          &::before {
+            background: transparent;
+          }
+          &.el-table--border::after {
+            background-color: rgba(255, 255, 255, 0) !important;
+          }
+          th.is-leaf {
+            padding: 0;
+          }
+          .el-table__header-wrapper {
+            background: themed('alarm-plan-table-header-bg');
+            color: themed('alarm-info-data-content-color');
+            .cell {
+              color: themed('alarm-info-data-content-color');
+            }
+          }
+          th,
+          tr,
+          td {
+            color: themed('alarm-info-data-content-color');
+            padding: 0;
+            height: px-to-rem(32);
+            line-height: px-to-rem(32);
+            background: transparent;
+            border-color: themed('alarm-list-item-line') !important;
+          }
+          &.el-table--border .el-table__cell:first-child .cell {
+            overflow: hidden;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            white-space: break-spaces;
+          }
+        }
+        .scroll-table {
+          height: px-to-rem(320) !important;
+          overflow-y: auto;
+          border-bottom: 0.01rem solid themed('alarm-list-item-line');
+          ::v-deep .el-table {
+            height: auto !important;
+            .el-table__header-wrapper {
+              display: none !important;
+            }
+            /* 无数据 */
+            .el-table__empty-block {
+              height: px-to-rem(300) !important;
+              width: 100% !important;
+              .el-table__empty-text {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                color: themed('alarm-info-data-content-color');
+                font-size: px-to-rem(14);
+                line-height: unset !important;
+                &::before {
+                  display: block;
+                  width: px-to-rem(80);
+                  height: px-to-rem(80);
+                  margin-bottom: px-to-rem(10);
+                  content: '';
+                  background: themed('no-data-img') no-repeat;
+                  background-size: contain;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 矫正国土皮肤图片位置
+    &.innercomp-abcontainer {
+      ::v-deep .innercomp-abcontainer-header.highlight-title {
+        span::after {
+          width: px-to-rem(180);
+          left: 50% !important;
+          transform: translate(-50%, 0);
+        }
+        .innercomp-abcontainer-header__title {
+          border-bottom: 1px solid;
+          border-image: linear-gradient(
+              270deg,
+              rgba(255, 255, 255, 0) 0%,
+              rgba(255, 255, 255, 0.35) 50%,
+              rgba(255, 255, 255, 0) 100%
+            )
+            1 1;
+          @if $theme-name == 'theme-wiseblue' {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}

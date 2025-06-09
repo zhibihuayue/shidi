@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+scripts_to_check="preinstall build:event-bus-path build:copy build:theme-chalk build:packages build:full-components lint:style playground docs:genDocsRoute comp-archive docs:dev docs:build docs:preview prepare-tinify-image graph"
+
+IFS=' ' read -r -a scripts_array <<< "$scripts_to_check"
+
+for script in "${scripts_array[@]}"; do
+  if git diff --cached --exit-code package.json | grep -q "\"$script\":"; then
+    echo "Error: package.json 中 '$script' 命令有修改"
+    exit 1
+  fi
+done
+
+exit 0
+
+npx --no-install ls-lint && npx --no-install lint-staged

@@ -1,0 +1,57 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+// 通用
+[data-theme='theme-wiseblue'] .tooltips {
+  font-size: px-to-rem(14) !important;
+  color: #e8f3fe !important;
+  padding: px-to-rem(6) px-to-rem(12) !important;
+  background: #0f1926 !important;
+
+  &.el-tooltip__popper.is-dark {
+    &[x-placement^='top'] .popper__arrow {
+      border-top-color: #0f1926 !important;
+
+      &::after {
+        border-top-color: #0f1926 !important;
+      }
+    }
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .tooltips {
+  font-size: px-to-rem(14) !important;
+  color: #ffffff !important;
+  padding: px-to-rem(6) px-to-rem(12) !important;
+  background: #00221b !important;
+
+  &.el-tooltip__popper.is-dark {
+    &[x-placement^='top'] .popper__arrow {
+      border-top-color: #00221b !important;
+
+      &::after {
+        border-top-color: #00221b !important;
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .tooltips {
+  font-size: px-to-rem(14) !important;
+  color: #e4e7c1 !important;
+  padding: px-to-rem(6) px-to-rem(12) !important;
+  background: rgba(22, 18, 9, 0.95) !important;
+
+  &.el-tooltip__popper.is-dark {
+    &[x-placement^='top'] .popper__arrow {
+      border-top-color: rgba(22, 18, 9, 0.95) !important;
+
+      &::after {
+        border-top-color: rgba(22, 18, 9, 0.95) !important;
+      }
+    }
+  }
+}

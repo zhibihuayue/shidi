@@ -1,0 +1,108 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+.fire-list-search {
+  @include themeify(false) {
+    position: relative;
+    display: flex;
+    padding: 0 px-to-rem(12);
+    width: 100%;
+    &::before {
+      left: 0;
+    }
+    &::after {
+      right: 0;
+    }
+    ::v-deep .icon-common {
+      width: px-to-rem(32);
+      height: px-to-rem(32);
+      color: themed('fire-warning-list-color-label');
+      text-align: center;
+      line-height: px-to-rem(32);
+      cursor: pointer;
+      .ct-icon {
+        width: px-to-rem(32) !important;
+        height: px-to-rem(32) !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon {
+          color: themed('fire-warning-list-color-label') !important;
+          font-size: px-to-rem(20) !important;
+        }
+      }
+    }
+
+    ::v-deep .choose {
+      @if $theme-name == 'theme-aquamarine' {
+        background: url('~@component-gallery/assets/image/tool-box/aquamarine/funcicon-bg.png');
+      }
+      @if $theme-name == 'theme-terracotta' {
+        background: url('~@component-gallery/assets/image/tool-box/terracotta/funcicon-bg.png')
+          no-repeat
+          center;
+        background-size: contain;
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        background: #1373e6;
+      }
+      background-size: 100% 100%;
+      color: themed('fire-warning-color-icon-common-choose');
+      border-radius: px-to-rem(4);
+      .ct-icon {
+        width: px-to-rem(32) !important;
+        height: px-to-rem(32) !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon {
+          color: themed('fire-warning-color-icon-common-choose') !important;
+          font-size: px-to-rem(20) !important;
+        }
+      }
+    }
+
+    .icon-list-bg {
+      margin-left: px-to-rem(12);
+    }
+    .search-input {
+      width: calc(100% - px-to-rem(76));
+
+      .iconfont {
+        font-size: px-to-rem(20);
+        color: themed('fire-warning-list-color-label');
+      }
+    }
+
+    ::v-deep .search-input .el-input--suffix .el-input__inner {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    ::v-deep .search-input .el-input__inner {
+      height: px-to-rem(32);
+      border: none;
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(14);
+      line-height: px-to-rem(32);
+    }
+
+    ::v-deep .search-input .el-input__inner::placeholder {
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(14);
+      text-align: left;
+      font-weight: 400;
+      line-height: px-to-rem(32);
+    }
+
+    ::v-deep .search-input .el-input__icon {
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(16);
+    }
+
+    ::v-deep .search-input .el-input__suffix {
+      color: themed('fire-warning-list-color-label');
+      line-height: px-to-rem(32);
+    }
+  }
+}

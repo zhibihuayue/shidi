@@ -1,0 +1,191 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import "mixins/px-to-rem";
+@import "mixins/bem-mixins.scss";
+
+@include b(base-grid-detail) {
+  position: absolute;
+  right: px-to-rem(12);
+  bottom: px-to-rem(12);
+  left: px-to-rem(12);
+  z-index: 99;
+  overflow: hidden;
+
+  @include themeify() {
+    @if $theme-name == 'theme-aquamarine' {
+      border-radius: 0;
+      background: linear-gradient( 180deg, rgba(0,19,30,0.7) 0%, #00131E 100%);
+      border: 1px solid;
+      border-image: linear-gradient(360deg, rgba(7, 91, 74, 0.75), rgba(7, 91, 74, 0.3)) 1 1;
+    }
+    @if $theme-name == 'theme-terracotta' {
+      border-radius: px-to-rem(8);
+      background: rgba(23, 20, 11, 0.9);
+      border: 1px solid #6E674E;
+    }
+    @if $theme-name == 'theme-wiseblue' {
+      border-radius: px-to-rem(8);
+      background: rgba(23, 37, 55, 0.9);
+      border: 1px solid rgba(232, 243, 254, 0.2);
+    }
+
+    &__header {
+      position: relative;
+      height: px-to-rem(48);
+
+      .label {
+        position: absolute;
+        z-index: 3;
+        font-weight: 600;
+        font-size: px-to-rem(16);
+        text-align: center;
+        width: 100%;
+        height: px-to-rem(48);
+        line-height: px-to-rem(48);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 0 px-to-rem(12);
+
+        @if $theme-name == 'theme-aquamarine' {
+          text-shadow: 0 0 px-to-rem(18) rgba(0,245,193,0.7);
+          color: #fff;
+        }
+        @if $theme-name == 'theme-terracotta' {
+          //border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+          font-size: px-to-rem(16);
+          color: #FFFFFF;
+          text-shadow: 1px 0 px-to-rem(4) #DCD277;
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          //border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+          background: linear-gradient(180deg, rgba(132, 180, 250, 0.7) 0%, rgba(132, 180, 250, 0.24) 100%);
+          color: #E8F3FE;
+        }
+      }
+
+      @if $theme-name == 'theme-aquamarine' {
+        &__corner-top {
+          width: 100%;
+          height: px-to-rem(10);
+          top: 0;
+          position: absolute;
+          z-index: 1;
+
+          > .bar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: px-to-rem(8);
+            background: url("~@component-gallery/assets/image/base-grid-detail/center-top-bar.png") center no-repeat;
+            background-size: px-to-rem(38) px-to-rem(8);
+          }
+
+          > .bg {
+            background: url("~@component-gallery/assets/image/popup-header-xx.png") center no-repeat;
+            background-size: px-to-rem(180) px-to-rem(48);
+            width: 100%;
+            height: px-to-rem(48);
+          }
+
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: px-to-rem(8);
+            height: 1px;
+            background: #61fffb;
+            content: "";
+            z-index: 2;
+          }
+
+          &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: px-to-rem(8);
+            height: 1px;
+            background: #61fffb;
+            content: "";
+            z-index: 2;
+          }
+        }
+
+        &__corner-bottom {
+          width: 100%;
+          height: px-to-rem(16);
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 1;
+          background: url("~@component-gallery/assets/image/base-grid-detail/a-bottom-bg.png") no-repeat 0 0;
+          background-size: 100% px-to-rem(16);
+        }
+      }
+
+      @if $theme-name == 'theme-terracotta' {
+        &__corner-bottom {
+          width: 100%;
+          height: px-to-rem(16);
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 1;
+          background: url("~@component-gallery/assets/image/base-grid-detail/t-bottom-bg.png") no-repeat 0 0;
+          background-size: 100% px-to-rem(16);
+        }
+      }
+    }
+
+    &__body {
+      padding: px-to-rem(12);
+
+      > .card {
+        display: flex;
+        align-items: center;
+        margin-bottom: px-to-rem(6);
+        line-height: px-to-rem(20);
+        font-size: px-to-rem(14);
+
+        .l-p-card-label {
+          width: px-to-rem(98);
+          @if $theme-name == 'theme-aquamarine' {
+            color: rgba(255, 255, 255, 0.7);
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: rgba(228, 231, 193, 0.7);
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: rgba(232, 243, 254, 0.7);
+          }
+          text-align: right;
+          font-weight: 400;
+        }
+
+        .l-p-card-txt {
+          width: calc(100% - px-to-rem(98));
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+
+          @if $theme-name == 'theme-aquamarine' {
+            color: #fff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: rgba(228, 231, 193);
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: rgb(232, 243, 254);
+          }
+          font-weight: 400;
+        }
+      }
+
+      > .card:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,245 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem.scss';
+
+.people-option-tree-box {
+  padding-bottom: px-to-rem(32) !important;
+}
+.dispose-item-right {
+  @include themeify(false) {
+    // 下拉框的input
+    .people-select-tree-box {
+      ::v-deep .el-select__tags {
+        .el-select__input {
+          color: themed('global-text-color');
+        }
+        .el-tag.el-tag--info {
+          max-width: px-to-rem(150);
+          background: themed('alarm-detail-people-select-tag-bgc');
+          border: none;
+          color: themed('alarm-detail-people-select-tag-color');
+          padding: 0 px-to-rem(12);
+          height: px-to-rem(24);
+          line-height: px-to-rem(24);
+          .el-select__tags-text {
+            line-height: px-to-rem(29);
+          }
+          .el-tag__close {
+            background: transparent;
+            border: 0;
+            color: themed('alarm-detail-people-select-tag-color') !important;
+            transform: none;
+          }
+          .el-tag__close::before {
+            font-size: px-to-rem(20);
+            font-family: iconfont_tools;
+            content: '\ec12';
+            transform: translate(px-to-rem(-2), px-to-rem(0.5));
+          }
+        }
+      }
+
+      ::v-deep
+        .el-input
+        .el-input__suffix
+        .el-input__suffix-inner
+        .el-input__icon {
+        transform: unset !important;
+
+        &::before {
+          content: '\e72c';
+          font-family: iconfont;
+          font-size: px-to-rem(20) !important;
+        }
+      }
+    }
+  }
+}
+
+.el-select-dropdown {
+  padding-bottom: px-to-rem(27);
+  @include themeify(false) {
+    .people-option-tree-div {
+      ::v-deep .el-tree {
+        min-height: px-to-rem(32);
+        background: transparent;
+
+        .el-tree-node__content {
+          height: px-to-rem(32);
+          background: transparent;
+
+          .el-checkbox {
+            margin-right: 0;
+
+            .el-checkbox__input.is-checked {
+              .el-checkbox__inner {
+                background: themed(
+                  'alarm-detail-people-select-checkbox__inner'
+                );
+                border: 0;
+              }
+            }
+          }
+          .el-tree-node__expand-icon {
+            
+            @if $theme-name == 'theme-wiseblue' {
+              color: #E8F3FE;
+            }
+        
+            @if $theme-name == 'theme-aquamarine' {
+              color: #fff;
+            }
+        
+            @if $theme-name == 'theme-terracotta' {
+              color: #FFEEB1;
+            }
+          }
+
+          .el-icon-arrow-down {
+            &::before {
+              color: themed('global-text-color');
+              font-size: px-to-rem(14);
+              content: '\e791';
+            }
+          }
+
+          .el-icon-arrow-down.is-leaf {
+            margin-left: px-to-rem(-18);
+            opacity: 0;
+          }
+        }
+
+        .el-tree-node__content:hover {
+          background: themed('alarm-detail-people-select-tree-node-hover');
+        }
+
+        .custom-tree-node {
+          overflow: hidden;
+          height: 100%;
+          color: themed('alarm-detail-people-select-tree-node-color');
+          font-size: px-to-rem(14);
+          text-overflow: ellipsis;
+          white-space: normal;
+          line-height: px-to-rem(32);
+
+          .custom-tree-node-label {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding-right: px-to-rem(6);
+
+            .people-tree-img {
+              margin-left: px-to-rem(2);
+            }
+
+            .wanggeyuan-icon {
+              margin-left: px-to-rem(6);
+              @if $theme-name == 'theme-wiseblue' {
+                color: #E8F3FE;
+              }
+              @if $theme-name == 'theme-aquamarine' {
+                color: #fff;
+              }
+              @if $theme-name == 'theme-terracotta' {
+                color: #FFEEB1;
+              }
+            }
+
+            .node-label {
+              overflow: hidden;
+              margin: 0 px-to-rem(6);
+              color: themed('alarm-detail-people-select-tree-node-color');
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+        }
+
+        // 无数据
+        .el-tree__empty-block {
+          min-height: px-to-rem(180);
+
+          .el-tree__empty-text {
+            display: flex;
+            flex-direction: column;
+            color: themed('global-text-color');
+
+            &::before {
+              content: '';
+              display: block;
+              margin-bottom: px-to-rem(10);
+              width: px-to-rem(68);
+              height: px-to-rem(68);
+              background: themed('tree-default-no-date');
+              background-size: 100% 100% !important;
+            }
+          }
+        }
+      }
+    }
+    .showAll {
+      position: absolute;
+      bottom: 0;
+      z-index: 2;
+      width: 100%;
+      height: px-to-rem(32);
+      background: #0f1926;
+      border-radius: 0 0 px-to-rem(4) px-to-rem(4);
+      color: themed('alarm-detail-people-select-showAll-color');
+      font-size: px-to-rem(14);
+      text-align: center;
+      line-height: px-to-rem(32);
+      font-weight: 400;
+      cursor: pointer;
+      pointer-events: auto;
+
+      &-text {
+        border-top: px-to-rem(1) solid themed('alarm-list-item-line');
+        background: themed('alarm-detail-people-select-showAll-background');
+      }
+    }
+    .text-source {
+      display: block;
+      float: left;
+      margin-left: px-to-rem(3);
+      width: px-to-rem(18);
+      height: px-to-rem(18);
+      line-height: px-to-rem(18);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+
+      i {
+        color: themed('alarm-detail-people-select-help-color');
+        font-size: px-to-rem(20);
+      }
+    }
+    .tooltip-content {
+      color: themed('global-text-color');
+    }
+
+    .people-tree-shouSuo {
+      position: absolute;
+      right: px-to-rem(16);
+      font-size: px-to-rem(18);
+    }
+  }
+}
+.alarm-detail-people-search {
+  ::v-deep .el-icon-arrow-up {
+    &::before {
+      font-family: 'iconfont_tools' !important;
+      content: '\ea6b' !important;
+      font-weight: 400 !important;
+    }
+  }
+
+  ::v-deep .el-icon-circle-close {
+    &::before {
+      font-family: 'iconfont_tools' !important;
+      content: '\EC12' !important;
+    }
+  }
+  ::v-deep .el-select__input::placeholder{
+    line-height: px-to-rem(32);
+  }
+}

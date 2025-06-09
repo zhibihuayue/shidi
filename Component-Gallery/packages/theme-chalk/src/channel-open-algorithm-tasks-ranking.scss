@@ -1,0 +1,48 @@
+@import "mixins/px-to-rem";
+
+.channel-open-algorithm-tasks-ranking {
+    &-container {
+        width: px-to-rem(370);
+    }
+
+    &-content{
+        padding-top: px-to-rem(12);
+        height: px-to-rem(272);
+    }
+
+    &-listBox{
+        margin-bottom: px-to-rem(6);
+        height: px-to-rem(220);
+
+        ::v-deep .el-scrollbar__view {
+          padding-right: px-to-rem(12);
+        }
+    }
+
+    &-pagerBox{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: px-to-rem(22);
+        color: var(--iw-text-color);
+        font-size: px-to-rem(14);
+
+        .el-pagination{
+            line-height: 0;
+
+            ::v-deep {
+                .btn-next.disabled,
+                .btn-next:disabled,
+                .btn-prev.disabled,
+                .btn-prev:disabled,
+                .el-pager li.disabled{
+                    opacity: .4;
+                }
+            }
+
+            ::v-deep .el-pager li {
+              font-size: px-to-rem(14);
+            }
+        }
+    }
+}

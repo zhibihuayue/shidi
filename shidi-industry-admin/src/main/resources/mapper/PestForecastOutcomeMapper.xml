@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinatower.wetland.mappper.PestForecastOutcomeMapper">
+
+
+    <select id="listByParam" resultType="com.chinatower.wetland.pojo.vo.PestForecastOutcomeVo">
+        SELECT o.*,
+        l.longitude,
+        l.latitude
+        FROM pest_forecast_outcome o
+        LEFT JOIN pest_light l ON o.light_id = l.device_code
+        <where>
+            <if test="param.tenantId != null and param.tenantId != ''">
+                and o.tenant_id = #{param.tenantId}
+            </if>
+            <if test="param.industryCode != null and param.industryCode != ''">
+                and o.industry_code = #{param.industryCode}
+            </if>
+            <if test="param.appVerCode != null and param.appVerCode != ''">
+                and o.app_ver_code = #{param.appVerCode}
+            </if>
+            <if test="param.pestType != null">
+                and o.pest_type = #{param.pestType}
+            </if>
+            <if test="param.lightId != null and param.lightId != ''">
+                and o.light_id = #{param.lightId}
+            </if>
+            <if test="param.startTime != null and param.startTime != ''
+             and param.endTime != null and param.endTime != ''">
+                AND o.create_time BETWEEN #{param.startTime} AND #{param.endTime}
+            </if>
+        </where>
+        ORDER BY o.create_time DESC;
+    </select>
+    <select id="pestLightLastDay" resultType="com.chinatower.wetland.pojo.vo.PestForecastOutcomeVo">
+        SELECT o.*,
+        l.longitude,
+        l.latitude
+        FROM (
+        SELECT *,
+        ROW_NUMBER() OVER (
+        PARTITION BY light_id
+        ORDER BY forecast_date DESC
+        ) AS rn
+        FROM pest_forecast_outcome
+        <where>
+            <if test="param.tenantId != null and param.tenantId != ''">
+                AND tenant_id = #{param.tenantId}
+            </if>
+            <if test="param.industryCode != null and param.industryCode != ''">
+                AND industry_code = #{param.industryCode}
+            </if>
+            <if test="param.appVerCode != null and param.appVerCode != ''">
+                AND app_ver_code = #{param.appVerCode}
+            </if>
+            <if test="param.pestType != null">
+                AND pest_type = #{param.pestType}
+            </if>
+            <if test="param.lightIds != null and param.lightIds.size() > 0">
+                AND light_id IN
+                <foreach collection="param.lightIds" item="lightId" open="(" separator="," close=")">
+                    #{lightId}
+                </foreach>
+            </if>
+            <if test="param.startTime != null and param.startTime != ''
+                      and param.endTime != null and param.endTime != ''">
+                AND create_time BETWEEN #{param.startTime} AND #{param.endTime}
+            </if>
+        </where>
+        ) o
+        LEFT JOIN pest_light l ON o.light_id = l.device_code
+        WHERE o.rn = 1
+    </select>
+
+    <select id="listTime" resultType="java.lang.String">
+        SELECT distinct DATE_FORMAT(create_time, '%Y-%m-%d')
+        FROM pest_forecast_outcome
+        GROUP BY DATE_FORMAT(create_time, '%Y-%m-%d')
+    </select>
+</mapper>

@@ -1,0 +1,433 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.dispose-dialog-body {
+  @include themeify(false) {
+    position: absolute;
+    bottom: 0;
+    left: px-to-rem(382);
+    padding-bottom: px-to-rem(12);
+    width: px-to-rem(500);
+    min-height: px-to-rem(280);
+    background: themed('alarm-list-bg-module');
+    @if $theme-name == 'theme-aquamarine' {
+      border: 1px solid;
+      border-image: themed('alarm-detail-border-image');
+    }
+    @if $theme-name == 'theme-terracotta' {
+      border: 1px solid #6e674e;
+    }
+    @if $theme-name != 'theme-aquamarine' {
+      border-radius: px-to-rem(8);
+    }
+
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+      background: themed('fire-warning-bg-dialog-con-before');
+      content: '';
+    }
+
+    &::after {
+      position: absolute;
+      top: unset;
+      right: 0;
+      bottom: 0;
+      left: unset;
+      display: block;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+      background: themed('fire-warning-bg-dialog-con-after');
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      content: '';
+    }
+    @if $theme-name == 'theme-aquamarine' {
+      .span-top-line {
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: px-to-rem(8);
+          height: 1px;
+          background: #fff;
+          box-shadow: 0 0 px-to-rem(6) 0 #02896d, inset 0 0 2px 0 #00fff8;
+          content: '';
+        }
+
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: block;
+          width: px-to-rem(8);
+          height: 1px;
+          background: #fff;
+          box-shadow: 0 0 px-to-rem(6) 0 #02896d, inset 0 0 2px 0 #00fff8;
+          content: '';
+        }
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: px-to-rem(-14);
+      right: px-to-rem(-12);
+      z-index: 2;
+
+      // 关闭按钮
+      width: px-to-rem(25);
+      height: px-to-rem(25);
+      background: themed('base-card-close-bg');
+      background-size: 150% 150%;
+      background-position: 50% 50%;
+      cursor: pointer;
+    }
+
+    .dispose-dialog-title {
+      position: relative;
+      width: 100%;
+      height: px-to-rem(48);
+      background: themed('alarm-detail-header-bg-color');
+      @if $theme-name == 'theme-aquamarine' {
+        border-radius: 0;
+      } @else {
+        border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+      }
+      text-shadow: themed('alarm-detail-text-shadow') !important;
+      color: themed('alarm-list-title-color');
+      font-size: px-to-rem(16);
+      text-align: center;
+      font-weight: 600;
+      line-height: px-to-rem(48);
+
+      &::before {
+        position: absolute;
+        top: -1px;
+        bottom: auto;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @if $theme-name == 'theme-aquamarine' {
+          background: url('~@component-gallery/assets/image/alarm-detail/aquamarine/singleTabSel.png')
+              no-repeat
+              bottom
+              center,
+            url('~@component-gallery/assets/image/alarm-detail/aquamarine/popup-header-xx.png')
+              no-repeat
+              center /
+              auto
+              100%,
+            url('~@component-gallery/assets/image/alarm-detail/aquamarine/popup-header-k.png')
+              no-repeat
+              top
+              center;
+        }
+        @if $theme-name == 'theme-terracotta' {
+          background: url('~@component-gallery/assets/image/alarm-detail/terracotta/popup-title-guang.png')
+            no-repeat
+            bottom
+            center;
+          width: 44.4%;
+          left: 50%;
+          transform: translateX(-50%);
+          border-bottom: 1px solid;
+          border-image: linear-gradient(
+              90deg,
+              rgba(228, 231, 193, 0),
+              rgba(228, 231, 193, 1),
+              rgba(228, 231, 193, 0)
+            )
+            1
+            1;
+        }
+        opacity: 0.96;
+        content: '';
+        pointer-events: none;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: 1px;
+        left: 50%;
+        width: 100%;
+        height: 1px;
+        background: themed('alarm-detail-header-line');
+        content: '';
+        transform: translateX(-50%);
+        pointer-events: none;
+        @if $theme-name == 'theme-terracotta' {
+          opacity: 0.35;
+        }
+      }
+    }
+
+    // 内容盒子
+    .dispose-dialog-content {
+      padding: px-to-rem(6) px-to-rem(12);
+      width: 100%;
+
+      .dispose-item-box {
+        display: flex;
+        padding: px-to-rem(6) 0;
+        width: 100%;
+        flex-wrap: wrap;
+
+        .dispose-item-left {
+          display: flex;
+          justify-content: flex-end;
+          width: px-to-rem(76);
+          height: px-to-rem(32);
+
+          .dispose-xinghao {
+            margin-right: px-to-rem(2);
+            height: px-to-rem(32);
+            color: #ed5158;
+            font-size: px-to-rem(14);
+            font-weight: 400;
+            line-height: px-to-rem(32);
+          }
+
+          .is-chuzhi {
+            margin-right: px-to-rem(15);
+          }
+
+          .dispose-item-label {
+            margin-right: px-to-rem(10);
+            height: px-to-rem(32);
+            color: themed('alarm-info-data-content-color');
+            font-size: px-to-rem(14);
+            text-align: right;
+            font-weight: 400;
+            line-height: px-to-rem(32);
+          }
+
+          .dispose-tip {
+            display: flex;
+            align-content: center;
+            flex-wrap: wrap;
+            margin-left: px-to-rem(-21);
+
+            .text-source {
+              float: left;
+              margin-left: px-to-rem(3);
+              width: px-to-rem(18);
+              height: px-to-rem(18);
+              background-repeat: no-repeat;
+              background-size: 100% 100%;
+              background-image: url('~@component-gallery/assets/image/alarm-detail/hint-ly.png');
+            }
+          }
+        }
+
+        .dispose-item-right {
+          flex: 1;
+          font-size: px-to-rem(14);
+          ::v-deep .el-input__inner::placeholder {
+            line-height: px-to-rem(32);
+          }
+          ::v-deep .el-icon-arrow-up:before {
+            font-family: iconfont;
+            content: '\EA6B';
+            font-size: px-to-rem(20);
+            font-weight: 400;
+          }
+
+          ::v-deep .el-input__suffix {
+            .el-input__suffix-inner {
+              .el-input__icon {
+                transform: unset !important;
+
+                // &::before {
+                //   content: '\E72C';
+                //   font-family: iconfont;
+                // }
+              }
+            }
+          }
+
+          .dispose-upload {
+            ::v-deep .image-video {
+              .file-content {
+                margin: 0 px-to-rem(5) px-to-rem(6) 0;
+                width: px-to-rem(70);
+                height: px-to-rem(70);
+
+                .file-upload {
+                  .el-upload {
+                    background: themed('alarm-detail-input-background');
+                    border: 1px dotted themed('alarm-detail-upload-border');
+                    border-radius: px-to-rem(4);
+
+                    .el-icon-plus {
+                      &::before {
+                        content: url('~@component-gallery/assets/image/alarm-detail/upload.png') !important;
+                        transform: scale(0.7);
+
+                        /* 将图片缩小为原来的 50% */
+                        transform-origin: center center;
+
+                        /* 设置缩小的原点为图片左上角 */
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 底部按钮样式
+    .dispose-btn-box {
+      display: flex;
+      justify-content: center;
+      margin-top: 0;
+      flex-wrap: wrap;
+
+      .bottom-btn {
+        margin: px-to-rem(4) px-to-rem(6) px-to-rem(4);
+        width: px-to-rem(108);
+        // height: px-to-rem(32);
+      }
+    }
+  }
+}
+
+::v-deep .alarm-select-dropdown .el-select-dropdown__list {
+  padding: 0;
+  max-height: px-to-rem(180);
+}
+
+::v-deep
+  .alarm-select-dropdown.el-select-dropdown
+  .el-select-dropdown__list
+  .el-select-dropdown__item.people-option-tree-box {
+  padding: unset;
+  margin-left: 0;
+  padding-left: 0 !important;
+
+  &:hover {
+    background: transparent !important;
+  }
+}
+
+.people-option-tree-div {
+  @include themeify(false) {
+    ::v-deep .el-tree {
+      background: transparent;
+
+      .el-tree-node__content {
+        height: px-to-rem(32);
+        background: transparent;
+
+        .el-icon-arrow-down {
+          &::before {
+            color: themed('alarm-detail-compare-arrow-color');
+            font-size: px-to-rem(14);
+            font-family: iconfont !important;
+            content: '\e732';
+          }
+        }
+
+        .el-icon-arrow-down.is-leaf {
+          margin-left: px-to-rem(-18);
+          opacity: 0;
+        }
+        .el-icon-caret-right.is-leaf {
+          margin-left: -12px;
+          opacity: 0;
+        }
+        .el-tree-node__expand-icon {
+          @if $theme-name == 'theme-wiseblue' {
+            color: #e8f3fe;
+          }
+
+          @if $theme-name == 'theme-aquamarine' {
+            color: #fff;
+          }
+
+          @if $theme-name == 'theme-terracotta' {
+            color: #ffeeb1;
+          }
+        }
+      }
+
+      .el-tree-node__content:hover {
+        background: themed('global-bg-color');
+      }
+
+      .el-tree-node__children {
+        .is-current {
+          background: themed('global-bg-color');
+        }
+      }
+
+      .custom-tree-node {
+        overflow: hidden;
+        height: 100%;
+        color: themed('alarm-detail-compare-arrow-color');
+        font-size: px-to-rem(14);
+        text-overflow: ellipsis;
+        white-space: normal;
+        line-height: px-to-rem(32);
+
+        .custom-tree-node-label {
+          display: flex;
+          align-items: center;
+          width: 100%;
+
+          .people-tree-img {
+            margin-left: px-to-rem(2);
+          }
+
+          .node-label {
+            overflow: hidden;
+            margin: 0 px-to-rem(4) 0 0;
+            color: themed('alarm-detail-compare-arrow-color');
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .node-label-checked {
+            color: themed('alarm-plan-table-option-text-color') !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 无数据
+.y-select-dropdown
+  .el-select-dropdown__item
+  .people-option-tree-div
+  ::v-deep
+  .el-tree
+  .el-tree__empty-block {
+  @include themeify(false) {
+    min-height: px-to-rem(180);
+
+    .el-tree__empty-text {
+      display: flex;
+      flex-direction: column;
+      color: themed('alarm-detail-compare-arrow-color');
+
+      &::before {
+        content: '';
+        display: block;
+        margin-bottom: px-to-rem(10);
+        width: px-to-rem(68);
+        height: px-to-rem(68);
+        background: themed('tree-default-no-date');
+        background-size: 100% 100% !important;
+      }
+    }
+  }
+}

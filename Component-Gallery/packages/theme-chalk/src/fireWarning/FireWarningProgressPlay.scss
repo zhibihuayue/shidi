@@ -1,0 +1,91 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.common-comp-fire-warning_func_area {
+  @include themeify(false) {
+    .warn-progress-play {
+      position: fixed;
+      top: px-to-rem(32);
+      right: px-to-rem(468);
+      width: px-to-rem(380);
+      height: px-to-rem(146);
+      cursor: pointer;
+      font-size: px-to-rem(16);
+      @if $theme-name != 'theme-aquamarine' {
+        border-radius: px-to-rem(8);
+      } 
+      .title-box {
+        height: px-to-rem(48);
+        line-height: px-to-rem(48);
+        color: #fff;
+        font-size: px-to-rem(16);
+    
+        .name {
+          float: left;
+          overflow: hidden;
+          width: px-to-rem(193);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+    
+        .el-icon-arrow-up {
+          float: right;
+          margin-left: px-to-rem(13);
+          cursor: pointer;
+        }
+      }
+    
+      .close-btn {
+        // 关闭按钮
+        position: absolute;
+        top: px-to-rem(-12);
+        right: px-to-rem(-10);
+        z-index: 1;
+        width: px-to-rem(22);
+        height: px-to-rem(22);
+        background: themed('base-card-close-bg');
+        background-size: 150% 150%;
+        cursor: pointer;
+        background-position: 50% 50%;
+      }
+    
+      .date-picker-div {
+        margin: px-to-rem(12) auto 0;
+        width: px-to-rem(356);
+    
+        .fw-date-editor {
+          width: 100%;
+        }
+      }
+    
+      .warn-progress-play-box {
+        display: flex;
+        margin: px-to-rem(12) px-to-rem(13) px-to-rem(23);
+        color: themed('fire-warning-color-warn-progress');
+        flex-direction: row;
+      }
+    
+      .common-progress-date {
+        position: absolute;
+        bottom: px-to-rem(10);
+        color: themed('fire-warning-color-warn-progress');
+        font-size: px-to-rem(12);
+        font-weight: 400;
+        line-height: px-to-rem(12);
+      }
+    
+      .progress-start-date {
+        left: px-to-rem(37);
+      }
+    
+      .progress-end-date {
+        right: px-to-rem(12);
+      }
+    
+      .progress-play {
+        font-size: px-to-rem(18);
+      }
+    }
+  }
+}

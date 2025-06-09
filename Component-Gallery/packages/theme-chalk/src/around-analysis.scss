@@ -1,0 +1,457 @@
+@import "mixins/px-to-rem";
+
+.around-analysis{
+    &-container{
+        --table-bg: rgb(79 159 255 / 20%);
+        --table-border-color: rgb(232 243 254 / 20%);
+        --input-border-color: rgba(79, 159, 255, 0.6);
+        --input-focus-border-color: rgba(79, 159, 255, 1);
+        --table-hover-bg: rgba(79, 159, 255, .4);
+        --table-select-color: #4f9fff;
+
+        padding: px-to-rem(12);
+        font-size: 0;
+
+        // 分页器覆写。这里是为了通用样式还没修复之前的提前覆盖
+        ::v-deep .el-pager li {
+          height: px-to-rem(22);
+          line-height: px-to-rem(22);
+          font-size: px-to-rem(14);
+
+          &.btn-quickprev,
+          &.btn-quicknext {
+            background: transparent;
+            color: var(--iw-text-color);
+          }
+        }
+
+        .el-slider{
+          ::v-deep{
+            .el-slider__runway{
+                margin: px-to-rem(8) 0;
+            }
+
+            .el-slider__button {
+              width: px-to-rem(12);
+              height: px-to-rem(14);
+              background: url('~@component-gallery/assets/image/tool-box/slider-icon.png') no-repeat center / contain transparent !important;
+              border: none;
+              border-radius: inherit;
+            }
+          }
+        }
+
+        .el-date-editor.el-range-editor{
+            padding: px-to-rem(3) px-to-rem(12);
+            width: 100%;
+            grid-column: 2 / span 3;
+            ::v-deep{
+                .el-range__icon{
+                    margin: 0 px-to-rem(12) 0 0;
+                    display: flex;
+                    align-items: center;
+                    color: #E8F3FE;
+                    height: 100%;
+                    font-size: px-to-rem(20);
+                }
+                .el-range__close-icon{
+                    width: px-to-rem(18);
+                    height: px-to-rem(32);
+                }
+                .el-range-input{
+                    text-align: left;
+                    flex-grow: 1;
+                }
+                .el-range-separator{
+                    padding: 0 px-to-rem(12);
+                    width: auto !important;
+                }
+                .el-input__icon.el-range__close-icon{
+                    display: none;
+                }
+            }
+        }
+        .el-date-editor.is-disabled{
+            opacity: .4;
+        }
+    }
+
+    &-margin-b-6{
+        margin-bottom: px-to-rem(6);
+    }
+
+    &-margin-b-12{
+        margin-bottom: px-to-rem(12);
+    }
+
+    &-flex-g-1{
+        flex-grow: 1;
+    }
+
+    &-flex-w{
+        flex-wrap: wrap;
+    }
+
+    &-flex{
+        display: flex;
+        align-items: center;
+    }
+
+    &-form{
+        &-label{
+            font-size: px-to-rem(14);
+        }
+
+        &-tools{
+            margin-left: px-to-rem(6);
+            div,svg{
+                width: px-to-rem(30);
+                height: px-to-rem(30);
+                border-radius: 4px;
+                cursor: pointer;
+                &.active{
+                    background: #1373E6;
+                }
+            }
+            svg{
+                padding: px-to-rem(3);
+            }
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            i{
+                vertical-align: middle;
+                font-size: px-to-rem(24);
+            }
+        }
+
+        &-clean{
+            width: px-to-rem(24);
+            height: px-to-rem(24);
+            background: url('~@component-gallery/assets/image/around-analysis/clean_icon_1.png') no-repeat center/100%;
+            cursor: pointer;
+        }
+
+        &-num{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // padding: 0 px-to-rem(12);
+            width: px-to-rem(64);
+            height: px-to-rem(28);
+            background-color: var(--table-bg);
+            border-radius: 4px;
+            font-size: px-to-rem(14);
+            transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+            border: 1px solid transparent;
+            &:hover{
+                border-color: var(--input-border-color);
+            }
+            &:focus-within{
+                border-color: var(--input-focus-border-color);
+            }
+            .num_input_box{
+                position: relative;
+                padding: px-to-rem(1);
+                min-width: px-to-rem(4);
+                height: px-to-rem(14);
+                > span {
+                    opacity: 0;
+                }
+            }
+            input{
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                padding: px-to-rem(1);
+                background-color: transparent;
+                color: var(--iw-text-color);
+                &::-webkit-inner-spin-button{
+                    display: none;
+                }
+                &:focus-visible{
+                    outline: none;
+                }
+            }
+        }
+
+        &-slider-tip{
+            justify-content: space-between;
+
+            span{
+                font-size: px-to-rem(14);
+            }
+        }
+
+        &-checkbox{
+            &__item{
+                padding-right: px-to-rem(10);
+                // margin-bottom: px-to-rem(12);
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                // height: px-to-rem(18);
+            }
+            .el-checkbox{
+                height: px-to-rem(32);
+                line-height: px-to-rem(32);
+                ::v-deep{
+                    .el-checkbox__input{
+                        font-size: 0;
+                    }
+                }
+            }
+
+            &__name{
+                margin-left: px-to-rem(6);
+                font-size: px-to-rem(14);
+            }
+            span{
+                white-space: nowrap;
+            }
+        }
+    }
+    // &-lnglatInput{
+    //     display: flex;
+    //     align-items: center;
+    //     &.rangeBox{
+    //         align-items: flex-start;
+    //     }
+    //     > span{
+    //         margin-right: px-to-rem(12);
+    //         width: px-to-rem(84);
+    //         text-align: right;
+    //         i{
+    //             color: #ED5158;
+    //         }
+    //     }
+    //     .lnglat{
+    //         margin-right: px-to-rem(6);
+    //     }
+    //     .iconfont_tools{
+    //         width: px-to-rem(32);
+    //         height: px-to-rem(32);
+    //     }
+    // }
+    &-gridBox{
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+    }
+
+    &-table{
+        height: px-to-rem(202);
+        font-size: px-to-rem(14);
+
+        &-thead,&-item{
+            height: px-to-rem(32);
+            border-bottom: 1px solid var(--table-border-color);
+
+            > div{
+                padding-left: px-to-rem(12);
+
+                &:first-of-type{
+                    padding: px-to-rem(6);
+                }
+            }
+        }
+
+        &-thead{
+            background: var(--table-bg);
+        }
+
+        &-item{
+            cursor: default;
+
+            &.select,&:hover{
+                background: var(--table-hover-bg);
+            }
+            &.select{
+                color: var(--table-select-color);
+            }
+
+            > div{
+                overflow: hidden;
+                text-wrap: nowrap;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        &__icon{
+            flex-shrink: 0;
+            width: px-to-rem(32);
+
+            > img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            > .iconfont_tools{
+                color: var(--iw-text-color);
+                font-size: px-to-rem(20);
+            }
+        }
+
+        &__name{
+            flex-shrink: 0;
+            width: px-to-rem(78);
+        }
+
+        &__position{
+            flex-shrink: 0;
+            width: px-to-rem(150);
+        }
+
+        &__distance{
+            flex-grow: 1;
+        }
+    }
+
+    &-no-data{
+        justify-content: center;
+        padding-bottom: px-to-rem(32);
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+
+        div{
+            margin-bottom: px-to-rem(12);
+          width: px-to-rem(68);
+          height: px-to-rem(68);
+          background: url('~@component-gallery/assets/image/noData.png') no-repeat center/100%;
+        }
+
+        span{
+            font-size: px-to-rem(14);
+        }
+    }
+
+    &-page{
+        justify-content: flex-end;
+        font-size: px-to-rem(14);
+
+        &__name{
+            flex-shrink: 0;
+        }
+        .el-pagination{
+            margin-left: px-to-rem(6);
+            ::v-deep{
+                .el-pager .more::before{
+                    line-height: 1;
+                }
+                li.number:not(.disabled):hover,button:not([disabled]):hover{
+                    opacity: 0.6;
+                    color: var(--iw-text-color);
+                }
+            }
+        }
+    }
+}
+
+
+
+// 林业
+[data-theme="theme-aquamarine"] .around-analysis{
+    &-container{
+        --table-bg: rgb(2 137 109 / 20%);
+        --table-border-color: rgb(255 255 255 / 20%);
+        --input-border-color: rgba(2, 137, 109, 0.6);
+        --input-focus-border-color: rgba(2, 137, 109, 1);
+        --table-hover-bg: rgba(2, 137, 109, .4);
+        --table-select-color: #F9FF6C;
+        
+        .el-date-editor.el-range-editor{
+            ::v-deep{
+                .el-range__icon{
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    &-form{
+        &-tools{
+            div,svg{
+                &.active{
+                    background: url('~@component-gallery/assets/image/around-analysis/tools_ly_bg.png') no-repeat center/100%;
+                    color: #f9ff6c;
+                }
+            }
+        }
+
+        &-clean{
+            background-image: url('~@component-gallery/assets/image/around-analysis/clean_icon_2.png');
+        }
+    }
+
+    &-no-data{
+        div{
+            background: url('~@component-gallery/assets/image/noData-ly.png') no-repeat center/100%;
+        }
+    }
+}
+
+// 国土
+[data-theme="theme-terracotta"] .around-analysis{
+    &-container{
+        --table-bg: rgb(100 86 46 / 40%);
+        --table-border-color: rgb(228 231 193 / 20%);
+        --input-border-color: rgba(100, 86, 46, 0.6);
+        --input-focus-border-color: rgba(100, 86, 46, 1);
+        --table-hover-bg: rgba(100, 86, 46, .4);
+        --table-select-color: #FFFA28;
+
+
+        .el-date-editor.el-range-editor{
+            ::v-deep{
+                .el-range__icon{
+                    color: #FFEEB1;
+                }
+            }
+        }
+        .el-slider{
+            ::v-deep{
+              .el-slider__button {
+                background-image: url('~@component-gallery/assets/image/around-analysis/slider-icon_gt.png') !important;
+              }
+            }
+          }
+    }
+    &-form{
+        &-tools{
+            div,svg{
+                &.active{
+                    background:  radial-gradient( 65% 26% at 50% 0%, rgb(255, 252, 88) 0%, rgba(255, 252, 88, 0.3) 40%, transparent),
+                        linear-gradient( 176deg, rgba(138, 127, 44, 1) 0%, rgba(138, 127, 44, 0.4) 100%) no-repeat center/100% 100%;
+                    color: #FFFA28;
+                }
+            }
+        }
+
+        &-clean{
+            background-image: url('~@component-gallery/assets/image/around-analysis/clean_icon_3.png');
+        }
+    }
+    &-table{
+        &__icon{
+            > .iconfont_tools{
+                color: rgba(255, 238, 177, 1);
+            }
+        }
+    }
+
+    &-no-data{
+        div{
+            background: url('~@component-gallery/assets/image/noDate-terracotta.png') no-repeat center/100%;
+        }
+    }
+
+    ::v-deep .el-slider__button {
+      background: url('~@component-gallery/assets/image/tool-box/terracotta/slider-icon.png') no-repeat 50% / 100% auto transparent !important;
+    }
+}

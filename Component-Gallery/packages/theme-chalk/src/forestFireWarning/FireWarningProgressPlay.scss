@@ -1,0 +1,101 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.common-comp-fire-warning_func_area {
+  @include themeify(false) {
+    .warn-progress-play {
+      position: fixed;
+      top: px-to-rem(32);
+      right: px-to-rem(477);
+      width: px-to-rem(380);
+      height: px-to-rem(160);
+      z-index: 9999;
+      cursor: pointer;
+      font-size: px-to-rem(16);
+      @if $theme-name != 'theme-aquamarine' {
+        border-radius: px-to-rem(8);
+      }
+      .title-box {
+        height: px-to-rem(48);
+        line-height: px-to-rem(48);
+        color: #fff;
+        font-size: px-to-rem(16);
+
+        .name {
+          float: left;
+          overflow: hidden;
+          width: 100%;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .el-icon-arrow-up {
+          float: right;
+          margin-left: px-to-rem(13);
+          cursor: pointer;
+        }
+      }
+
+      .close-btn {
+        // 关闭按钮
+        position: absolute;
+        top: px-to-rem(-19);
+        right: px-to-rem(-19);
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        z-index: 1;
+        background: themed('base-card-close-bg');
+        background-size: 100% 100%;
+        cursor: pointer;
+      }
+
+      .date-picker-div {
+        margin: px-to-rem(18) auto 0;
+        width: px-to-rem(356);
+
+        .ffw-date-editor {
+          width: 100%;
+        }
+      }
+
+      .warn-progress-play-box {
+        display: flex;
+        margin: px-to-rem(12) px-to-rem(13) px-to-rem(23);
+        color: themed('fire-warning-color-warn-progress');
+        flex-direction: row;
+        ::v-deep .ct-icon {
+          width: px-to-rem(20) !important;
+          height: px-to-rem(20) !important;
+          display: flex;
+          align-items: center;
+          .icon {
+            color: themed('fire-warning-list-color-label') !important;
+            font-size: px-to-rem(20) !important;
+          }
+        }
+      }
+
+      .common-progress-date {
+        position: absolute;
+        bottom: px-to-rem(19);
+        color: themed('fire-warning-color-warn-progress');
+        font-size: px-to-rem(14);
+        font-weight: 400;
+        line-height: px-to-rem(14);
+      }
+
+      .progress-start-date {
+        left: px-to-rem(37);
+      }
+
+      .progress-end-date {
+        right: px-to-rem(12);
+      }
+
+      .progress-play {
+        font-size: px-to-rem(18);
+      }
+    }
+  }
+}

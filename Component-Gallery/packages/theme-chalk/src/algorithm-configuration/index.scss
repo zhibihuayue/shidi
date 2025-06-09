@@ -1,0 +1,170 @@
+@import "../mixins/mixins";
+@import "../mixins/theme-mixins";
+@import '../mixins/bem-mixins.scss';
+
+$background-color: linear-gradient(180deg, rgba(23, 37, 55, 0.7) 0%, rgba(54, 121, 218, 0.7) 100%);
+$border-color: linear-gradient(180deg, rgba(176, 212, 255, 0.35), rgba(176, 212, 255, 1));
+$background-color_active: radial-gradient(30% 117% at 11% -30%, rgba(#FF9251, .7) 0%, rgba(255, 163, 107, 0) 100%), rgba(#2C1102, .7);
+$border-color_active: linear-gradient(180deg, rgba(255, 216, 177, .9), rgba(255, 216, 177, 0.7));
+.common-theme {
+  @include b(algorithm-configuration-wrapper) {
+    position: relative;
+    box-sizing: border-box;
+    z-index: 100;
+    // 测试用的 因为开控制台看着太小了 样式调整很麻烦
+    // scale: 2.5;
+    // left: 400px;
+    // top: 200px;
+    .button {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-radius: px-to-rem(8);
+      border: px-to-rem(2) solid transparent;
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      background-image: $background-color, $border-color;
+      width: px-to-rem(124);
+      height: px-to-rem(36);
+      font: {
+        family: "PingFang SC", PingFangSC;
+        size: px-to-rem(14);
+        weight: 400;
+      };
+      color: #fff;
+      text-shadow: 0 0 px-to-rem(12) #478EF6;
+
+      .left {
+        z-index: 101;
+        background-image: url('~@component-gallery/assets/image/algorithm-configuration/iconBG.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: px-to-rem(51);
+        height: px-to-rem(28);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+
+        em {
+          position: absolute;
+          display: inline-block;
+          font-size: px-to-rem(20);
+          left: px-to-rem(17);
+          //background: linear-gradient(0deg, #ffffff 95%, #F0F7FF 100%);
+          //-webkit-background-clip: text;
+          //-webkit-text-fill-color: transparent;
+          //text-shadow: 0 0 px-to-rem(10) 0 rgba(50, 132, 255, 0.7);
+        }
+
+        em::before {
+          background: linear-gradient(180deg, #fff 20%, #b0d4ff 100%);
+          //background: linear-gradient(180deg, white, #f8fbff 100%);
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-shadow: none;
+        }
+
+      }
+
+      .right {
+        padding-left: px-to-rem(56);
+        color: #E8F3FE;
+      }
+    }
+    .active {
+      position: relative;
+      background-clip: padding-box, padding-box, border-box;
+      background-origin: padding-box, padding-box, border-box;
+      background-image: linear-gradient(180deg, rgba(44, 17, 2, .7), rgba(44, 17, 2, .7)), radial-gradient(109% 65% at 4%, rgba(255, 146, 81, .7) 0, rgba(255, 163, 107, 0) 100%), linear-gradient(180deg, #ffd8b1, rgba(255, 216, 177, .7));
+      text-shadow: 0 0 px-to-rem(12) #FFA77B;
+
+
+      .left {
+        z-index: 101;
+        background-image: url('~@component-gallery/assets/image/algorithm-configuration/iconBG_active.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        bottom: px-to-rem(0);
+        left: px-to-rem(0);
+
+        em {
+
+          //background: linear-gradient(0deg, #ffffff, #FFFAF4 100%,);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        em::before {
+          background: linear-gradient(180deg, #fff 20%, #FFDDCC 100%);
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-shadow: none;
+        }
+      }
+
+      .right {
+        padding-left: px-to-rem(56);
+        color: #FFF;
+      }
+    }
+    // .active::before {
+    //  content: "";
+    //  position: absolute;
+    //  inset: 0;
+    //  background: $border_color_active;
+    //  -webkit-mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+    //  -webkit-mask-clip: content-box, border-box;
+    //  -webkit-mask-composite: xor;
+    //  mask-composite: exclude;
+    //  padding: px-to-rem(2);
+    //  border-radius: px-to-rem(8);
+    // }
+
+    .dropdown {
+      position: relative;
+      top: px-to-rem(7);
+      border-radius: px-to-rem(8);
+      background-color: rgba(#172537, .9);
+      display: flex;
+      flex-direction: column;
+      width: px-to-rem(124);
+
+      &_item {
+        cursor: pointer;
+        font: {
+          size: px-to-rem(14);
+          weight: 400;
+        };
+        display: flex;
+        align-items: center;
+        height: px-to-rem(32);
+
+        color: #fff;
+
+        .icon {
+          width: px-to-rem(24);
+          font-size: px-to-rem(24);
+          margin-left: px-to-rem(12);
+        }
+
+        .content {
+          margin-left: px-to-rem(6);
+          flex: 1;
+        }
+      }
+    }
+    .dropdown_active, .dropdown_item:hover {
+      background-color: rgba(79, 159, 255, 0.4);
+      color: #4F9FFF;
+    }
+    .dropdown_active:nth-child(1), .dropdown_item:nth-child(1):hover {
+      border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+    }
+    .dropdown_active:nth-child(3), .dropdown_item:nth-child(3):hover {
+      border-radius: 0 0 px-to-rem(8) px-to-rem(8);
+    }
+  }
+}

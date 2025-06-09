@@ -1,0 +1,102 @@
+@import "mixins/px-to-rem";
+.camera-circle-selection{
+    &-container{
+        --btn-text-color: #E8F3FE;
+        --btn-text-color-active: #fff;
+        --li-color-active: #4F9FFF;
+        position: relative;
+        width: px-to-rem(138);
+        height: px-to-rem(36);
+        border: px-to-rem(2) solid transparent;
+        border-radius: px-to-rem(8);
+        background-clip: padding-box, border-box;
+        background-origin: padding-box, border-box;
+        background-image: linear-gradient( 180deg, rgba(23, 37, 55, .7) 0%, rgba(54, 121, 218, .7) 100%),
+            linear-gradient(180deg, rgba(176, 212, 255, 0.35), rgba(176, 212, 255, 1));
+        &.active{
+            background-clip: padding-box, padding-box, border-box;
+            background-origin: padding-box, padding-box, border-box;
+            background-image: linear-gradient(180deg, rgba(44, 17, 2, .7), rgba(44, 17, 2, .7)),
+                radial-gradient( 109% 65% at 4%, rgb(255, 146, 81, .7) 0%, rgba(255,163,107,0) 100%),
+                linear-gradient(180deg, rgba(255, 216, 177, 1), rgba(255, 216, 177, 0.7));
+            .camera-circle-selection{
+                &-btn{
+                    color: var(--btn-text-color-active);
+                    text-shadow: 0px 0px px-to-rem(12) #FFA77B;
+                    i{
+                        background-image: url('~@component-gallery/assets/image/camera-circle-selection/icon_bg_s.png');
+                        &::before{
+                            background-image: linear-gradient( 0, #FFDDCC 0%, #FFFAF4 100%);
+                        }
+                    }
+                }
+                &-list{
+                    opacity: 1;
+                    transform: scaleY(1);
+                }
+            }
+        }
+    }
+    &-btn{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-size: px-to-rem(14);
+        color: var(--btn-text-color);
+        cursor: pointer;
+        i{
+            display: block;
+            width: px-to-rem(50);
+            height: px-to-rem(30);
+            line-height: 1;
+            height: 100%;
+            line-height: px-to-rem(32);
+            font-size: px-to-rem(18);
+            text-align: center;
+            background: url('~@component-gallery/assets/image/camera-filte/tab_icon_bg.png') no-repeat center 100%/100% 100%;
+            // 设计图上，这个背景是从边框那里算的，要减去父元素的边框2
+            background: url('~@component-gallery/assets/image/camera-circle-selection/icon_bg.png') no-repeat 0 100%/100% auto;
+            &::before{
+                background: linear-gradient( 180deg, #FFFFFF 0%, #B0D4FF 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+    &-list{
+        position: absolute;
+        top: px-to-rem(42);
+        left: 0;
+        right: 0;
+        font-size: px-to-rem(14);
+        background: rgba(23,37,55,0.9);
+        border-radius: px-to-rem(8);
+        color: var(--btn-text-color);
+        opacity: 0;
+        transform: scaleY(0);
+        -webkit-transition: transform .3s,-webkit-transform .3s,opacity .3s;
+        transition: transform .3s,-webkit-transform .3s,opacity .3s;
+        transform-origin: 50% 0;
+        overflow: hidden;
+        li{
+            display: flex;
+            align-items: center;
+            padding-left: px-to-rem(12);
+            height: px-to-rem(32);
+            cursor: pointer;
+            &.active,&:hover{
+                background-color: rgba(79,159,255,0.4);
+            }
+            &.active{
+                color: var(--li-color-active);
+            }
+        }
+        span{
+            margin-left: px-to-rem(6);
+        }
+        i{
+            font-size: px-to-rem(24);
+        }
+    }
+}

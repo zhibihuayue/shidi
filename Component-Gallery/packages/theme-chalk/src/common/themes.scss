@@ -1,0 +1,8 @@
+@import "../module/wiseblue/index"; // 睿智蓝
+@import "../module/terracotta/index"; // 赤土黄
+@import "../module/aquamarine/index"; // 碧山绿
+$themes: (
+  theme-wiseblue: $theme-wiseblue,
+  theme-terracotta: $theme-terracotta,
+  theme-aquamarine: $theme-aquamarine
+);

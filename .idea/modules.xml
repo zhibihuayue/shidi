@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/shidi-industry.iml" filepath="$PROJECT_DIR$/.idea/shidi-industry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shidi-industry-admin/shidi-industry-admin.iml" filepath="$PROJECT_DIR$/shidi-industry-admin/shidi-industry-admin.iml" />
+    </modules>
+  </component>
+</project>

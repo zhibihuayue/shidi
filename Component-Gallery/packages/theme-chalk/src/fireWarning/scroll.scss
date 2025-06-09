@@ -1,0 +1,62 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.c-scroll {
+  width: 100%;
+  height: 100%;
+  @include themeify(false) {
+    .el-scrollbar {
+      position: relative;
+      height: 100%;
+
+      ::v-deep .el-scrollbar__wrap {
+        overflow: scroll !important;
+        overflow-x: auto !important;
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+      ::v-deep .el-scrollbar__bar {
+        right: 0;
+        bottom: 0;
+        border-radius: px-to-rem(3);
+        opacity: 1;
+        pointer-events: none;
+
+        &.is-horizontal {
+          left: 0;
+          height: px-to-rem(6);
+        }
+
+        &.is-vertical {
+          top: 0;
+          width: px-to-rem(6);
+        }
+
+        .el-scrollbar__thumb {
+          pointer-events: auto;
+          background: themed('fire-warning-bg-tree-content-hover');
+
+          &:hover {
+            background: themed('fire-warning-shadow-el-checkbox__inner');
+          }
+        }
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
+      opacity: 0;
+    }
+
+    &.auto {
+      .el-scrollbar {
+        .el-scrollbar__wrap {
+          scroll-behavior: smooth;
+        }
+      }
+    }
+  }
+}

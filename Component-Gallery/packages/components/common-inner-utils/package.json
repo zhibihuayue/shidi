@@ -1,0 +1,12 @@
+{
+  "name": "@component-gallery/utils",
+  "version": "0.0.1",
+  "description": "通用工具组件",
+  "dependencies": {
+    "@component-gallery/assets": "workspace:^",
+    "@component-gallery/theme-chalk": "workspace:^",
+    "@component-gallery/base-components": "workspace:^",
+    "@component-gallery/build-event-bus-path": "workspace:^",
+    "pinyin-pro": "^3.20.4"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@component-gallery/card-dev-tree",
+  "version": "0.0.1",
+  "description": "林业卡片设备树组件",
+  "dependencies": {
+    "@component-gallery/assets": "workspace:^",
+    "@component-gallery/base-components": "workspace:^",
+    "@component-gallery/build-event-bus-path": "workspace:^",
+    "@component-gallery/theme-chalk": "workspace:^",
+    "@component-gallery/utils": "workspace:^"
+  }
+}

@@ -1,0 +1,20 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+.weather-small-tooltip{
+  max-width: px-to-rem(253) !important;
+    @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+        color: #FFFFFF !important;
+        background: #00221B !important;
+      }
+      @if $theme-name == 'theme-terracotta' {
+        background: rgba(22,18,9,0.95) !important;
+        color:#E4E7C1 !important;
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        background:  #0F1926 !important;
+        color: #E8F3FE !important;
+      }
+    }
+}

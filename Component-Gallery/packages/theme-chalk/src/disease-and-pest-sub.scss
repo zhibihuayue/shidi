@@ -1,0 +1,59 @@
+@import "mixins/px-to-rem";
+
+// 时间选择器覆写。这里是为了通用样式还没修复之前的提前覆盖
+.common-iw-s.el-picker-panel.el-date-range-picker {
+  .el-date-range-picker__header {
+    .el-picker-panel__icon-btn {
+      color: var(--iw-text-color);
+    }
+  }
+}
+
+// 提示气泡样式
+.disease-analysis_tooltip.slider_tooltip.el-tooltip__popper.is-dark {
+  --tooltip-bgcolor: #0F1926;
+
+  padding: px-to-rem(6) px-to-rem(12);
+  min-width: px-to-rem(60);
+  background: var(--tooltip-bgcolor);
+  border-radius: px-to-rem(4);
+  color: #E8F3FE;
+  font-size: px-to-rem(14);
+  text-align: center;
+  white-space: nowrap;
+  line-height: px-to-rem(20);
+
+  &[x-placement^="left"]{
+    .popper__arrow{
+      top: px-to-rem(8) !important;
+    }
+  }
+
+  &[x-placement^="top"] .popper__arrow{
+    border-top-color: var(--tooltip-bgcolor);
+  }
+
+  &[x-placement^="top"] .popper__arrow::after{
+    border-top-color: var(--tooltip-bgcolor);
+  }
+
+  &[x-placement^="left"]{
+    .popper__arrow::after{
+      border-left-color: var(--tooltip-bgcolor);
+    }
+  }
+
+  &.slider_tooltip{
+    --tooltip-bgcolor: #1373e6;
+  }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .disease-analysis_tooltip.slider_tooltip.el-tooltip__popper.is-dark{
+  --tooltip-bgcolor: #02896D;
+}
+
+// 国土
+[data-theme="theme-terracotta"] .disease-analysis_tooltip.slider_tooltip.el-tooltip__popper.is-dark{
+  --tooltip-bgcolor: #9F9853;
+}

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.chinatower:comp-tech-starter-redis:1.9.4_release">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/chinatower/comp-tech-starter-redis/1.9.4_release/comp-tech-starter-redis-1.9.4_release.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/chinatower/comp-tech-starter-redis/1.9.4_release/comp-tech-starter-redis-1.9.4_release-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/chinatower/comp-tech-starter-redis/1.9.4_release/comp-tech-starter-redis-1.9.4_release-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

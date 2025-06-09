@@ -1,0 +1,465 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.dispose-dialog-body {
+  @include themeify(false) {
+    position: absolute;
+    bottom: 0;
+    left: px-to-rem(382);
+    padding-bottom: px-to-rem(12);
+    width: px-to-rem(500);
+    height: auto;
+    background: themed('alarm-list-bg-module');
+    @if $theme-name == 'theme-aquamarine' {
+      border: 1px solid;
+      border-image: themed('alarm-detail-border-image');
+    }
+    @if $theme-name == 'theme-terracotta' {
+      border: 1px solid #6e674e;
+    }
+    @if $theme-name != 'theme-aquamarine' {
+      border-radius: px-to-rem(8);
+    }
+
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+      background: themed('fire-warning-bg-dialog-con-before');
+      content: '';
+    }
+
+    &::after {
+      position: absolute;
+      top: unset;
+      right: 0;
+      bottom: 0;
+      left: unset;
+      display: block;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+      background: themed('fire-warning-bg-dialog-con-after');
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      content: '';
+    }
+    @if $theme-name == 'theme-aquamarine' {
+      .span-top-line {
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: px-to-rem(8);
+          height: 1px;
+          background: #fff;
+          box-shadow: 0 0 px-to-rem(6) 0 #02896d, inset 0 0 2px 0 #00fff8;
+          content: '';
+        }
+
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: block;
+          width: px-to-rem(8);
+          height: 1px;
+          background: #fff;
+          box-shadow: 0 0 px-to-rem(6) 0 #02896d, inset 0 0 2px 0 #00fff8;
+          content: '';
+        }
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: px-to-rem(-14);
+      right: px-to-rem(-12);
+      z-index: 2;
+
+      // 关闭按钮
+      width: px-to-rem(25);
+      height: px-to-rem(25);
+      background: themed('base-card-close-bg');
+      background-size: 150% 150%;
+      background-position: 50% 50%;
+      cursor: pointer;
+    }
+
+    .dispose-dialog-title {
+      position: relative;
+      width: 100%;
+      height: px-to-rem(48);
+      background: themed('alarm-detail-header-bg-color');
+      @if $theme-name == 'theme-aquamarine' {
+        border-radius: 0;
+      } @else {
+        border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+      }
+      text-shadow: themed('alarm-detail-text-shadow') !important;
+      color: themed('alarm-list-title-color');
+      font-size: px-to-rem(16);
+      text-align: center;
+      font-weight: 600;
+      line-height: px-to-rem(48);
+
+      &::before {
+        position: absolute;
+        top: -1px;
+        bottom: auto;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @if $theme-name == 'theme-aquamarine' {
+          background: url('~@component-gallery/assets/image/alarm-detail/aquamarine/singleTabSel.png')
+              no-repeat
+              bottom
+              center,
+            url('~@component-gallery/assets/image/alarm-detail/aquamarine/popup-header-xx.png')
+              no-repeat
+              center /
+              auto
+              100%,
+            url('~@component-gallery/assets/image/alarm-detail/aquamarine/popup-header-k.png')
+              no-repeat
+              top
+              center;
+        }
+        @if $theme-name == 'theme-terracotta' {
+          background: url('~@component-gallery/assets/image/alarm-detail/terracotta/popup-title-guang.png')
+            no-repeat
+            bottom
+            center;
+          width: 44.4%;
+          left: 50%;
+          transform: translateX(-50%);
+          border-bottom: 1px solid;
+          border-image: linear-gradient(
+              90deg,
+              rgba(228, 231, 193, 0),
+              rgba(228, 231, 193, 1),
+              rgba(228, 231, 193, 0)
+            )
+            1
+            1;
+        }
+        opacity: 0.96;
+        content: '';
+        pointer-events: none;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: 1px;
+        left: 50%;
+        width: 100%;
+        height: 1px;
+        background: themed('alarm-detail-header-line');
+        content: '';
+        transform: translateX(-50%);
+        pointer-events: none;
+        @if $theme-name == 'theme-terracotta' {
+          opacity: 0.35;
+        }
+      }
+    }
+
+    // 内容盒子
+    .dispose-dialog-content {
+      padding: px-to-rem(18) px-to-rem(12) px-to-rem(6);
+      width: 100%;
+
+      .right-tag-content {
+        display: flex;
+        padding: 0 px-to-rem(29);
+        width: 100%;
+        min-height: px-to-rem(36);
+        text-align: center;
+        flex-wrap: wrap;
+        align-content: flex-start;
+
+        .right-tag-content-item {
+          @if $theme-name == 'theme-aquamarine' {
+            margin: px-to-rem(6) px-to-rem(0) 0;
+          } @else {
+            margin: px-to-rem(6) px-to-rem(3) 0;
+          }
+          width: auto;
+          min-width: px-to-rem(70);
+          height: px-to-rem(24);
+          background: transparent;
+          border: transparent;
+          border-radius: px-to-rem(6);
+          font-size: px-to-rem(12);
+          font-weight: 400;
+          line-height: px-to-rem(24);
+
+          .item-tag-close {
+            color: themed('alarm-tag-delete-color');
+            line-height: px-to-rem(24);
+            font-size: px-to-rem(11);
+            margin-left: px-to-rem(6);
+            cursor: pointer;
+          }
+
+          .item-tag-close:hover {
+            color: #ff5858;
+            cursor: default;
+          }
+        }
+
+        .right-tag-content-item:hover {
+          .item-tag-close {
+            display: inline-block;
+          }
+
+          cursor: pointer;
+        }
+
+        .defaultTag {
+          position: relative;
+          overflow: initial;
+          padding: 0 px-to-rem(14);
+          margin: 0 px-to-rem(-2);
+          @if $theme-name == 'theme-aquamarine' {
+            margin: 0 px-to-rem(-2);
+          } @else {
+            margin: 0 px-to-rem(0);
+          }
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: px-to-rem(14);
+            height: px-to-rem(24);
+            background: themed('alarm-tag-edit-default-box');
+            background-size: 100% 100%;
+            content: '';
+            @if $theme-name != 'theme-aquamarine' {
+              border-radius: px-to-rem(4) 0 0 px-to-rem(4);
+            }
+          }
+
+          &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            width: px-to-rem(14);
+            height: px-to-rem(24);
+            background: themed('alarm-tag-edit-default-box-after');
+            background-size: 100% 100%;
+            content: '';
+            @if $theme-name != 'theme-aquamarine' {
+              border-radius: 0 px-to-rem(4) px-to-rem(4) 0;
+            }
+          }
+          > div {
+            position: relative;
+            overflow: hidden;
+            max-width: px-to-rem(240);
+            height: px-to-rem(24);
+            background: themed('alarm-tag-edit-default-box-div');
+            color: themed('alarm-tag-edit-default-item-text');
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: px-to-rem(22);
+          }
+        }
+
+        .checkTag {
+          position: relative;
+          overflow: initial;
+          padding: 0 px-to-rem(14);
+          @if $theme-name == 'theme-aquamarine' {
+            margin: 0 px-to-rem(-2);
+          } @else {
+            margin: 0 px-to-rem(2);
+          }
+
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: px-to-rem(14);
+            height: px-to-rem(24);
+            background: themed('alarm-tag-edit-check-box');
+            background-size: 100% 100%;
+            content: '';
+            @if $theme-name != 'theme-aquamarine' {
+              border-radius: px-to-rem(4) 0 0 px-to-rem(4);
+            }
+          }
+
+          &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            width: px-to-rem(14);
+            height: px-to-rem(24);
+            background: themed('alarm-tag-edit-check-box-after');
+            background-size: 100% 100%;
+            content: '';
+            @if $theme-name != 'theme-aquamarine' {
+              border-radius: 0 px-to-rem(4) px-to-rem(4) 0;
+            }
+          }
+
+          > div {
+            position: relative;
+            overflow: hidden;
+            max-width: px-to-rem(240);
+            height: px-to-rem(24);
+            background: themed('alarm-tag-edit-check-box-div');
+            color: themed('alarm-tag-edit-check-item-text');
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: px-to-rem(22);
+          }
+        }
+
+        .right-tag-content-addBtn {
+          padding: 0 px-to-rem(15);
+          margin: px-to-rem(6) 0 0 px-to-rem(4);
+          height: px-to-rem(24);
+          background: themed('alarm-tag-add-btn-bg-color') !important;
+          border: themed('alarm-tag-add-btn-border') !important;
+          border-radius: px-to-rem(4);
+          color: themed('alarm-tag-add-btn-text-color');
+          line-height: px-to-rem(22);
+          ::v-deep .el-icon-plus {
+            transform-origin: center center; /* 设置中心点为div的中心 */
+            transform: scale(0.8);
+          }
+        }
+
+        .right-tag-content-addBtn:hover {
+          padding: 0 px-to-rem(15);
+          margin: px-to-rem(6) 0 0 px-to-rem(4);
+          height: px-to-rem(24);
+          background: transparent;
+          color: themed('alarm-tag-add-btn-text-color');
+          line-height: px-to-rem(22);
+        }
+
+        .right-tag-content-edit {
+          margin: px-to-rem(6) px-to-rem(4) 0;
+          width: px-to-rem(228);
+          height: px-to-rem(24);
+          background: themed('alarm-tag-add-input-bg-color');
+          border: themed('alarm-tag-add-input-border');
+          border-radius: px-to-rem(4);
+          ::v-deep .el-input__inner {
+            padding-left: px-to-rem(12);
+            height: px-to-rem(22);
+            background: transparent;
+            border: 0;
+            color: themed('alarm-tag-add-input-text-color');
+            line-height: px-to-rem(22);
+            &::placeholder {
+              color: themed('search-map-default-color-70');
+            }
+          }
+
+          ::v-deep .el-input__suffix {
+            // top: px-to-rem(4);
+            display: flex;
+            align-items: center;
+            // color:rgb(2 137 109 / 100%);
+          }
+        }
+      }
+
+      .el-tag--small {
+        height: px-to-rem(20);
+        line-height: px-to-rem(18);
+      }
+
+      .right-tag-content-item ::v-deep {
+        .el-input {
+          margin: px-to-rem(6) !important;
+          margin-top: 0 !important;
+        }
+
+        .el-input--small .el-input__inner {
+          padding-left: px-to-rem(6);
+          height: px-to-rem(24);
+          background: themed('alarm-tag-add-input-bg-color');
+          border: themed('alarm-tag-add-input-border');
+          border-radius: px-to-rem(4);
+          color: themed('alarm-tag-add-input-text-color');
+          line-height: px-to-rem(22);
+        }
+
+        .el-input--small .el-input__inner:hover {
+          border: themed('alarm-tag-add-btn-border');
+        }
+
+        .el-input__suffix {
+          margin-top: px-to-rem(2);
+          height: px-to-rem(22);
+
+          .el-input__suffix-inner {
+            // color: rgb(2 137 109 / 100%);
+          }
+        }
+
+        .el-tag .el-tag__close {
+          height: px-to-rem(16);
+          border: 1px solid #fff !important;
+          color: #fff;
+          line-height: px-to-rem(16);
+        }
+
+        .el-tag .el-tag__close:hover {
+          height: px-to-rem(16);
+          background: transparent;
+          border: 1px solid #fff !important;
+          color: #fff;
+          line-height: px-to-rem(16);
+        }
+      }
+    }
+
+    // 底部按钮样式
+    .dispose-btn-box {
+      display: flex;
+      justify-content: center;
+      margin-top: px-to-rem(14);
+      flex-wrap: wrap;
+
+      .bottom-btn {
+        margin: px-to-rem(4) px-to-rem(6);
+        width: px-to-rem(108);
+        // height: px-to-rem(32);
+      }
+    }
+  }
+}
+
+// 林业标签新样式(部分）
+.right-tag-content {
+  @include themeify(false) {
+    .addBtn {
+      margin: px-to-rem(6) 0 px-to-rem(10) px-to-rem(4);
+      height: px-to-rem(24);
+
+      .addicon {
+        margin: 0 px-to-rem(8) 0 px-to-rem(-5);
+        color: themed('alarm-tag-add-btn-text-color');
+      }
+    }
+  }
+}
+
+::v-deep.el-icon-circle-check {
+  // margin-top: -1px;
+  color: #fff;
+}

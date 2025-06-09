@@ -1,0 +1,13 @@
+{
+  "name": "@component-gallery/bird-detail-pop",
+  "version": "0.0.1",
+  "description": "鸟类声纹弹框组件",
+  "dependencies": {
+    "@component-gallery/assets": "workspace:^",
+    "@component-gallery/utils": "workspace:^",
+    "@component-gallery/build-event-bus-path": "workspace:^",
+    "@component-gallery/theme-chalk": "workspace:^",
+    "@component-gallery/map": "workspace:^",
+    "@component-gallery/base-components": "workspace:^"
+  }
+}

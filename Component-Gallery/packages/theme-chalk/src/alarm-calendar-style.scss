@@ -1,0 +1,156 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.common-iw-s.el-color-picker__panel.alccolorpicker {
+  position: absolute !important;
+  top: px-to-rem(32) !important;
+  left: 0 !important;
+  padding: px-to-rem(12);
+
+  .el-color-dropdown__btns {
+    font-size: 0;
+
+    .el-button {
+      position: relative;
+      width: px-to-rem(48);
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate( -50%, -50% );
+      }
+    }
+  }
+
+  .el-color-dropdown__btn.el-button--default {
+    &::before {
+      inset: px-to-rem(1);
+    }
+  }
+
+  .el-color-svpanel__cursor {
+    div {
+      width: px-to-rem(10);
+      height: px-to-rem(10);
+    }
+  }
+}
+
+.common-iw-s.el-color-picker__panel
+  .el-color-dropdown__link-btn.el-button--text::after {
+  display: inline-block;
+  width: px-to-rem(48);
+  height: px-to-rem(24);
+  border-radius: px-to-rem(4);
+  opacity: 0.71;
+  color: var(--iw-text-color);
+  font-size: px-to-rem(12);
+  content: '取消';
+  line-height: px-to-rem(24);
+}
+
+.common-iw-s.el-color-picker__panel .el-color-dropdown__btn.el-button--default {
+  margin-top: px-to-rem(4);
+}
+
+// 国土
+[data-theme='theme-terracotta']
+  .common-iw-s.el-color-picker__panel
+  .el-color-dropdown__link-btn.el-button--text::after {
+  margin-top: px-to-rem(4);
+  background: #64562e;
+  border: 1px solid #6e674e;
+}
+
+[data-theme='theme-terracotta'] .headStyleUse .el-dialog__header {
+  padding-right: px-to-rem(0);
+}
+
+[data-theme='theme-terracotta'] .common-iw-s.el-color-picker__panel
+  .el-color-dropdown__link-btn.el-button--text::after {
+  background: rgb(100 86 46 / 71%);
+  border-color: rgb(110 103 78 / 20%);
+  opacity: 1;
+  color: rgb(228 231 193 / 71%);
+  line-height: px-to-rem(22);
+}
+
+[data-theme='theme-terracotta'] .common-iw-s.el-color-picker__panel {
+   .el-color-hue-slider__thumb {
+    left: px-to-rem(-2)!important;
+    width: px-to-rem(16);
+    border-radius: px-to-rem(2);
+  }
+}
+
+[data-theme='theme-terracotta']
+  .headStyleUse
+  .el-dialog__header
+  .highlight-title
+  span {
+  text-shadow: px-to-rem(1) 0 px-to-rem(4) #dcd277 !important;
+}
+
+// 通用
+[data-theme='theme-wiseblue']
+  .common-iw-s.el-color-picker__panel
+  .el-color-dropdown__link-btn.el-button--text::after {
+  margin-top: px-to-rem(4);
+  background: rgb(79 159 255 / 20%);
+}
+
+[data-theme='theme-terracotta']
+  .common-iw-s.el-color-picker__panel.alccolorpicker {
+  background: rgb(23 20 11 / 90%);
+
+  .el-color-predefine__color-selector {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: px-to-rem(24);
+    height: px-to-rem(24);
+
+    >div {
+      width: px-to-rem(20);
+      height: px-to-rem(20);
+    }
+
+    &:hover {
+      border: px-to-rem(1) solid var(--iw-active-text-color);
+    }
+  }
+
+  .el-color-predefine__color-selector.selected {
+    border: px-to-rem(1) solid var(--iw-active-text-color);
+    box-shadow: unset;
+  }
+}
+
+[data-theme='theme-aquamarine']
+  .common-iw-s.el-color-picker__panel.alccolorpicker {
+  .el-color-predefine__color-selector.selected {
+    box-shadow: 0 0 0 px-to-rem(2) var(--iw-active-text-color);
+  }
+}
+
+[data-theme='theme-aquamarine'] .common-iw-s.el-color-picker__panel
+  .el-color-dropdown__link-btn.el-button--text::after {
+    line-height: px-to-rem(21);
+    padding-right: px-to-rem(2);
+}
+
+[data-theme='theme-wiseblue']
+  .common-iw-s.el-color-picker__panel.alccolorpicker {
+  .el-color-predefine__color-selector.selected {
+    box-shadow: 0 0 0 px-to-rem(2) var(--iw-active-text-color);
+  }
+}
+
+[data-theme='theme-terracotta']
+  .common-iw-s
+  .el-date-editor
+  i.iconfont_tools.icon-tongyong-shaixuanriqi::before {
+  margin-left: px-to-rem(15);
+}

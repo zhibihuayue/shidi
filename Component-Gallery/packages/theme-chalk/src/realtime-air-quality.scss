@@ -1,0 +1,287 @@
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.realtime-air-quality-container {
+  width: px-to-rem(370);
+  --image-outstanding: url('~@component-gallery/assets/image/realtime-air-quality/outstanding.png');
+  --bg-outstanding: url('~@component-gallery/assets/image/realtime-air-quality/outstanding-bg.png');
+  --image-good: url('~@component-gallery/assets/image/realtime-air-quality/good.png');
+  --bg-good: url('~@component-gallery/assets/image/realtime-air-quality/good-bg.png');
+  --image-mild: url('~@component-gallery/assets/image/realtime-air-quality/mild.png');
+  --bg-mild: url('~@component-gallery/assets/image/realtime-air-quality/mild-bg.png');
+  --image-moderate: url('~@component-gallery/assets/image/realtime-air-quality/moderate.png');
+  --bg-moderate: url('~@component-gallery/assets/image/realtime-air-quality/moderate-bg.png');
+  --image-severe: url('~@component-gallery/assets/image/realtime-air-quality/severe.png');
+  --bg-severe: url('~@component-gallery/assets/image/realtime-air-quality/severe-bg.png');
+  --image-seriousness: url('~@component-gallery/assets/image/realtime-air-quality/seriousness.png');
+  --bg-seriousness: url('~@component-gallery/assets/image/realtime-air-quality/seriousness-bg.png');
+  --image-pm2p5: url('~@component-gallery/assets/image/realtime-air-quality/pm2p5.png');
+  --image-pm10: url('~@component-gallery/assets/image/realtime-air-quality/pm10.png');
+  --image-so2: url('~@component-gallery/assets/image/realtime-air-quality/so2.png');
+  --image-no2: url('~@component-gallery/assets/image/realtime-air-quality/no2.png');
+  --image-co: url('~@component-gallery/assets/image/realtime-air-quality/co.png');
+  --image-o3: url('~@component-gallery/assets/image/realtime-air-quality/o3.png');
+  --image-pm2p5-ly: url('~@component-gallery/assets/image/realtime-air-quality/pm2p5-ly.png');
+  --image-pm10-ly: url('~@component-gallery/assets/image/realtime-air-quality/pm10-ly.png');
+  --image-so2-ly: url('~@component-gallery/assets/image/realtime-air-quality/so2-ly.png');
+  --image-no2-ly: url('~@component-gallery/assets/image/realtime-air-quality/no2-ly.png');
+  --image-co-ly: url('~@component-gallery/assets/image/realtime-air-quality/co-ly.png');
+  --image-o3-ly: url('~@component-gallery/assets/image/realtime-air-quality/o3-ly.png');
+  --image-pm2p5-gt: url('~@component-gallery/assets/image/realtime-air-quality/pm2p5-gt.png');
+  --image-pm10-gt: url('~@component-gallery/assets/image/realtime-air-quality/pm10-gt.png');
+  --image-so2-gt: url('~@component-gallery/assets/image/realtime-air-quality/so2-gt.png');
+  --image-no2-gt: url('~@component-gallery/assets/image/realtime-air-quality/no2-gt.png');
+  --image-co-gt: url('~@component-gallery/assets/image/realtime-air-quality/co-gt.png');
+  --image-o3-gt: url('~@component-gallery/assets/image/realtime-air-quality/o3-gt.png');
+  // --progress-outstanding: linear-gradient( 270deg, #00B694 0%, #85FFEE 100%);
+  // --progress-good: linear-gradient( 270deg, #FFD660 0%, #FFF4D4 100%);
+  // --progress-mild: linear-gradient( 270deg, #FF944F 0%, #FFD8BE 100%);
+  // --progress-moderate: linear-gradient( 270deg, #FF726B 0%, #FFC8C6 100%);
+  // --progress-severe: linear-gradient( 270deg, #A284FF 0%, #DFD5FF 100%);
+  // --progress-seriousness: linear-gradient( 270deg, #F28BFF 0%, #FBDBFF 100%);
+  --progress-outstanding: url('~@component-gallery/assets/image/realtime-air-quality/progress-outstanding.png');
+  --progress-good: url('~@component-gallery/assets/image/realtime-air-quality/progress-good.png');
+  --progress-mild: url('~@component-gallery/assets/image/realtime-air-quality/progress-mild.png');
+  --progress-moderate: url('~@component-gallery/assets/image/realtime-air-quality/progress-moderate.png');
+  --progress-severe: url('~@component-gallery/assets/image/realtime-air-quality/progress-severe.png');
+  --progress-seriousness: url('~@component-gallery/assets/image/realtime-air-quality/progress-seriousness.png');
+  .titleLogo {
+    font-size: px-to-rem(20);
+    position: absolute;
+    left: px-to-rem(140);
+    top: px-to-rem(14);
+    color: #ffeeb1;
+  }
+  &__aqiCard {
+    position: relative;
+    width: 100%;
+    border: none;
+    height: px-to-rem(100);
+    margin-top: px-to-rem(12);
+    margin-bottom: px-to-rem(6);
+    border-radius: px-to-rem(4);
+    opacity: 0.98;
+    background-size: 100% 100%;
+    .aqi {
+      position: absolute;
+      top: px-to-rem(12);
+      left: px-to-rem(70);
+      font-weight: 600;
+      font-size: px-to-rem(30);
+      line-height: px-to-rem(30);
+      color: #ffffff;
+    }
+    .category {
+      position: absolute;
+      width: px-to-rem(48);
+      height: px-to-rem(20);
+      bottom: px-to-rem(24);
+      left: px-to-rem(70);
+      font-size: px-to-rem(12);
+      text-align: center;
+      text-wrap: nowrap;
+      background-size: 100% 100%;
+    }
+    .statusBar {
+      position: absolute;
+      top: px-to-rem(30);
+      right: px-to-rem(12);
+      width: px-to-rem(227);
+      height: px-to-rem(20);
+      background-size: cover;
+    }
+    .primary {
+      position: absolute;
+      bottom: px-to-rem(12);
+      right: px-to-rem(12);
+      font-size: px-to-rem(14);
+      color: #e8f3fe;
+    }
+    &.outstanding {
+      background-image: var(--image-outstanding);
+      .category {
+        background-image: var(--bg-outstanding);
+      }
+      .progress {
+        background-image: var(--progress-outstanding);
+      }
+      .aqi {
+        text-shadow: 0 0 px-to-rem(10) rgba(74, 254, 214, 0.5);
+      }
+    }
+    &.good {
+      background-image: var(--image-good);
+      .category {
+        background-image: var(--bg-good);
+      }
+      .progress {
+        background-image: var(--progress-good);
+      }
+      .aqi {
+        text-shadow: 0 0 px-to-rem(10) rgba(248, 214, 115, 0.5);
+      }
+    }
+    &.mild {
+      background-image: var(--image-mild);
+      .category {
+        background-image: var(--bg-mild);
+      }
+      .progress {
+        background-image: var(--progress-mild);
+      }
+      .aqi {
+        text-shadow: 0 0 px-to-rem(10) rgba(236, 132, 64, 0.5);
+      }
+    }
+    &.moderate {
+      background-image: var(--image-moderate);
+      .category {
+        background-image: var(--bg-moderate);
+      }
+      .progress {
+        background-image: var(--progress-moderate);
+      }
+      .aqi {
+        text-shadow: 0 0 px-to-rem(10) rgba(235, 76, 68, 0.5);
+      }
+    }
+    &.severe {
+      background-image: var(--image-severe);
+      .category {
+        background-image: var(--bg-severe);
+      }
+      .progress {
+        background-image: var(--progress-severe);
+      }
+      .aqi {
+        text-shadow: 0 0 px-to-rem(10) rgba(111, 76, 221, 0.5);
+      }
+    }
+    &.seriousness {
+      background-image: var(--image-seriousness);
+      .category {
+        background-image: var(--bg-seriousness);
+      }
+      .progress {
+        background-image: var(--progress-seriousness);
+      }
+      .aqi {
+        text-shadow: 0 0 px-to-rem(10) rgba(171, 79, 183, 0.5);
+      }
+    }
+  }
+  &__airQuality {
+    display: grid;
+    gap: px-to-rem(6);
+    grid-template-rows: repeat(3, px-to-rem(38));
+    grid-template-columns: repeat(2, 1fr);
+    font-family: PingFangSC, PingFang SC;
+    div {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 px-to-rem(6) 0 px-to-rem(32);
+      background-size: 100% 100%;
+      font-family: PingFangSC, PingFang SC;
+      font-size: px-to-rem(14);
+      span {
+        font-family: PingFangSC, PingFang SC;
+      }
+      .corner {
+        font-size: px-to-rem(10);
+      }
+      .num {
+        position: absolute;
+        left: px-to-rem(88);
+        padding-top: px-to-rem(2);
+        width: px-to-rem(40);
+        text-align: right;
+      }
+    }
+    .pm2p5 {
+      background-image: var(--image-pm2p5);
+    }
+    .pm10 {
+      background-image: var(--image-pm10);
+    }
+    .so2 {
+      background-image: var(--image-so2);
+    }
+    .no2 {
+      background-image: var(--image-no2);
+    }
+    .co {
+      background-image: var(--image-co);
+    }
+    .o3 {
+      background-image: var(--image-o3);
+    }
+    .unit {
+      color: rgba(232, 243, 254, 0.7);
+    }
+  }
+}
+// 通用
+[data-theme='theme-wiseblue'] .realtime-air-quality-container {
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .realtime-air-quality-container {
+  .titleLogo {
+    left: px-to-rem(130);
+  }
+  &__airQuality {
+    .pm2p5 {
+      background-image: var(--image-pm2p5-ly);
+    }
+    .pm10 {
+      background-image: var(--image-pm10-ly);
+    }
+    .so2 {
+      background-image: var(--image-so2-ly);
+    }
+    .no2 {
+      background-image: var(--image-no2-ly);
+    }
+    .co {
+      background-image: var(--image-co-ly);
+    }
+    .o3 {
+      background-image: var(--image-o3-ly);
+    }
+    .unit {
+      color: rgba(232, 243, 254, 0.7);
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .realtime-air-quality-container {
+  .titleLogo {
+    top: px-to-rem(13);
+  }
+  &__airQuality {
+    .pm2p5 {
+      background-image: var(--image-pm2p5-gt);
+    }
+    .pm10 {
+      background-image: var(--image-pm10-gt);
+    }
+    .so2 {
+      background-image: var(--image-so2-gt);
+    }
+    .no2 {
+      background-image: var(--image-no2-gt);
+    }
+    .co {
+      background-image: var(--image-co-gt);
+    }
+    .o3 {
+      background-image: var(--image-o3-gt);
+    }
+    .unit {
+      color: rgba(232, 243, 254, 0.7);
+    }
+  }
+}

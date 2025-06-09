@@ -1,0 +1,61 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.rcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+}
+
+.video-player ::v-deep .video-js.vjs-fluid {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.imgdom {
+  transition: transform 0.3s ease 0s;
+}
+
+.iframedom {
+  overflow: auto;
+  width: 75%;
+  height: 75%;
+  background-color: #fff;
+  white-space: pre;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.padding {
+    padding: px-to-rem(12);
+  }
+}
+
+.otherpreview {
+  @include themeify(false) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: themed('global-text-color');
+    font-size: px-to-rem(20);
+    flex-direction: column;
+
+    a {
+      color: themed('alarm-review-download-notice');
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,651 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.d-search-map__wrapper {
+  @include themeify(false) {
+    position: relative;
+    width: px-to-rem(370);
+    background: themed('search-map-wrapper-bg');
+    height: px-to-rem(36);
+
+    .d-search-map-wrap {
+      position: relative;
+      height: 100%;
+
+      .d-search-map-wrap-inner {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        .inner-position {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: px-to-rem(120);
+          height: 100%;
+          color: themed('search-map-icon-color');
+          font-size: px-to-rem(14);
+          cursor: pointer;
+          padding: 0 px-to-rem(12);
+
+          span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-break: keep-all;
+          }
+
+          i {
+            margin-left: px-to-rem(12);
+            font-size: px-to-rem(20);
+          }
+
+
+          .areaOpen {
+            transform: rotate(180deg);
+          }
+        }
+
+        .inner-search-input {
+          flex: 1;
+          display: flex;
+          align-items: center;
+
+          > i {
+            margin-right: px-to-rem(6);
+            color: themed('search-map-icon-color');
+            font-size: px-to-rem(20);
+          }
+
+          ::v-deep .el-input--suffix {
+            // input框
+            .el-input__inner {
+              height: px-to-rem(36);
+              background: transparent;
+              border: none;
+              color: themed('search-map-color');
+              font-size: px-to-rem(14);
+              line-height: px-to-rem(36);
+              padding-right: px-to-rem(30) !important;
+              padding-left: px-to-rem(12) !important;
+
+              &::placeholder {
+                color: themed('search-map-color-70');
+              }
+            }
+
+            // 图标容器
+            .el-input__suffix {
+              display: flex;
+              align-items: center;
+              color: themed('search-map-color');
+              cursor: pointer;
+
+              .el-input__suffix-inner {
+                display: flex;
+                align-items: center;
+
+                // 图标
+                > i {
+                  font-size: px-to-rem(20);
+                  opacity: 0;
+                }
+              }
+            }
+
+            .el-input__inner:focus + .el-input__suffix {
+              .el-input__suffix-inner {
+                > i {
+                  opacity: 1;
+                }
+              }
+            }
+
+            &:hover {
+              .el-input__suffix {
+                .el-input__suffix-inner {
+                  > i {
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .inner-nav-icon {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          padding: 0 px-to-rem(12) 0 px-to-rem(6);
+
+          > i {
+            font-size: px-to-rem(20);
+            color: themed('search-map-icon-color');
+          }
+
+          > .icon-on {
+            color: themed('search-map-position-icon-on') !important;
+          }
+
+          &::before {
+            position: absolute;
+            top: 33%;
+            left: 0;
+            width: px-to-rem(1);
+            height: px-to-rem(10);
+            background-color: themed('search-map-bar-line');
+            content: '';
+          }
+        }
+      }
+    }
+
+    .d-search-map__area-wrapper {
+      position: absolute;
+      top: themed('search-map-positon-top');
+      left: 0;
+      display: flex;
+      z-index: 99999;
+      overflow: hidden;
+      color: themed('search-map-color');
+      border-radius: themed('search-map-border-radius');
+      border: themed('search-map-area-border');
+      background: themed('search-map-area-bg');
+
+      @if $theme-name == 'theme-aquamarine' {
+        border-radius: px-to-rem(8);
+      }
+
+      .toplevel {
+        position: relative;
+        width: px-to-rem(100);
+        height: px-to-rem(176);
+        display: flex;
+        flex-direction: column;
+
+        .first-level {
+          height: calc(100% - px-to-rem(48));
+        }
+
+        &.expand {
+          border-left: none;
+        }
+
+        .arrowright {
+          display: inline-block;
+          transform: rotate(-90deg);
+          font-size: px-to-rem(20);
+          color: themed('search-map-icon-color');
+        }
+
+        .data {
+          flex: 1;
+          overflow: auto;
+        }
+
+        .row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 px-to-rem(6) 0 px-to-rem(12);
+          height: px-to-rem(32);
+          font-size: px-to-rem(14);
+          user-select: none;
+          cursor: pointer;
+          color: themed('search-map-color');
+
+          span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            //flex: 1;
+            width: px-to-rem(62);
+            word-break: keep-all;
+            color: themed('search-map-color');
+          }
+
+          .expandbtn {
+            width: px-to-rem(20);
+            color: themed('search-map-color');
+
+            i {
+              color: themed('search-map-icon-color');
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: px-to-rem(20);
+              margin: 0;
+            }
+          }
+
+          &:hover {
+            background: themed('search-map-area-item-hover-bg');
+          }
+
+          &.active {
+            background: themed('search-map-area-item-hover-bg');
+            color: themed('search-map-area-item-activer-color');
+          }
+        }
+
+        .row.active{
+          span {
+            color: themed('search-map-area-item-activer-color');
+          }
+        }
+      }
+
+      .bottom {
+        font-size: 0;
+        text-align: center;
+        height: px-to-rem(48);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ::v-deep .base-button {
+          span {
+            font-size: px-to-rem(12);
+          }
+        }
+      }
+    }
+
+    .d-search-map__navigation-popup__wrapper {
+      position: absolute;
+      top: themed('search-map-positon-top');
+      right: 0;
+      width: px-to-rem(252);
+      user-select: none;
+      color: themed('search-map-color');
+      z-index: 99998;
+      background: transparent !important;
+      border: none !important;
+
+      .navigation-popup__content {
+        position: relative;
+        display: flex;
+        padding: px-to-rem(12);
+        min-height: px-to-rem(138);
+        flex-direction: column;
+
+        .navigation-input {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          margin-bottom: px-to-rem(6);
+
+          .navigation-row {
+            flex: 1;
+          }
+        }
+
+        .close-button {
+          position: absolute;
+          top: px-to-rem(-13);
+          right: px-to-rem(-13);
+          width: px-to-rem(26);
+          height: px-to-rem(26);
+          cursor: pointer;
+          background-size: 100% 100%;
+        }
+
+        .reverse-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: px-to-rem(7);
+          width: px-to-rem(24);
+          height: px-to-rem(24);
+          border-radius: 50%;
+          cursor: pointer;
+
+          @if $theme-name == 'theme-aquamarine' {
+            background: rgba(2,137,109,0.3);
+            box-shadow: inset 0 0 px-to-rem(3) 0 rgba(2,137,109,0.6);
+          }
+          @if $theme-name == 'theme-terracotta' {
+            background: url('~@component-gallery/assets/image/search-map/t-reverse-button.png') no-repeat;
+            background-size: 100%;
+            border-radius: 0 !important;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            background: rgba(79,159,255,0.2);
+          }
+
+          > i {
+            font-size: px-to-rem(12);
+
+            @if $theme-name == 'theme-aquamarine' {
+              color: #FFFFFF;
+            }
+            @if $theme-name == 'theme-terracotta' {
+              color: #FFFD98;
+              text-shadow: 0 px-to-rem(2) px-to-rem(4) rgba(225, 127, 20, 0.5);
+            }
+            @if $theme-name == 'theme-wiseblue' {
+              color: #E8F3FE;
+            }
+          }
+        }
+
+        .navigation-footer {
+          display: flex;
+          margin-top: px-to-rem(6);
+          height: px-to-rem(32);
+          justify-content: space-between;
+        }
+      }
+
+      .error-text {
+        display: flex;
+        align-items: center;
+        height: px-to-rem(32);
+        background: rgba(237,81,88,0.2);
+        border-radius: 4px;
+        padding: 0 px-to-rem(6) 0 px-to-rem(12);
+        font-size: 0;
+
+        > i {
+          font-size: px-to-rem(16);
+          color: #ED5158;
+        }
+
+        > div{
+          padding-left: px-to-rem(9);
+          font-size: px-to-rem(14);
+          color: #ED5158;
+        }
+      }
+    }
+
+    .d-search-map__ainput-wrapper {
+      position: relative;
+      font-size: 0;
+
+      .search-result,
+      .history-result {
+        top: px-to-rem(38) !important;
+        @if $theme-name == 'theme-wiseblue' {
+          left: px-to-rem(-12);
+          background: #0F1926; // 只有蓝色背景下，导航的背景是纯色
+        }
+        @else {
+          left: px-to-rem(-13)
+        }
+        right: 0;
+      }
+
+      + .d-search-map__ainput-wrapper {
+        margin-top: px-to-rem(6);
+      }
+
+      ::v-deep .el-input--suffix {
+        font-size: px-to-rem(14);
+        color: themed('search-map-color');
+
+        .el-input__prefix {
+          display: flex;
+          align-items: center;
+          color: themed('search-map-color-70');
+        }
+        // input框
+        .el-input__inner {
+          font-size: px-to-rem(14);
+          height: px-to-rem(32);
+          line-height: px-to-rem(32);
+          padding-left: px-to-rem(50);
+          border-radius: px-to-rem(4);
+          border: themed('search-map-ainput-border');
+          background: themed('search-map-ainput-bg');
+
+          color: themed('search-map-color');
+
+          &::placeholder {
+            color: themed('search-map-color');
+          }
+          &:hover {
+            border: 1px solid themed('search-map-input-hover-color');
+          }
+          &:focus {
+            border: 1px solid themed('search-map-input-hover-color');
+          }
+        }
+
+        // 图标容器
+        .el-input__inner:focus + .el-input__suffix {
+          .el-input__suffix-inner {
+            > i {
+              opacity: 1;
+            }
+          }
+        }
+
+        .el-input__suffix {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: px-to-rem(32);
+          font-size: px-to-rem(18);
+
+          .el-input__suffix-inner {
+            display: flex;
+            align-items: center;
+
+            // 图标
+            > i {
+              color: themed('search-map-color');
+              font-size: px-to-rem(18);
+              opacity: 0;
+            }
+          }
+        }
+
+        .el-input__prefix {
+          height: px-to-rem(32);
+          font-size: px-to-rem(14);
+          left: px-to-rem(12);
+        }
+
+        &:hover {
+          .el-input__suffix {
+            .el-input__suffix-inner {
+              > i {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .d-search-map-navigation-position {}
+
+    .d-search-map-navigation-default {
+      top: themed('search-map-positon-top');
+      right: 0;
+    }
+
+    .search-result,
+    .history-result {
+      position: absolute;
+      top: themed('search-map-positon-top');
+      right: 0;
+      z-index: 99998;
+      display: flex;
+      overflow: auto;
+      width: px-to-rem(252);
+      height: px-to-rem(192);
+      border-radius: px-to-rem(8);
+      font-size: px-to-rem(14);
+      flex-direction: column;
+      background: themed('search-map-area-bg');
+      border: themed('search-map-area-border');
+
+      .iconfont_tools {
+        margin-left: px-to-rem(6);
+        font-size: px-to-rem(20);
+        color: themed('search-map-color');
+      }
+
+      .result-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 px-to-rem(12);
+        line-height: px-to-rem(32);
+        cursor: pointer;
+
+        &:hover {
+          background: themed('search-map-area-item-hover-bg');
+        }
+
+        .result {
+          overflow: hidden;
+          width: 9em;
+          font-size: px-to-rem(14);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: keep-all;
+          font-weight: 400;
+          color: themed('search-map-color');
+
+          > span {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-break: keep-all;
+          }
+
+          ::v-deep .highlight {
+            color: themed('search-map-area-item-activer-color');
+            pointer-events: none; // 处理 v-c-tip.auto 移入无法显示的问题
+          }
+        }
+
+        .area {
+          overflow: hidden;
+          max-width: 6em;
+          font-size: px-to-rem(12);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: keep-all;
+          font-weight: 400;
+          color: themed('search-map-color-70');
+        }
+      }
+
+      .clear-button {
+        margin: 0 px-to-rem(12);
+        height: px-to-rem(33);
+        text-align: center;
+        cursor: pointer;
+        color: themed('search-map-color');
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: px-to-rem(14);
+        border-top: 1px solid themed('search-map-bar-line');
+      }
+    }
+
+    .history-result {
+      .record {
+        flex: 1;
+        overflow: auto;
+      }
+    }
+
+    .history-result-scroll-wrap {
+      height: calc(100% - px-to-rem(33));
+    }
+  }
+}
+
+.d-search-map__location-message__wrapper {
+  @include themeify() {
+    position: absolute !important;
+    bottom: 22px; // 地图只能设置px
+    left: px-to-rem(-184);
+    z-index: 1;
+    width: px-to-rem(368);
+
+    ::v-deep .base-card-content-header {
+      padding: 0 !important;
+      background: none;
+      overflow: hidden;
+    }
+
+    .d-search-map__location-message-header {
+      padding: 0 px-to-rem(12);
+      width: 100%;
+      height: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      align-items: center;
+      line-height: px-to-rem(48);
+      font-weight: 600;
+      color: themed('search-map-color');
+      position: relative;
+
+      @if $theme-name == 'theme-aquamarine' {
+        text-align: left;
+        text-indent: px-to-rem(16);
+        font-size: px-to-rem(16);
+        background: url('~@component-gallery/assets/image/search-map/cardheader-star.png') px-to-rem(12) center no-repeat;
+        text-shadow: 0 0 px-to-rem(18) rgba(0,245,193,0.9);
+        background-size: px-to-rem(8) px-to-rem(8);
+      }
+      @if $theme-name == 'theme-terracotta' {
+        font-size: px-to-rem(16);
+        text-align: left;
+        text-shadow: 0 px-to-rem(1) px-to-rem(4) #DCD277;
+        color: #FFFFFF !important;
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        text-align: left;
+        font-size: px-to-rem(16);
+        background: url("~@component-gallery/assets/image/head_img.png") no-repeat right bottom;
+        background-size: px-to-rem(370) px-to-rem(48);
+      }
+    }
+
+    .d-search-map__location-message-header::before{
+      @if $theme-name == 'theme-aquamarine' {
+        content: '';
+        height: px-to-rem(10);
+        width: px-to-rem(168);
+        background: url("~@component-gallery/assets/image/search-map/a-location-card-line-bg.png") no-repeat 0 0;
+        background-size: px-to-rem(168) px-to-rem(10);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    .d-search-map__location-message-content {
+      display: flex;
+      padding: px-to-rem(24) px-to-rem(12);
+
+      .label {
+        font-size: px-to-rem(14);
+        width: px-to-rem(42);
+        color: themed('search-map-color-70');
+      }
+
+      .value {
+        font-size: px-to-rem(14);
+        color: themed('search-map-color');
+        flex: 1;
+      }
+    }
+  }
+}

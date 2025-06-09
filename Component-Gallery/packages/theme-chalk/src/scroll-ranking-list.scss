@@ -1,0 +1,195 @@
+@import "mixins/px-to-rem";
+
+.scroll-ranking-list {
+    &-scrollBox {
+        overflow: hidden;
+        height: 100%;
+        scroll-behavior: smooth;
+
+        .el-scrollbar {
+            height: 100%;
+
+            ::v-deep {
+                .el-scrollbar__wrap {
+                    scroll-behavior: smooth;
+                    margin: 0 !important;
+                }
+            }
+        }
+    }
+
+    &-item {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding: 0 px-to-rem(6);
+        height: px-to-rem(32);
+        border-radius: px-to-rem(4);
+        color: #fff;
+        font-size: px-to-rem(14);
+        background: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_4_ly.png') no-repeat center/100% 100%;
+
+        &+& {
+            margin-top: px-to-rem(6);
+        }
+
+        &__ranking {
+            margin-right: px-to-rem(12);
+            width: px-to-rem(20);
+            background: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_icon_4.png') no-repeat center/100% 100%;
+            text-align: center;
+            flex-shrink: 0;
+            align-self: flex-start;
+            line-height: px-to-rem(28);
+            font-size: px-to-rem(14);
+            font-weight: 500;
+        }
+
+        >p {
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: px-to-rem(14);
+        }
+
+        &__num {
+            flex-shrink: 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        &.ranking_1 {
+            background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_1_ly.png');
+
+            .scroll-ranking-list-item__ranking {
+                background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_icon_1.png');
+            }
+        }
+
+        &.ranking_2 {
+            background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_2_ly.png');
+
+            .scroll-ranking-list-item__ranking {
+                background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_icon_2.png');
+            }
+        }
+
+        &.ranking_3 {
+            background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_3_ly.png');
+
+            .scroll-ranking-list-item__ranking {
+                background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_icon_3.png');
+            }
+        }
+
+    }
+
+    &-empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-size: px-to-rem(14);
+        flex-direction: column;
+
+        &::before {
+            content: "";
+            display: block;
+            margin-bottom: px-to-rem(10);
+            width: px-to-rem(68);
+            height: px-to-rem(68);
+            background: url('~@component-gallery/assets/image/noData-ly.png') no-repeat center/100%;
+        }
+    }
+}
+
+// 通用
+[data-theme="theme-wiseblue"] .scroll-ranking-list {
+    &-item {
+        background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_4_ty.png');
+
+        &.ranking_1 {
+            background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_1_ly.png');
+
+            .scroll-ranking-list-item__ranking {
+                background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_icon_1.png');
+            }
+        }
+
+        &.ranking_2 {
+            background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_2_ly.png');
+
+            .scroll-ranking-list-item__ranking {
+                background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_icon_2.png');
+            }
+        }
+
+        &.ranking_3 {
+            background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_3_ty.png');
+
+            .scroll-ranking-list-item__ranking {
+                background-image: url('~@component-gallery/assets/image/scroll-ranking-list/wiseblue-ranking_icon_3.png');
+            }
+        }
+
+        &__num {
+            color: #E8F3FE;
+        }
+    }
+
+    &-empty {
+        &::before {
+            background: url('~@component-gallery/assets/image/noData.png') no-repeat center/100%;
+        }
+    }
+}
+
+// 林业
+// 默认是林业色，所以基本不需要
+[data-theme="theme-aquamarine"] .scroll-ranking-list {}
+
+// 国土
+[data-theme="theme-terracotta"] .scroll-ranking-list {
+    &-item {
+        background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_4_gt.png');
+        color: #E4E7C1;
+
+        .scroll-ranking-list-item__ranking {
+            background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_icon_8.png');
+        }
+
+        &__num {
+            color: rgb(228 231 193 / 70%);
+        }
+
+        &.ranking_1 {
+            background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_1_gt.png');
+
+            .scroll-ranking-list-item__ranking {
+                background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_icon_2.png');
+            }
+        }
+
+        &.ranking_2 {
+            background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_2_gt.png');
+
+            .scroll-ranking-list-item__ranking {
+                background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_icon_7.png');
+            }
+        }
+
+        &.ranking_3 {
+            background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_3_gt.png');
+
+            .scroll-ranking-list-item__ranking {
+                background-image: url('~@component-gallery/assets/image/scroll-ranking-list/ranking_icon_9.png');
+            }
+        }
+    }
+
+    &-empty {
+        &::before {
+            background: url('~@component-gallery/assets/image/noDate-terracotta.png') no-repeat center/100%;
+        }
+    }
+}

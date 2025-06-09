@@ -1,0 +1,1066 @@
+@import "../mixins/px-to-rem";
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/bem-mixins.scss';
+@import '../mixins/theme-button-mixins';
+
+@mixin ar-camera() {
+  .camera-dialog{
+    height: 100%;
+    .ar-camera-dialog{
+      margin: 500px;
+      &-list{
+        position: absolute;
+        bottom: px-to-rem(120);
+        left: px-to-rem(515);
+        width: px-to-rem(230);
+        background: rgb(23 37 55 / 90%);
+        border-radius: px-to-rem(8);
+        user-select: none;
+
+        .list_item_wrap {
+          overflow: hidden auto;
+          max-height: px-to-rem(160);
+        }
+
+        .close_icon {
+          position: absolute;
+          top: px-to-rem(-19);
+          right: px-to-rem(-19);
+          width: px-to-rem(38);
+          height: px-to-rem(38);
+          cursor: pointer;
+          background: url('~@component-gallery/assets/image/ar-camera-dialog/icon_close@2x1.png');
+          background-size: 100% 100%;
+        }
+
+        .list_item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 6px 0 px-to-rem(6);
+          padding: 0 px-to-rem(6) 0 px-to-rem(10);
+          width: 100%;
+          height: px-to-rem(32);
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgb(134 176 227 / 10%);
+          }
+
+          .icon_name {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            color: rgb(232 243 254 / 50%);
+            font-size: px-to-rem(14);
+            flex: 1;
+
+            .camera_icon_list {
+              margin-right: px-to-rem(12);
+              font-size: px-to-rem(16);
+            }
+
+            .list_item_name {
+              display: inline-block;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              flex: 1;
+            }
+          }
+
+          .height {
+            color: rgb(232 243 254 / 50%);
+            font-size: px-to-rem(14);
+          }
+        }
+
+        .list_online {
+          .icon_name {
+            color: #e8f3fe;
+          }
+
+          .height {
+            color: #ffeeb1;
+          }
+        }
+      }
+      &-cont{
+        position: absolute;
+        bottom: px-to-rem(120);
+        left: px-to-rem(584);
+        width: px-to-rem(368);
+        background: rgb(23 37 55 / 90%);
+        border-radius: 8px;
+        user-select: none;
+
+        &.have_camera_list {
+          left: px-to-rem(135);
+        }
+
+        &__header{
+          position: relative;
+          display: flex;
+          background: url('~@component-gallery/assets/image/ar-camera-dialog/head_img.png');
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+          background-position-x: -2px;
+          background-position-y: center;
+
+          &::before {
+            margin-right: px-to-rem(12);
+            width: 0;
+            height: 0;
+            content: '';
+          }
+
+          .header_cont {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            padding: 0 px-to-rem(12) 0 0;
+            height: px-to-rem(48);
+            flex: 1;
+          }
+
+          .camera_icon {
+            margin-right: px-to-rem(6);
+            color: #e8f3fe;
+            font-size: px-to-rem(16);
+          }
+
+          .name {
+            overflow: hidden;
+            height: 100%;
+            color: #e8f3fe;
+            font-size: px-to-rem(16);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 600;
+            flex: 1;
+            line-height: 0.48rem;
+          }
+
+          .type {
+            display: flex;
+            align-items: center;
+
+            .shoucang {
+              font-size: px-to-rem(14);
+
+              i {
+                margin-left: px-to-rem(6);
+                color: #e8f3fe;
+                font-size: px-to-rem(20);
+              }
+
+              i.select {
+                color: #4f9fff;
+              }
+            }
+
+            .is_online {
+              display: inline-block;
+              min-width: px-to-rem(40);
+              height: px-to-rem(20);
+              background: linear-gradient(90deg, #15bd94 0%, #00a179 100%);
+              border-radius: px-to-rem(4);
+              color: #fff;
+              font-size: px-to-rem(12);
+              text-align: center;
+              line-height: px-to-rem(20);
+            }
+
+            .is_online.offline {
+              background: linear-gradient(90deg, #8fa7cf 0%, #6f85aa 100%);
+            }
+          }
+
+          .close_icon {
+            position: absolute;
+            top: px-to-rem(-19);
+            right: px-to-rem(-19);
+            width: px-to-rem(38);
+            height: px-to-rem(38);
+            cursor: pointer;
+            background: url('~@component-gallery/assets/image/ar-camera-dialog/icon_close@2x1.png');
+            background-size: 100% 100%;
+          }
+        }
+        &__con{
+          .cont_tab {
+            position: relative;
+            height: px-to-rem(48);
+
+            .tab_item_wrap {
+              display: flex;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+
+              .tab_item {
+                height: 100%;
+                color: rgb(232 243 254 / 70%);
+                font-size: px-to-rem(16);
+                text-align: center;
+                flex: 1;
+                cursor: pointer;
+                line-height: px-to-rem(48);
+              }
+
+              .tab_active {
+                position: relative;
+                text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+                color: #e8f3fe;
+                font-weight: 600;
+
+                &::after {
+                  position: absolute;
+                  bottom: px-to-rem(-4);
+                  left: px-to-rem(34);
+                  display: inline-block;
+                  width: px-to-rem(116);
+                  height: px-to-rem(11);
+                  background: url('~@component-gallery/assets/image/common/wiseblue/popup-title-guang.png')
+                  no-repeat;
+                  background-size: contain;
+                  content: '';
+                }
+              }
+            }
+
+            .tab_bottom_line {
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              height: px-to-rem(1);
+              background: linear-gradient(
+                              270deg,
+                              rgb(176 212 255 / 0%) 0%,
+                              #b0d4ff 52%,
+                              rgb(176 212 255 / 0%) 100%
+              );
+              opacity: 0.35;
+            }
+          }
+
+          .cont_tab_left {
+            &.h193 {
+              height: px-to-rem(193);
+            }
+
+            &.h245 {
+              height: px-to-rem(245);
+            }
+
+            .cont_tab_top {
+              position: relative;
+              padding: px-to-rem(12) px-to-rem(12) 0;
+
+              .top_cont_line {
+                bottom: 0;
+                margin-top: px-to-rem(12);
+                width: 100%;
+                height: px-to-rem(1);
+                background: rgb(232 243 254 / 20%);
+              }
+
+              .spot-item + .spot-item {
+                margin-top: px-to-rem(6);
+              }
+            }
+
+            .tongdao_cont {
+              overflow: hidden;
+              padding: 0 0 0 px-to-rem(12);
+              margin: px-to-rem(9) 0;
+              width: 100%;
+
+              &.need_right {
+                padding-right: px-to-rem(12);
+              }
+
+              .tongdao_cont_wrap {
+                overflow-y: auto;
+                width: 100%;
+                min-height: px-to-rem(52);
+                max-height: px-to-rem(104);
+
+                &::-webkit-scrollbar {
+                  width: px-to-rem(6);
+                  height: px-to-rem(6);
+                  border-radius: px-to-rem(3);
+                }
+
+                &::-webkit-scrollbar-thumb {
+                  background-color: rgb(79 159 255 / 40%);
+                  border: 0;
+                  border-radius: px-to-rem(3);
+
+                  &:hover {
+                    background-color: rgb(79 159 255 / 40%);
+                  }
+                }
+
+                &::-webkit-scrollbar-corner {
+                  display: none !important;
+                }
+              }
+
+              .channel_item_wrap {
+                .spot-item {
+                  position: relative;
+                  height: px-to-rem(26);
+                  line-height: px-to-rem(26);
+
+                  &::before {
+                    position: absolute;
+                    display: inline-block;
+                    width: px-to-rem(6);
+                    height: px-to-rem(6);
+                    border-radius: 50%;
+                    content: '';
+                  }
+
+                  .spot-item {
+                    width: px-to-rem(82);
+                  }
+                }
+
+                .is_online_c {
+                  &::before {
+                    background: #15bd94;
+                  }
+                }
+
+                .is_offline_c {
+                  &::before {
+                    background: #ed5158;
+                  }
+                }
+              }
+
+              // .channel_item_wrap + .channel_item_wrap {
+              //   margin-top: 6px;
+              // }
+            }
+          }
+
+          .cont_tab_right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 px-to-rem(12);
+
+            &.cont_tab_right_short {
+              height: px-to-rem(193);
+            }
+
+            &.cont_tab_right_height {
+              height: px-to-rem(245);
+            }
+
+            .no-data {
+              color: #fff;
+              font-size: px-to-rem(14);
+              text-align: center;
+
+              &::before {
+                display: block;
+                margin: 0;
+                content: url('~@component-gallery/assets/image/ar-camera-dialog/no-data.png');
+              }
+            }
+
+            .carousel-wrapper {
+              position: relative;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+
+              ::v-deep .el-carousel {
+                overflow: hidden;
+                width: 100%;
+                aspect-ratio: 16 / 9;
+
+                .el-carousel__container {
+                  height: 100%;
+
+                  i {
+                    line-height: px-to-rem(30);
+                    font-size: px-to-rem(14);
+                    font-weight: bold;
+                    text-align: center;
+                  }
+                }
+
+                .el-carousel--horizontal {
+                  height: 100%;
+                }
+              }
+            }
+
+            .fullscreen {
+              position: absolute;
+              right: px-to-rem(6);
+              bottom: px-to-rem(6);
+              z-index: 2;
+              width: px-to-rem(30);
+              height: px-to-rem(30);
+              background: rgb(23 37 55 / 90%);
+              border-radius: px-to-rem(4);
+              color: #e8f3fe;
+              font-size: px-to-rem(16);
+              text-align: center;
+              line-height: px-to-rem(30);
+
+              .iconfont {
+                font-size: px-to-rem(16);
+              }
+            }
+
+            .el-carousel__item {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              overflow: hidden;
+              width: 100%;
+              height: 100%;
+            }
+
+            .fit-height {
+              width: 100%;
+              height: auto;
+            }
+
+            ::v-deep .el-carousel__arrow {
+              width: px-to-rem(30);
+              height: px-to-rem(30);
+              background: rgb(23 37 55 / 80%);
+              border-radius: 50%;
+              color: #e8f3fe;
+              font-size: px-to-rem(16);
+            }
+
+            ::v-deep .el-carousel__indicators {
+              display: none;
+            }
+
+            video::-webkit-media-controls-fullscreen-button {
+              display: none;
+            }
+
+            video::-webkit-media-controls-mute-button {
+              display: none;
+            }
+
+            video::-webkit-media-controls-toggle-closed-captions-button {
+              display: none;
+            }
+
+            video::-webkit-media-controls-volume-slider {
+              display: none;
+            }
+
+            video::-webkit-media-controls
+            input[pseudo='-internal-media-controls-overflow-button' i] {
+              display: none;
+            }
+
+            video::-internal-media-controls-overflow-button {
+              display: none !important;
+            }
+
+            video::-webkit-media-controls-volume-control-container {
+              display: none;
+            }
+
+            video::-webkit-media-controls-volume-control-container.closed {
+              display: none;
+            }
+          }
+
+          .spot-item {
+            display: flex;
+            align-items: center;
+            height: px-to-rem(20);
+            font-size: px-to-rem(14);
+
+            .spot-name {
+              min-width: px-to-rem(84);
+              color: rgb(232 243 254 / 70%);
+              text-align: right;
+              flex-shrink: 0;
+            }
+
+            .spot-value {
+              display: flex;
+              align-items: center;
+              overflow: hidden;
+              max-width: 100%;
+              color: #e8f3fe;
+
+              .spot-value_inner {
+                overflow: hidden;
+                width: 100%;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+          }
+
+          .fiuzhi_iocn.iconfont_tools {
+            margin-left: px-to-rem(4);
+            color: #e8f3fe;
+            font-size: px-to-rem(20);
+            cursor: pointer;
+          }
+        }
+        &__footer{
+          padding: 0 px-to-rem(12);
+          height: px-to-rem(54);
+
+          .f_cont {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            color: #fff;
+            border-top: px-to-rem(1) solid rgb(232 243 254 / 20%);
+
+            i {
+              font-size: px-to-rem(30);
+            }
+
+            .active {
+              color: #4f9fff;
+            }
+
+            i + i {
+              margin-left: px-to-rem(6);
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+[data-theme='theme-wiseblue'] {
+  // 睿智蓝
+  @include ar-camera;
+}
+
+[data-theme='theme-terracotta'] {
+  // 国土
+  @include ar-camera;
+  .camera-dialog{
+    .ar-camera-dialog{
+      &-list{
+        background: linear-gradient(
+                        180deg,
+                        #857b3f 0%,
+                        #3d3615 12%,
+                        #1a1507 21%,
+                        #140f05 27%,
+                        #000 100%
+        );
+        border: 1px solid #6e674e;
+        border-radius: 0;
+
+        .close_icon {
+          background: url('~@component-gallery/assets/image/ar-camera-dialog/icon_close@2x.png');
+          background-size: 100% 100%;
+        }
+
+        .list_item {
+          color: #e4e7c1;
+
+          &:hover {
+            background-color: rgb(100 86 46 / 40%);
+          }
+
+          .icon_name {
+            color: rgb(255 238 177 / 50%);
+          }
+
+          .height {
+            color: rgb(255 238 177 / 50%);
+          }
+        }
+
+        .list_online {
+          .icon_name {
+            color: #ffeeb1;
+          }
+
+          .height {
+            color: #ffeeb1;
+          }
+        }
+      }
+      &-cont{
+        background: linear-gradient(
+                        180deg,
+                        #857b3f 0%,
+                        #3d3615 12%,
+                        #1a1507 21%,
+                        #140f05 27%,
+                        rgb(0 0 0 / 80%) 100%
+        );
+        border: 1px solid #6e674e;
+        border-radius: 0;
+        &__header{
+          background: none;
+
+          .camera_icon {
+            color: #e4e7c1;
+          }
+
+          .name {
+            span {
+              text-shadow: 0 px-to-rem(1) px-to-rem(-4) #dcd277;
+              color: #fff;
+            }
+          }
+
+          .type {
+            .shoucang {
+              i {
+                color: #e4e7c1;
+              }
+
+              i.select {
+                color: #fffa28;
+              }
+            }
+          }
+
+          .close_icon {
+            background: url('~@component-gallery/assets/image/ar-camera-dialog/icon_close@2x.png');
+            background-size: 100% 100%;
+          }
+        }
+        &__con{
+          .cont_tab {
+            .tab_item_wrap {
+              .tab_item {
+                color: #e4e7c1;
+              }
+
+              .tab_active {
+                text-shadow: 1px 0 4px #dcd277;
+                color: #fff;
+
+                &::after {
+                  bottom: px-to-rem(-1);
+                  background: url('~@component-gallery/assets/image/ar-camera-dialog/gt_pop_guang.png') no-repeat;
+                  background-size: contain;
+                }
+              }
+            }
+
+            .tab_bottom_line {
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              height: px-to-rem(1);
+              background: linear-gradient(
+                              90deg,
+                              rgb(255 222 76 / 0%),
+                              rgb(255 222 76 / 100%),
+                              rgb(255 222 76 / 0%)
+              );
+              opacity: 0.35;
+            }
+          }
+
+          .cont_tab_left {
+            .cont_tab_top {
+              .top_cont_line {
+                background: rgb(228 231 193 / 20%);
+              }
+            }
+
+            .tongdao_cont {
+              .tongdao_cont_wrap {
+                &::-webkit-scrollbar-thumb {
+                  background-color: rgb(255 238 177 / 40%) !important;
+
+                  &:hover {
+                    background-color: rgb(255 238 177 / 40%) !important;
+                  }
+                }
+              }
+            }
+          }
+
+          .cont_tab_right {
+            .no-data {
+              color: #e4e7c1;
+
+              &::before {
+                content: url('~@component-gallery/assets/image/ar-camera-dialog/noData.png');
+              }
+            }
+
+            .fullscreen {
+              background: rgb(21 19 12 / 70%);
+              color: #ffeeb1;
+            }
+
+            ::v-deep .el-carousel__arrow {
+              background: rgb(21 19 12 / 70%);
+              color: #ffeeb1;
+            }
+          }
+
+          .spot-item {
+            .spot-name {
+              color: rgb(228 231 193 / 70%);
+            }
+
+            .spot-value {
+              color: #e4e7c1;
+            }
+          }
+
+          .fiuzhi_iocn.iconfont_tools {
+            color: #e4e7c1;
+          }
+        }
+        &__footer{
+          .f_cont {
+            color: #ffeeb1;
+            border-top: px-to-rem(1) solid rgb(228 231 193 / 20%);
+
+            .active {
+              color: #fffa28;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+[data-theme='theme-aquamarine'] {
+  // 林业
+  @include ar-camera;
+  .camera-dialog{
+    .ar-camera-dialog {
+      &-list {
+        background: linear-gradient(180deg, rgb(0 19 30 / 70%), #00131e);
+        border-image: linear-gradient(1turn, rgb(7 91 74 / 75%), rgb(7 91 74 / 30%)) 1 1;
+        border-radius: 0;
+
+        .close_icon {
+          background: url('~@component-gallery/assets/image/common/aquamarine/icon_close@2x.png');
+          background-size: 100% 100%;
+        }
+
+        .list_item {
+          color: rgb(255 255 255 / 50%);
+
+          &:hover {
+            background-color: rgb(2 137 109 / 40%);
+          }
+
+          .icon_name {
+            color: rgb(255 255 255 / 50%);
+          }
+
+          .height {
+            color: rgb(255 255 255 / 50%);
+          }
+        }
+
+        .list_online {
+          .icon_name {
+            color: #fff;
+          }
+
+          .height {
+            color: #fff;
+          }
+        }
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: calc(100% + px-to-rem(1));
+          height: px-to-rem(16);
+          background: url('~@component-gallery/assets/image/common/aquamarine/box-bottom-left.png') no-repeat left bottom/px-to-rem(16) px-to-rem(16),
+          url('~@component-gallery/assets/image/common/aquamarine/box-bottom-right.png') no-repeat right bottom/px-to-rem(16) px-to-rem(16);
+          content: '';
+          pointer-events: none;
+        }
+
+        .previous-vacancies {
+          position: absolute;
+          top: 0;
+          width: 100%;
+
+          &::before,
+          &::after {
+            position: absolute;
+            top: 0;
+            width: px-to-rem(8);
+            height: px-to-rem(1);
+            background: #00fff8;
+            content: '';
+          }
+
+          &::after {
+            right: 0;
+            z-index: -1;
+          }
+        }
+        .previous-vacancies {
+          position: absolute;
+          top: 0;
+          width: 100%;
+
+          &::before,
+          &::after {
+            position: absolute;
+            top: 0;
+            width: px-to-rem(8);
+            height: px-to-rem(1);
+            background: #00fff8;
+            content: '';
+          }
+
+          &::after {
+            right: 0;
+            z-index: -1;
+          }
+        }
+      }
+
+      &-cont {
+        background: linear-gradient(180deg, rgb(0 19 30 / 70%) 0%, #00131e 100%);
+        border-image: linear-gradient(
+                        360deg,
+                        rgb(7 91 74 / 75%),
+                        rgb(7 91 74 / 30%)
+        ) 1 1;
+        border-radius: 0;
+
+        &__header {
+          padding-left: px-to-rem(12);
+          background: linear-gradient(
+                          91deg,
+                          rgb(2 137 109 / 20%) 0%,
+                          rgb(2 137 109 / 15%) 23%,
+                          rgb(2 137 109 / 0%) 100%
+          );
+          border-radius: 0;
+
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('~@component-gallery/assets/image/common/aquamarine/popup-title-bg.png') no-repeat left center / auto 100%;
+            pointer-events: none;
+            content: '';
+          }
+
+          .camera_icon {
+            display: none;
+          }
+
+          .name {
+            color: #fff;
+
+            span {
+              text-shadow: 0 0 px-to-rem(18) rgb(0 245 193 / 90%);
+              color: #fff;
+            }
+
+            span {
+              padding-left: px-to-rem(15);
+
+              &::before {
+                position: absolute;
+                top: calc(50% - px-to-rem(4));
+                display: block;
+                width: px-to-rem(8);
+                height: px-to-rem(8);
+                background: url('~@component-gallery/assets/image/common/aquamarine/popup-title-icon.png') no-repeat center / 100% 100%;
+                content: '';
+              }
+
+              // highlight-title title底部线条高光
+              &::after {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: px-to-rem(168);
+                height: px-to-rem(10);
+                background: url('~@component-gallery/assets/image/common/aquamarine/popup-title-guang.png') no-repeat center / 100% 100%;
+                content: '';
+              }
+            }
+
+            &::before {
+              position: absolute;
+              top: px-to-rem(-6.5);
+              left: px-to-rem(45);
+              width: px-to-rem(36);
+              height: px-to-rem(14);
+              background: url('~@component-gallery/assets/image/common/aquamarine/popup-header-k.png') no-repeat center / 100% 100%;
+              pointer-events: none;
+              content: '';
+            }
+
+            &::after {
+              left: px-to-rem(40);
+            }
+          }
+
+          .type {
+            .shoucang {
+              i {
+                color: #fff;
+              }
+
+              i.select {
+                color: #f9ff6c;
+              }
+            }
+          }
+
+          .close_icon {
+            background: url('~@component-gallery/assets/image/common/aquamarine/icon_close@2x.png');
+            background-size: 100% 100%;
+          }
+        }
+
+        &__con {
+          .cont_tab {
+            .tab_item_wrap {
+              .tab_item {
+                color: #0dc985;
+              }
+
+              .tab_active {
+                text-shadow: 0 0 px-to-rem(24) rgb(0 245 193 / 70%);
+                color: #fff;
+
+                &::after {
+                  bottom: px-to-rem(-4);
+                  background: url('~@component-gallery/assets/image/ar-camera-dialog/ly_pop_guang.png') no-repeat;
+                  background-size: contain;
+                }
+              }
+            }
+
+            .tab_bottom_line {
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              height: px-to-rem(1);
+              background: linear-gradient(
+                              270deg,
+                              rgb(234 244 255 / 0%) 0%,
+                              #eaf4ff 53%,
+                              rgb(234 244 255 / 0%) 100%
+              );
+              opacity: 0.2;
+            }
+          }
+
+          .cont_tab_left {
+            .cont_tab_top {
+              .top_cont_line {
+                background: rgb(255 255 255 / 20%);
+              }
+            }
+
+            .tongdao_cont {
+              .tongdao_cont_wrap {
+                &::-webkit-scrollbar-thumb {
+                  background-color: rgb(2 137 109 / 40%) !important;
+
+                  &:hover {
+                    background-color: rgb(2 137 109 / 40%) !important;
+                  }
+                }
+              }
+            }
+          }
+
+          .cont_tab_right {
+            .no-data {
+              color: #fff;
+
+              &::before {
+                content: url('~@component-gallery/assets/image/common/aquamarine/noData.png');
+              }
+            }
+
+            .fullscreen {
+              background: rgb(2 50 32 / 70%);
+              color: #fff;
+            }
+
+            ::v-deep .el-carousel__arrow {
+              background: rgb(2 50 32 / 70%);
+              color: #fff;
+            }
+          }
+
+          .spot-item {
+            .spot-name {
+              color: rgb(255 255 255 / 70%);
+            }
+
+            .spot-value {
+              color: rgb(255 255 255 / 100%);
+            }
+          }
+
+          .fiuzhi_iocn.iconfont_tools {
+            color: rgb(255 255 255 / 100%);
+          }
+        }
+
+        &__footer {
+          .f_cont {
+            color: rgb(255 255 255 / 100%);
+            border-top: px-to-rem(1) solid rgb(255 255 255 / 20%);
+
+            .active {
+              background-repeat: no-repeat;
+              background-size: 100%;
+              color: rgb(249 255 108 / 100%);
+              background-image: url('~@component-gallery/assets/image/tool-box/aquamarine/funcicon-bg.png');
+            }
+          }
+        }
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: calc(100% + px-to-rem(1));
+          height: px-to-rem(16);
+          background: url('~@component-gallery/assets/image/common/aquamarine/box-bottom-left.png') no-repeat left bottom/px-to-rem(16) px-to-rem(16),
+          url('~@component-gallery/assets/image/common/aquamarine/box-bottom-right.png') no-repeat right bottom/px-to-rem(16) px-to-rem(16);
+          content: '';
+          pointer-events: none;
+        }
+      }
+
+    }
+  }
+}

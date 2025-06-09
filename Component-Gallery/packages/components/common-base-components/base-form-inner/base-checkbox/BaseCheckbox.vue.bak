@@ -1,0 +1,96 @@
+<template>
+  <span class="base-checkbox__namespace">
+    <label class="base-checkbox" :class="[isCheckedClass, isBackgroundClass]">
+      <span class="base-checkbox__input">
+        <span class="base-checkbox__input__inner"></span>
+        <input
+          type="checkbox"
+          class="base-checkbox__input__original"
+          :data-data="
+            JSON.stringify({ label: label, value: value, checked: isChecked })
+          "
+          :checked="isChecked"
+          @change="onChange"
+        />
+      </span>
+      <span class="base-checkbox__label">
+        <slot></slot>
+        <template v-if="!$slots.default">{{ label }}</template>
+      </span>
+    </label>
+  </span>
+</template>
+
+<script>
+import { forEach } from 'lodash-es'
+
+export default {
+  name: 'BaseCheckbox',
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
+  props: {
+    checkboxType: {
+      type: String,
+      default: 'default'
+    },
+    label: {
+      type: String,
+      default: ''
+    },
+    value: {},
+    checked: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      isChecked: this.checked
+    }
+  },
+  computed: {
+    isCheckedClass() {
+      if (this.isChecked || this.checked) {
+        return { 'base-checkbox--checked': true }
+      }
+      return {}
+    },
+    isBackgroundClass() {
+      if (this.checkboxType === 'background') {
+        return { 'base-checkbox--background': true }
+      }
+      return { 'base-checkbox--default': true }
+    }
+  },
+  methods: {
+    onChange(event) {
+      this.$emit('change', event.target.checked)
+      this.isChecked = event.target.checked
+
+      this.$globalEventBus.$emit('BaseCheckbox-change', {
+        _uid: this.$parent._uid,
+        label: this.label,
+        value: this.value,
+        checked: event.target.checked
+      })
+    }
+  },
+  mounted() {
+    // if (this.$parent.$options.name === 'BaseCheckboxGroup') {
+    //   const groupValues = this.$parent.$options?.propsData?.value
+    //   forEach(groupValues, (item) => {
+    //     if (item === this.value) {
+    //       this.isChecked = true
+    //       return false
+    //     }
+    //   })
+    // }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+@import '~@component-gallery/theme-chalk/src/base-components/base-checkout.scss';
+</style>

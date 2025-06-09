@@ -1,0 +1,51 @@
+@import "mixins/px-to-rem";
+
+.air-quality-forecast{
+    &-container{
+        width: px-to-rem(370);
+        .titleLogo {
+          font-size: px-to-rem(20);
+          position: absolute;
+          left: px-to-rem(140);
+          top: px-to-rem(14);
+          color: #ffeeb1;
+        }
+      &__echartsBox{
+        position: relative;
+        width: 100%;
+        margin-top: px-to-rem(12);
+        margin-bottom: px-to-rem(10);
+        height: px-to-rem(230);
+        #echartsContainer_aqi{
+         width: 100%;
+         height: px-to-rem(230);
+         z-index: 1;
+        }
+        .bg_img {
+          pointer-events: none;
+          position: absolute;
+          bottom: px-to-rem(2);
+          left: px-to-rem(20);
+          width: 91%;
+        }
+      }
+    }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .air-quality-forecast{
+        &-container{
+        .titleLogo {
+          left: px-to-rem(130);
+        }
+      }
+}
+
+// 国土
+[data-theme="theme-terracotta"] .air-quality-forecast{
+        &-container{
+        .titleLogo {
+          top: px-to-rem(13);
+        }
+      }    
+}

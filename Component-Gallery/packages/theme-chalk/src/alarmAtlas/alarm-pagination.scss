@@ -1,0 +1,88 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+.page-tool-box {
+  position: relative;
+  z-index: 9;
+  margin-top: px-to-rem(-46);
+  height: px-to-rem(46);
+  // background: themed('alarm-list-bg-page-tool');
+  line-height: px-to-rem(46);
+  @include themeify(false) {
+    .page-tool {
+      position: absolute;
+      right: px-to-rem(12);
+      bottom: px-to-rem(-12);
+      display: flex;
+      height: px-to-rem(46);
+      line-height: px-to-rem(46);
+
+      .page-number {
+        // width: 80px;
+        overflow: hidden;
+        height: px-to-rem(26);
+        color: themed('global-text-color');
+        font-size: px-to-rem(12);
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 400;
+        line-height: px-to-rem(26);
+      }
+
+      .refreshClass {
+        margin-right: px-to-rem(6);
+        color: themed('alarm-list-color-btn-refresh');
+        font-size: px-to-rem(20);
+        line-height: px-to-rem(26);
+        cursor: pointer;
+        ::v-deep i {
+          font-size: px-to-rem(16);
+          color: themed('alarm-list-color-btn-refresh') !important;
+        }
+      }
+
+      .goMoreClass {
+        color: themed('alarm-list-color-btn-refresh');
+        font-size: px-to-rem(20);
+        line-height: px-to-rem(26);
+
+        //  margin-left: px-to-rem(11);
+        cursor: pointer;
+      }
+
+      .el-pagination--small {
+        ::v-deep .btn-next,
+        .btn-prev,
+        .el-pager li,
+        .el-pager li.btn-quicknext,
+        .el-pager li.btn-quickprev,
+        .el-pager li:last-child {
+          font-size: px-to-rem(12) !important;
+          line-height: px-to-rem(22) !important;
+          height: px-to-rem(22) !important;
+          min-width: px-to-rem(22) !important;
+        }
+      }
+      ::v-deep .el-pagination .el-pager li.active {
+        background: themed('alarm-list-bg-pagination') !important;
+        border-radius: px-to-rem(4) !important;
+        color: themed('alarm-list-btn-font-color') !important;
+      }
+      ::v-deep .el-pagination .el-pager li,
+      ::v-deep .el-pagination .btn-next,
+      ::v-deep .el-pagination .btn-prev {
+        background: transparent !important;
+        color: themed('global-text-color') !important;
+      }
+    }
+    ::v-deep .el-pagination .btn-next {
+      padding: unset;
+        min-width: px-to-rem(16);
+    }
+    ::v-deep .el-pagination .btn-prev {
+      padding: unset;
+        min-width: px-to-rem(16);
+    }
+  }
+}

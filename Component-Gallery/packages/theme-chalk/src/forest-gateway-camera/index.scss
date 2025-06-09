@@ -1,0 +1,78 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.row {
+  font-size: px-to-rem(20);
+  padding: 0 px-to-rem(20);
+
+  .content-box {
+    display: flex;
+    justify-content: space-between;
+    gap: px-to-rem(12);
+    width: 100%;
+    height: px-to-rem(150);
+    padding: px-to-rem(15) 0;
+
+    .content-item {
+      width: 33%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      background-size: 100% 100%;
+      flex-direction: column;
+      position: relative;
+      &.first {
+        --current-color: #ffab10;
+        background-image: url('~@component-gallery/forest-gateway-camera/src/assets/noice-bg.png');
+      }
+
+      &.second {
+        --current-color: #24ab83;
+        background-image: url('~@component-gallery/forest-gateway-camera/src/assets/bird-bg.png');
+      }
+
+      &.third {
+        --current-color: #2493dc;
+        background-image: url('~@component-gallery/forest-gateway-camera/src/assets/video-bg.png');
+      }
+
+      .content-box__bottom {
+        width: 100%;
+        position: absolute;
+        bottom: 3%;
+        left: 0;
+      }
+
+      .content-item__label {
+        font-size: px-to-rem(14);
+        color: #ffffff;
+        text-shadow: 0px px-to-rem(2) px-to-rem(7) var(--current-color);
+        text-align: center;
+        font-style: normal;
+        margin-top: 5%;
+        overflow: hidden;
+      }
+
+      .content-item__value {
+        @extend .content-item__label;
+        font-size: px-to-rem(19);
+        margin-top:  5%;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.cdivider {
+  width: 100%;
+  height: px-to-rem(1);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 176, 140, 0.1) 0%,
+    #00b08c 51%,
+    rgba(0, 176, 140, 0) 100%
+  );
+  opacity: 0.7;
+  margin-bottom: px-to-rem(15);
+}

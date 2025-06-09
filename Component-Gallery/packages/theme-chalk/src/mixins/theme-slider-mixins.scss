@@ -1,0 +1,42 @@
+@import '../common/themes';
+@import 'theme-mixins';
+
+@mixin el_slider_styles() {
+  @include themeify(false) {
+    ::v-deep .el-slider {
+      margin: 0 px-to-rem(12) 0 0;
+      width: calc(100% - px-to-rem(202));
+      min-width: px-to-rem(185);
+
+      .el-slider__bar {
+        height: px-to-rem(4);
+        background: themed('el-slider-buttom');
+      }
+
+      .el-slider__button {
+        width: px-to-rem(12);
+        height: px-to-rem(14);
+        background: url('~@component-gallery/assets/image/icon_slider.png')
+          no-repeat center/100% auto transparent !important;
+        background-repeat: no-repeat;
+        border: none;
+        border-radius: inherit;
+      }
+
+      .el-slider__runway {
+        margin: px-to-rem(10) 0 !important;
+        height: px-to-rem(4);
+        background: themed('el-slider-runway');
+        box-shadow: themed('c-btn-default-box-shadow');
+      }
+      .el-slider__button {
+        width: px-to-rem(12);
+        height: px-to-rem(14);
+        background: url('~@component-gallery/assets/image/icon_slider.png')
+          no-repeat center/100% auto transparent !important;
+        border: none !important;
+        border-radius: 0;
+      }
+    }
+  }
+}

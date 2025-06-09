@@ -1,0 +1,14 @@
+ls:
+  packages/components/*/src:
+    .dir: camelcase
+    .js: kebab-case
+    .ts: kebab-case
+    .json: kebab-case
+    .vue: PascalCase
+
+ignore:
+  - node_modules
+  - .vscode
+  - .idea
+  - .git
+  - packages/components/common-comp-tool-box/src/assets/SymbolIcon

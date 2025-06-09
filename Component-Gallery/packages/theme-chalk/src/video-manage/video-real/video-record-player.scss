@@ -1,0 +1,119 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.record-player {
+  @include themeify(false) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    display: none;
+    &.visible {
+      display: block;
+    }
+    .player {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      ::v-deep .vjs-control-bar,
+      ::v-deep .vsc-controller,
+      ::v-deep .vjs-big-play-button,
+      ::v-deep .easy-player-right-menu,
+      ::v-deep .vjs-control.vjs-button.vjs-stretch-control {
+        display: none !important;
+      }
+    }
+    .time-axis {
+      width: 100%;
+      height: px-to-rem(40);
+      background: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      cursor: default;
+      .record-pause {
+        width: px-to-rem(50);
+        text-align: center;
+        line-height: 1;
+        font-size: px-to-rem(28);
+        color: #fff;
+        cursor: pointer;
+      }
+      .axis-body {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      .axis {
+        width: 100%;
+        height: px-to-rem(16);
+        background: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        position: relative;
+        b {
+          position: absolute;
+          height: 100%;
+          width: 0;
+          left: 0;
+          top: 0;
+          background: #fff;
+          pointer-events: none;
+        }
+      }
+      .time {
+        position: absolute;
+        bottom: calc(100% + px-to-rem(2));
+        left: 0;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.4);
+        color: #fff;
+        font-size: px-to-rem(12);
+        padding: px-to-rem(4) px-to-rem(8);
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: 8;
+      }
+      .progress {
+        width: px-to-rem(2);
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #fff;
+        pointer-events: none;
+        transform: translateX(-50%);
+        &:before {
+          content: '';
+          width: px-to-rem(8);
+          height: px-to-rem(5);
+          background: #fff;
+          position: absolute;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+          z-index: 3;
+        }
+        &:after {
+          content: '';
+          width: px-to-rem(8);
+          height: 0;
+          border: px-to-rem(4) solid transparent;
+          border-top: px-to-rem(3) solid #e8f3fe;
+          position: absolute;
+          left: 50%;
+          top: px-to-rem(5);
+          transform: translateX(-50%);
+          z-index: 2;
+        }
+      }
+    }
+  }
+}

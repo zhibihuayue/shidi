@@ -1,0 +1,78 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.filter-camera {
+  @include themeify() {
+    display: flex;
+
+    // background: rgba(15, 25, 38, 1);
+    // border-radius: 4px;
+    padding: px-to-rem(12);
+    width: 100%;
+    color: rgb(232 243 254 / 100%);
+    flex-wrap: wrap;
+
+    .camera-title {
+      margin-bottom: px-to-rem(12);
+      width: 100%;
+      font-size: px-to-rem(14);
+      line-height: px-to-rem(14);
+    }
+
+    .flex-btn-view {
+      display: flex;
+      flex-wrap: wrap;
+      grid-gap: px-to-rem(6) px-to-rem(6);
+    }
+
+    .type-btn {
+      overflow: hidden;
+      padding: 0 px-to-rem(12);
+      width: px-to-rem(108);
+      height: px-to-rem(32);
+      border: solid px-to-rem(1) rgb(232 243 254 / 20%);
+      border-radius: px-to-rem(4);
+      color: #e8f3fe;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: px-to-rem(30);
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    .choosed {
+      border: 1px solid #4f9fff;
+      color: #4f9fff;
+    }
+
+    .flex-btn-view-auto {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+      width: 100% !important;
+
+      .type-btn {
+        width: unset !important;
+      }
+    }
+
+    .footer-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: px-to-rem(12);
+      width: 100%;
+
+      .fun-btn {
+        text-align: center;
+        cursor: pointer;
+        flex: 1;
+      }
+
+      .reset {
+        margin-left: px-to-rem(12);
+      }
+    }
+  }
+}

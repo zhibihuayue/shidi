@@ -1,0 +1,26 @@
+// 通用样式
+$background-color-theme-common: rgb(23 37 55 / 90%); // 摄像机树背景色
+// 国土样式
+$background-color-theme-land: rgb(60 54 21 / 90%); // 摄像机树背景色
+// 摄像机树背景色
+$label-color: #e4e7c1;
+$label-hover-color: #fffa28;
+$label-selected-color: #fffa28; // 有歧义，选中时有两个颜色
+$label-match-color: #fffa28; // 带搜索的下拉和级联菜单匹配时的颜色
+
+$icon-color: #ffeeb1;
+$icon-hover-color: #fffa28;
+$pagination-icon-color: rgba(#e4e7c1, 0.9);
+$border-color: #6e674e; // 弹框边框色
+$border-checkbox-color: #9f9853; // checkbox边框色
+
+$bg-color: #9f9853;
+$bg-hover-color: rgba(#7a713d, 0.36);
+$bg-selected-color: rgba(#7a713d, 0.36);
+
+// 林业样式
+$background-color-theme-forestry: linear-gradient(
+  180deg,
+  rgb(0 19 30 / 70%) 0%,
+  #00131e 100%
+);

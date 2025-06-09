@@ -1,0 +1,60 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.common-comp-fire-warning_func_area {
+  @include themeify(false) {
+    .area-param-box ::v-deep .el-input__suffix-inner .el-select__caret {
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(12);
+      font-weight: bold;
+    }
+    ::v-deep .el-icon-circle-close::before {
+      // 统一覆写所有的el-icon-circle-close。注意，这会使得系统里失去原来那个空心版本
+      content: '\E6DB'; // FIXME 注意，这个是基于iconfont的值，应该是涂色版的关闭图标，如果图标库有变动会出问题
+      font-weight: bold;
+      color: themed('fire-warning-list-color-label');
+    }
+
+    .select-show ::v-deep .el-tree-node__children {
+      overflow: visible !important;
+    }
+
+    .forest-warning {
+      position: relative;
+      padding: px-to-rem(12) 0;
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+    }
+    .forest-warning .tree {
+      overflow: hidden;
+      height: calc(100% - px-to-rem(32));
+    }
+    .area-color,
+    ::v-deep .area-color {
+      color: #0dc985;
+    }
+
+    .forest-fire-loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100% - px-to-rem(80));
+      color: themed('global-text-color');
+      font-size: px-to-rem(14);
+      text-align: center;
+      flex-direction: column;
+      line-height: px-to-rem(30);
+
+      i {
+        font-size: px-to-rem(30);
+        color: themed('global-icon-color');
+      }
+
+      span {
+        display: block;
+      }
+    }
+  }
+}

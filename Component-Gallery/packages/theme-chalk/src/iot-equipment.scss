@@ -1,0 +1,283 @@
+@import "mixins/px-to-rem";
+
+.iot-equipment {
+  &-title {
+    display: flex;
+    align-items: center;
+    padding: 0 px-to-rem(12);
+    margin-right: px-to-rem(-12);
+    margin-left: px-to-rem(-12);
+    height: 100%;
+    img{
+      width: px-to-rem(20);
+      height: px-to-rem(20);
+      margin-right: px-to-rem(6);
+    }
+    >h4 {
+      overflow: hidden;
+      font-size: px-to-rem(16);
+      line-height: 1;
+      text-align: left;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+      font-weight: 700;
+      color: var(--iw-text-color);
+    }
+
+    .deviceicon {
+      line-height: 1;
+      margin-right: px-to-rem(10);
+      font-size: px-to-rem(20);
+    }
+
+    .favicon {
+      margin-left: px-to-rem(6);
+      font-size: px-to-rem(20);
+    }
+
+    .inline{
+      text-align: center;
+      width: px-to-rem(40);
+      height: px-to-rem(20);
+      background: linear-gradient( 90deg, #15BD94 0%, #00A179 100%);
+      border-radius: 4px;
+      font-size: px-to-rem(12);
+      line-height: px-to-rem(20);
+    }
+    .outline{
+      text-align: center;
+      width: px-to-rem(40);
+      height: px-to-rem(20);
+      background: linear-gradient(90deg, #8FA7CF 0%, #6F85AA 100%);
+      border-radius: 4px;
+      font-size: px-to-rem(12);
+      line-height: px-to-rem(20);
+    }
+    .active {
+      color: var(--iw-active-text-color);
+    }
+  }
+
+  &-body {
+    &__content {
+      padding: px-to-rem(12) 0 px-to-rem(12) px-to-rem(12);
+      width: px-to-rem(336);
+    }
+
+    &__item {
+      line-height: px-to-rem(20);
+      display: flex;
+      align-items: center;
+      font-size: px-to-rem(14);
+    }
+
+    .isTop {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    &__label {
+      color: rgb(232 243 254 / 70%);
+      font-size: px-to-rem(14);
+    }
+
+    &__value {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      >span{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .desc {
+        display: inline-block;
+        overflow-x: hidden;
+        overflow-y: auto;
+        max-height: px-to-rem(60);
+      }
+    }
+
+    &__item + &__item {
+      margin-top: px-to-rem(6);
+    }
+
+    .icon-fuzhiicon {
+      margin-left: px-to-rem(6);
+      font-size: px-to-rem(20);
+    }
+
+    &__bottom{
+      padding: px-to-rem(12) 0;
+      margin: 0 px-to-rem(12);
+      display: flex;
+      border-top: px-to-rem(1) solid rgb(232 243 254 / 20%);
+      .active {
+        color: var(--iw-active-text-color);
+      }
+      // .icon-tongyong_icon_jianceshuju_n_30 {
+      //   &:hover{
+      //     &::before{
+      //       content: '\ec6d'
+      //     }
+      //   }
+      // }
+      // .icon-tongyong_icon_guanlianshijian_s_30 {
+      //   &:hover{
+      //     &::before{
+      //       content: '\ec6f'
+      //     }
+      //   }
+      // }
+      // .icon-tongyong_icon_zhoubianfenxi_n_30 {
+      //   &:hover{
+      //     &::before{
+      //       content: '\ec65'
+      //     }
+      //   }
+      // }
+      // .icon-tongyong_icon_daozheli_n_30 {
+      //   &:hover{
+      //     &::before{
+      //       content: '\ec60'
+      //     }
+      //   }
+      // }
+      // .icon-tongyong_icon_hanhua_n_30 {
+      //   &:hover{
+      //     &::before{
+      //       content: '\ec6a'
+      //     }
+      //   }
+      // }
+      > i.iconfont_tools {
+        display: inline-block;
+        line-height: px-to-rem(30);
+        font-size: px-to-rem(30);
+        cursor: pointer;
+
+        + i {
+          margin-left: px-to-rem(6);
+        }
+
+        // &:hover{
+        //   color: var(--iw-active-text-color);
+        // }
+      }
+    }
+  }
+  &-ul-list {
+    width: px-to-rem(230);
+    max-height: px-to-rem(172);
+    border-radius: 8px;
+    overflow: auto;
+    .outline {
+      color: rgba(232,243,254,.5);
+      span {
+        color: rgba(232,243,254,.5);
+      }
+    }
+    > li {
+      padding: px-to-rem(6) px-to-rem(10);
+      display: flex;
+      align-items: center;
+      font-size: px-to-rem(14);
+      color: #e8f3fe;
+      height: px-to-rem(32);
+      overflow: hidden;
+      cursor: pointer;
+      p {
+        margin: 0 px-to-rem(13) 0 px-to-rem(4);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+      }
+      span{
+        color: #ffeeb1;
+      }
+      &:hover {
+        background-color: rgb(134 176 227 / 10%);
+      }
+    }
+  }
+}
+
+[data-theme="theme-wiseblue"] .iot-equipment{
+  &-title {
+    h4 {
+      color: #E8F3FE;
+    }
+  }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .iot-equipment{
+  &-body{
+    &__label {
+      color: rgb(255 255 255 / 70%);
+    }
+
+    &_bottom {
+      border-top: px-to-rem(1) solid rgb(255 255 255 / 20%);
+    }
+  }
+  &-title {
+    .leftIcon {
+      display: none;
+    }
+    h4 {
+      margin-left: px-to-rem(14);
+    }
+  }
+  &-ul-list {
+    > li {
+      color: #FFFFFF;
+      i, span {
+        color: #FFFFFF;
+      }
+    }
+    .outline {
+      color: rgba(255,255,255,0.4);
+      i, span {
+        color: rgba(255,255,255,0.4);
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme="theme-terracotta"] .iot-equipment{
+  &-body{
+    &__label {
+      color: rgb(228 231 193 / 70%);
+    }
+
+    &_bottom {
+      border-top: px-to-rem(1) solid rgb(228 231 193 / 20%);
+    }
+  }
+
+  &-title {
+    &::after{
+      height: 0 !important;
+    }
+  }
+  &-ul-list {
+    > li {
+      color: #E4E7C1;
+      i, span {
+        color: #FFEEB1;
+      }
+    }
+    .outline {
+      color: rgba(228,231,193,0.4);
+      i, span {
+        color: rgba(255,238,177,0.4);
+      }
+    }
+  }
+}

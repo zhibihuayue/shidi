@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <!-- APM集成 -->
+  <script type="text/javascript" src="BonreeSDK_JS.min.js" data="%7B%22reqHeaderTraceKey%22%3A%5B%22tracestate%22%2C%22traceparent%22%5D%2C%22uploadAddrHttps%22%3A%22https%3A%2F%2F10.43.25.17%3A58897%2FRUM%2Fupload%22%2C%22mc%22%3A%5B%7B%22n%22%3A%22network%22%2C%22cs%22%3A%7B%22fc%22%3A0%7D%7D%5D%2C%22appId%22%3A%221ad321822d934626bd8871d62076b94f%22%2C%22uploadAddrHttp%22%3A%22http%3A%2F%2F10.43.25.17%3A58897%2FRUM%2Fupload%22%2C%22respHeaderTraceKey%22%3A%5B%22traceresponse%22%2C%22x-br-response%22%5D%2C%22brss%22%3Afalse%7D" id="BonreeAgent" ></script>
+  <!-- 使用CDN加速的JS文件，配置在vue.config.js下 -->
+  <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
+  <script src="<%= htmlWebpackPlugin.options.cdn.js[i] %>" rel="preload"></script>
+  <% } %>
+  <script src="<%= BASE_URL %>EasyPlayer-lib.min.js"></script>
+  <script data-inject>
+    // window.__coco_config__ = {
+    //   components: []
+    // };
+  </script>
+  <!-- remote-script-inject-start -->
+  <!-- remote-script-inject-end -->
+</head>
+<body>
+<noscript>
+  <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+    Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- built files will be auto injected -->
+</body>
+</html>

@@ -1,0 +1,609 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/px-to-rem';
+
+/* 模块样式 */
+.common-comp-alarm-today {
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  width: px-to-rem(370);
+  height: px-to-rem(388);
+  ::v-deep .base-button {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: px-to-rem(32);
+    font-size: px-to-rem(14);
+  }
+
+  @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+    }
+    @if $theme-name == 'theme-terracotta' {
+      background-image: url("~@component-gallery/assets/image/alarm-today/terracotta/card-bg.png");
+      background-size: px-to-rem(100) px-to-rem(40);
+      background-repeat: no-repeat;
+      background-position: top left;
+    }
+    @if $theme-name == 'theme-wiseblue' {
+    }
+    .common-comp-alarm-today-statistics {
+      display: flex;
+      margin: px-to-rem(12) 0 px-to-rem(12);
+      justify-content: space-between;
+      .item_0 {
+        cursor: pointer;
+      }
+
+      .common-comp-alarm-today-statistics-item {
+        width: px-to-rem(119);
+        height: px-to-rem(108);
+        background-size: 100% 100%;
+        color: themed('alarm-today-statistics-item-color');
+        font-size: px-to-rem(14);
+        background-image: themed('alarm-today-statistics-item-bg');
+        position: relative;
+
+        // background-image: url('~@component-gallery/assets/image/alarm-today/alarm-bg-1.png');
+        font-weight: 400;
+        line-height: px-to-rem(14);
+        flex-direction: column;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        .common-comp-alarm-today-statistics-item__content {
+          display: flex;
+          margin-bottom: px-to-rem(0);
+          color: themed('alarm-today-statistics-item-content-color');
+          font-size: px-to-rem(14);
+          flex-direction: row;
+          position: absolute;
+          top: px-to-rem(31);
+          right: px-to-rem(20);
+
+          .common-comp-alarm-today-statistics-item__wrapper {
+            display: flex;
+            justify-content: flex-end;
+
+            // align-items: center;
+            // margin-right: px-to-rem(4);
+            background-size: cover;
+            color: themed('alarm-today-statistics-item-color');
+            font-size: px-to-rem(20);
+            text-align: right;
+            font-weight: 600;
+            // background-image: themed('alarm-today-statistics-item-wrapper-bg');
+
+            // background-image: url('~@component-gallery/assets/image/alarm-today/alarm-1.png');
+          }
+
+          .common-comp-alarm-today-statistics-item__value {
+            padding-right: px-to-rem(2);
+            font-weight: 600;
+            font-size: px-to-rem(20);
+            @if $theme-name == 'theme-aquamarine' {
+              text-shadow: 0px 1px 4px #DCD277;
+            }
+            @if $theme-name == 'theme-terracotta' {
+              text-shadow: 0px 1px 4px #DCD277;
+            }
+            @if $theme-name == 'theme-wiseblue' {
+              text-shadow: 0px 1px 4px #DCD277;
+            }
+          }
+          .common-comp-alarm-today-statistics-item__value_third {
+            @if $theme-name == 'theme-aquamarine' {
+              text-shadow: 0px 1px 4px #4E85D1 !important;
+            }
+            @if $theme-name == 'theme-terracotta' {
+            }
+            @if $theme-name == 'theme-wiseblue' {
+              text-shadow: 0px 1px 4px #4E85D1 !important;
+            }
+          }
+          .common-comp-alarm-today-statistics-item_unit{
+            @if $theme-name == 'theme-aquamarine' {
+              color: #E8F3FE;
+            }
+            @if $theme-name == 'theme-terracotta' {
+              color: #E4E7C1;
+            }
+            @if $theme-name == 'theme-wiseblue' {
+              color: #E8F3FE;
+            }
+          }
+        }
+
+        .common-comp-alarm-today-statistics-item__title {
+          font-size: px-to-rem(14) !important;
+          margin-top: px-to-rem(82);
+          width: 100%;
+          text-align: center;
+          line-height: px-to-rem(14);
+          @if $theme-name == 'theme-aquamarine' {
+            color: #fff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #E4E7C1;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: #fff;
+          }
+        }
+
+        &:nth-of-type(2) {
+          background-image: themed('alarm-today-statistics-item-second-bg');
+
+          // background-image: url('~@component-gallery/assets/image/alarm-today/alarm-bg-2.png');
+
+          .common-comp-alarm-today-statistics-item__content {
+            .common-comp-alarm-today-statistics-item__wrapper {
+              text-shadow: 0 1px 4px #dcd277;
+              // background-image: themed(
+              //   'alarm-today-statistics-item-second-wrapper-bg'
+              // );
+
+              // background-image: url('~@component-gallery/assets/image/alarm-today/alarm-2.png');
+            }
+          }
+        }
+
+        &:nth-of-type(3) {
+          background-image: themed('alarm-today-statistics-item-third-bg');
+
+          // background-image: url('~@component-gallery/assets/image/alarm-today/alarm-bg-3.png');
+
+          .common-comp-alarm-today-statistics-item__content {
+            .common-comp-alarm-today-statistics-item__wrapper {
+              text-shadow: 0 1px 4px #4e85d1;
+              // background-image: themed(
+              //   'alarm-today-statistics-item-third-warapper-bg'
+              // );
+
+              // background-image: url('~@component-gallery/assets/image/alarm-today/alarm-3.png');
+            }
+          }
+        }
+      }
+    }
+
+    .common-comp-alarm-today-swiper {
+      position: relative;
+      overflow: hidden;
+      width: px-to-rem(370);
+      height: px-to-rem(208);
+
+      .common-comp-alarm-today-swiper-item {
+        position: relative;
+        overflow: hidden;
+        width: px-to-rem(370);
+          height: px-to-rem(208);
+        border-radius: px-to-rem(8);
+
+        .common-comp-alarm-today-swiper-item__image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+
+          // object-fit: contain;
+          border-radius: px-to-rem(8);
+        }
+
+        .common-comp-alarm-today-swiper-item-wrapper {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: flex;
+          justify-content: space-between;
+          padding: px-to-rem(12);
+          width: 100%;
+          height: 100%;
+          background-color: rgb(0 0 0 / 30%);
+          flex-direction: column;
+          box-sizing: border-box;
+
+          .common-comp-alarm-today-swiper-item__video-player {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: px-to-rem(40);
+            height: px-to-rem(40);
+            cursor: pointer;
+
+            img {
+              width: px-to-rem(40);
+              height: px-to-rem(40);
+            }
+          }
+
+          .common-comp-alarm-today-swiper-item__header {
+            display: flex;
+            justify-content: space-between;
+            color: themed('alarm-today-statistics-item-color');
+            font-size: px-to-rem(14);
+            text-align: left;
+            flex-direction: row;
+            font-weight: 400;
+            line-height: px-to-rem(14);
+            font-style: normal;
+            .common-comp-alarm-today-swiper-item__black-header {
+              width: 100%;
+              height: px-to-rem(33);
+              position: absolute;
+              top: 0;
+              left: 0;
+              background: linear-gradient( 0, rgba(0,0,0,0) 0%, rgba(0,0,0,0.47) 38%, rgba(0,0,0,0.72) 74%, rgba(0,0,0,0.68) 100%);
+              opacity: 0.5;
+              z-index:0;
+            }
+
+            .common-comp-alarm-today-swiper-item__time {
+              font-size: px-to-rem(14) !important;
+              line-height: px-to-rem(20) !important;
+              position: relative;
+              z-index: 1;
+              @if $theme-name == 'theme-aquamarine' {
+                color: #fff;
+              }
+              @if $theme-name == 'theme-terracotta' {
+                color: #E4E7C1;
+              }
+              @if $theme-name == 'theme-wiseblue' {
+                color: #E8F3FE;
+              }
+
+              // -webkit-text-stroke: 1px rgb(0 0 0 / 40%);
+              // -moz-text-stroke: 1px rgb(0 0 0 / 40%);
+
+              // -webkit-text-stroke: 1px rgba(0,0,0,0.4);
+            }
+
+            .common-comp-alarm-today-swiper-item__countdown {
+              position: relative;
+              z-index: 1;
+              color: themed('alarm-today-statistics-countdown-color');
+            }
+          }
+
+          .common-comp-alarm-today-swiper-item__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            overflow: hidden;
+            color: themed('alarm-today-statistics-item-color');
+            font-size: px-to-rem(12);
+            text-align: left;
+            flex-direction: row;
+            font-weight: 400;
+            line-height: px-to-rem(12);
+            font-style: normal;
+
+            .common-comp-alarm-today-swiper-item__info {
+              flex: 1;
+              overflow: hidden;
+              position: relative;
+              z-index: 1;
+
+              .common-comp-alarm-today-swiper-item__title {
+                overflow: hidden;
+                margin-bottom: px-to-rem(6);
+                width: 100%;
+                @if $theme-name == 'theme-aquamarine' {
+                  color: #fff;
+                }
+                @if $theme-name == 'theme-terracotta' {
+                  color: #fff;
+                }
+                @if $theme-name == 'theme-wiseblue' {
+                  color: #E8F3FE;
+                }
+                font-size: px-to-rem(14);
+                text-align: left;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-weight: 600;
+                line-height: px-to-rem(14);
+                font-style: normal;
+              }
+
+              .common-comp-alarm-today-swiper-item__address {
+                overflow: hidden;
+                width: calc(100% - px-to-rem(12));
+                font-size: px-to-rem(14);
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                line-height: px-to-rem(14);
+                margin-right: px-to-rem(12);
+                @if $theme-name == 'theme-aquamarine' {
+                  color: rgba(255,255,255,0.7);
+                }
+                @if $theme-name == 'theme-terracotta' {
+                  color: #E4E7C1;
+                }
+                @if $theme-name == 'theme-wiseblue' {
+                  color: rgba(232,243,254,0.7);
+                }
+              }
+            }
+
+            .common-comp-alarm-today-swiper-item__countdown {
+              color: themed('alarm-today-statistics-countdown-color');
+            }
+            .common-comp-alarm-today-swiper-item__black-footer {
+              width: 100%;
+              height: px-to-rem(60);
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              background: linear-gradient( 180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.54) 52%, rgba(0,0,0,0.68) 100%);
+              z-index:0;
+            }
+          }
+          
+        }
+      }
+
+      .common-comp-alarm-today-swiper-button {
+        top: 0;
+        bottom: 0;
+        z-index: 12;
+        display: none;
+        margin: auto;
+        width: px-to-rem(30);
+        height: px-to-rem(30);
+        .arrow-box {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .arrow-item-left {
+            color: #E4E7C1;
+            transform: scaleX(-1);
+
+          }
+          .arrow-item-right {
+            color: #E4E7C1;
+          }
+          .arrow-item-default-left {
+            font-size: px-to-rem(14);
+          }
+          .arrow-item-default-right {
+            font-size: px-to-rem(14);
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            width: px-to-rem(30);
+            height: px-to-rem(30);
+            border-radius: 50%;
+            background-color: #02322080;
+            .arrow-item-left {
+              display: none;
+            }
+            .arrow-item-right {
+              display: none;
+            }
+            .arrow-item-default-left {
+              color: #fff;
+            }
+            .arrow-item-default-right {
+              color: #fff;
+            }
+          }
+          @if $theme-name == 'theme-terracotta' {
+            width: px-to-rem(11);
+            height: px-to-rem(32);
+            border-radius: px-to-rem(4);
+            background-color: #161209;
+            &:hover {
+              background-color: #B1AA63;
+            }
+            .arrow-item-default-left {
+              display: none;
+            }
+            .arrow-item-default-right {
+              display: none;
+            }
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            width: px-to-rem(30);
+            height: px-to-rem(30);
+            border-radius: 50%;
+            background-color: rgba(23,37,55,0.8);
+            .arrow-item-left {
+              display: none;
+            }
+            .arrow-item-right {
+              display: none;
+            }
+            .arrow-item-default-left {
+              color: #E8F3FE;
+            }
+            .arrow-item-default-right {
+              color: #E8F3FE;
+            }
+          }
+          
+        }
+
+        &.swiper-button-prev {
+          // i {
+          //   font-family: 'iconfont_tools' !important
+          // }
+          // i:before {
+          //   content: '\ea83';
+          // }
+          // i {
+          //   transform: rotate(90deg);
+          //   font-size: px-to-rem(20);
+          // }
+          i {
+            font-weight: 600;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            left: px-to-rem(2);
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            left: px-to-rem(12);
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            left: px-to-rem(12);
+          }
+          top: px-to-rem(-4);
+        }
+
+        &.swiper-button-next {
+          i {
+            font-weight: 600;
+          }
+          // i {
+          //   font-family: 'iconfont_tools' !important
+          // }
+          // i:before {
+          //   content: '\ea83';
+          // }
+          // i {
+          //   transform: rotate(-90deg);
+          //   font-size: px-to-rem(20);
+          // }
+          @if $theme-name == 'theme-terracotta' {
+            right: px-to-rem(2);
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            right: px-to-rem(12);
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            right: px-to-rem(12);
+          }
+          top: px-to-rem(-4);
+        }
+
+        &::after {
+          display: none;
+        }
+
+        img {
+          width: px-to-rem(30);
+          height: px-to-rem(30);
+        }
+      }
+
+      &:hover {
+        .common-comp-alarm-today-swiper-button {
+          display: flex;
+        }
+      }
+    }
+    .button-group {
+      @if $theme-name == 'theme-terracotta' {
+        ::v-deep button {
+          background: none;
+          background-image: url('~@component-gallery/assets/image/alarm-today/video-yellow-btn-bg.png');
+          background-size: 100% 100%;
+          border-radius: px-to-rem(4);
+          b {
+            display: none;
+            
+          }
+          em {
+            display: none;
+          }
+          &::after{
+            display: none;
+          }
+        }
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        ::v-deep button {
+          border-radius: px-to-rem(4);
+        }
+      }
+      
+    }
+    .eventTimeClass {
+      padding: 0;
+      width: auto;
+      height: px-to-rem(14);
+      border-radius: px-to-rem(12);
+      color: themed('alarm-today-statistics-countdown-color');
+      font-size: px-to-rem(14);
+      font-weight: 400;
+      line-height: px-to-rem(20);
+    }
+    
+    // 超期时间
+    .eventTimeClassChaoQi {
+      color: themed('alarm-today-statistics-countdown-color');
+      font-size: px-to-rem(14);
+    }
+    
+    // 图片视频放大样式
+    .max-file-box {
+      position: absolute;
+      top: px-to-rem(58);
+      left: px-to-rem(375);
+      overflow: hidden;
+      width: px-to-rem(926);
+      height: px-to-rem(522);
+      background: themed('fire-warning-bg-forest-warning-dialog');
+      border-radius: px-to-rem(8);
+      border-image: themed('fire-warning-bg-forest-warning-dialog-border') 1 1;
+    
+      .carousel-img-big {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    
+    /* 无数据 */
+    .swiper-no-datas {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      padding-bottom: px-to-rem(8);
+      color: themed('alarm-today-no-data-color');
+      font-size: px-to-rem(14);
+      text-align: center;
+      transform: translate(-50%, -50%);
+      font-style: normal;
+      font-weight: normal;
+  
+      &::before {
+        display: block;
+        margin: 0 !important;
+        margin-bottom: px-to-rem(12) !important;
+        height: fit-content !important;
+        content: themed('alarm-today-statistics-no-data');
+  
+        // content: url('~@component-gallery/assets/image/alarm-detail/wiseblue/no-data.png');
+      }
+    }
+  }
+}
+
+/* 浮现提示 */
+.c-tip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  display: none;
+  padding: px-to-rem(4) px-to-rem(8);
+  max-width: px-to-rem(400);
+  background: #00221b;
+  border-radius: px-to-rem(4);
+  color: themed('alarm-today-statistics-item-color');
+  font-size: px-to-rem(14);
+  font-style: normal;
+  font-weight: normal;
+  pointer-events: none;
+  word-break: break-all;
+  line-height: normal;
+}
+
+

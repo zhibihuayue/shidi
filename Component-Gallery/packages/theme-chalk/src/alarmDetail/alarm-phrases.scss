@@ -1,0 +1,154 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.alarm-phrases {
+  border: 1px solid transparent;
+  min-height: px-to-rem(100);
+  @include themeify(false) {
+    &:not(.readonly, .disabled):hover {
+      border: 1px solid themed('alarm-detail-input-hover-border60');
+      border-radius: px-to-rem(4);
+    }
+
+    &:not(.readonly, .disabled):focus-within {
+      border: 1px solid themed('alarm-detail-input-hover-border');
+      border-radius: px-to-rem(4);
+    }
+    .phrases-h {
+      ::v-deep .el-textarea__inner {
+        height: px-to-rem(100) !important;
+        line-height: 1.6;
+      }
+    }
+    .text-class {
+      width: 100%;
+
+      ::v-deep .el-textarea__inner {
+        padding: px-to-rem(6) px-to-rem(12) !important;
+        background: themed('alarm-detail-input-background');
+        border: 0;
+        color: themed('alarm-info-data-content-color');
+        border-radius: px-to-rem(4) px-to-rem(4) 0 0;
+      }
+      ::v-deep .el-textarea__inner::placeholder {
+        color: themed('alarm-phrases-item-placeholder') !important;
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(18);
+      }
+    }
+
+    .phrases {
+      width: 100%;
+      background: themed('alarm-phrases-bg-color');
+      border-radius: 0 0 px-to-rem(4) px-to-rem(4);
+      border-top: none;
+      .phrases-line{
+        height: 1px;
+        width: 100%;
+        background: themed('alarm-list-item-line');
+      }
+      .phrases-title {
+        margin-left: px-to-rem(10);
+        color: themed('alarm-info-data-content-color');
+        font-size: px-to-rem(14);
+        font-weight: 400;
+        line-height: px-to-rem(32);
+
+        .icon-shousuo {
+          display: inline-block;
+          margin-top: px-to-rem(2);
+          margin-left: px-to-rem(2);
+          transition: transform 0.3s;
+          transform: rotate(0deg);
+        }
+
+        .up {
+          transform: rotate(180deg);
+          display: inline-block;
+        }
+
+        .phrases-button {
+          float: right;
+          margin-right: px-to-rem(10);
+          color: themed('alarm-info-data-content-color');
+          font-size: px-to-rem(14);
+          font-weight: 400;
+          line-height: px-to-rem(32);
+          cursor: pointer;
+        }
+      }
+
+      .phrases-list {
+        margin: 0 px-to-rem(12) px-to-rem(6);
+        width: calc(100% - px-to-rem(20));
+        height: px-to-rem(20);
+        .phrases-input-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          height: px-to-rem(20);
+          background: themed('alarm-phrases-item-bg-color') !important;
+          border-radius: px-to-rem(4);
+          padding-right: px-to-rem(12);
+          .el-icon-close {
+            margin-top: px-to-rem(2);
+            color: themed('alarm-detail-compare-arrow-color');
+          }
+        }
+
+        ::v-deep .el-input--small {
+          height: px-to-rem(20);
+
+          .el-input__inner {
+            display: block;
+            overflow: hidden;
+            padding-left: px-to-rem(6);
+            margin-top: 0;
+            height: 100%;
+            background: transparent;
+            @if $theme-name == 'theme-aquamarine' {
+              border: 1px solid rgb(2 137 109 / 50%);
+            }
+            color: themed('alarm-info-data-content-color');
+            font-size: px-to-rem(12);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 400;
+            cursor: pointer;
+            line-height: initial;
+            border: none !important;
+          }
+          .el-input__inner::placeholder {
+            color: themed('alarm-phrases-item-placeholder');
+            font-size: px-to-rem(14);
+            font-weight: 400;
+          }
+        }
+
+        ::v-deep .el-input__suffix {
+          .el-icon-circle-close {
+            line-height: initial;
+          }
+
+          .el-icon-circle-close::before {
+            color: themed('alarm-detail-compare-arrow-color');
+            font-size: px-to-rem(12);
+            // font-family: iconfont;
+            // content: '\E64E';
+          }
+        }
+      }
+
+      .phrases-test {
+        padding-top: px-to-rem(10);
+        height: px-to-rem(77);
+        color: themed('alarm-phrases-item-placeholder');
+        font-size: px-to-rem(14);
+        text-align: center;
+        font-weight: 400;
+      }
+    }
+  }
+}

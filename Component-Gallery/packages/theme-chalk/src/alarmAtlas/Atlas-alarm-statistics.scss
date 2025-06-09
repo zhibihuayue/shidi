@@ -1,0 +1,72 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+.atlas-statistics {
+  display: flex;
+  justify-content: space-between;
+  padding: px-to-rem(12);
+  width: px-to-rem(398);
+  height: px-to-rem(96);
+  .atlas-statistics-block {
+    display: flex;
+    width: px-to-rem(174);
+    flex-direction: column;
+    justify-content: space-between;
+    .atlas-statistics-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      @include themeify(false) {
+        .atlas-statistics-icon {
+          width: px-to-rem(16);
+          height: px-to-rem(16);
+          margin-right: px-to-rem(6);
+          flex-shrink: 0;
+        }
+        .atlas-statistics-text {
+          font-weight: 400;
+          font-size: px-to-rem(14);
+          color: themed('alarm-info-data-content-color');
+          line-height: px-to-rem(20);
+          margin-right: px-to-rem(12);
+          flex-shrink: 0;
+        }
+        .atlas-statistics-num {
+          font-weight: 400;
+          font-size: px-to-rem(14);
+          color: themed('alarm-info-data-content-color');
+          line-height: px-to-rem(20);
+          margin-right: px-to-rem(6);
+          width: px-to-rem(33);
+          text-align: right;
+          flex-shrink: 0;
+        }
+        .short-line {
+          width: px-to-rem(1);
+          height: px-to-rem(10);
+          
+          background: themed('alarm-list-bg-item-time');
+          // background: rgba(255,238,177,0.2);
+          border-radius: px-to-rem(1);
+          margin-right: px-to-rem(6);
+          flex-shrink: 0;
+        }
+        .atlas-statistics-point {
+          font-weight: 400;
+          font-size: px-to-rem(14);
+          color: themed('alarm-info-data-content-color');
+          line-height: px-to-rem(20);
+          // width: px-to-rem(48);
+          text-align: left;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+  .split-line-hor {
+    margin: 0 px-to-rem(12);
+    width: px-to-rem(1);
+    height: px-to-rem(72);
+    background: rgba(228,231,193,0.2);
+  }
+}

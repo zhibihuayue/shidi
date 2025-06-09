@@ -1,0 +1,169 @@
+// 基于css自定义属性的统一变量方案
+@import './modules/common';
+@import './modules/wiseblue';
+@import './modules/aquamarine';
+@import './modules/terracotta';
+
+// 此处只定义标准变量。具体的通用组件覆写在具体的文件中。
+.common-iw-s {
+  --iw-success-color: #15BD94;
+  --iw-warning-color: #FB913C;
+  --iw-danger-color: #ED5158;
+}
+
+// 通用蓝
+[data-theme="theme-wiseblue"] .common-iw-s {
+  // 基本
+  // 主题色
+  --iw-theme-color: #4F9FFF;
+
+  // 主题色的20%/40%/50%/60%透明度版本
+  --iw-theme-color-20: rgb(79 159 255 / 20%);
+  --iw-theme-color-40: rgb(79 159 255 / 40%);
+  --iw-theme-color-50: rgb(79 159 255 / 50%);
+  --iw-theme-color-60: rgb(79 159 255 / 60%);
+
+  // 标题色
+  --iw-title-color: #E8F3FE;
+
+  // 文字色
+  --iw-text-color: #E8F3FE;
+
+  --iw-active-text-color: #4F9FFF;
+
+  // 用于地图功能的颜色
+
+  // 测距线/面
+  --iw-mapstroke-color: #4F9FFF;
+  --iw-mapstroke-color-50: rgb(79 159 255 / 50%);
+  --iw-maparea-color: rgb(19 115 230 / 30%);
+
+  // 辅助文字色
+  --iw-subtext-color: rgb(232 242 254 / 70%);
+}
+
+// 林业绿
+[data-theme="theme-aquamarine"] .common-iw-s {
+  // 基本
+  // 主题色
+  --iw-theme-color: #0DC985;
+
+  // 主题色的20%/40%/50%/60%透明度版本
+  --iw-theme-color-20: rgb(13 201 133 / 20%);
+  --iw-theme-color-40: rgb(13 201 133 / 40%);
+  --iw-theme-color-50: rgb(13 201 133 / 50%);
+  --iw-theme-color-60: rgb(13 201 133 / 60%);
+
+  // 标题色
+  --iw-title-color: #FFF;
+
+  // 文字色
+  --iw-text-color: #FFF;
+
+  --iw-active-text-color: #f9ff6c;
+
+  // 用于地图功能的颜色
+
+  // 测距线/面
+  --iw-mapstroke-color: #0DC985;
+  --iw-mapstroke-color-50: rgb(13 201 133 / 50%);
+  --iw-maparea-color: rgb(13 201 133 / 20%);
+
+  // 辅助文字色
+  --iw-subtext-color: rgb(255 255 255 / 70%);
+}
+
+// 国土黄
+[data-theme="theme-terracotta"] .common-iw-s {
+  // 基本
+  // 主题色
+  --iw-theme-color: #64562E;
+
+  // 主题色的20%/40%/50%/60%透明度版本
+  --iw-theme-color-20: rgb(100 86 46 / 20%);
+  --iw-theme-color-40: rgb(100 86 46 / 40%);
+  --iw-theme-color-50: rgb(100 86 46 / 50%);
+  --iw-theme-color-60: rgb(100 86 46 / 60%);
+
+  // 标题色
+  --iw-title-color: #FFF;
+
+  // 文字色
+  --iw-text-color: #E4E7C1;
+
+  --iw-active-text-color: #FFFA28;
+
+  // 用于地图功能的颜色
+
+  // 测距线/面
+  --iw-mapstroke-color: #FFE167;
+  --iw-mapstroke-color-50: rgb(255 225 103 / 50%);
+  --iw-maparea-color: rgb(230 178 26 / 30%);
+
+  // 辅助文字色
+  --iw-subtext-color: rgb(228 231 193 / 70%);
+}
+
+// 一些与换肤无关的通用扩展样式
+// 拼接表单的手动div，替代会因为自带padding导致尺寸很难正确的el-row/el-col组合
+// 这个东西会干掉form-item的右padding，只保留和label区域留出空隙的左padding
+// 内部项目的元素宽度由自己定义，表单label要正常使用label-width
+// 这个使用的是新（1.6.40以后）的12px的间距
+.iw-formrow {
+  display: flex;
+
+  .el-form-item--small.el-form-item,
+  .el-form-item {
+    margin-bottom: 0;
+
+    .el-form-item__content {
+      padding: 0;
+      padding-left: 12px;
+    }
+
+    + .el-form-item {
+      margin-top: 0;
+      margin-left: 12px;
+    }
+
+    &.is-required:not(.is-no-asterisk)>.el-form-item__label::before {
+      margin-right: 0;
+    }
+  }
+
+  // label定宽，输入框自动分摊剩余宽度模式
+  &.autowidth {
+    .el-form-item {
+      flex: 1;
+      display: flex;
+
+      .el-form-item__content {
+        margin-left: 0 !important; // 由于自动宽度关系，margin-left失去意义
+        flex: 1;
+      }
+    }
+  }
+
+  + .iw-formrow {
+    margin-top: 12px;
+  }
+}
+
+// 对表单自动撑高报错提示
+// 实验性
+.iw-form-error {
+  .el-form-item {
+    .el-form-item__error {
+      &.el-zoom-in-top-leave-active {
+        display: none;
+      }
+
+      position: static;
+      padding-top: 0;
+      padding-left: 0;
+      margin-bottom: -6px;
+      color: #FF6A6C;
+      text-align: left;
+    }
+  }
+}

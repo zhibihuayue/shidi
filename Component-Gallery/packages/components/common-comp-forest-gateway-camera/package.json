@@ -1,0 +1,13 @@
+{
+  "name": "@component-gallery/forest-gateway-camera",
+  "version": "0.0.1",
+  "description": "林区卡口",
+  "dependencies": {
+    "@component-gallery/assets": "workspace:^",
+    "@component-gallery/base-components": "workspace:^",
+    "@component-gallery/build-event-bus-path": "workspace:^",
+    "@component-gallery/theme-chalk": "workspace:^",
+    "@component-gallery/utils": "workspace:^",
+    "@component-gallery/card-dev-tree": "workspace:^"
+  }
+}

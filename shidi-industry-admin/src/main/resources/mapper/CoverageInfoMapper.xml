@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinatower.wetland.mappper.CoverageInfoMapper">
+
+    <sql id="common_where_notJoin">
+        <where>
+            <if test="param.coverageType != null">
+                and coverage_type = #{param.coverageType}
+            </if>
+            <if test="param.type != null">
+                and type = #{param.type}
+            </if>
+            <if test="param.startTime != null and param.endTime != null">
+                AND coverage_year in (#{param.startTime}, #{param.endTime})
+            </if>
+            <if test="param.startTime != null and param.endTime == null">
+                AND coverage_year in (#{param.startTime})
+            </if>
+            <if test="param.years != null and param.years.size > 0">
+                AND coverage_year IN
+                <foreach item="year" index="index" collection="param.years" open="(" separator="," close=")">
+                    #{year}
+                </foreach>
+            </if>
+            <if test="param.industryCode != null">
+                and industry_code = #{param.industryCode}
+            </if>
+            <if test="param.tenantId != null">
+                and tenant_id = #{param.tenantId}
+            </if>
+            <if test="param.appVerCode != null">
+                and app_ver_code = #{param.appVerCode}
+            </if>
+        </where>
+    </sql>
+
+    <sql id="common_where_join">
+        <where>
+            <if test="param.coverageType != null">
+                and ci.coverage_type = #{param.coverageType}
+            </if>
+            <if test="param.type != null">
+                and ci.type = #{param.type}
+            </if>
+            <if test="param.startTime != null and param.endTime != null">
+                AND ci.coverage_year in (#{param.startTime}, #{param.endTime})
+            </if>
+            <if test="param.startTime != null and param.endTime == null">
+                AND ci.coverage_year in (#{param.startTime})
+            </if>
+            <if test="param.industryCode != null">
+                and ci.industry_code = #{param.industryCode}
+            </if>
+            <if test="param.tenantId != null">
+                and ci.tenant_id = #{param.tenantId}
+            </if>
+            <if test="param.appVerCode != null">
+                and ci.app_ver_code = #{param.appVerCode}
+            </if>
+        </where>
+    </sql>
+
+    <select id="statisticsChain" resultType="com.chinatower.wetland.pojo.vo.CoverageChainVo">
+        SELECT
+            t.type,
+            IFNULL(ROUND((t.end_year_area - t.start_year_area) / 10000, 2), 0) AS areaDiff,
+            IFNULL(ROUND((t.end_year_area - t.start_year_area) / IFNULL(t.start_year_area, t.end_year_area), 4), 0) AS areaRate
+        FROM
+            (
+                SELECT
+                    `type`,
+                    IFNULL(SUM(CASE WHEN coverage_year = #{param.endTime} THEN coverage_area ELSE 0 END), 0) AS end_year_area,
+                    IFNULL(SUM(CASE WHEN coverage_year = #{param.startTime} THEN coverage_area ELSE 0 END), 0) AS start_year_area
+                FROM
+                    coverage_info
+                    <include refid="common_where_notJoin"/>
+                GROUP BY
+                    `type`
+            ) t
+        WHERE
+            t.end_year_area IS NOT NULL AND t.start_year_area IS NOT NULL
+        order by  ABS(areaDiff) desc
+    </select>
+    <select id="statisticsFeature" resultType="com.chinatower.wetland.pojo.vo.CoverageFeatureVo">
+        select
+            t.type,
+            IFNULL(ROUND(SUM(t.coverage_area) / 10000, 2), 0) AS allArea,
+            sum(t.count1) AS plaqueCount,
+            IFNULL(ROUND(SUM(t.coverage_area) / 10000 / COUNT(t.count1), 4), 0) AS avgArea
+        from (
+        SELECT
+        ci.*, COUNT(cia.coverage_id) count1
+        FROM
+        coverage_info ci
+        LEFT JOIN coverage_info_area cia ON ci.id = cia.coverage_id
+        <include refid="common_where_join"/>
+        GROUP BY
+        ci.id
+        ) t group by t.type
+    </select>
+    <select id="statisticsSuitableAnalyse"
+            resultType="com.chinatower.wetland.pojo.vo.CoverageSuitableAreaVo">
+        SELECT
+            cia.status,
+            IFNULL(ROUND(SUM(cia.coverage_area) / 666.67, 2), 0) AS allArea,
+            IFNULL(ROUND(SUM(cia.coverage_area) / (SELECT SUM(ci.coverage_area) FROM coverage_info ci WHERE ci.type = #{param.type}
+                                                                                                        AND ci.coverage_type = #{param.coverageType}
+                                                                                                        AND ci.coverage_year = #{param.startTime}), 4), 0) AS areaRate
+        FROM
+            coverage_info_area cia
+                INNER JOIN coverage_info ci ON cia.coverage_id = ci.id
+            <include refid="common_where_join"/>
+        GROUP BY
+            cia.status
+        ORDER BY
+            cia.status;
+    </select>
+    <select id="statisticsAllCountByParam"
+            resultType="com.chinatower.wetland.pojo.vo.CoverageSuitableAnalyseVo">
+        SELECT
+            IFNULL(ROUND(SUM(coverage_area) / 666.67, 2), 0) AS allArea
+        FROM coverage_info
+        <include refid="common_where_notJoin"/>
+    </select>
+
+    <select id="statisticsAreaGroupByYear" resultType="com.chinatower.wetland.pojo.vo.CoverageSuitableYearVo">
+        SELECT
+        coverage_year AS coverageYear,
+        IFNULL(ROUND(SUM(coverage_area) / 666.67, 2), 0) AS allArea
+        FROM coverage_info
+        <include refid="common_where_notJoin"/>
+        GROUP BY coverage_year
+        order BY coverage_year desc limit 5
+    </select>
+    <select id="statisticsSuitableChain" resultType="com.chinatower.wetland.pojo.vo.CoverageSuitableChainVo">
+        SELECT
+            ci.coverage_year AS coverageYear,
+            IFNULL(ROUND(SUM(ci.coverage_area) / 666.67, 2), 0) AS allArea,
+            IFNULL(COUNT(cia.coverage_id), 0) AS plaqueCount
+        FROM
+            coverage_info ci
+                LEFT JOIN coverage_info_area cia ON ci.id = cia.coverage_id
+            <include refid="common_where_join"/>
+        GROUP BY
+            ci.coverage_year
+        order by ci.coverage_year desc limit 5
+    </select>
+
+
+</mapper>

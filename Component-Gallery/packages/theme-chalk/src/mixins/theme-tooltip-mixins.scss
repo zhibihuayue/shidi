@@ -1,0 +1,77 @@
+@import "../common/themes";
+@import "theme-mixins";
+
+@mixin el_tooltip_styles() {
+  @include themeify(false) {
+    $tooltip-bg-color: themed('el-tooltip-bg');
+    $tooltip-offset: 6px;
+    // left工具提示覆写
+    .toolbox-toolboxsp.el-tooltip__popper.is-dark {
+      padding: px-to-rem(6) px-to-rem(12);
+      height: px-to-rem(26);
+      background: $tooltip-bg-color;
+
+      .popper__arrow {
+        top: calc(50% - px-to-rem(6.5)) !important; // 强制修改定位，希望这样能够居中
+        border-right-color: $tooltip-bg-color;
+        border-left-color: $tooltip-bg-color;
+
+        &::after {
+          border-right-color: transparent;
+          border-left-color: transparent;
+        }
+      }
+    }
+    // top工具提示覆写
+    .iwhale-speciesLYstyle.el-tooltip__popper.is-dark {
+      padding: px-to-rem(6) px-to-rem(12);
+      font-size: px-to-rem(14);
+      background: $tooltip-bg-color;
+      color: themed('el-tooltip-popper-color');
+
+      &.el-tooltip__popper[x-placement^="top"] {
+        margin-bottom: $tooltip-offset;
+
+        .popper__arrow {
+          border-top-color: $tooltip-bg-color;
+
+          &::after {
+            border-top-color: $tooltip-bg-color;
+          }
+        }
+      }
+
+      &.el-tooltip__popper[x-placement^="left"] {
+        .popper__arrow {
+          border-left-color: $tooltip-bg-color;
+
+          &::after {
+            border-left-color: $tooltip-bg-color;
+          }
+        }
+      }
+
+      &.el-tooltip__popper[x-placement^="right"] {
+        .popper__arrow {
+          border-right-color: $tooltip-bg-color;
+
+          &::after {
+            border-right-color: $tooltip-bg-color;
+          }
+        }
+      }
+
+      &.el-tooltip__popper[x-placement^="bottom"] {
+        margin-top: $tooltip-offset;
+
+        .popper__arrow {
+          border-bottom-color: $tooltip-bg-color;
+
+          &::after {
+            border-bottom-color: $tooltip-bg-color;
+          }
+        }
+      }
+    }
+  }
+}

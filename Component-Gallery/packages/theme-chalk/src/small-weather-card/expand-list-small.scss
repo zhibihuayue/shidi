@@ -1,0 +1,571 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+
+@import '../mixins/bem-mixins.scss';
+
+.common-theme {
+  @include b(weatherList-card) {
+    position: absolute !important;
+    z-index: 89;
+    margin-top: px-to-rem(12) !important;
+    //top: px-to-rem(6);
+    width: px-to-rem(370);
+    // width: px-to-rem(433);
+    height: px-to-rem(140);
+    @include border_radius('border-radius-8');
+    @include get_global_text_color('global-text-color');
+    font: {
+      family: PingFangSC, 'PingFang SC';
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include themeify(false) {
+      @if $theme-name == 'theme-aquamarine' {
+        border-radius: px-to-rem(4) !important;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 67, 63, 0.85) 0%,
+          rgba(0, 19, 30, 0.74) 21%,
+          #00131e 100%
+        );
+      }
+      @if $theme-name == 'theme-terracotta' {
+        background: linear-gradient(
+          rgba(#8b773d, 0.9) 0%,
+          rgba(#11110f, 0.9) 75%,
+          rgba(#050504, 0.9) 100%
+        );
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        background: linear-gradient(
+          180deg,
+          rgba(#172537, 0.8) 16%,
+          rgba(#1d3455, 0.8) 56%,
+          rgba(#2e5183, 0.8) 100%
+        );
+      }
+    }
+    // &_cardItem {
+    //   @include themeify(false) {
+    //     width: px-to-rem(122);
+    //     height: px-to-rem(140);
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     text-shadow: 0 0 px-to-rem(24) rgba(0, 92, 245, 0.35);
+    //     font: {
+    //       style: normal;
+    //       size: px-to-rem(14);
+    //     }
+    //     position: relative;
+
+    //     .date {
+    //       margin-top: px-to-rem(12);
+    //       font: {
+    //         size: px-to-rem(14);
+    //         weight: 400;
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: rgba(255,255,255,0.7);
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: rgba(228, 231, 193, .8);
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: rgba(232, 243, 254, 0.7);
+    //       }
+
+    //       text-shadow: 0 0 px-to-rem(24) rgba(0, 92, 245, 0.35);
+    //     }
+
+    //     .weather {
+    //       position: relative;
+    //       margin-top: px-to-rem(12);
+    //       display: flex;
+    //       //justify-content: center;
+    //       align-items: center;
+    //       width: 100%;
+    //       font: {
+    //         size: px-to-rem(14);
+    //         weight: 400;
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: #FFFFFF;
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: #E4E7C1;
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: #e8f2fe;
+    //       }
+
+    //       .weather-icon {
+    //         position: absolute;
+    //         left: px-to-rem(16);
+    //         width: px-to-rem(22);
+    //         height: px-to-rem(22);
+    //       }
+
+    //       .right {
+    //         //position: absolute;
+    //         margin-left: px-to-rem(44);
+    //         width: px-to-rem(70);
+    //         text-align: center;
+    //         font: {
+    //           size: px-to-rem(14);
+    //           weight: 400;
+    //         }
+    //         @if $theme-name == 'theme-aquamarine' {
+    //           color: #FFFFFF;
+    //         }
+    //         @if $theme-name == 'theme-terracotta' {
+    //           color: #E4E7C1;
+    //         }
+    //         @if $theme-name == 'theme-wiseblue' {
+    //           color: #e8f2fe;
+    //         }
+    //       }
+    //     }
+
+    //     .temperature {
+    //       font: {
+    //         weight: 500;
+    //         size: px-to-rem(20);
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: #e8f2fe;
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: #E4E7C1;
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: #e8f2fe;
+    //       }
+    //       margin: px-to-rem(12) 0;
+    //     }
+
+    //     .windPower {
+    //       flex: 1;
+    //       font: {
+    //         size: px-to-rem(14);
+    //         weight: 400;
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: rgba(255,255,255,0.7);
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: rgba(228, 231, 193, .8);
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: rgba(232, 243, 254, 0.7);
+    //       }
+
+    //     }
+    //   }
+    // }
+    // &_cardItem:nth-child(odd) {
+    //   @include themeify(false) {
+    //     width: px-to-rem(122);
+    //     height: px-to-rem(140);
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     text-shadow: 0 0 px-to-rem(24) rgba(0, 92, 245, 0.35);
+    //     font: {
+    //       style: normal;
+    //       size: px-to-rem(14);
+    //     }
+    //     position: relative;
+
+    //     .date {
+    //       margin-top: px-to-rem(12);
+    //       font: {
+    //         size: px-to-rem(14);
+    //         weight: 400;
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: rgba(255,255,255,0.7);
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: rgba(228, 231, 193, .8);
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: rgba(232, 243, 254, 0.7);
+    //       }
+
+    //       text-shadow: 0 0 px-to-rem(24) rgba(0, 92, 245, 0.35);
+    //     }
+
+    //     .weather {
+    //       position: relative;
+    //       margin-top: px-to-rem(12);
+    //       display: flex;
+    //       align-items: center;
+    //       width: 100%;
+    //       font: {
+    //         size: px-to-rem(14);
+    //         weight: 400;
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: #FFFFFF;
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: #E4E7C1;
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: #e8f2fe;
+    //       }
+
+    //       .weather-icon {
+    //         position: absolute;
+    //         left: px-to-rem(16);
+    //         width: px-to-rem(22);
+    //         height: px-to-rem(22);
+    //       }
+
+    //       .right {
+    //         margin-left: px-to-rem(44);
+    //         width: px-to-rem(70);
+    //         text-align: center;
+    //         font: {
+    //           size: px-to-rem(14);
+    //           weight: 400;
+    //         }
+    //         @if $theme-name == 'theme-aquamarine' {
+    //           color: #FFFFFF;
+    //         }
+    //         @if $theme-name == 'theme-terracotta' {
+    //           color: #E4E7C1;
+    //         }
+    //         @if $theme-name == 'theme-wiseblue' {
+    //           color: #e8f2fe;
+    //         }
+    //       }
+    //     }
+
+    //     .temperature {
+    //       font: {
+    //         weight: 500;
+    //         size: px-to-rem(20);
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: #e8f2fe;
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: #E4E7C1;
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: #e8f2fe;
+    //       }
+    //       margin: px-to-rem(12) 0;
+    //     }
+
+    //     .windPower {
+    //       flex: 1;
+    //       font: {
+    //         size: px-to-rem(14);
+    //         weight: 400;
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: rgba(255,255,255,0.7);
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: rgba(228, 231, 193, .8);
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: rgba(232, 243, 254, 0.7);
+    //       }
+    //     }
+    //   }
+    // }
+
+    // &_cardItem:nth-child(even) {
+    //   @include themeify(false) {
+    //     width: px-to-rem(124);
+    //     height: px-to-rem(140);
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     text-shadow: 0 0 px-to-rem(24) rgba(0, 92, 245, 0.35);
+    //     font: {
+    //       style: normal;
+    //       size: px-to-rem(14);
+    //     }
+    //     position: relative;
+
+    //     .date {
+    //       margin-top: px-to-rem(12);
+    //       font: {
+    //         size: px-to-rem(14);
+    //         weight: 400;
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: rgba(255,255,255,0.7);
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: rgba(228, 231, 193, .8);
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: rgba(232, 243, 254, 0.7);
+    //       }
+
+    //       text-shadow: 0 0 px-to-rem(24) rgba(0, 92, 245, 0.35);
+    //     }
+
+    //     .weather {
+    //       position: relative;
+    //       margin-top: px-to-rem(12);
+    //       display: flex;
+    //       align-items: center;
+    //       width: 100%;
+    //       font: {
+    //         size: px-to-rem(14);
+    //         weight: 400;
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: #FFFFFF;
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: #E4E7C1;
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: #e8f2fe;
+    //       }
+
+    //       .weather-icon {
+    //         position: absolute;
+    //         left: px-to-rem(16);
+    //         width: px-to-rem(22);
+    //         height: px-to-rem(22);
+    //       }
+
+    //       .right {
+    //         margin-left: px-to-rem(44);
+    //         width: px-to-rem(70);
+    //         text-align: center;
+    //         font: {
+    //           size: px-to-rem(14);
+    //           weight: 400;
+    //         }
+    //         @if $theme-name == 'theme-aquamarine' {
+    //           color: #FFFFFF;
+    //         }
+    //         @if $theme-name == 'theme-terracotta' {
+    //           color: #E4E7C1;
+    //         }
+    //         @if $theme-name == 'theme-wiseblue' {
+    //           color: #e8f2fe;
+    //         }
+    //       }
+    //     }
+
+    //     .temperature {
+    //       font: {
+    //         weight: 500;
+    //         size: px-to-rem(20);
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: #e8f2fe;
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: #E4E7C1;
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: #e8f2fe;
+    //       }
+    //       margin: px-to-rem(12) 0;
+    //     }
+
+    //     .windPower {
+    //       flex: 1;
+    //       font: {
+    //         size: px-to-rem(14);
+    //         weight: 400;
+    //       }
+    //       @if $theme-name == 'theme-aquamarine' {
+    //         color: rgba(255,255,255,0.7);
+    //       }
+    //       @if $theme-name == 'theme-terracotta' {
+    //         color: rgba(228, 231, 193, .8);
+    //       }
+    //       @if $theme-name == 'theme-wiseblue' {
+    //         color: rgba(232, 243, 254, 0.7);
+    //       }
+    //     }
+    //   }
+    // }
+
+    &_cardItem {
+      @include themeify(false) {
+        height: px-to-rem(140);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-shadow: 0 0 px-to-rem(24) rgba(0, 92, 245, 0.35);
+        font: {
+          style: normal;
+          size: px-to-rem(14);
+        }
+        position: relative;
+
+        .date {
+          margin-top: px-to-rem(12);
+          font: {
+            size: px-to-rem(14);
+            weight: 400;
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            color: rgba(255,255,255,0.7);
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: rgba(228, 231, 193, .8);
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: rgba(232, 243, 254, 0.7);
+          }
+          text-shadow: 0 0 px-to-rem(24) rgba(0, 92, 245, 0.35);
+        }
+
+        .weather {
+          position: relative;
+          margin-top: px-to-rem(12);
+          display: flex;
+          align-items: center;
+          width: 100%;
+          font: {
+            size: px-to-rem(14);
+            weight: 400;
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            color: #FFFFFF;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #E4E7C1;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: #e8f2fe;
+          }
+
+          .weather-icon {
+            position: absolute;
+            left: px-to-rem(16);
+            width: px-to-rem(22);
+            height: px-to-rem(22);
+          }
+
+          .right {
+            margin-left: px-to-rem(44);
+            width: px-to-rem(70);
+            text-align: center;
+            font: {
+              size: px-to-rem(14);
+              weight: 400;
+            }
+            @if $theme-name == 'theme-aquamarine' {
+              color: #FFFFFF;
+            }
+            @if $theme-name == 'theme-terracotta' {
+              color: #E4E7C1;
+            }
+            @if $theme-name == 'theme-wiseblue' {
+              color: #e8f2fe;
+            }
+          }
+        }
+
+        .temperature {
+          font: {
+            weight: 500;
+            size: px-to-rem(20);
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            color: #e8f2fe;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #E4E7C1;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: #e8f2fe;
+          }
+          margin: px-to-rem(12) 0;
+        }
+
+        .windPower {
+          flex: 1;
+          font: {
+            size: px-to-rem(14);
+            weight: 400;
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            color: rgba(255,255,255,0.7);
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: rgba(228, 231, 193, .8);
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: rgba(232, 243, 254, 0.7);
+          }
+        }
+      }
+
+      &.odd {
+        width: px-to-rem(122);
+      }
+
+      &.even {
+        width: px-to-rem(124);
+      }
+    }
+
+    &_cardItem:nth-child(odd) {
+      @extend .odd;
+    }
+
+    &_cardItem:nth-child(even) {
+      @extend .even;
+    }
+    &_cardItem:nth-child(2):before {
+      content: '';
+      width: 1px;
+      height: px-to-rem(64);
+      position: absolute;
+      left: 0;
+      top: calc(50% - (px-to-rem(70) / 2));
+      transform: translateY(calc(50% - (px-to-rem(70) / 2)));
+      z-index: 101;
+      @include themeify(false) {
+        @if $theme-name == 'theme-aquamarine' {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+        @if $theme-name == 'theme-terracotta' {
+          background-color: rgba(228, 231, 193, .2);
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          background-color: rgba(232,243,254,0.2);
+        }
+      }
+    }
+    &_cardItem:nth-child(2):after {
+      content: '';
+      width: 1px;
+      height: px-to-rem(64);
+      position: absolute;
+      right: 0;
+      top: calc(50% - (px-to-rem(70) / 2));
+      transform: translateY(calc(50% - (px-to-rem(70) / 2)));
+      z-index: 101;
+      @include themeify(false) {
+        @if $theme-name == 'theme-aquamarine' {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+        @if $theme-name == 'theme-terracotta' {
+          background-color: rgba(228, 231, 193, .2);
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          background-color: rgba(232,243,254,0.2);
+        }
+      }
+    }
+  }
+}

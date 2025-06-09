@@ -1,0 +1,31 @@
+@mixin b($block) {
+  $B: $block;
+  .#{$B} {
+    @content;
+  }
+}
+
+// .ddf-button.is-xxxx
+@mixin when($state) {
+  &.#{$state-prefix + $state} {
+    @content;
+  }
+}
+
+// &--primary => .ddf-button--primary
+@mixin m($modifier) {
+  @at-root {
+    #{& + $modifier-separator + $modifier} {
+      @content;
+    }
+  }
+}
+
+// &__header => .ddf-button__icon
+@mixin e($element) {
+  @at-root {
+    .#{& + $modifier-separator + $element} {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,317 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/theme-button-mixins';
+@import 'mixins/px-to-rem';
+
+@mixin color_styles() {
+  @include themeify(false) {
+    color: themed('search-map-default-color');
+  }
+}
+
+@mixin area_wrapper_styles() {
+  @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+      background: linear-gradient(180deg, rgb(0 67 63 / 85%) 0%, rgb(0 19 30 / 74%) 21%, #00131E 100%);
+      border-radius: px-to-rem(8);
+      border: px-to-rem(1) solid #075B4A;
+    }
+
+    @if $theme-name == 'theme-terracotta' {
+      background: linear-gradient(to top, #000 0%, #493A14 100%), linear-gradient(180deg, rgb(238 227 128 / 20%) 0%, rgb(68 61 27 / 18%) 57%, rgb(76 66 24 / 0%) 100%), rgb(0 0 0 / 50%);
+      border-radius: px-to-rem(8);
+      border: px-to-rem(1) solid #6E674E;
+    }
+
+    @if $theme-name == 'theme-wiseblue' {
+      background: rgb(23 37 55 / 90%);
+      border-radius: px-to-rem(8);
+    }
+  }
+}
+
+@mixin arrow_right_color() {
+  @include themeify(false) {
+    @if $theme-name == 'theme-terracotta' {
+      color: rgb(255 238 177 / 100%);
+    }
+  }
+}
+
+@mixin row_font_color() {
+  @include themeify(false) {
+    @if $theme-name == 'theme-terracotta' {
+      color: rgb(228 231 193 / 100%);
+    } @else {
+      color: #fff;
+    }
+  }
+}
+
+@mixin area_row_hover_styles() {
+  @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+      background: rgb(2 137 109 / 40%);
+    }
+
+    @if $theme-name == 'theme-terracotta' {
+      background: rgb(100 86 46 / 100%);
+    }
+
+    @if $theme-name == 'theme-wiseblue' {
+      background: rgb(79 159 255 / 40%);
+    }
+  }
+}
+
+@mixin area_row_active_styles() {
+  @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+      color: rgb(249 255 108 / 100%);
+    }
+
+    @if $theme-name == 'theme-terracotta' {
+      color: #FFFA28;
+    }
+
+    @if $theme-name == 'theme-wiseblue' {
+      color: #4F9FFF;
+    }
+  }
+}
+
+@mixin active_row_styles() {
+  @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+      color: #F9FF6C !important;
+    }
+
+    @if $theme-name == 'theme-terracotta' {
+      color: #FFFA28 !important;
+    }
+
+    @if $theme-name == 'theme-wiseblue' {
+      color: #4F9FFF !important;
+    }
+  }
+}
+
+.pest-environment-analysis {
+  &-container {
+    width: px-to-rem(370);
+
+    .pest-environment-analysis-titleBox {
+      .inner-position {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: px-to-rem(6);
+        width: px-to-rem(120);
+        height: px-to-rem(32);
+        background: rgb(79 159 255 / 20%);
+        border: px-to-rem(1) solid rgb(79 159 255 / 0%);
+        border-radius: px-to-rem(4);
+        cursor: pointer;
+
+        span.sarea {
+          margin-left: px-to-rem(12);
+          text-shadow: none!important;
+          color: var(--iw-text-color);
+          font-size: px-to-rem(14);
+          font-family: PingFangSC, "PingFang SC";
+          text-align: left;
+          font-weight: 400;
+          line-height: px-to-rem(20);
+          font-style: normal;
+
+          &::after {
+            display: none;
+          }
+        }
+
+        i {
+          font-size: px-to-rem(20);
+          margin-right: px-to-rem(6);
+        }
+
+        .areaOpen {
+          transform: rotate(180deg);
+        }
+      }
+      .inner-position {
+        &:hover {
+          border: px-to-rem(1) solid rgba(2, 137, 109, 0.6);
+        }
+        &.active {
+          border: px-to-rem(1) solid rgba(2, 137, 109, 1);
+        }
+      }
+    }
+  }
+
+  &-listBox {
+    padding: 0 px-to-rem(12) px-to-rem(12);
+
+    #echartsContainer_pea {
+      z-index: 1;
+      width: 100%;
+      height: px-to-rem(272);
+    }
+  }
+}
+
+.d-search-map__area-wrapper {
+    position: absolute;
+    top: px-to-rem(45)!important;
+    right: px-to-rem(54)!important;
+    left: unset!important;
+    z-index: 99999;
+    display: flex;
+    overflow: hidden;
+
+    @include color_styles;
+    @include area_wrapper_styles;
+
+    .toplevel {
+      position: relative;
+      display: flex;
+      width: px-to-rem(100);
+      height: px-to-rem(176);
+      flex-direction: column;
+
+      &.expand {
+        border-left: none;
+      }
+
+      .arrowright {
+        display: inline-block;
+        transform: rotate(-90deg);
+        margin-right: px-to-rem(4);
+        font-size: px-to-rem(20);
+
+        @include arrow_right_color;
+      }
+
+      .data {
+        flex: 1;
+        overflow: auto;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 px-to-rem(12);
+        height: px-to-rem(32);
+        font-size: px-to-rem(14);
+        user-select: none;
+        cursor: pointer;
+
+        @include row_font_color;
+
+        span {
+          @include color_styles;
+
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          flex: 1;
+          word-break: keep-all;
+        }
+
+        .expandbtn {
+          width: px-to-rem(20);
+
+          @include color_styles;
+
+          i {
+            @include color_styles;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-size: px-to-rem(18);
+          }
+        }
+
+        &:hover {
+          @include area_row_hover_styles;
+        }
+
+        &.active {
+          @include area_row_hover_styles;
+          @include area_row_active_styles;
+        }
+      }
+
+      .row.active{
+        span {
+          @include active_row_styles;
+        }
+      }
+    }
+
+    .bottom {
+      padding: px-to-rem(4) 0 px-to-rem(12) 0;
+      font-size: 0;
+      text-align: center;
+
+      .cg-button--default {
+        height: px-to-rem(24);
+
+        span {
+          font-size: px-to-rem(12);
+        }
+      }
+    }
+}
+
+// 通用
+[data-theme="theme-wiseblue"] .pest-environment-analysis-container {
+  background: rgb(23 37 55 / 90%);
+  border-radius: px-to-rem(8);
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .pest-environment-analysis-container {
+    .inner-position {
+      right: px-to-rem(50);
+      background: rgb(2 137 109 / 20%);
+      border: px-to-rem(1) solid rgb(79 159 255 / 0%);
+
+      span {
+        padding: 0!important;
+        font-size: px-to-rem(14);
+
+        &::before,&::after {
+          display: none!important;
+        }
+      }
+    }
+}
+
+// 国土
+[data-theme="theme-terracotta"] .pest-environment-analysis-container {
+    background: rgb(23 20 11 / 90%)!important;
+    border: px-to-rem(1) solid #6E674E;
+    border-radius: px-to-rem(8);
+
+    .inner-position {
+      background: rgb(100 86 46 / 40%);
+      border: px-to-rem(1) solid rgb(79 159 255 / 0%);
+    }
+}
+
+::v-deep .innercomp-sccontainer-body {
+  .el-scrollbar .el-scrollbar__wrap {
+    margin-right: px-to-rem(-6) !important;
+    margin-bottom: 0 !important;
+  }
+  .d-search-map__area-wrapper.search-area {
+    border-radius: px-to-rem(4);
+  }
+}
+
+
+

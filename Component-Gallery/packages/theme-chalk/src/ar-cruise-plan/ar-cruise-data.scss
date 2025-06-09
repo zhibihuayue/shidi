@@ -1,0 +1,997 @@
+@import '~@component-gallery/theme-chalk/src/mixins/px-to-rem';
+
+@mixin f-data-common-class() {
+  .f-date-editor-picker.el-picker-panel,
+  .f-date-editor-picker.el-time-panel {
+    margin: px-to-rem(6) px-to-rem(0) !important;
+    background: #0f1926;
+    border: 0;
+    border-radius: px-to-rem(4);
+    box-shadow: none;
+    color: #e8f3fe;
+
+    .el-picker-panel__sidebar {
+      overflow: hidden;
+      padding: 0;
+      width: px-to-rem(80);
+      background: none;
+      border-radius: px-to-rem(4);
+      border-right: px-to-rem(1) solid rgb(232 243 254 / 20%);
+      box-sizing: content-box;
+
+      .el-picker-panel__shortcut {
+        color: #e8f3fe;
+        line-height: px-to-rem(32);
+
+        &:hover {
+          background: rgb(79 159 255 / 40%);
+        }
+      }
+    }
+
+    .el-date-range-picker__time-header,
+    .el-date-picker__time-header {
+      padding: px-to-rem(12) px-to-rem(9);
+      border-bottom: px-to-rem(1) solid rgb(232 243 254 / 20%);
+
+      .el-date-range-picker__time-picker-wrap,
+      .el-date-picker__editor-wrap {
+        padding: px-to-rem(0) px-to-rem(3);
+
+        .el-date-range-picker__editor {
+          height: px-to-rem(32);
+        }
+
+        .el-input__inner {
+          padding: px-to-rem(0) px-to-rem(11);
+          background: rgb(79 159 255 / 20%) !important;
+          border: px-to-rem(1) solid transparent !important;
+          border-radius: px-to-rem(4) !important;
+          transition: none;
+          color: #e8f3fe;
+          font-size: px-to-rem(14);
+
+          &::placeholder {
+            color: rgb(232 243 254 / 70%);
+          }
+
+          &:hover {
+            border-color: rgb(79 159 255 / 60%) !important;
+          }
+
+          &:focus-within {
+            border-color: rgb(79 159 255 / 100%) !important;
+          }
+        }
+      }
+
+      .el-icon-arrow-right {
+        width: px-to-rem(20);
+        visibility: hidden;
+      }
+    }
+
+    .el-picker-panel__sidebar + .el-picker-panel__body {
+      margin-left: px-to-rem(80);
+    }
+
+    .el-date-range-picker__header,
+    .el-date-picker__header {
+      margin: px-to-rem(0);
+      height: px-to-rem(32);
+      border: px-to-rem(0);
+      line-height: px-to-rem(32);
+
+      .el-picker-panel__icon-btn {
+        margin: px-to-rem(0);
+        width: px-to-rem(20);
+        color: #e8f3fe !important;
+        font-size: px-to-rem(20);
+        text-align: center;
+        line-height: inherit;
+
+        &:hover {
+          opacity: 0.6;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &::before {
+          font-family: 'iconfont_tools';
+        }
+
+        &.el-icon-d-arrow-left::before {
+          content: '\ebf9';
+        }
+
+        &.el-icon-arrow-left::before {
+          content: '\ec04';
+        }
+
+        &.el-icon-d-arrow-right::before {
+          content: '\ebf8';
+        }
+
+        &.el-icon-arrow-right::before {
+          content: '\ec15';
+        }
+      }
+
+      div {
+        font-size: px-to-rem(14);
+      }
+    }
+
+    .el-date-picker__header {
+      padding: px-to-rem(0) px-to-rem(12);
+      margin-top: px-to-rem(12);
+
+      .el-date-picker__header-label {
+        color: #e8f3fe !important;
+        font-size: px-to-rem(14);
+
+        &:hover {
+          opacity: 0.6;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .el-picker-panel__content {
+      padding: px-to-rem(12);
+      margin: 0;
+
+      &.is-left {
+        border-right: px-to-rem(1) solid rgb(232 243 254 / 20%);
+      }
+
+      .el-date-table {
+        font-size: px-to-rem(14);
+      }
+
+      .el-date-table th {
+        padding: 0;
+        height: px-to-rem(32);
+        color: #e8f3fe;
+        border-bottom: px-to-rem(1) solid rgb(232 243 254 / 20%);
+      }
+
+      .el-date-table td {
+        padding: px-to-rem(0);
+        height: px-to-rem(32);
+        color: #e8f3fe !important;
+
+        div {
+          height: inherit;
+
+          span {
+            top: 50%;
+            left: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: calc(100% - px-to-rem(4));
+            aspect-ratio: 1;
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        &.available:hover {
+          div {
+            span {
+              background: rgb(79 159 255 / 40%);
+            }
+          }
+        }
+
+        &.prev-month,
+        &.next-month,
+        &.disabled {
+          color: rgb(232 243 254 / 40%) !important;
+
+          div {
+            background: none;
+          }
+
+          span {
+            color: rgb(232 243 254 / 40%) !important;
+          }
+        }
+
+        &.today {
+          span {
+            color: #4f9fff !important;
+          }
+        }
+
+        &.in-range {
+          div {
+            background: rgb(79 159 255 / 40%);
+          }
+
+          &.start-date {
+            div {
+              border-top-left-radius: px-to-rem(16);
+              border-bottom-left-radius: px-to-rem(16);
+              margin-left: calc(50% - px-to-rem(16));
+
+              span {
+                background: #4f9fff !important;
+                color: #e8f3fe !important;
+              }
+            }
+          }
+
+          &.end-date {
+            div {
+              border-top-right-radius: px-to-rem(16);
+              border-bottom-right-radius: px-to-rem(16);
+              margin-right: calc(50% - px-to-rem(16));
+
+              span {
+                background: #4f9fff !important;
+                color: #e8f3fe !important;
+              }
+            }
+          }
+        }
+
+        &.current {
+          div {
+            span {
+              background: #4f9fff !important;
+              color: #e8f3fe !important;
+            }
+          }
+        }
+      }
+
+      .el-year-table,
+      .el-month-table {
+        td {
+          padding: px-to-rem(12) px-to-rem(0) px-to-rem(0) px-to-rem(0);
+
+          div {
+            padding: 0;
+            height: auto;
+          }
+
+          .cell {
+            width: px-to-rem(52);
+            height: px-to-rem(28);
+            border-radius: px-to-rem(14);
+            color: #e8f3fe !important;
+            line-height: px-to-rem(28);
+          }
+
+          &.today {
+            .cell {
+              color: #4f9fff !important;
+              font-weight: normal;
+            }
+          }
+
+          &:not(.disabled):hover {
+            .cell {
+              background: rgb(79 159 255 / 40%);
+            }
+          }
+
+          &.disabled {
+            .cell {
+              background: none !important;
+              color: rgb(232 243 254 / 40%) !important;
+            }
+          }
+
+          &.current {
+            .cell {
+              background: #4f9fff !important;
+              color: #e8f3fe !important;
+            }
+          }
+        }
+      }
+    }
+
+    .el-time-panel {
+      margin: px-to-rem(6) px-to-rem(0);
+      background: #0f1926;
+      border: 0;
+      border-radius: px-to-rem(4);
+      box-shadow: none;
+      color: #e8f3fe;
+    }
+
+    .el-time-range-picker__content {
+      display: flex;
+      justify-content: space-between;
+      padding: px-to-rem(0) px-to-rem(12) px-to-rem(12);
+
+      .el-time-range-picker__cell {
+        padding: 0;
+        width: calc(50% - px-to-rem(6));
+
+        .el-time-range-picker__header {
+          margin: 0;
+          height: px-to-rem(32);
+          line-height: px-to-rem(32);
+        }
+      }
+    }
+
+    .el-time-spinner {
+      .el-time-spinner__wrapper {
+        border-left: px-to-rem(1) solid rgb(232 243 254 / 20%);
+
+        &:first-child {
+          border: 0;
+        }
+      }
+    }
+
+    .el-time-range-picker__body {
+      border: px-to-rem(1) solid rgb(232 243 254 / 20%);
+      border-radius: px-to-rem(4);
+    }
+
+    .el-time-panel__content {
+      &::before {
+        border-top: px-to-rem(1) solid rgb(232 243 254 / 20%);
+        border-bottom: px-to-rem(1) solid rgb(232 243 254 / 20%);
+      }
+
+      &::after {
+        border: 0;
+      }
+
+      .el-time-spinner__item {
+        color: #e8f3fe;
+
+        &:not(.disabled, .active):hover {
+          background: rgb(79 159 255 / 40%);
+        }
+
+        &.active {
+          color: #4f9fff;
+          font-weight: normal;
+        }
+      }
+    }
+
+    .el-picker-panel__footer,
+    .el-time-panel__footer {
+      overflow: hidden;
+      padding: px-to-rem(12);
+      height: auto;
+      background: none;
+      border-top: px-to-rem(1) solid rgb(232 243 254 / 20%);
+
+      .el-button,
+      .el-time-panel__btn {
+        position: relative;
+        float: right;
+        padding: 0;
+        margin: px-to-rem(0) px-to-rem(0) px-to-rem(0) px-to-rem(12);
+        width: px-to-rem(48);
+        height: px-to-rem(24);
+        background: rgb(79 159 255 / 20%);
+        border: 0;
+        border-radius: px-to-rem(4);
+        transition: none;
+        color: #e8f3fe !important;
+        font-family: 'Microsoft YaHei', PingFangSC !important;
+        line-height: px-to-rem(24);
+        font-weight: normal;
+
+        &.is-plain,
+        &.confirm {
+          background: linear-gradient(90deg, #4f9fff 0%, #1373e6 100%);
+        }
+
+        &:hover {
+          opacity: 0.6;
+        }
+
+        &:active {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .popper__arrow {
+      display: none !important;
+    }
+
+    &.el-date-picker {
+      .el-picker-panel__content {
+        padding-top: 0 !important;
+        width: 100%;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 0 !important;
+      height: 0 !important;
+      opacity: 0;
+    }
+
+    .el-scrollbar__wrap {
+      overflow: auto !important;
+      margin-right: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .el-scrollbar__bar {
+      right: 0 !important;
+      bottom: 0 !important;
+
+      &.is-horizontal {
+        bottom: 0 !important;
+      }
+
+      &.is-vertical {
+        right: 0 !important;
+      }
+
+      .el-scrollbar__thumb {
+        background-color: rgb(79 159 255 / 40%);
+
+        &:hover {
+          background-color: rgb(79 159 255 / 55%);
+        }
+      }
+    }
+  }
+}
+
+[data-theme='theme-wiseblue'] {
+  // 睿智蓝
+  @include f-data-common-class;
+}
+
+[data-theme='theme-terracotta'] {
+  // 赤土黄
+  @include f-data-common-class;
+  .f-date-editor-picker.el-picker-panel,
+  .f-date-editor-picker.el-time-panel {
+    background: linear-gradient(
+                    180deg,
+                    rgb(163 144 69 / 53%) 0%,
+                    rgb(105 95 42 / 18%) px-to-rem(35),
+                    rgb(98 88 38 / 0%) px-to-rem(100)
+    )
+    rgb(0 0 0 / 90%);
+    border: px-to-rem(1) solid rgb(110 103 78 / 90%);
+    color: #e4e7c1;
+
+    .el-picker-panel__sidebar {
+      border-right: px-to-rem(1) solid rgb(228 231 193 / 20%);
+
+      .el-picker-panel__shortcut {
+        color: #e4e7c1;
+
+        &:hover {
+          background: rgb(100 86 46 / 40%);
+        }
+      }
+    }
+
+    .el-date-range-picker__time-header,
+    .el-date-picker__time-header {
+      border-bottom: px-to-rem(1) solid rgb(228 231 193 / 20%);
+
+      .el-date-range-picker__time-picker-wrap,
+      .el-date-picker__editor-wrap {
+        .el-input__inner {
+          background: rgb(100 86 46 / 40%) !important;
+          color: #e4e7c1;
+
+          &::placeholder {
+            color: rgb(228 231 193 / 70%);
+          }
+
+          &:hover {
+            border-color: rgb(255 238 177 / 60%) !important;
+          }
+
+          &:focus-within {
+            border-color: rgb(255 238 177 / 100%) !important;
+          }
+        }
+      }
+    }
+
+    .el-date-range-picker__header,
+    .el-date-picker__header {
+      .el-picker-panel__icon-btn {
+        color: #e4e7c1 !important;
+      }
+    }
+
+    .el-date-picker__header {
+      .el-date-picker__header-label {
+        color: #e4e7c1 !important;
+      }
+    }
+
+    .el-picker-panel__content {
+      &.is-left {
+        border-right: px-to-rem(1) solid rgb(228 231 193 / 20%);
+      }
+
+      .el-date-table th {
+        color: #e4e7c1;
+        border-bottom: px-to-rem(1) solid rgb(228 231 193 / 20%);
+      }
+
+      .el-date-table td {
+        color: #e4e7c1 !important;
+
+        &.available:hover {
+          div {
+            span {
+              background: rgb(159 152 83 / 40%);
+            }
+          }
+        }
+
+        &.prev-month,
+        &.next-month,
+        &.disabled {
+          color: rgb(228 231 193 / 40%) !important;
+
+          div {
+            background: none;
+          }
+
+          span {
+            color: rgb(228 231 193 / 40%) !important;
+          }
+        }
+
+        &.today {
+          span {
+            color: #fffa28 !important;
+          }
+        }
+
+        &.in-range {
+          div {
+            background: rgb(122 113 61 / 36%);
+          }
+
+          &.start-date {
+            div {
+              span {
+                background: #9f9853 !important;
+                color: #e4e7c1 !important;
+              }
+            }
+          }
+
+          &.end-date {
+            div {
+              span {
+                background: #9f9853 !important;
+                color: #e4e7c1 !important;
+              }
+            }
+          }
+        }
+
+        &.current {
+          div {
+            span {
+              background: #9f9853 !important;
+              color: #e4e7c1 !important;
+            }
+          }
+        }
+      }
+
+      .el-year-table,
+      .el-month-table {
+        td {
+          .cell {
+            color: #e4e7c1 !important;
+          }
+
+          &.today {
+            .cell {
+              color: #fffa28 !important;
+            }
+          }
+
+          &:not(.disabled):hover {
+            .cell {
+              background: rgb(159 152 83 / 40%);
+            }
+          }
+
+          &.disabled {
+            .cell {
+              background: none !important;
+              color: rgb(228 231 193 / 40%) !important;
+            }
+          }
+
+          &.current {
+            .cell {
+              background: #9f9853 !important;
+              color: #e4e7c1 !important;
+            }
+          }
+        }
+      }
+    }
+
+    .el-time-panel {
+      background: linear-gradient(
+                      180deg,
+                      rgb(163 144 69 / 53%) 0%,
+                      rgb(105 95 42 / 18%) px-to-rem(35),
+                      rgb(98 88 38 / 0%) px-to-rem(100)
+      )
+      rgb(0 0 0 / 90%);
+      border: px-to-rem(1) solid rgb(110 103 78 / 90%);
+      color: #e4e7c1;
+    }
+
+    .el-time-spinner {
+      .el-time-spinner__wrapper {
+        border-left: px-to-rem(1) solid rgb(228 231 193 / 20%);
+
+        &:first-child {
+          border: 0;
+        }
+      }
+    }
+
+    .el-time-range-picker__body {
+      border: px-to-rem(1) solid rgb(228 231 193 / 20%);
+    }
+
+    .el-time-panel__content {
+      &::before {
+        border-top: px-to-rem(1) solid rgb(228 231 193 / 20%);
+        border-bottom: px-to-rem(1) solid rgb(228 231 193 / 20%);
+      }
+
+      .el-time-spinner__item {
+        color: #e4e7c1;
+
+        &:not(.disabled, .active):hover {
+          background: rgb(159 152 83 / 40%);
+        }
+
+        &.active {
+          color: #fffa28;
+        }
+      }
+    }
+
+    .el-picker-panel__footer,
+    .el-time-panel__footer {
+      background: none;
+      border-top: px-to-rem(1) solid rgb(228 231 193 / 20%);
+
+      .el-button,
+      .el-time-panel__btn {
+        height: px-to-rem(24);
+        line-height: px-to-rem(22);
+        background: rgb(100 86 46 / 71%);
+        border: px-to-rem(0.5) solid rgb(100 86 46 / 100%);
+        color: #e4e7c1 !important;
+
+        &.is-plain,
+        &.confirm {
+          background: radial-gradient(
+                          circle at 50% -250%,
+                          rgb(255 219 117 / 81%) 0%,
+                          rgb(0 0 0 / 0%) 89%
+          ),
+          linear-gradient(
+                          180deg,
+                          rgb(255 224 72 / 34%) 0%,
+                          rgb(255 241 126 / 10%) 100%
+          );
+          border: 0;
+          line-height: px-to-rem(24);
+        }
+      }
+    }
+
+    .el-scrollbar__bar {
+      .el-scrollbar__thumb {
+        background-color: rgb(100 86 46 / 40%);
+
+        &:hover {
+          background-color: rgb(100 86 46 / 55%);
+        }
+      }
+    }
+  }
+}
+
+[data-theme='theme-aquamarine'] {
+  // 碧山绿
+  @include f-data-common-class;
+  .f-date-editor-picker.el-picker-panel,
+  .f-date-editor-picker.el-time-panel {
+    background: linear-gradient(
+                    180deg,
+                    rgb(0 67 63 / 85%) 0%,
+                    rgb(0 19 30 / 74%) 21%,
+                    #00131e 100%
+    );
+    border: px-to-rem(1) solid #075b4a;
+    color: #fff;
+
+    .el-picker-panel__sidebar {
+      border-right: px-to-rem(1) solid rgb(255 255 255 / 20%);
+
+      .el-picker-panel__shortcut {
+        color: #fff;
+
+        &:hover {
+          background: rgb(2 137 109 / 40%);
+        }
+      }
+    }
+
+    .el-date-range-picker__time-header,
+    .el-date-picker__time-header {
+      border-bottom: px-to-rem(1) solid rgb(255 255 255 / 20%);
+
+      .el-date-range-picker__time-picker-wrap,
+      .el-date-picker__editor-wrap {
+        .el-input__inner {
+          background: rgb(2 137 109 / 20%) !important;
+          color: #fff;
+
+          &::placeholder {
+            color: rgb(255 255 255 / 70%);
+          }
+
+          &:hover {
+            border-color: rgb(2 137 109 / 60%) !important;
+          }
+
+          &:focus-within {
+            border-color: rgb(2 137 109 / 100%) !important;
+          }
+        }
+      }
+    }
+
+    .el-date-range-picker__header,
+    .el-date-picker__header {
+      .el-picker-panel__icon-btn {
+        color: #fff !important;
+      }
+    }
+
+    .el-date-picker__header {
+      .el-date-picker__header-label {
+        color: #fff !important;
+      }
+    }
+
+    .el-picker-panel__content {
+      &.is-left {
+        border-right: px-to-rem(1) solid rgb(255 255 255 / 20%);
+      }
+
+      .el-date-table th {
+        color: #fff;
+        border-bottom: px-to-rem(1) solid rgb(255 255 255 / 20%);
+      }
+
+      .el-date-table td {
+        color: #fff !important;
+
+        &.available:hover {
+          div {
+            span {
+              background: rgb(2 137 109 / 40%) !important;
+            }
+          }
+        }
+
+        &.prev-month,
+        &.next-month,
+        &.disabled {
+          color: rgb(255 255 255 / 40%) !important;
+
+          div {
+            background: none;
+          }
+
+          span {
+            color: rgb(255 255 255 / 40%) !important;
+          }
+        }
+
+        &.today {
+          span {
+            color: #0dc985 !important;
+          }
+        }
+
+        &.in-range {
+          div {
+            background: rgb(2 137 109 / 40%) !important;
+          }
+
+          &.start-date {
+            div {
+              span {
+                background: #02896d !important;
+                color: #fff !important;
+              }
+            }
+          }
+
+          &.end-date {
+            div {
+              span {
+                background: #02896d !important;
+                color: #fff !important;
+              }
+            }
+          }
+        }
+
+        &.current {
+          div {
+            span {
+              background: #02896d !important;
+              color: #fff !important;
+            }
+          }
+        }
+      }
+
+      .el-year-table,
+      .el-month-table {
+        td {
+          .cell {
+            color: #fff !important;
+          }
+
+          &.today {
+            .cell {
+              color: #0dc985 !important;
+            }
+          }
+
+          &:not(.disabled):hover {
+            .cell {
+              background: rgb(2 137 109 / 40%);
+            }
+          }
+
+          &.disabled {
+            .cell {
+              background: none !important;
+              color: rgb(255 255 255 / 40%) !important;
+            }
+          }
+
+          &.current {
+            .cell {
+              background: #02896d !important;
+              color: #fff !important;
+            }
+          }
+        }
+      }
+    }
+
+    .el-time-panel {
+      background: linear-gradient(
+                      180deg,
+                      rgb(0 67 63 / 85%) 0%,
+                      rgb(0 19 30 / 74%) 21%,
+                      #00131e 100%
+      );
+      border: px-to-rem(1) solid #075b4a;
+    }
+
+    .el-time-spinner {
+      .el-time-spinner__wrapper {
+        border-left: px-to-rem(1) solid rgb(255 255 255 / 20%);
+
+        &:first-child {
+          border: 0;
+        }
+      }
+    }
+
+    .el-time-range-picker__body {
+      border: px-to-rem(1) solid rgb(255 255 255 / 20%);
+    }
+
+    .el-time-panel__content {
+      &::before {
+        border-top: px-to-rem(1) solid rgb(255 255 255 / 20%);
+        border-bottom: px-to-rem(1) solid rgb(255 255 255 / 20%);
+      }
+
+      &::after {
+        border: 0;
+      }
+
+      .el-time-spinner__item {
+        color: #fff;
+
+        &:not(.disabled, .active):hover {
+          background: rgb(2 137 109 / 40%);
+        }
+
+        &.active {
+          color: #02896d;
+        }
+      }
+    }
+
+    .el-picker-panel__footer,
+    .el-time-panel__footer {
+      border-top: px-to-rem(1) solid rgb(255 255 255 / 20%);
+
+      .el-button,
+      .el-time-panel__btn {
+        height: px-to-rem(24);
+        background: none;
+        border: px-to-rem(1) dotted rgb(2 137 109 / 15%);
+        border-radius: 0;
+        color: #fff !important;
+        line-height: px-to-rem(22);
+
+        &::after {
+          position: absolute;
+          top: px-to-rem(1);
+          left: px-to-rem(1);
+          z-index: -1;
+          width: calc(100% - px-to-rem(2));
+          height: calc(100% - px-to-rem(2));
+          background: rgb(2 137 109 / 10%);
+          box-shadow: inset 0 0 px-to-rem(3) 0 rgb(2 137 109 / 60%);
+          content: '';
+        }
+
+        &.is-plain,
+        &.confirm {
+          background: url('~@component-gallery/assets/image/ar-data-picker/btn-lt.png') no-repeat left top,
+          url('~@component-gallery/assets/image/ar-data-picker/btn-lb.png') no-repeat left bottom,
+          url('~@component-gallery/assets/image/ar-data-picker/btn-rt.png') no-repeat right top,
+          url('~@component-gallery/assets/image/ar-data-picker/btn-rb.png') no-repeat right bottom;
+
+          &::after {
+            background: url('~@component-gallery/assets/image/ar-data-picker/popup-header-xx.png') no-repeat
+            center,
+            rgb(2 137 109 / 30%);
+            box-shadow: inset 0 0 px-to-rem(13) 0 rgb(0 255 248 / 60%);
+          }
+        }
+      }
+    }
+
+    .el-scrollbar__bar {
+      .el-scrollbar__thumb {
+        background-color: rgb(2 137 109 / 40%);
+
+        &:hover {
+          background-color: rgb(2 137 109 / 60%);
+        }
+      }
+    }
+  }
+}

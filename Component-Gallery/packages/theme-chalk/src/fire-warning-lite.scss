@@ -1,0 +1,160 @@
+
+@import 'mixins/px-to-rem';
+
+.fire-warning-lite {
+  &-container {
+    width: px-to-rem(370);
+    &__forest_fire {
+      margin-top: px-to-rem(12);
+      display: grid;
+      grid-template-columns: repeat(4, px-to-rem(88));
+      grid-template-rows: px-to-rem(108);
+      column-gap: px-to-rem(6);
+
+      .forest_warn_content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-repeat: round;
+        .forest_warn_title {
+          color: #fff;
+          font-size: px-to-rem(14);
+          font-weight: 400;
+          line-height: px-to-rem(14);
+        }
+        .forest_warn_value {
+          color: #fff;
+          font-size: px-to-rem(14);
+          font-weight: 400;
+          line-height: px-to-rem(14);
+          margin-top: px-to-rem(6);
+        }
+        .forest_warn_img{
+          position: relative;
+          width: px-to-rem(70);
+          height: px-to-rem(65);
+          margin-top: px-to-rem(6);
+
+          img{
+            position: absolute;
+            // top: px-to-rem(6);
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+    &__forest_line {
+      width: 100%;
+      height: px-to-rem(1);
+      background: linear-gradient(90deg, rgba(0,176,140,0.1) 0%, #00B08C 51%, rgba(0,176,140,0) 100%);
+      opacity: 0.7;
+      margin-top: px-to-rem(12);
+      margin-bottom: px-to-rem(12);
+      padding-right: px-to-rem(6);
+    }
+    &__forest_fire_city {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden scroll;
+        scroll-behavior: smooth;
+        height: px-to-rem(162);
+        padding-right: px-to-rem(6);
+        .forest_fire_city_content {
+          width: px-to-rem(358);
+          flex-shrink: 0;
+          height: px-to-rem(32);
+          background: rgba(6, 21, 20, 0.2)
+            linear-gradient(
+              90deg,
+              rgba(2, 137, 109, 0.26) 0%,
+              rgba(0, 0, 0, 0) 100%
+            );
+          box-shadow: inset 0px 0px px-to-rem(6) 0px rgba(2, 137, 109, 0.4);
+          border-radius: px-to-rem(4);
+          border: px-to-rem(1) solid rgba(2, 137, 109, 0.39);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-right: px-to-rem(12);
+
+          & + .forest_fire_city_content{
+            margin-top: px-to-rem(6);
+          }
+          .fire_city_content_left {
+            display: flex;
+            align-items: center;
+            .trapezoid {
+              margin-right: px-to-rem(6);
+              width: px-to-rem(32); /* 梯形的宽度 */
+              height: px-to-rem(20); /* 梯形的高度 */
+              font-size: px-to-rem(14);
+              font-weight: 500;
+              color: #ffffff;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background: url("~@component-gallery/assets/image/fire-warning-lite/trapezoid_icon4.png") no-repeat center/100% 100%;
+            }
+            .forest_fire_city_titile {
+              font-weight: 400;
+              color: #ffffff;
+              font-size: px-to-rem(14);
+            }
+          }
+          .fire_city_content_right {
+            display: flex;
+            align-items: center;
+            .forest_fire_city_level {
+              font-size: px-to-rem(12);
+              font-family: PingFangSC, "PingFang SC" Microsoft YaHei;
+              font-weight: 400;
+              color: #ffffff;
+            }
+            .forest_fire_city_warn {
+              width: px-to-rem(96);
+              height: px-to-rem(24);
+              border-radius: px-to-rem(12);
+              margin-left: px-to-rem(12);
+              display: flex;
+              align-items: center;
+              font-size: px-to-rem(14);
+              .forest_fire_city_warn_icon {
+                width: px-to-rem(20);
+                height: px-to-rem(20);
+                margin-left: px-to-rem(2);
+                margin-right: px-to-rem(6);
+                img {
+                  width: 100%;
+                  height: 100%;
+                  display: inline-block;
+                }
+              }
+            }
+          }
+
+          &:first-of-type .fire_city_content_left .trapezoid{
+            background-image: url("~@component-gallery/assets/image/fire-warning-lite/trapezoid_icon1.png");
+          }
+          &:nth-of-type(2) .fire_city_content_left .trapezoid{
+            background-image: url("~@component-gallery/assets/image/fire-warning-lite/trapezoid_icon2.png");
+          }
+          &:nth-of-type(3) .fire_city_content_left .trapezoid{
+            background-image: url("~@component-gallery/assets/image/fire-warning-lite/trapezoid_icon3.png");
+          }
+        }
+    }
+  }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .fire-warning-lite{
+
+}
+
+// 国土
+[data-theme="theme-terracotta"] .fire-warning-lite{
+
+}

@@ -1,0 +1,215 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+// 无人机样式弹窗
+.droneTracksPopupWinInfoBox {
+  @include themeify(false) {
+    width: px-to-rem(364);
+    background: themed('track-popup-point-info-background');
+    border: px-to-rem(1) solid #032a2c;
+    transform-origin: top left;
+    border-radius: px-to-rem(8);
+
+    &::before {
+      position: absolute;
+      bottom: themed('track-popup-attribute-before-bottom');
+      left: themed('track-popup-attribute-before-left');
+      z-index: 10;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+
+      // background: url('../../assets/border-corner-l.svg') no-repeat;
+      background: themed('track-popup-attribute-left-bottom-icon');
+      content: themed('track-popup-attribute-content');
+    }
+
+    &::after {
+      position: absolute;
+      right: themed('track-popup-attribute-after-left');
+      bottom: themed('track-popup-attribute-after-bottom');
+      z-index: 10;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+
+      // background: url('../../assets/border-corner-r.svg') no-repeat;
+      background: themed('track-popup-attribute-right-bottom-icon');
+      content: themed('track-popup-attribute-content');
+    }
+
+    .trajectoryInfoCloseBtn {
+      position: absolute;
+      top: px-to-rem(-20);
+      right: px-to-rem(-20);
+      width: px-to-rem(38);
+      height: px-to-rem(38);
+
+      // background: url('../../assets/closeIcon@2x.png');
+      background: themed('track-popup-attribute-close-icon');
+      background-size: 100% 100%;
+      color: transparent;
+      line-height: px-to-rem(38);
+      cursor: pointer;
+    }
+
+    .trajectoryinfo::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: px-to-rem(8);
+      height: px-to-rem(1);
+      background: #61fffb;
+      content: themed('track-popup-attribute-name-background');
+    }
+
+    .trajectoryFlexBox {
+      position: relative;
+      display: flex;
+      padding: px-to-rem(12);
+      user-select: none;
+
+      .tlabel,
+      .tvalue {
+        margin-bottom: px-to-rem(6);
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, 'PingFang SC';
+        font-weight: 400;
+        line-height: px-to-rem(20);
+      }
+
+      .tlabel {
+        color: themed('inspection-task-filter-text-placeholder-color');
+        text-align: right;
+      }
+
+      .tvalue {
+        color: themed('global-text-color');
+      }
+    }
+  }
+}
+
+.trajectoryPopupInfoBox {
+  @include themeify(false) {
+    transform-origin: bottom left;
+    width: px-to-rem(364);
+    height: px-to-rem(70);
+    background: themed('track-popup-point-info-background');
+    font-size: px-to-rem(14);
+    border-radius: px-to-rem(8);
+
+    &::after {
+      position: absolute;
+      right: themed('track-popup-attribute-after-left');
+      bottom: themed('track-popup-attribute-after-bottom');
+      z-index: 10;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+      background: themed('track-popup-attribute-right-bottom-icon');
+      content: themed('track-popup-attribute-content');
+    }
+
+    &::before {
+      position: absolute;
+      bottom: themed('track-popup-attribute-before-bottom');
+      left: themed('track-popup-attribute-before-left');
+      z-index: 10;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+
+      // background: url('../../assets/border-corner-l.svg') no-repeat;
+      background: themed('track-popup-attribute-left-bottom-icon');
+      content: themed('track-popup-attribute-content');
+    }
+
+    .trajectoryFlexBox {
+      display: flex;
+      flex-direction: row;
+      padding: px-to-rem(12);
+
+      &::before {
+        position: absolute;
+        top: px-to-rem(-1);
+        left: 0;
+        width: px-to-rem(8);
+        height: px-to-rem(1);
+        background: #00fff8;
+        content: themed('track-popup-attribute-name-background');
+      }
+    }
+
+    .closeImg.InfoWindowCloseBtn {
+      position: absolute;
+      top: px-to-rem(-20);
+      right: px-to-rem(-20);
+      width: px-to-rem(38);
+      height: px-to-rem(38);
+
+      // background: url('../../assets/closeIcon@2x.png');
+      background: themed('track-popup-attribute-close-icon');
+      background-size: 100% 100%;
+      line-height: px-to-rem(38);
+      cursor: pointer;
+    }
+
+    .labelBox {
+      color: themed('inspection-task-filter-text-placeholder-color');
+      text-align: right;
+    }
+
+    .valueBox {
+      color: themed('global-text-color');
+    }
+
+    .tvalue {
+      line-height: px-to-rem(20);
+
+      & + .tvalue {
+        margin-top: px-to-rem(6);
+      }
+    }
+
+    .tlabel {
+      line-height: px-to-rem(20);
+
+      & + .tlabel {
+        margin-top: px-to-rem(6);
+      }
+    }
+  }
+}
+
+.startEndPopupWinInfoBox {
+  @include themeify(false) {
+    padding: px-to-rem(6) px-to-rem(10);
+    min-width: px-to-rem(206);
+    height: px-to-rem(36);
+    background: themed('track-popup-attribute-background');
+    border: themed('track-popup-grid-track-pop-border');
+    border-radius: px-to-rem(4);
+    color: themed('global-text-color');
+    font-size: px-to-rem(14);
+    text-align: center;
+    user-select: none;
+    transform-origin: bottom center;
+    line-height: px-to-rem(24);
+    box-sizing: border-box;
+    font-weight: 400;
+
+    label {
+      font-weight: 400;
+    }
+    .triangle_wgy_wc {
+      position: absolute;
+      bottom: px-to-rem(-3);
+      left: px-to-rem(99);
+      width: px-to-rem(8);
+      height: px-to-rem(8);
+      background: themed('track-popup-date-picker-panel-background');
+      border: themed('track-popup-grid-track-pop-border');
+      transform: rotate(-45deg);
+      transform-origin: center;
+      clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    }
+  }
+}

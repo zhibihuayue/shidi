@@ -1,0 +1,165 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.weather-wrapper {
+  @include themeify(false) {
+    position: absolute;
+    position: absolute;
+    top: 0;
+    left: px-to-rem(370);
+    width: px-to-rem(208);
+    height: px-to-rem(98);
+    z-index: -1;
+
+    background: themed('alarm-weather-wrapper-bg');
+    background-size: cover;
+    color: themed('global-text-color');
+    @if $theme-name == 'theme-wiseblue' {
+      border-left: px-to-rem(1) solid rgba(60, 106, 168, 0.6);
+      border-botom: px-to-rem(1) solid rgba(47, 105, 183, 0.12);
+      border-top: px-to-rem(1) solid rgba(47, 105, 183, 0.12);
+      border-right: px-to-rem(1) solid rgba(47, 105, 183, 0.12);
+    }
+
+    @if $theme-name == 'theme-terracotta' {
+      border: 1px solid rgba(110, 103, 78, .8);
+      left: px-to-rem(369);
+    }
+    @if $theme-name != 'theme-aquamarine' {
+      border-radius: px-to-rem(8);
+    }
+    .today-weather {
+      padding: px-to-rem(6) px-to-rem(5) 0 px-to-rem(6);
+      position: relative;
+      height: 100%;
+      user-select: none;
+      .flow-row {
+        display: flex;
+        .weather-box {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: px-to-rem(48);
+          height: px-to-rem(35);
+          background-size: cover;
+          background: themed(alarm-weather-box-bg) left top / px-to-rem(48)
+            px-to-rem(35);
+          .weather-icon {
+            margin-top: px-to-rem(-6);
+            width: px-to-rem(34);
+            height: px-to-rem(34);
+            overflow: hidden;
+          }
+        }
+        .temperature-text {
+          width: px-to-rem(41);
+          height: px-to-rem(18);
+          margin-left: px-to-rem(6);
+          margin-top: px-to-rem(2);
+          font-size: px-to-rem(18);
+          line-height: px-to-rem(18);
+          @if $theme-name == 'theme-terracotta' {
+            color: #e4e7c1;
+            text-shadow: 0px 0px 18px rgba(255, 238, 177, 0.7);
+          } @else {
+            color: #fff;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            text-shadow: 0 0 px-to-rem(18) rgba(79, 159, 255, 0.4);
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            text-shadow: 0px 0px 18px rgba(0, 245, 193, 0.7);
+          }
+        }
+        .weather-air {
+          position: relative;
+          margin-left: px-to-rem(9);
+          width: px-to-rem(92);
+          height: px-to-rem(22);
+          font-size: px-to-rem(14);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          .air-icon {
+            margin-right: px-to-rem(8);
+            width: px-to-rem(12);
+            height: px-to-rem(8);
+          }
+          .air-bg {
+            position: absolute;
+            width: px-to-rem(92);
+            height: px-to-rem(22);
+            top: 0;
+            left: 0;
+            pointer-events: none;
+          }
+        }
+      }
+
+      .today-text {
+        margin-top: px-to-rem(5);
+        margin-left: px-to-rem(3);
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(14);
+        @if $theme-name == 'theme-terracotta' {
+          color: #e4e7c1;
+        } @else {
+          color: #fff;
+        }
+        text-shadow: 0 0 px-to-rem(24) rgba(0, 92, 245, 0.35);
+        align-items: center;
+
+        span {
+          + span {
+            margin-left: px-to-rem(6);
+          }
+        }
+      }
+
+      .now-date {
+        width: 100%;
+        height: px-to-rem(14);
+        line-height: px-to-rem(14);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: px-to-rem(12);
+        margin-left: px-to-rem(3);
+        text-align: center;
+        font-size: px-to-rem(14);
+        @if $theme-name == 'theme-terracotta' {
+          color: #e4e7c1;
+        } @else {
+          color: #fff;
+        }
+        text-shadow: 0 0 px-to-rem(24) rgba(0, 92, 245, 0.35);
+        .question-icon {
+          margin-left: px-to-rem(6);
+          font-size: px-to-rem(20);
+          color: themed('alarm-detail-people-select-help-color');
+          cursor: pointer;
+        }
+      }
+    }
+
+    ::v-deep .el-loading-mask {
+      background: none !important;
+      .el-loading-spinner {
+        transform: translateY(-50%);
+        margin-top: 0 !important;
+        display: flex;
+        justify-content: center;
+        svg {
+          .path {
+            stroke: themed('alarm-detail-input-hover-border') !important;
+          }
+        }
+        .el-loading-text {
+          color: themed('global-text-color') !important;
+        }
+      }
+    }
+  }
+}

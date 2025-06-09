@@ -1,0 +1,278 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.chart-body-row {
+  @include themeify(false) {
+    .uav-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(50% - px-to-rem(6));
+      height: px-to-rem(118);
+      background-size: 100% 100% !important;
+      background-image: themed('device-supervise-uav-block-bg');
+      // background: url('../assets/images/uav-block-bg.png') bottom/100% no-repeat;
+    
+      .block-left {
+        line-height: px-to-rem(16);
+        flex: 1;
+        align-self: stretch;
+        position: relative;
+    
+        .uav-block-title {
+          position: absolute;
+          top: 0;
+          left: px-to-rem(2);
+          padding: px-to-rem(18) 0 0 px-to-rem(12);
+          width: px-to-rem(108);
+          // background: themed('device-supervise-uav-block-title-bg') bottom/100% no-repeat;
+          // background: url('../assets/images/uav-title-bg.png') bottom/100% no-repeat;
+          // color: #e8f3fe;
+          @if $theme-name == 'theme-aquamarine' {
+            color: #fff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #E4E7C1;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: #e8f3fe;
+          }
+          font-size: px-to-rem(14);
+          line-height: px-to-rem(14);
+        }
+    
+        .block-count {
+          padding: 0 px-to-rem(12);
+          margin-top: px-to-rem(74);
+          
+          @if $theme-name == 'theme-aquamarine' {
+            text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+            color: #fff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #FFFFFF;
+            text-shadow: 0px 0px 10px rgba(220,210,119,0.7);
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+            color: #fff;
+          }
+          font-size: px-to-rem(20);
+          font-weight: 600;
+          line-height: px-to-rem(20);
+        }
+      }
+    
+      .uav-block-icon {
+        width: px-to-rem(80);
+        height: px-to-rem(62);
+        // background: themed('device-supervise-uav-block-icon-bg') bottom/100% no-repeat;
+        // background: url('../assets/images/uav-icon.png') center/100% no-repeat;
+      }
+    }
+    
+    .iot-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(50% - px-to-rem(6));
+      height: px-to-rem(118);
+      // background: url('../assets/images/iot-block-bg.png') bottom/100% no-repeat;
+      background-size: 100% 100% !important;
+      background: themed('device-supervise-iot-block-bg');
+    
+      .block-left {
+        line-height: px-to-rem(16);
+        flex: 1;
+        align-self: stretch;
+        position: relative;
+    
+        .iot-block-title {
+          position: absolute;
+          top: 0;
+          left: px-to-rem(2);
+          padding: px-to-rem(18) 0 0 px-to-rem(12);
+          width: px-to-rem(108);
+          // background: url('../assets/images/iot-title-bg.png') bottom/100% no-repeat;
+          // background: themed('device-supervise-iot-block-title-bg') bottom/100% no-repeat;
+          @if $theme-name == 'theme-aquamarine' {
+            color: #fff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #E4E7C1;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: #e8f3fe;
+          }
+          font-size: px-to-rem(14);
+          line-height: px-to-rem(14);
+        }
+    
+        .block-count {
+          padding: 0 px-to-rem(12);
+          margin-top: px-to-rem(74);
+          @if $theme-name == 'theme-aquamarine' {
+            text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+            color: #fff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #FFFFFF;
+            text-shadow: 0px 0px 10px rgba(220,210,119,0.7);
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+            color: #fff;
+          }
+          color: #fff;
+          font-size: px-to-rem(20);
+          font-weight: 600;
+          line-height: px-to-rem(20);
+        }
+      }
+    
+      .iot-block-icon {
+        width: px-to-rem(80);
+        height: px-to-rem(62);
+        // background: url('../assets/images/iot-icon.png') center/100% no-repeat;
+        // background: themed('device-supervise-iot-block-icon-bg') bottom/100% no-repeat;
+      }
+    }
+    
+    .horn-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(50% - px-to-rem(6));
+      height: px-to-rem(118);
+      // background: url('../assets/images/horn-block-bg.png') bottom/100% no-repeat;
+      background-size: 100% 100% !important;
+      background: themed('device-supervise-horn-block-bg');
+    
+      .block-left {
+        line-height: px-to-rem(16);
+        flex: 1;
+        align-self: stretch;
+        position: relative;
+    
+        .horn-block-title {
+          position: absolute;
+          top: 0;
+          left: px-to-rem(2);
+          padding: px-to-rem(18) 0 0 px-to-rem(12);
+          width: px-to-rem(108);
+          // background: url('../assets/images/horn-title-bg.png') bottom/100%
+          //   no-repeat;
+          // background: themed('device-supervise-horn-block-title-bg') bottom/100% no-repeat;
+          @if $theme-name == 'theme-aquamarine' {
+            color: #fff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #E4E7C1;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: #e8f3fe;
+          }
+          font-size: px-to-rem(14);
+          line-height: px-to-rem(14);
+        }
+    
+        .block-count {
+          padding: 0 px-to-rem(12);
+          margin-top: px-to-rem(74);
+          @if $theme-name == 'theme-aquamarine' {
+            text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+            color: #fff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #FFFFFF;
+            text-shadow: 0px 0px 10px rgba(220,210,119,0.7);
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+            color: #fff;
+          }
+          color: #fff;
+          font-size: px-to-rem(20);
+          font-weight: 600;
+          line-height: px-to-rem(20);
+        }
+      }
+    
+      .horn-block-icon {
+        width: px-to-rem(80);
+        height: px-to-rem(62);
+        // background: url('../assets/images/horn-icon.png') center/100% no-repeat;
+        // background: themed('device-supervise-horn-block-icon-bg') bottom/100% no-repeat;
+      }
+    }
+    
+    .radar-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(50% - px-to-rem(6));
+      height: px-to-rem(118);
+      // background: url('../assets/images/radar-block-bg.png') bottom/100% no-repeat;
+      background-size: 100% 100% !important;
+      background: themed('device-supervise-radar-block-bg');
+    
+      .block-left {
+        line-height: px-to-rem(16);
+        flex: 1;
+        align-self: stretch;
+        position: relative;
+    
+        .radar-block-title {
+          position: absolute;
+          top: 0;
+          left: px-to-rem(2);
+          padding: px-to-rem(18) 0 0 px-to-rem(12);
+          width: px-to-rem(108);
+          // background: url('../assets/images/radar-title-bg.png') bottom/100%
+          //   no-repeat;
+          // background: themed('device-supervise-radar-block-title-bg') bottom/100% no-repeat;
+          @if $theme-name == 'theme-aquamarine' {
+            color: #fff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #E4E7C1;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: #e8f3fe;
+          }
+          font-size: px-to-rem(14);
+          line-height: px-to-rem(14);
+        }
+    
+        .block-count {
+          padding: 0 px-to-rem(12);
+          margin-top: px-to-rem(74);
+          @if $theme-name == 'theme-aquamarine' {
+            text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+            color: #fff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #FFFFFF;
+            text-shadow: 0px 0px 10px rgba(220,210,119,0.7);
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+            color: #fff;
+          }
+          color: #fff;
+          font-size: px-to-rem(20);
+          font-weight: 600;
+          line-height: px-to-rem(20);
+        }
+      }
+    
+      .radar-block-icon {
+        width: px-to-rem(80);
+        height: px-to-rem(62);
+        // background: url('../assets/images/radar-icon.png') center/100% no-repeat;
+        // background: themed('device-supervise-radar-block-icon-bg') bottom/100% no-repeat;
+      }
+    }
+  }
+}

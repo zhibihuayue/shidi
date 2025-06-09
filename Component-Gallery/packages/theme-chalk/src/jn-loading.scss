@@ -1,0 +1,44 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.jn-base-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //background-color: rgba(0, 0, 0, 0.1);
+  z-index: 99999;
+  pointer-events: none;
+
+  @include themeify(false) {
+    .spinner {
+      width: 80px;
+      height: 80px;
+      animation: spin 3s linear infinite;
+
+      @if $theme-name == 'theme-aquamarine' {
+        background: url('~@component-gallery/assets/image/jnloading/a.png') no-repeat;
+      }
+      @if $theme-name == 'theme-terracotta' {
+        background: url('~@component-gallery/assets/image/jnloading/t.png') no-repeat;
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        background: url('~@component-gallery/assets/image/jnloading/w.png') no-repeat;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

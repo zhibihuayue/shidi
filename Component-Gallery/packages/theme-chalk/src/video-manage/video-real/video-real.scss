@@ -1,0 +1,236 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.select-tree-type {
+  ::v-deep .el-icon-arrow-up::before {
+    font-size: px-to-rem(20);
+    font-family: iconfont;
+    content: '\EC0C';
+  }
+}
+
+.filter-view {
+  position: absolute;
+  top: px-to-rem(98);
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  background: rgb(15 25 38 / 100%);
+  border-radius: 4px;
+}
+
+.play-opt-btns {
+  .recoed-downloading {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: px-to-rem(-2);
+      right: 0;
+      width: px-to-rem(4);
+      height: px-to-rem(4);
+      background: #ed5158;
+      border-radius: 50%;
+      content: '';
+    }
+  }
+}
+
+.full-big {
+  transform: scale(2);
+
+  &.big-left-top {
+    transform-origin: 0 0;
+  }
+
+  &.big-left-bottom {
+    transform-origin: 0 100%;
+  }
+
+  &.big-right-top {
+    transform-origin: 100% 0;
+  }
+
+  &.big-right-bottom {
+    transform-origin: 100% 100%;
+  }
+}
+
+::v-deep .tdt-control-copyright {
+  display: none !important;
+}
+
+.voice-intercom {
+  position: relative;
+  top: px-to-rem(2);
+  margin: 0 px-to-rem(2) 0 px-to-rem(5);
+  width: px-to-rem(16);
+  height: px-to-rem(16);
+}
+
+.miniBar {
+  .play-opt-btns2 i {
+    margin-left: 0 !important;
+  }
+}
+
+.presetImgVideoList-box {
+  position: absolute;
+  top: 10vh;
+  left: 25%;
+  width: px-to-rem(1101);
+  height: px-to-rem(652);
+}
+
+.c-input-plan {
+  display: flex;
+  width: 100%;
+  height: px-to-rem(32);
+  border: 0;
+  border-radius: px-to-rem(4);
+  opacity: 1;
+  line-height: px-to-rem(32);
+}
+
+.planBtn {
+  margin-left: px-to-rem(6);
+  width: px-to-rem(108);
+  height: px-to-rem(32);
+  background: rgb(79 159 255 / 20%);
+  color: #e8f3fe;
+  font-size: px-to-rem(14) !important;
+  line-height: px-to-rem(32);
+  font-weight: 500;
+}
+
+.plan-custom-tree-node {
+  padding-left: 0 !important;
+}
+
+.plan-centent {
+  padding: px-to-rem(12) px-to-rem(12) px-to-rem(6);
+  width: px-to-rem(360);
+}
+
+.plan-content-row-jp {
+  margin-bottom: px-to-rem(6);
+
+  .plan-title-jp {
+    width: 5em;
+    color: rgb(232 243 254 / 70%);
+    font-size: px-to-rem(14);
+    text-align: right;
+    font-weight: 400;
+    line-height: px-to-rem(20);
+  }
+
+  .plan-content-jp {
+    width: auto;
+    color: #e8f3fe;
+    font-size: px-to-rem(14);
+    text-align: left;
+    font-weight: 400;
+    line-height: px-to-rem(20);
+  }
+}
+
+.g {
+  .filter-view {
+    background: linear-gradient(360deg, #000 0%, #36301b 100%);
+    border: px-to-rem(1) solid #6e674e;
+    border-radius: px-to-rem(4);
+  }
+
+  .planBtn {
+    background: rgb(100 86 46 / 71%);
+    border: px-to-rem(0.5) solid #64562e;
+    text-shadow: none;
+    color: #ffeeb1;
+    font-weight: 400;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .plan-centent {
+    .plan-content-row-jp {
+      .plan-title-jp {
+        color: rgb(228 231 193 / 70%);
+      }
+
+      .plan-content-jp {
+        color: #e4e7c1;
+      }
+    }
+  }
+
+  .video-real .video-play {
+    .z-bd {
+      &::after {
+        border-color: #ffeeb1;
+      }
+    }
+
+    ::v-deep .draw-area {
+      .draw-btns {
+        background: linear-gradient(360deg, #000 0%, #493a14 100%)
+          rgb(0 0 0 / 50%);
+        border: px-to-rem(1) solid #6e674e !important;
+        color: #ffeeb1;
+
+        .btn {
+          color: #ffeeb1;
+
+          &:hover {
+            background: none;
+            color: #fffa28;
+          }
+
+          &.selected {
+            color: #fffa28;
+          }
+        }
+
+        .draw-arrow {
+          background: linear-gradient(360deg, #000 0%, #493a14 100%)
+            rgb(0 0 0 / 50%);
+          border: px-to-rem(1) solid #6e674e !important;
+
+          i {
+            color: #ffeeb1;
+
+            &:hover {
+              color: #fffa28;
+            }
+          }
+        }
+      }
+    }
+
+    ::v-deep .suanfa-protocol-switch {
+      height: px-to-rem(40) !important;
+      background: unset !important;
+      line-height: px-to-rem(38) !important;
+
+      .el-input {
+        .el-input__inner {
+          height: px-to-rem(40);
+          background: linear-gradient(360deg, #000 0%, #493a14 100%)
+            rgb(0 0 0 / 50%) !important;
+          border: px-to-rem(1) solid #ccc2567f !important;
+          border-radius: px-to-rem(8);
+          color: #ffeeb1 !important;
+          line-height: px-to-rem(38) !important;
+        }
+
+        .el-input__suffix {
+          .el-select__caret {
+            color: #ffeeb1 !important;
+          }
+        }
+      }
+    }
+  }
+}

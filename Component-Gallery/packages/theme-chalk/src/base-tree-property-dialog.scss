@@ -1,0 +1,151 @@
+@import './mixins/mixins';
+@import './mixins/px-to-rem';
+@import './mixins/theme-mixins.scss';
+@import './mixins/bem-mixins.scss';
+
+@include b('dialog-attribute-box') {
+  &.innercomp-abcontainer {
+    width: px-to-rem(368);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    .dialog-attribute-content {
+      padding: px-to-rem(12);
+      cursor: pointer;
+      .dialog-attribute-content-item {
+        display: flex;
+        flex-wrap: nowrap;
+        font-size: px-to-rem(14);
+        &.id_1 {
+          width: px-to-rem(84);
+        }
+
+        &.id_2 {
+          width: px-to-rem(98);
+        }
+
+        &.id_3 {
+          width: px-to-rem(98);
+        }
+
+        &.id_4 {
+          width: px-to-rem(84);
+        }
+
+        &.id_5 {
+          width: px-to-rem(70);
+        }
+        .attrTagList {
+          @include themeify(false) {
+            display: flex;
+            flex-wrap: wrap;
+            max-height: px-to-rem(90);
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin-left: 0;
+            margin-right: -0.12rem;
+            gap: px-to-rem(6);
+            .tag {
+              position: relative;
+              display: inline-block;
+              overflow: initial;
+              padding: 0 px-to-rem(14);
+              font-size: px-to-rem(12);
+              @if $theme-name == 'theme-aquamarine' {
+                box-shadow: inset 0 0 px-to-rem(2) 0 rgb(249 255 108 / 60%);
+                border-radius: px-to-rem(6) 0;
+                &::before {
+                  position: absolute;
+                  top: calc(50% - px-to-rem(6));
+                  left: 0;
+                  display: block;
+                  width: px-to-rem(2);
+                  height: px-to-rem(12);
+                  background: #f9ff6c;
+                  background-size: 100% 100%;
+                  border-radius: 0 px-to-rem(2) px-to-rem(2) 0;
+                  box-shadow: px-to-rem(1)
+                    0
+                    px-to-rem(3)
+                    px-to-rem(3)
+                    rgb(249 255 108 / 20%);
+                  content: '';
+                }
+                &::after {
+                  position: absolute;
+                  top: calc(50% - px-to-rem(6));
+                  right: 0;
+                  display: block;
+                  width: px-to-rem(2);
+                  height: px-to-rem(12);
+                  background: #f9ff6c;
+                  background-size: 100% 100%;
+                  border-radius: px-to-rem(2) 0 0 px-to-rem(2);
+                  box-shadow: px-to-rem(-1)
+                    0
+                    px-to-rem(3)
+                    px-to-rem(3)
+                    rgb(249 255 108 / 20%);
+                  content: '';
+                }
+              }
+              @if $theme-name == 'theme-terracotta' {
+                border-radius: 4px;
+              }
+              @if $theme-name == 'theme-wiseblue' {
+                border-radius: 4px;
+              }
+              background: themed('tree-tag-base-select-background') !important;
+              color: themed('tree-tag-base-font-color');
+              > div {
+                position: relative;
+                overflow: hidden;
+                max-width: px-to-rem(217);
+                @include get_global_text_color('tag-base-font-color');
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                line-height: px-to-rem(24);
+              }
+            }
+          }
+        }
+        .dialog-attribute-content-label {
+          text-wrap: nowrap;
+          white-space: nowrap;
+          flex-shrink: 0;
+          text-align: right;
+          @include themeify(false) {
+            color: themed('track-popup-attribute-attrLabel');
+          }
+        }
+        .dialog-attribute-content-value {
+          @include themeify(false) {
+            color: themed('track-popup-attribute-attrValue');
+          }
+          overflow: hidden;
+          flex-grow: 1;
+          max-width: px-to-rem(240);
+          box-sizing: border-box; /* 考虑边框和内边距的宽度计算 */
+          box-sizing: inherit;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          span {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+          .iconfont_tools {
+            font-size: px-to-rem(20);
+            margin-left: px-to-rem(6);
+          }
+        }
+      }
+      .dialog-attribute-content-item + .dialog-attribute-content-item {
+        margin-top: px-to-rem(6);
+      }
+    }
+  }
+}

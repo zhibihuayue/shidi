@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon备份</title>
+    <defs>
+        <path d="M27.9974554,24.8940104 L27.9974554,24.8940104 C27.0118303,24.8782663 26.0603226,25.25472 25.3522677,25.9405501 C24.6442129,26.6263802 24.2376158,27.5654027 24.2219294,28.5510286 L24.2219294,35.2761615 L31.7744354,35.2761615 L31.7744354,28.5510286 C31.7585593,27.5652089 31.3517015,26.6260763 30.6433733,25.9402455 C29.9350452,25.2544147 28.9832741,24.8780704 27.9974554,24.8940104 Z M27.9974554,20.0010218 C23.6554883,19.9353975 20.0788368,23.394995 20,27.7367423 L20,35.2761615 L21.896851,35.2761615 L21.896851,27.7367423 C22.0157755,24.4520011 24.7131067,21.8505598 28,21.8505598 C31.2868933,21.8505598 33.9842245,24.4520011 34.103149,27.7367423 L34.103149,35.2761615 L36,35.2761615 L36,27.7367423 C35.9219638,23.3926325 32.3417138,19.9317567 27.9974554,20.0010218 L27.9974554,20.0010218 Z" id="path-1"></path>
+        <filter x="-187.5%" y="-196.4%" width="475.0%" height="492.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.788235294   0 0 0 0 0.749019608   0 0 0 0 0.521568627  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.1矿业权_默认" transform="translate(-458.000000, -43.000000)">
+            <g id="数字图" transform="translate(213.000000, 43.000000)">
+                <g id="icon备份" transform="translate(245.000000, 0.000000)">
+                    <rect id="54" fill="#E4E7C1" opacity="0" x="0" y="0" width="56" height="56"></rect>
+                    <g id="icon">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#E4E7C1" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

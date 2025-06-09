@@ -1,0 +1,64 @@
+@import "mixins/px-to-rem";
+
+// 时间选择器覆写。这里是为了通用样式还没修复之前的提前覆盖
+.common-iw-s.el-picker-panel.el-date-range-picker {
+  .el-date-range-picker__header {
+    .el-picker-panel__icon-btn {
+      color: var(--iw-text-color);
+    }
+  }
+}
+// 提示气泡样式
+.around-analysis_tooltip.el-tooltip__popper.is-dark{
+  --tooltip-bgColor: rgba(15, 25, 38, 1);
+  --tooltip-color: #E8F3FE;
+  height: px-to-rem(30);
+  line-height: px-to-rem(30);
+  padding: 0 px-to-rem(8);
+  font-size: px-to-rem(14);
+  border-radius: px-to-rem(4);
+  min-width: px-to-rem(60);
+  text-align: center;
+  white-space: nowrap;
+  color: var(--tooltip-color);
+  // 防止其它组件的tooltip样式覆盖
+  background: var(--tooltip-bgColor) !important;
+  &[x-placement^=left]{
+    .popper__arrow{
+      top: px-to-rem(8) !important;
+    }
+  }
+  &[x-placement^=top] .popper__arrow{
+    border-top-color: var(--tooltip-bgColor);
+    &::after{
+      border-top-color: var(--tooltip-bgColor);
+    }
+  }
+  &[x-placement^=left] .popper__arrow{
+    border-top-color: var(--tooltip-bgColor);
+    &::after{
+      border-left-color: var(--tooltip-bgColor);
+    }
+  }
+  &.slider_tooltip{
+    --tooltip-bgColor: #1373e6;
+    height: px-to-rem(26);
+    line-height: px-to-rem(26);
+  }
+}
+// 林业
+[data-theme="theme-aquamarine"] .around-analysis_tooltip.el-tooltip__popper{
+  --tooltip-bgColor: rgba(0, 34, 27, 1);
+  --tooltip-color: #fff;
+  &.slider_tooltip{
+    --tooltip-bgColor: #02896D;
+  }
+}
+// 国土
+[data-theme="theme-terracotta"] .around-analysis_tooltip.el-tooltip__popper{
+  --tooltip-bgColor: rgba(22,18,9,0.95);
+  --tooltip-color: #e4e7c1;
+  &.slider_tooltip{
+    --tooltip-bgColor: #9F9853;
+  }
+}

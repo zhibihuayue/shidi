@@ -1,0 +1,297 @@
+@import '~@component-gallery/theme-chalk/src/mixins/px-to-rem';
+
+.cesium-inforWindow[class*='rectId_'],
+.ol-overlay-rectFrame > div[class*='rectId_'] {
+  &.select,
+  &.select[class*='_lystyle'] {
+    > div {
+      color: #fb913c;
+    }
+  }
+
+  > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 42px;
+    height: 42px;
+    border: 2px solid currentcolor;
+    border-radius: 8px;
+    color: #4f9fff;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+
+    i {
+      position: absolute;
+      top: -9px;
+      right: 0;
+      padding: 0 4px;
+      width: auto;
+      height: 18px;
+      background: #fff;
+      border: 2px solid currentcolor;
+      border-radius: 9px;
+      font-size: 12px;
+      text-align: center;
+      font-weight: 500;
+      font-style: normal;
+      transform: translateX(50%);
+    }
+  }
+
+  // 林业
+  &[class*='_lystyle'] {
+    > div {
+      color: #0dc985;
+      // 林业打点的offset不一样，需要向上偏移一些
+      transform: translate(-50%, -90%);
+    }
+  }
+
+  &[class*='_gtstyle'] {
+    &.select {
+      > div {
+        border-color: #ff7f3c;
+        color: #fff;
+
+        i {
+          border-color: #ff7f3c;
+        }
+      }
+    }
+
+    > div {
+      color: #caae5d;
+
+      i {
+        background-color: rgb(0 0 0 / 70%);
+      }
+    }
+  }
+}
+
+.el-message-box.video-inspection-message-box {
+  overflow: visible;
+  padding: 0 0 px-to-rem(12) 0;
+  width: px-to-rem(368);
+  background: rgb(23 37 55 / 90%);
+  border: none;
+  border-radius: px-to-rem(8);
+  text-align: center;
+
+  .el-message-box__header {
+    position: relative;
+    padding: 0;
+    height: px-to-rem(48);
+    background: linear-gradient(
+      180deg,
+      rgb(132 180 250 / 70%) 0%,
+      rgb(132 180 250 / 24.5%) 100%
+    );
+    border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+
+    .el-message-box__title {
+      height: px-to-rem(48);
+      line-height: px-to-rem(48);
+      color: #e8f3fe;
+      font-size: px-to-rem(16);
+      span{
+        font-weight: 500;
+      }
+    }
+
+    .el-message-box__headerbtn {
+      position: absolute;
+      top: px-to-rem(-8);
+      right: px-to-rem(-8);
+      z-index: 1;
+      width: px-to-rem(16);
+      height: px-to-rem(16);
+      background: url('~@component-gallery/assets/image/video-inspection/close.png')
+        no-repeat center/100% 100%;
+
+      // background-color: #C5D9F7;
+      border-radius: 50%;
+      cursor: pointer;
+
+      .el-message-box__close::before {
+        content: none;
+      }
+    }
+  }
+
+  .el-message-box__content {
+    padding: px-to-rem(24) 0;
+    color: #e8f3fe;
+    font-size: px-to-rem(14);
+
+    .el-message-box__message {
+      padding: 0;
+
+      p {
+        line-height: px-to-rem(20);
+      }
+    }
+
+    .el-message-box__status {
+      display: none;
+    }
+  }
+
+  .el-message-box__btns {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+    flex-direction: row-reverse;
+
+    .el-button {
+      width: px-to-rem(108);
+      height: px-to-rem(32);
+    }
+
+    .el-button + .el-button {
+      margin-right: px-to-rem(12);
+    }
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .el-message-box.video-inspection-message-box {
+  position: relative;
+  background-position: 0 100%, 100% 100%, 0 0;
+  background-repeat: no-repeat;
+  background-size: px-to-rem(21) px-to-rem(25), px-to-rem(21) px-to-rem(25),
+    100% 100%;
+  border: px-to-rem(1) solid;
+  border-radius: 0;
+  background-image: url('~@component-gallery/assets/image/video-inspection/lb_corner.png'),
+    url('~@component-gallery/assets/image/video-inspection/rb_corner.png'),
+    linear-gradient(180deg, rgb(0 19 30 / 70%) 0%, #00131e 100%);
+  border-image: linear-gradient(360deg, rgb(7 91 74 / 75%), rgb(7 91 74 / 30%))
+    1 1;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: px-to-rem(-1);
+    width: px-to-rem(8);
+    height: px-to-rem(1);
+    background: #fff;
+    box-shadow: 0 0 px-to-rem(6) 0 #02896d, inset 0 0 px-to-rem(2) 0 #00fff8;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  .el-message-box__header {
+    position: relative;
+    background: linear-gradient(
+      90deg,
+      rgb(2 137 109 / 0%) 0%,
+      rgb(2 137 109 / 20%) 51%,
+      rgb(2 137 109 / 0%) 100%
+    );
+    background: url('~@component-gallery/assets/image/video-inspection/dialog_header.png'),
+      url('~@component-gallery/assets/image/video-inspection/top-line.png');
+    background-position: center, center 0%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%, px-to-rem(38) auto;
+
+    .el-message-box__title {
+      span {
+        text-shadow: 0 0 px-to-rem(18) rgb(0 245 193 / 70%);
+        color: #fff;
+        font-size: px-to-rem(16);
+        font-weight: 600;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 35%;
+      width: px-to-rem(126);
+      height: px-to-rem(10);
+      background-size: 100% 100%;
+      content: '';
+      pointer-events: none;
+      background-image: url('~@component-gallery/assets/image/video-inspection/selected-bottom.png');
+    }
+
+    .el-message-box__headerbtn {
+      top: px-to-rem(-20);
+      right: px-to-rem(-20);
+      width: px-to-rem(38);
+      height: px-to-rem(38);
+      background: url('~@component-gallery/assets/image/closeIcon@2x.png')
+        no-repeat center/100% 100%;
+      border-bottom: none;
+    }
+  }
+
+  .el-message-box__content {
+    color: #fff;
+    font-size: px-to-rem(14);
+    font-weight: 400;
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .el-message-box.video-inspection-message-box {
+  background-position: px-to-rem(-1) px-to-rem(-1);
+  background-size: 101% 101%;
+  border: px-to-rem(1) solid rgba($color: #6e674e, $alpha: 90%);
+  border-radius: px-to-rem(8);
+  background-image: url('~@component-gallery/assets/image/video-inspection/gt-bg.png');
+
+  .el-message-box__header {
+    background: none;
+    border-bottom: px-to-rem(1) solid;
+    border-image: linear-gradient(
+        90deg,
+        rgb(228 231 193 / 0%),
+        rgb(228 231 193 / 100%),
+        rgb(228 231 193 / 0%)
+      )
+      1 1;
+
+    .el-message-box__title {
+      span {
+        text-shadow: px-to-rem(1) 0 px-to-rem(4) #dcd277;
+        color: #fff;
+        font-size: px-to-rem(16);
+        font-weight: 500;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: px-to-rem(-1);
+      left: calc(50% - px-to-rem(57));
+      width: px-to-rem(114);
+      height: px-to-rem(14);
+      background-image: url('~@component-gallery/assets/image/video-inspection/gt-list-head-bottom.png');
+      background-size: 100% 100%;
+    }
+
+    .el-message-box__headerbtn {
+      background: url('~@component-gallery/assets/image/video-inspection/close-g.png')
+        no-repeat center/100% 100%;
+      border-bottom: none;
+    }
+  }
+
+  .el-message-box__content {
+    color: #e4e7c1;
+    font-size: px-to-rem(14);
+    font-weight: 400;
+  }
+}

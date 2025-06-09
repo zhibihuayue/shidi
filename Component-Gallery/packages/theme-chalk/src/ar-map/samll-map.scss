@@ -1,0 +1,311 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '~@component-gallery/theme-chalk/src/mixins/px-to-rem';
+
+/* 地图 */
+.mapDIV {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: px-to-rem(5);
+}
+
+.btn_ctrl {
+  inset: auto px-to-rem(16) px-to-rem(16) auto !important;
+}
+
+.btn_ctrl_btn {
+  display: block;
+  padding: px-to-rem(7);
+  background: rgb(255 255 255 / 100%);
+  border: 1px solid rgb(229 229 229 / 100%);
+  border-radius: px-to-rem(3);
+  box-shadow: px-to-rem(1) px-to-rem(2) px-to-rem(2) 0 rgb(0 0 0 / 8%);
+  cursor: pointer;
+}
+
+.btn1 {
+  position: absolute;
+  top: px-to-rem(25);
+  right: 2em;
+  padding: px-to-rem(5) px-to-rem(15);
+  background: #095896;
+  border: 1px solid #006bc1;
+  border-radius: px-to-rem(5);
+  outline: none;
+  box-shadow: px-to-rem(1) px-to-rem(2) px-to-rem(2) 0 rgb(0 0 0 / 8%);
+  color: #fff;
+  cursor: pointer;
+}
+
+.el-menu--horizontal ::v-deep .el-menu {
+  background: none !important;
+}
+
+.el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+  background: rgb(12 31 46 / 80%) !important;
+}
+
+/* 地图调整 */
+::v-deep .amap-info-content .amap-info-close {
+  right: 5px !important;
+  width: 14px;
+  height: 14px;
+  color: #fff;
+  font-size: 22px;
+  line-height: 14px;
+  font-weight: normal;
+}
+
+.layer_group {
+  padding: 10px;
+  margin-top: 4px;
+  margin-left: 117px;
+  width: 105px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+}
+
+.group-text {
+  margin: 2px 0;
+  color: rgb(0 0 0 / 100%);
+  font-size: 14px;
+  line-height: 19px;
+}
+
+::v-deep .amap-info-content {
+  background: rgb(0 0 0 / 0%);
+}
+
+.content-window-card .monitor-list-add .devices-window:hover {
+  background: rgb(134 176 227 / 20%);
+  color: #4f9fff;
+}
+
+::v-deep .bottom-left .amap-info-sharp,
+::v-deep .bottom-left .amap-info-sharp::after {
+  border: none;
+}
+
+::v-deep .amap-info-outer,
+.amap-menu-outer {
+  box-shadow: none;
+}
+
+.content-window-card .monitor-list-add {
+  overflow: visible;
+  padding: 0;
+}
+
+::v-deep .amap-info-contentContainer:hover .amap-info-outer {
+  box-shadow: none;
+}
+
+.jumpinp input {
+  width: 55px;
+  height: 26px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.ellipsis {
+  padding: 0 8px;
+  margin-left: 30px;
+  width: 40px;
+  height: 40px;
+  background: rgb(204 204 204 / 0%);
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* 分页 end */
+
+.video-window {
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  z-index: 2043;
+  margin: 0 auto;
+  width: 60%;
+  height: 60%;
+  background: rgb(10 40 63 / 90%);
+}
+
+.video-window .el-icon-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2049;
+  width: 28px;
+  height: 28px;
+  background: rgb(14 35 50 / 60%);
+  border-radius: 4px;
+  color: rgb(255 255 255 / 100%);
+  font-size: 18px;
+  text-align: center;
+  line-height: 28px;
+}
+
+.video-window .short-border {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+}
+
+.video-window .video-body {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.lt {
+  top: -3px;
+  left: -3px;
+  border-top: 3px solid #00a8ff;
+  border-left: 3px solid #00a8ff;
+}
+
+.rt {
+  top: -3px;
+  right: -3px;
+  border-top: 3px solid #00a8ff;
+  border-right: 3px solid #00a8ff;
+}
+
+.rb {
+  right: -3px;
+  bottom: -3px;
+  border-bottom: 3px solid #00a8ff;
+  border-right: 3px solid #00a8ff;
+}
+
+.lb {
+  bottom: -3px;
+  left: -3px;
+  border-bottom: 3px solid #00a8ff;
+  border-left: 3px solid #00a8ff;
+}
+
+::v-deep .amap-logo,
+::v-deep .amap-copyright {
+  display: none !important;
+}
+
+::v-deep .tdt-control-copyright {
+  display: none !important;
+}
+
+::v-deep .amap-toolbar {
+  z-index: 309;
+  margin-bottom: 9px;
+  width: 30px;
+  height: 68px;
+  background: #fff;
+  border-radius: 4px;
+  opacity: 0.7;
+  box-shadow: 0 2px 6px 0 rgb(161 176 195 / 70%);
+}
+
+
+::v-deep .amap-maptype-con {
+  width: 80px;
+  border-color: #00a8ff;
+}
+
+::v-deep .amap-scalecontrol {
+  z-index: 6;
+  background: #fff 100% !important;
+  text-shadow: #fff 1px 0 0, #fff 0 1px 0, #fff -1px 0 0, #fff 0 -1px 0;
+  color: #333 !important;
+}
+
+::v-deep .amap-maptype-win {
+  top: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0;
+}
+
+::v-deep .amap-maptype-title {
+  left: auto !important;
+  width: 100% !important;
+  background: #00a8ff;
+  color: #fff;
+}
+
+.smallMap {
+  .amap-controls,
+  .add-switch,
+  .change-map-style {
+    display: none;
+  }
+
+  .locate {
+    bottom: 11px;
+  }
+}
+
+.add-s-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
+  width: 100%;
+  height: 50%;
+  color: #172537;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* 定位 */
+.locate {
+  position: absolute;
+  right: px-to-rem(11);
+  bottom: px-to-rem(127);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: px-to-rem(30);
+  height: px-to-rem(30);
+  background: #fff;
+  border-radius: px-to-rem(5);
+  color: #2e3a4b;
+  font-size: px-to-rem(18) !important;
+  cursor: pointer;
+}
+[data-theme='theme-terracotta'],
+.ar-g {
+  .smallMap {
+    .locate {
+      bottom: 9px;
+    }
+  }
+
+  .add-switch {
+    bottom: 57px;
+  }
+
+  .change-map-style {
+    right: 46px;
+    bottom: 57px;
+  }
+}
+
+[data-theme='theme-aquamarine'],
+.ar-l2 {
+  .locate {
+    color: #FFFFFF;
+    background: url(~@component-gallery/assets/image/ar-map/ar-aquamarine/smallMap-sxj-bg.png) center no-repeat;
+    background-size: 100% 100%;
+    border-radius: 0;
+    width: 42px;
+    height: 42px;
+  }
+}

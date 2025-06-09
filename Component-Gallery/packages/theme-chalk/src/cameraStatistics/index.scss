@@ -1,0 +1,322 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+@import '../mixins/theme-button-mixins';
+
+.chart-modal {
+  @include themeify(false) {
+    position: relative;
+    width: px-to-rem(370);
+    pointer-events: auto;
+    @if $theme-name == 'theme-aquamarine' {
+    }
+    @if $theme-name == 'theme-terracotta' {
+      background-image: url("~@component-gallery/assets/image/camera-statistics/terracotta/card-bg.png");
+      background-size: cover;
+    }
+    @if $theme-name == 'theme-wiseblue' {
+    }
+    .camera-supervise {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      width: px-to-rem(370);
+      height: px-to-rem(87);
+      @if $theme-name == 'theme-terracotta' {
+        width: px-to-rem(346);
+      }
+
+      .click-area {
+        height: 100%;
+        @if $theme-name == 'theme-terracotta' {
+          background-size: cover !important;
+        }
+      }
+
+      .camera-supervise-left {
+        display: flex;
+        justify-content: center;
+        padding-left: px-to-rem(80);
+        width: calc(50% - px-to-rem(3));
+        background: themed('camera-supervise-left-bg') center/100% no-repeat;
+        // background: url('../assets/images/camera-num-bg.png') center/100%
+        //   no-repeat;
+        font-size: px-to-rem(14);
+        flex-direction: column;
+        cursor: pointer;
+        @if $theme-name == 'theme-terracotta' {
+          width: px-to-rem(170);
+          height: px-to-rem(88);
+          padding-left: px-to-rem(70);
+        }
+      }
+
+      .camera-supervise-left-num {
+        margin-top: px-to-rem(10);
+        background-clip: text;
+        text-shadow: 0 0 px-to-rem(10) themed('camera-supervise-left-num-shadow');
+        color: themed('camera-supervise-chart-head-color');
+        font-size: px-to-rem(24);
+        font-weight: 600;
+        line-height: px-to-rem(24);
+        @if $theme-name == 'theme-terracotta' {
+          font-size: px-to-rem(20);
+          line-height: px-to-rem(20);
+        }
+
+        span {
+          font-weight: 600;
+          font-size: px-to-rem(24);
+          line-height: px-to-rem(24);
+        }
+      }
+
+      .camera-supervise-left-title {
+        margin-top: px-to-rem(5);
+        height: px-to-rem(14);
+        text-align: left;
+
+        span {
+          color: themed('camera-supervise-left-title-color');
+          font-size: px-to-rem(14);
+          font-weight: 400;
+          line-height: px-to-rem(14);
+        }
+      }
+
+      .camera-supervise-right {
+        display: flex;
+        justify-content: center;
+        padding-left: px-to-rem(70);
+        width: calc(50% - px-to-rem(3));
+        background: themed('camera-supervise-right-bg') center/100% no-repeat;
+        font-size: px-to-rem(14);
+        flex-direction: column;
+        @if $theme-name == 'theme-terracotta' {
+          width: px-to-rem(170);
+          height: px-to-rem(88);
+          padding-left: px-to-rem(64);
+        }
+      }
+
+      .camera-supervise-right-num {
+        margin-top: px-to-rem(10);
+        background-clip: text;
+        text-shadow: 0 0 px-to-rem(10) themed('camera-supervise-right-num-shadow');
+        color: themed('camera-supervise-chart-head-color');
+        font-size: px-to-rem(24);
+        font-weight: 600;
+        line-height: px-to-rem(24);
+        @if $theme-name == 'theme-terracotta' {
+          font-size: px-to-rem(20);
+          line-height: px-to-rem(20);
+        }
+
+        span {
+          font-weight: 600;
+          font-size: px-to-rem(24);
+          line-height: px-to-rem(24);
+        }
+      }
+
+      .camera-supervise-right-title {
+        margin-top: px-to-rem(5);
+        height: px-to-rem(14);
+        text-align: left;
+
+        span {
+          color: themed('camera-supervise-right-title-color');
+          font-size: px-to-rem(14);
+          font-weight: 400;
+          line-height: px-to-rem(14);
+        }
+      }
+    }
+
+    .camera-online {
+      position: relative;
+      padding: px-to-rem(9) px-to-rem(7);
+      margin-top: px-to-rem(7);
+      height: px-to-rem(102);
+      background: themed('camera-supervise-online-bg') center/cover no-repeat;
+
+      .camera-onlin-diver {
+        margin: 0 0 px-to-rem(11) px-to-rem(7);
+        width: calc(100% - px-to-rem(40));
+        height: px-to-rem(16);
+        background: themed('camera-supervise-online-diver') center/100% no-repeat;
+        // background: url('../assets/images/online-diver.png') center/100% no-repeat;
+      }
+
+      .camera-online-top {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .camera-online-top-left {
+          position: relative;
+          display: flex;
+          align-items: center;
+          color: themed('camera-supervise-camera-online-top-color');
+          font-size: px-to-rem(14);
+          font-weight: 400;
+          line-height: px-to-rem(14);
+
+          .camera-online-point {
+            // margin-right: px-to-rem(6);
+            width: px-to-rem(22);
+            height: px-to-rem(22);
+            background:  themed('camera-supervise-online-point') center/100% no-repeat;
+            // background: url('../assets/images/online-point.png') center/100% no-repeat;
+          }
+          .camera-online-title {
+            font-size: px-to-rem(14);
+            line-height: px-to-rem(14);
+          }
+          @if $theme-name == 'theme-terracotta' {
+            .camera-online-point {
+              width: px-to-rem(12);
+              height: px-to-rem(12);
+              margin-right: px-to-rem(6);
+              margin-left: px-to-rem(6);
+            }
+          }
+        }
+
+        .camera-online-top-right {
+          display: flex;
+          align-items: center;
+          padding-right: px-to-rem(6);
+          background-clip: text;
+          text-shadow: 0 1px px-to-rem(6) themed('camera-supervise-online-top-right-shadow');
+          color: themed('camera-supervise-camera-online-top-color');
+          font-size: px-to-rem(14);
+          line-height: px-to-rem(14);
+
+          .camera-online-arrow {
+            margin-right: px-to-rem(10);
+            width: px-to-rem(99);
+            height: px-to-rem(10);
+            background:  themed('camera-supervise-right-arrow-queur') center/100% no-repeat;
+            // background: url('../assets/images/right-arrow-queur.png') center/100% no-repeat;
+          }
+          div {
+            font-size: px-to-rem(14);
+            line-height: px-to-rem(14);
+          }
+        }
+      }
+
+      .camera-bottom {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 px-to-rem(14) 0 px-to-rem(5);
+        width: 100%;
+
+        .camera-bottom-item {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          .camera-bottom-online-before {
+            margin-right: px-to-rem(6);
+            width: px-to-rem(6);
+            height: px-to-rem(6) !important;
+            background: themed('camera-supervise-bottom-online-before-bg');
+            border-radius: 1px;
+          }
+
+          .camera-bottom-online-title {
+            margin-right: px-to-rem(6);
+            color: themed('camera-supervise-camera-online-top-color');
+            font-size: px-to-rem(14);
+            line-height: px-to-rem(14);
+          }
+
+          .camera-bottom-online-number {
+            text-shadow: 0 1px px-to-rem(4) themed('camera-supervise-chart-head-shadow');
+            color: themed('camera-supervise-camera-online-top-color');
+            font-size: px-to-rem(14);
+            line-height: px-to-rem(14);
+          }
+
+          .camera-bottom-offline-before {
+            margin-right: px-to-rem(6);
+            width: px-to-rem(6);
+            height: px-to-rem(6) !important;
+            background: themed('camera-supervise-bottom-offline-before-bg');
+            border-radius: 1px;
+          }
+
+          .camera-bottom-offline-title {
+            margin-right: px-to-rem(6);
+            color: themed('camera-supervise-camera-online-top-color');
+            font-size: px-to-rem(14);
+            line-height: px-to-rem(14);
+          }
+
+          .camera-bottom-offline-number {
+            text-shadow: 0 1px px-to-rem(4) themed('camera-supervise-chart-head-shadow');
+            color: themed('camera-supervise-camera-online-top-color');
+            font-size: px-to-rem(14);
+            line-height: px-to-rem(14);
+          }
+        }
+      }
+
+      .camera-progress {
+        position: relative;
+        margin: px-to-rem(11) px-to-rem(11) 0 px-to-rem(5);
+
+        .r-l-c-progress {
+          width: calc(100% - px-to-rem(30));
+          height: px-to-rem(4);
+        }
+
+        .r-l-c-p-inactive {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: px-to-rem(4);
+          background: themed('camera-supervise-r-l-c-p-inactive-bg');
+          opacity: 0.4;
+        }
+
+        .r-l-c-p-active {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: px-to-rem(4);
+          background: themed('camera-supervise-r-l-c-p-active-bg');
+
+          &::after {
+            position: absolute;
+            top: px-to-rem(-9.5);
+            right: px-to-rem(-12);
+            display: block;
+            width: px-to-rem(21);
+            height: px-to-rem(24);
+            background:  themed('camera-supervise-progress-btn') center/contain no-repeat;
+            // background: url('../assets/images/progress-btn.png') center/contain no-repeat;
+
+            // box-shadow: 0 0 px-to-rem(7) 0 rgb(118 206 255 / 70%);
+            content: '';
+
+            // transform: skew(-25deg); /* 设置倾斜度为-30 */
+          }
+        }
+      }
+    }
+
+    .chart-con {
+      margin-top: px-to-rem(13);
+      @if $theme-name == 'theme-terracotta' {
+        padding: 0 px-to-rem(12) px-to-rem(6) px-to-rem(12)
+      }
+    }
+
+    .monitor-device {
+      overflow: hidden;
+    }
+  }
+}

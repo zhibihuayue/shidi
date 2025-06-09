@@ -1,0 +1,154 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.eventUpload {
+  @include themeify(false) {
+    .imageBox {
+      margin-right: px-to-rem(7);
+
+      &:nth-of-type(6n) {
+        margin-right: 0;
+      }
+
+      &:nth-of-type(n + 7) {
+        margin-top: px-to-rem(6);
+      }
+    }
+
+    .image-item {
+      position: relative;
+      overflow: hidden;
+      width: px-to-rem(66);
+      height: px-to-rem(66);
+
+      border-radius: px-to-rem(4);
+
+      .uploadSpeed {
+        position: absolute;
+        background-color: themed('alarm-detail-input-background');
+        border: px-to-rem(1) dashed themed('alarm-detail-upload-border');
+        inset: 0;
+
+        &::before {
+          position: absolute;
+          content: '';
+          inset: 0;
+          border: px-to-rem(1) solid themed('alarm-detail-upload-border');
+        }
+
+        .speed {
+          position: absolute;
+          top: px-to-rem(32);
+          left: px-to-rem(12);
+          overflow: hidden;
+          width: px-to-rem(40);
+          height: px-to-rem(2);
+          background-color: themed('alarm-detail-input-background');
+          border-radius: px-to-rem(1);
+        }
+
+        i {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          background: themed('alarm-detail-date-picker-color-60');
+        }
+      }
+
+      .upAnnexIcon {
+        width: 100%;
+        height: 100%;
+        background: themed('alarm-detail-file-img') no-repeat
+          center/px-to-rem(40) px-to-rem(40) themed('alarm-detail-input-background');
+      }
+
+      ::v-deep {
+        .el-upload-list--picture-card .el-upload-list__item {
+          width: px-to-rem(66);
+          height: px-to-rem(66);
+          background-color: unset;
+          border: none;
+        }
+
+        .el-upload-list__item-actions {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          & > span {
+            width: px-to-rem(24);
+            height: px-to-rem(24);
+            line-height: px-to-rem(24);
+            background-color: rgb(0 0 0 / 70%);
+            border-radius: px-to-rem(4);
+            font-size: 0;
+
+            i {
+              color: themed('alarm-detail-compare-arrow-color');
+            }
+
+            + span {
+              margin-left: px-to-rem(6);
+            }
+          }
+        }
+
+        .el-upload-list__item-thumbnail {
+          object-fit: cover;
+        }
+      }
+    }
+
+    .isHideUpBotton {
+      ::v-deep .el-upload--picture-card {
+        display: none;
+      }
+
+      ::v-deep .el-tabs__nav-wrap.is-scrollable {
+        padding: 0 px-to-rem(30);
+      }
+
+      ::v-deep .el-tabs__header {
+        margin: 0;
+      }
+    }
+
+    #upload-img {
+      position: relative;
+      width: px-to-rem(66);
+      height: px-to-rem(66);
+      border: px-to-rem(1) dotted themed('alarm-detail-upload-border');
+      border-radius: px-to-rem(4);
+
+      &:hover {
+        border-color: themed('alarm-detail-date-picker-color-60');
+        .uploadicon {
+            color: themed('alarm-detail-date-picker-color-60');
+          }
+      }
+
+      ::v-deep .el-upload--picture-card {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: px-to-rem(66);
+        height: px-to-rem(66);
+        background-color: themed('alarm-detail-input-background');
+        border: none !important; // 强制覆盖element/upload.scss边框样式
+        border-radius: px-to-rem(4);
+        inset: 0;
+
+      }
+
+      .uploadicon {
+        height: 100%;
+        color: themed('alarm-detail-compare-arrow-color') !important;
+        font-size: px-to-rem(20);
+        line-height: px-to-rem(65);
+      }
+    }
+  }
+}

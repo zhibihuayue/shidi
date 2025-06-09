@@ -1,0 +1,13 @@
+{
+  "name": "@component-gallery/wildlife-bird-camera",
+  "version": "0.0.1",
+  "description": "鸟类声纹组件",
+  "dependencies": {
+    "@component-gallery/assets": "workspace:^",
+    "@component-gallery/utils": "workspace:^",
+    "@component-gallery/build-event-bus-path": "workspace:^",
+    "@component-gallery/theme-chalk": "workspace:^",
+    "@component-gallery/map": "workspace:^",
+    "@component-gallery/base-components": "workspace:^"
+  }
+}

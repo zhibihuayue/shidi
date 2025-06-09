@@ -1,0 +1,138 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import "mixins/px-to-rem";
+
+
+.monitor-top-background {
+  position: absolute;
+  top: 0;
+  z-index: 111;
+  display: flex;
+  pointer-events: none;
+  justify-content: center;
+  margin-top: 0;
+  width: 100%;
+  height: px-to-rem(140);
+  transition: all 0.5s;
+  font-size: px-to-rem(16);
+  user-select: none;
+
+  // 布局方案：中间的刘海凸起占大概28%，使用一个28%以上的中间占位对象就能维持，左右信息格间隔最大83px，自适应伸缩
+  .top-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: px-to-rem(44);
+
+    .middleGapItem {
+      width: 37%; // 中间占位对象，如果想间距大一点就适当加长
+      height: px-to-rem(1);
+    }
+  }
+
+  .topLeftBox,
+  .topRightBox {
+    display: flex;
+
+    .gapitem {
+      flex: 1;
+      width: px-to-rem(83);
+    }
+
+    .infoBoxT {
+      display: flex;
+      align-items: center;
+      margin-top: px-to-rem(12);
+      height: px-to-rem(20);
+      color: #E8F2FE;
+      flex-shrink: 0;
+      pointer-events: auto; // 信息框部分依然需要可以跳转，放出
+      cursor:pointer;
+
+      img {
+        margin-right: px-to-rem(-5);
+        width: px-to-rem(56);
+      }
+
+      span {
+        font-size: px-to-rem(14);
+        line-height: 1;
+        font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+
+        &.num {
+          margin-left: px-to-rem(6);
+          font-size: px-to-rem(20);
+          line-height: normal;
+          font-weight: 600;
+          font-family: "PingFang SC", Arial, sans-serif;
+        }
+      }
+
+      &.alarm {
+        color: #FFEADE;
+      }
+    }
+  }
+
+  .boxicon {
+    margin-right: px-to-rem(-5);
+    width: px-to-rem(56);
+    height: px-to-rem(56);
+    background-position: left top;
+    background-size: 100% 100%;
+    pointer-events: none;
+
+    &.deviceIcon {
+      background-image: url("~@component-gallery/assets/image/monitor-top/wiseblue/device-num.svg");
+    }
+
+    &.channelIcon {
+      background-image: url("~@component-gallery/assets/image/monitor-top/wiseblue/channel-num.svg");
+    }
+
+    &.alarmIcon {
+      background-image: url("~@component-gallery/assets/image/monitor-top/wiseblue/alarm-num.svg");
+    }
+
+    &.willdoIcon {
+      background-image: url("~@component-gallery/assets/image/monitor-top/wiseblue/weill-do-num.svg");
+    }
+  }
+}
+
+[data-theme="theme-terracotta"] .monitor-top-background {
+  .topLeftBox,
+  .topRightBox {
+    .infoBoxT {
+      color:#E4E7C1;
+
+      &.alarm {
+        color: #FBFFD3;
+      }
+    }
+  }
+
+  .boxicon {
+    &.deviceIcon {
+      background-size: px-to-rem(56) px-to-rem(56);
+      background-image: url("~@component-gallery/assets/image/monitor-top/terracotta/device-num.png");
+    }
+
+    &.channelIcon {
+      background-size: px-to-rem(56) px-to-rem(56);
+      background-image: url("~@component-gallery/assets/image/monitor-top/terracotta/channel-num.png");
+    }
+
+    &.alarmIcon {
+      height: px-to-rem(52);
+      background-size: px-to-rem(54) px-to-rem(52);
+      background-image: url("~@component-gallery/assets/image/monitor-top/terracotta/alarm-num.png");
+    }
+
+    &.willdoIcon {
+      height: px-to-rem(57);
+      background-size: px-to-rem(54) px-to-rem(57);
+      background-image: url("~@component-gallery/assets/image/monitor-top/terracotta/will-do-num.png");
+    }
+  }
+}

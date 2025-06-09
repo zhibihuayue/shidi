@@ -1,0 +1,11 @@
+{
+  "name": "@component-gallery/map",
+  "version": "0.0.1",
+  "description": "地图组件",
+  "dependencies": {
+    "@component-gallery/assets": "workspace:^",
+    "@component-gallery/base-components": "workspace:^",
+    "@component-gallery/utils": "workspace:^",
+    "@component-gallery/build-event-bus-path": "workspace:^"
+  }
+}

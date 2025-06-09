@@ -1,0 +1,281 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import "mixins/px-to-rem";
+@import "mixins/bem-mixins.scss";
+
+@include b(base-card) {
+  width: 100%;
+  @include themeify() {
+    position: relative;
+
+    @if $theme-name == 'theme-terracotta' {
+      &.is-show-terracotta-corner {
+        &::before,
+        &::after {
+          position: absolute;
+          z-index: -1;
+          width: px-to-rem(16);
+          height: px-to-rem(16);
+          //background: #A9A158;
+          background: url("~@component-gallery/assets/image/base-card/t-corner.png");
+          background-size: 100%;
+          content: '';
+        }
+
+        &::before {
+          left: px-to-rem(-4);
+          top: px-to-rem(-4);
+        }
+
+        &::after {
+          right: px-to-rem(-4);
+          top: px-to-rem(-4);
+          rotate: 90deg;
+        }
+
+        .base-card-content {
+          border-radius: 0 !important;
+
+          &::before,
+          &::after {
+            position: absolute;
+            z-index: -1;
+            width: px-to-rem(16);
+            height: px-to-rem(16);
+            background: url("~@component-gallery/assets/image/base-card/t-corner.png");
+            content: '';
+          }
+
+          &::before {
+            left: px-to-rem(-4);
+            bottom: px-to-rem(-4);
+            rotate: 270deg;
+          }
+
+          &::after {
+            right: px-to-rem(-4);
+            bottom: px-to-rem(-4);
+            rotate: 180deg;
+          }
+        }
+      }
+    }
+
+    &-content {
+      background: themed('base-card-content-bg');
+
+      @if $theme-name == 'theme-aquamarine' {
+        border: px-to-rem(1) solid;
+        border-image: themed('base-card-content-border-bg');
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: px-to-rem(45);
+          width: px-to-rem(36.8);
+          height: px-to-rem(8);
+          background: themed('base-card-header-before-bg');
+          background-size: 100%;
+          content: '';
+          z-index: 1;
+        }
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: px-to-rem(8);
+          height: px-to-rem(1);
+          background: themed('base-header-corner-bg');
+          content: '';
+          z-index: 1;
+        }
+        &.is-show-aquamarine-corner::before {
+          height: 0;
+        }
+      }
+      @if $theme-name == 'theme-terracotta' {
+        border: px-to-rem(1) solid themed('base-card-content-border-bg');
+        border-radius: px-to-rem(8);
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        border-radius: px-to-rem(8);
+      }
+
+      @if $theme-name == 'theme-aquamarine' {
+        .aquamarine-right-corner {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: px-to-rem(8);
+          height: px-to-rem(1);
+          background: rgba(0, 245, 193, 0.9);
+        }
+      }
+
+      &-close {
+        position: absolute;
+        right: px-to-rem(-19);
+        top: px-to-rem(-19);
+        z-index: 1;
+        cursor: pointer;
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        background: themed('base-card-close-bg');
+        background-size: 100%;
+      }
+
+      &-header {
+        position: relative;
+        height: px-to-rem(48);
+        display: flex;
+        align-items: center;
+        padding: 0 px-to-rem(12) !important;
+        background: themed('base-card-header-bg');
+
+        @if $theme-name == 'theme-wiseblue' {
+          border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+        }
+
+        @if $theme-name == 'theme-aquamarine' {
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: px-to-rem(48);
+            content: '';
+            z-index: -1;
+            background: url("~@component-gallery/assets/image/base-grid-detail/a-center-bg.png") no-repeat center;
+            background-size: px-to-rem(180) px-to-rem(48);
+          }
+        }
+
+        @if $theme-name == 'theme-terracotta' {
+          //background: linear-gradient( 180deg, rgba(238, 227, 128, 0.2) 0%, rgba(105,95,42,0.036) 97%, rgba(76,66,24,0.2) 100%);
+        }
+
+        &__line {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: px-to-rem(1);
+
+          &.is-show-aquamarine-line {
+            @if $theme-name == 'theme-aquamarine' {
+              &::before {
+                width: 100%;
+                height: px-to-rem(16);
+                background: url("~@component-gallery/assets/image/base-grid-detail/a-bottom-bg.png") no-repeat bottom center;
+                background-size: 100% px-to-rem(16);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                content: '';
+                z-index: 2;
+              }
+            }
+          }
+
+          &.is-show-terracotta-line {
+            @if $theme-name == 'theme-terracotta' {
+              &::before {
+                width: 100%;
+                height: px-to-rem(16);
+                background: url("~@component-gallery/assets/image/base-grid-detail/t-bottom-bg.png") no-repeat bottom center;
+                background-size: 100% px-to-rem(16);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                content: '';
+                z-index: 2;
+              }
+            }
+          }
+        }
+
+        &__title {
+          font-size: px-to-rem(16);
+          color: #fff;
+          width: calc(100% - px-to-rem(100));
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-shadow: themed('base-card-header-title-text-shadow');
+
+          @if $theme-name == 'theme-wiseblue' {
+            margin-left: px-to-rem(50);
+            text-align: center;
+          }
+        }
+
+        &__title.is-show-header-icon {
+          text-indent: px-to-rem(20);
+
+          &::before {
+            position: absolute;
+            top: px-to-rem(19);
+            left: px-to-rem(19);
+            content: "";
+            @if $theme-name == 'theme-aquamarine' {
+              background: url("~@component-gallery/assets/image/base-card/icon1.png") no-repeat 0 center;
+              background-size: 100% 100%;
+              width: px-to-rem(10);
+              height: px-to-rem(10);
+            }
+          }
+        }
+
+        &__title.is-terracotta-title-center {
+          @if $theme-name == 'theme-terracotta' {
+            margin-left: px-to-rem(50);
+            text-align: center;
+          }
+        }
+
+        &__title.is-aquamarine-title-center {
+          @if $theme-name == 'theme-aquamarine' {
+            margin-left: px-to-rem(50);
+            text-align: center;
+          }
+        }
+
+        &__others {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: calc(100% - px-to-rem(100));
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      //&-header.is-aquamarine-bg-center {
+      //  &::before {
+      //    @if $theme-name == 'theme-aquamarine' {
+      //      left: calc((100% - px-to-rem(159)) / 2);
+      //    }
+      //  }
+      //}
+    }
+
+    @if $theme-name == 'theme-terracotta' {
+      .terracotta-corner {
+        position: absolute;
+        right: px-to-rem(-4);
+        top: px-to-rem(-4);
+        z-index: px-to-rem(-1);
+        width: px-to-rem(16);
+        height: px-to-rem(16);
+        background: themed('base-card-terracotta-corner-bg');
+      }
+      .terracotta-corner + .base-card-content {
+        border-radius: 0;
+      }
+    }
+  }
+}
+

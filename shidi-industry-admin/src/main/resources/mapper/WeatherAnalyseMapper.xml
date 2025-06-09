@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinatower.wetland.mappper.WeatherAnalyseMapper">
+    <insert id="saveWeather">
+        insert into weather_analyse(id, tenant_id, industry_code, app_ver_code, temperature,precipitation, create_time, update_time,
+                                    is_deleted,temperature_from,precipitation_from)
+        values (#{param.id}, #{param.tenantId}, #{param.industryCode}, #{param.appVerCode}, #{param.temperature},#{param.precipitation},
+                #{param.createTime}, #{param.updateTime}, 0,#{param.temperatureFrom},#{param.precipitationFrom})
+    </insert>
+    <insert id="saveWeatherHf">
+        insert into weather_analyse(id, tenant_id, industry_code, app_ver_code, temperature, create_time, update_time,
+                                    precipitation, is_deleted,temperature_from,precipitation_from)
+        values (#{param.id}, #{param.tenantId}, #{param.industryCode}, #{param.appVerCode}, #{param.temperature},
+                #{param.createTime}, #{param.updateTime}, #{param.precipitation}, 0,#{param.temperatureFrom},#{param.precipitationFrom})
+    </insert>
+    <update id="updatePrecipitation">
+        update weather_analyse
+        set
+            <if test="param.precipitation!=null">
+                 precipitation = #{param.precipitation},
+                precipitation_From = #{param.precipitationFrom},
+            </if>
+            <if test="param.temperature!=null">
+                temperature = #{param.temperature},
+                temperature_From = #{param.temperatureFrom},
+            </if>
+            update_time=#{param.updateTime}
+        where id = #{param.id}
+    </update>
+    <update id="removeByLoginData">
+        update weather_analyse
+        set is_deleted = 1
+        where tenant_id = #{tenantId}
+          and industry_code = #{industryCode}
+          and app_ver_code = #{appVerCode}
+    </update>
+
+    <select id="statisticsMonth" resultType="com.chinatower.wetland.pojo.vo.WeatherStatisticsVo">
+        SELECT
+        IFNULL(AVG(temperature), 0) AS temperatureMonth,
+        IFNULL(AVG(precipitation), 0) AS precipitationMonth
+        FROM
+        weather_analyse
+        <where>
+            and is_deleted = 0
+            <if test="industryCode != null">
+                and industry_code = #{industryCode}
+            </if>
+            <if test="tenantId != null">
+                and tenant_id = #{tenantId}
+            </if>
+            <if test="appVerCode != null">
+                and app_ver_code = #{appVerCode}
+            </if>
+            <if test="startTime != null and endTime != null">
+                AND create_time BETWEEN #{startTime} AND #{endTime}
+            </if>
+        </where>
+    </select>
+
+    <select id="getOneWeather" resultType="com.chinatower.wetland.pojo.entity.WeatherAnalyse">
+        select id,
+               tenant_id
+        from weather_analyse
+        where is_deleted = 0
+          and tenant_id = #{param.tenantId}
+          and industry_code = #{param.industryCode}
+          and app_ver_code = #{param.appVerCode}
+          and create_time between #{startTime} and #{endTime} limit 1
+    </select>
+    <select id="statisticsTimeList" resultType="com.chinatower.wetland.pojo.vo.WeatherTimeVo">
+        SELECT
+        DATE_FORMAT(MIN(create_time), '%Y') AS years,
+        DATE_FORMAT(MIN(create_time), '%m') AS times,
+        DATE_FORMAT(MIN(create_time), '%d') AS days,
+
+        DATE_FORMAT(MIN(create_time), '%Y-%m-%d') AS dayDateTime,
+        IFNULL(AVG(temperature), 0) AS temperature,
+        IFNULL(AVG(precipitation), 0) AS precipitation
+        FROM
+        weather_analyse
+        <where>
+            and is_deleted = 0
+            <if test="param.industryCode != null">
+                and industry_code = #{param.industryCode}
+            </if>
+            <if test="param.tenantId != null">
+                and tenant_id = #{param.tenantId}
+            </if>
+            <if test="param.appVerCode != null">
+                and app_ver_code = #{param.appVerCode}
+            </if>
+            <if test="param.startTime != null and param.endTime != null">
+                AND create_time BETWEEN #{param.startTime} AND #{param.endTime}
+            </if>
+        </where>
+        GROUP BY
+        <if test="param.timeType != null and param.timeType == 2">
+            DATE_FORMAT(create_time, '%Y年%m月%d日')
+        </if>
+        <if test="param.timeType != null and param.timeType == 0">
+            DATE_FORMAT(create_time, '%Y年%m月%d日')
+        </if>
+        <if test="param.timeType != null and param.timeType == 1">
+            DATE_FORMAT(create_time, '%Y年%m月')
+        </if>
+        order by DATE_FORMAT(create_time, '%Y年%m月%d日') asc
+    </select>
+</mapper>

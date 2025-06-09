@@ -1,0 +1,1203 @@
+//  赤土黄
+@import '../../mixins/px-to-rem';
+
+$theme-terracotta: (
+  pop-up-primary-color:
+  linear-gradient(
+      180deg,
+      #857b3f 0%,
+      #3d3615 12%,
+      #1a1507 21%,
+      #140f05 27%,
+      #000000 100%
+  ),
+  scroll-bar-primary-color: rgba(255, 238, 177, 0.4),
+  global-text-color: #e4e7c1,
+  global-bg-color: rgba(100, 86, 46, 0.4),
+  background-color-theme:rgba(23,20,11,0.9),
+//   linear-gradient(
+//       180deg,
+//       rgba(66, 59, 29, 0.9) 0%,
+//       rgba(40, 33, 14, 0.9) 11%,
+//       rgba(0, 0, 0, 0.9) 100%
+//   ),
+  border-1: 1px solid #6e674e,
+  // search搜索框相关开始
+  search-bg-color: rgba(100, 86, 46, 0.4),
+  search-select-bg-color: rgba(100, 86, 46, 0.4),
+  search-select-dropdown-bg-color:rgba(23,20,11,0.9),
+//   linear-gradient(
+//       180deg,
+//       rgba(163, 144, 69, 0.53),
+//       rgba(105, 95, 42, 0.18) 35px,
+//       rgba(98, 88, 38, 0) 100px
+//   ) rgba(0, 0, 0, 0.9),
+  search-select-dropdown-selected-bg-color: rgba(122, 113, 61, 0.36),
+  search-select-dropdown-selected-text-color: #fffa28,
+  // search-select-arrow-up-color: #ffeeb1,
+  search-select-arrow-up-color: rgba(255, 238, 177, 1),
+  search-highlight-text-color: #fff,
+  search-icon-color: #f8ebbf,
+  search-icon-divider-color: #f8ebbf,
+  search-normal-text-color: #e4e7c1,
+  search-text-color: #e4e7c1,
+  search-border-color-hover:rgba(#FFEEB1, .6),
+  search-border-color-focus:#FFEEB1,
+  // 筛选相关
+  search-filter-box-top: px-to-rem(50),
+  search-filter-box-bg-color: rgba(23,20,11,0.9),
+//   linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  search-filter-box-border-color: 1px solid #6e674e,
+  search-filter-box-title-color: #e4e7c1,
+  alarm-list-main-color: #e4e7c1,
+  alarm-list-date-color: #e4e7c1,
+  search-filter-box-title-shadow: none,
+  // search-filter-box-title-shadow: 0 1px 4px #ffd87c,
+  search-filter-box-btn-border: 1px solid #9f9853,
+  search-filter-box-btn-color: #e4e7c1,
+  search-filter-box-btn-selected-border: 1px solid #FFFA28,
+  search-filter-box-btn-selected-color: #FFFA28,
+  search-filter-box-btn-icon-color: #ffeeb1,
+  search-filter-box-hover-color: rgba(255, 238, 177, .6),
+  search-filter-box-placeholder-color: rgba(228, 231, 193, 0.7),
+  search-filter-box-btn-selected-bg-color:
+  linear-gradient(
+      180deg,
+      rgba(255, 241, 126, 0.1) 0%,
+      rgba(255, 224, 72, 0.34) 100%
+  ),
+  // 天气相关开始
+  weather-box-bg:
+  url('~@component-gallery/assets/image/weather/todayweatherbg-gt.png'),
+  weather-wrapper-bg:
+  linear-gradient(
+      to top,
+      rgba(5, 5, 4, 0.8) 0%,
+      rgba(17, 17, 15, 0.8) 26%,
+      rgba(139, 119, 61, 0.8) 100%
+  ),
+  weather-now-date-bg:
+  url('~@component-gallery/assets/image/weather/textwpbg-land.png') px-to-rem(-6),
+  weather-card-bg:
+  linear-gradient(
+      180deg,
+      rgba(100, 86, 46, 0) 0%,
+      rgba(100, 86, 46, 0.2) 100%
+  ),
+  weather-card-aqi-bg: none,
+  weather-card-border:
+  linear-gradient(
+      180deg,
+      rgba(100, 86, 46, 0),
+      rgba(255, 238, 177, 0.3),
+      rgba(100, 86, 46, 0)
+  ) 1 1,
+  weather-card-aqi-text-shadow: none,
+  weather-card-border-image: none,
+  card-border-image: none,
+  weather-card-divider-bg:
+  linear-gradient(63deg, #e4e7c1 0%, rgba(232, 243, 254, 0.2) 100%),
+  weather-card-divider-height: 2px,
+  weather-card-forewarning-icon-color: #FFEEB1,
+  weather-card-question-icon-color: #FFEEB1,
+  only-show-in-wiseblue: none,
+  only-show-in-terracotta: auto,
+  only-show-in-aquamarine: none,
+  // 天气相关结束
+  // search搜索框相关结束
+  border-radius-8: px-to-rem(8),
+  border-radius-4: px-to-rem(4),
+  // tree hover
+  tree-node-off-line-color: rgba(228, 231, 193, 0.5),
+  tree-primary-color: rgba(100, 86, 46, 0.4),
+  tree-primary-font_active_color: rgba(255, 250, 40, 1),
+  tree-primary-font_color: rgba(228, 231, 193, 1),
+  tree-default-no-date:
+  url('~@component-gallery/assets/image/noDate-terracotta.png'),
+  tree-filter-title-text-shadow: 0px 1px 4px #DCD277,
+  // c-button styles
+  c-btn-default-border: 1px solid #6e674e,
+  c-btn-default-bg: rgba(100, 86, 46, 0.71),
+  c-btn-submit-bg: rgb(2 137 109 / 30%),
+  c-btn-submit-corner-bg-img:
+  url('~@component-gallery/assets/image/c-btn-submit-corner-bg-terracotta.png') center / 100% 100%,
+  c-btn-radius: 4px,
+  // Font
+  default-font-size: 14px,
+  // Color
+  default-color: #ffffff,
+  // Border
+  default-border-color: #6e674e,
+  default-border-radius: 4px,
+  // Background
+  default-background-color: rgba(2, 137, 109, 0.2),
+  // CG buttons
+  cg-button-border-radius: px-to-rem(4),
+  cg-button-default-box-shadow: none,
+  cg-button-default-bg-color: rgba(100, 86, 46, 0.71),
+  cg-button-corner-bg-img:
+  url('~@component-gallery/assets/image/c-btn-submit-corner-bg-terracotta.png') center / 100% 100%,
+  cg-button-primary-bg-color: rgba(100, 86, 46, 1),
+  cg-button-primary-bg-img: none,
+  cg-button-primary-box-shadow: none,
+  // 天气相关结束
+  // 摄像机筛选
+  camera-tab-select:
+  linear-gradient(
+      90deg,
+      rgba(
+        $color: #f9ff6c,
+        $alpha: 25%
+      ) 0%,
+      rgb(249 255 108 / 0%) 100%
+  ),
+  checkbox-default-background: rgba(159, 152, 83, 0),
+  checkbox-is-checked-background: rgba(122, 113, 61, 0.4),
+  //地图小工具
+  small-tool-active-background: rgba(122, 113, 61, 0.4),
+  small-tool-active-color: #fffa28,
+  small-tool-map-draw-background:
+  linear-gradient(180deg, rgb(43 40 22) 0%, rgb(14 15 6) 21%, #141007 100%),
+  el-slider-buttom: linear-gradient(270deg, rgba(255, 250, 40, 1), rgba(255, 250, 40, 0)),
+  el-slider-runway: rgba(100, 86, 46, 0.3),
+  el-slider-date-poper: rgba(159, 152, 83, 0.95),
+  el-tooltip-bg: rgba(22, 18, 9, 0.95),
+  // dialog
+  dialog-bg-color:
+  linear-gradient(
+      180deg,
+      #857b3f 0%,
+      #3d3615 12%,
+      #1a1507 21%,
+      #140f05 27%,
+      #000000 100%
+  ),
+  tool-active-color: #fffa28,
+  tool-active-bg:
+  url('~@component-gallery/assets/image/tool-box/draw-active.png'),
+  tool-delate-bg: url('~@component-gallery/assets/image/tool-box/shuazi.png'),
+  tool-delate-bg-color:
+  linear-gradient(
+      180deg,
+      rgba(144, 128, 75, 0.58) 0%,
+      rgba(59, 55, 36, 0.42) 100%
+  ),
+  tool-slider-num-color: rgba(100, 86, 46, 0.4),
+  tool-slider-bar-color:
+  linear-gradient(270deg, #fffa28 0%, rgba(255, 250, 40, 0) 100%),
+  tool-slider-color: #e4e7c1,
+  tool-table-current-color: #7a713d,
+  tool-page-number-color: #9f9853,
+  map-tool-active-img:
+  url('~@component-gallery/assets/image/funcicon-bg-gt.png'),
+  map-tool-box: url('~@component-gallery/assets/image/maptool-gt.png'),
+  map-tool-box-active: url('~@component-gallery/assets/image/maptool-gt1.png'),
+  select-down-popper-bg: #0f1926,
+  //tool-complex
+  complex-card-title-bg:
+  url('~@component-gallery/assets/image/complex/terracotta/title-bg.png'),
+  complex-table-title-bg: rgba(100, 86, 46, 0.4),
+  complex-table-title-clr: rgba(228, 231, 193, 0.7),
+  complex-table-title-clr-1:#FFEEB1,
+  complex-table-title-clr-2: #E4E7C1,
+  complex-text-platform:
+  url('~@component-gallery/assets/image/complex/terracotta/text_platform.png'),
+  complex-select-tree-box-bg: linear-gradient(to top, #000000 0%, #36301b 100%),
+  complex-color-picker-btn-default-bg: linear-gradient(180deg, #423B1D 0%, #28210E 11%, #000000 100%),
+  complex-border-color: 1px solid #6E674E,
+  complex-theme-color: #FFFA28,
+  complex-table-ctx-txt-clr: #e4e7c1,
+  complex-btn-bg-mini: linear-gradient(180deg, rgba(255, 224, 72, 0.34) 0%, rgba(255, 241, 126, 0.1) 100%),
+  complex-btn-bg-mini-close: rgb(100, 86, 46, 0.7),
+  complex-picker-btn-color: #E4E7C1,
+  complex-btn-close-icon: url("~@component-gallery/assets/image/complex/terracotta/close.png"),
+  complex-input-bg-color: rgba(100, 86, 46, 0.4),
+  color-picker-btn-bg: rgba(21, 19, 12, 0.7),
+  complex-title-border:1px solid #FFEEB1,
+
+  // options-left
+  options-left-icon-default-background-image:
+  url('~@component-gallery/assets/image/options-left/terracotta/default_bg.png'),
+  options-left-icon-active-background-image:
+  url('~@component-gallery/assets/image/options-left/terracotta/active_bg.png'),
+  options-left-icon-active-out-border-background-image:
+  url('~@component-gallery/assets/image/options-left/terracotta/active_out_border.png'),
+  options-left-icon-fill-background-image:
+  linear-gradient(to bottom, #f6e7ac, #f6e7ac),
+  options-left-icon-active-fill-background-image:
+  linear-gradient(to bottom, #ffddcc, #fffaf4),
+  options-left-icon-title-default-color: #e4e7c1,
+  options-left-icon-title-active-color: #ffeade,
+  // footer
+  footer-bg-closed-lines:
+  url('~@component-gallery/assets/image/footer/terracotta/closed_lines.png') no-repeat,
+  footer-bg-closed-line:
+  url('~@component-gallery/assets/image/footer/terracotta/closed_line.png') no-repeat,
+  footer-close_line:
+  radial-gradient(
+      circle,
+      rgb(202 255 254 / 35%),
+      rgb(202 255 254 / 35%),
+      rgb(202 255 254 / 0%)
+  ) 1 1,
+  footer-bg-open-line:
+  url('~@component-gallery/assets/image/footer/terracotta/opend_line.png') no-repeat,
+  footer-bg-act-item-icon:
+  url('~@component-gallery/assets/image/footer/terracotta/act_item_icon.png') no-repeat,
+  footer-bg-def-item-icon:
+  url('~@component-gallery/assets/image/footer/terracotta/def_item_icon.png') no-repeat,
+  footer-des-text-shadow: 0 0 px-to-rem(12) rgba(255, 238, 177, 1),
+  footer-des-text-shadow-active: 0 0 px-to-rem(12) #ff7f3c,
+  footer-to-tools-color: #FFFA28,
+  footer-des-text-color: #E4E7C1,
+  footer-des-text-color-active: #FFEADE,
+  footer-top-iocn-background-image:
+  linear-gradient(149deg, #fff3c3 0%, #ddb73a 100%),
+  footer-top-iocn-background-image-active:
+  linear-gradient(149deg, #fadecf 0%, #ff7f3c 100%),
+  footer-top-iocn-border-image:
+  linear-gradient(137deg, rgba(255, 255, 255, 1), rgba(231, 211, 83, 0.41)) 1 1,
+  footer-top-iocn-border-image-active:
+  linear-gradient(138deg, rgba(255, 255, 255, 1), rgba(240, 143, 93, 0.41)) 1 1,
+  footer-tips-shadow-color: #FFEEB1,
+  footer-tips-text-color: #FFEEB1,
+  // alarm-list
+  alarm-list-bg-module:rgba(23,20,11,0.9),
+  alarm-list-bg-after-left: '',
+  alarm-list-bg-after-right: '',
+  alarm-list-bg-m-head: '',
+  alarm-list-bg-m-head-beforeAfter: '',
+  alarm-list-popup-title-bg-center: '',
+  alarm-list-popup-title-bg: '',
+  // 无切图
+  alarm-list-popup-title-text-shadow: 0px 0px px-to-rem(12) #dcd277,
+  alarm-list-popup-title-bg-before:
+  url('~@component-gallery/assets/image/alarm-list/terracotta/popup-title-icon.png') no-repeat center / 100% 100%,
+  alarm-list-popup-title-bg-after: '',
+  alarm-list-popup-title-bg-after-new: '',
+  alarm-list-popup-title-guang:
+  url('~@component-gallery/assets/image/alarm-list/terracotta/popup-title-guang-new.png') no-repeat center / 100% 100%,
+  alarm-list-popup-title-border-bottom:
+  linear-gradient(
+      90deg,
+      rgba(255, 222, 76, 0) 50px,
+      rgba(255, 222, 76, 0.35) 50px 200px,
+      rgba(255, 222, 76, 0)
+  ) 1 1,
+  alarm-list-line-bg: linear-gradient(90deg, rgba(255, 222, 76, 0), rgba(255, 222, 76, 1), rgba(255, 222, 76, 0)),
+  alarm-list-title-color: #fff,
+  alarm-list-item-line: rgba(228, 231, 193, 0.2),
+  alarm-list-title-line: rgba(255, 222, 76, 0.35),
+  alarm-list-input-bg: rgba(100, 86, 46, 0.4),
+  alarm-list-btn-background-color: #64562e,
+  alarm-list-btn-font-color: #e4e7c1,
+  alarm-list-btn-border: px-to-rem(1) solid #6e674e,
+  alarm-list-input-border: px-to-rem(1) solid rgba(255, 238, 177, 0),
+  alarm-list-input-focus-border: px-to-rem(1) solid rgba(255, 238, 177, 1),
+  alarm-list-input-search-icon: rgba(255, 238, 177, 1),
+  alarm-list-item-bg-hover: rgba(100, 86, 46, 0.6),
+  alarm-list-bg-page-tool: rgb(0 0 0 / 70%),
+  alarm-list-color-btn-refresh: #ffeeb1,
+  alarm-list-bg-pagination: #9f9853,
+  alarm-list-color-warningName: #e4e7c1,
+  alarm-list-color-warningTitle: #fff,
+  alarm-list-color-item: #ffffff,
+  alarm-list-bg-color-item-icon: #ffeeb1,
+  alarm-list-color-item-address: rgb(228 231 193 / 70%),
+  alarm-list-bg-item-time: rgba(255, 238, 177, 0.2),
+  alarm-list-color-item-time: #e4e7c1,
+  alarm-list-bg-item-time-chaoQi: rgba(237, 81, 88, 0.2),
+  alarm-list-color-font-time-chaoQi: #ED5158,
+  alarm-list-color-item-time-chaoQi: #f9ff6c,
+  alarm-list-bg-label-item-box: rgba(255, 224, 72, 0.2),
+  alarm-list-bg-label-item-box-after: rgba(255, 224, 72, 0.2),
+  alarm-list-bg-label-item-box-div: rgba(255, 224, 72, 0.2),
+  alarm-list-color-label-item-box-div: #ffeeb1,
+  alarm-list-base-head-selected-foot-img:
+  url('~@component-gallery/assets/image/alarm-list/terracotta/select-footer-yellow.png') no-repeat center / 100% 100%,
+  alarm-detail-border-image: #6e674e 1 1,
+  alarm-detail-text-shadow: 1px 0px 4px #dcd277,
+  alarm-detail-header-line:
+  linear-gradient(
+      90deg,
+      rgba(255, 222, 76, 0),
+      rgba(255, 222, 76, 1),
+      rgba(255, 222, 76, 0)
+  ),
+  alarm-detail-compare-describe-color: rgba(100, 86, 46, 0.2),
+  alarm-detail-compare-recognition-result-color: #E4E7C1,
+  alarm-relations-header-line:linear-gradient(90deg, rgba(255, 222, 76, 0), rgba(255, 222, 76, 1), rgba(255, 222, 76, 0)) 1 1,
+  alarm-detail-compare-line-color: rgba(255, 222, 76, 1),
+  alarm-detail-time-select-tag-color: #ffffff,
+  alarm-detail-header-bg-color: none,
+  alarm-detail-compare-tip-text-color: rgba(228, 231, 193, 0.7),
+  alarm-detail-compare-arrow-bg-color: rgba(21, 19, 12, 0.7),
+  alarm-detail-compare-arrow-hover-color: rgba(21, 19, 12, 0.3),
+  alarm-detail-compare-arrow-color: #ffeeb1,
+  alarm-detail-compare-head-color:#fff,
+  alarm-detail-compare-full-bg: rgba(21, 19, 12, 0.7),
+  alarm-detail-func-active-bg:
+  url('~@component-gallery/assets/image/common/terracotta/choose-icon-bg.png') center/cover no-repeat,
+  alarm-detail-base-header-bottom:
+  url('~@component-gallery/assets/image/alarm-detail/terracotta/title-bottom.png') no-repeat center / 100% 100%,
+  alarm-detail-header-bottom: px-to-rem(268),
+  alarm-detail-input-background: rgba(100, 86, 46, 0.4),
+  alarm-detail-input-hover-border: #ffeeb1,
+  alarm-detail-input-hover-border60: rgba(255, 238, 177, 0.6),
+  alarm-detail-input-placeholder: rgba(228, 231, 193, 0.7),
+  no-data-img:
+  url('~@component-gallery/assets/image/alarm-detail/terracotta/no-data.png'),
+  alarm-detail-file-img: url('~@component-gallery/assets/image/alarm-detail/terracotta/upAnnexIcon.png'),
+  alarm-detail-upload-border: rgba(228, 231, 193, 0.4),
+  alarm-tooltip-bg: rgba(22, 18, 9, 0.95),
+  alarm-repeat-tooltip-bg: rgba(22, 18, 9, 0.95),
+  alarm-carousel-btn: #161209,
+  alarm-carousel-btn-hover: #b1aa63,
+  alarm-info-video-icon-bg:
+  url('~@component-gallery/assets/image/common/terracotta/choose-icon-bg.png') center/cover no-repeat,
+  alarm-info-video-icon-bg-new:
+  url('~@component-gallery/assets/image/common/terracotta/choose-icon-bg-new.png') center/cover no-repeat,
+  alarm-collapse-icon-bg-new:
+  url('~@component-gallery/assets/image/common/terracotta/collapse-item.png') center/cover no-repeat,
+  alarm-info-title-box-bg: none,
+  alarm-info-data-title-color: rgba(228, 231, 193, 0.7),
+  alarm-info-data-content-color: #e4e7c1,
+  alarm-info-data-content-head-color:#fff,
+  alarm-phrases-bg-color: rgba(100, 86, 46, 0.8),
+  alarm-phrases-item-bg-color: rgba(122, 113, 61, 0.5),
+  alarm-phrases-item-placeholder: rgba(228, 231, 193, 0.7),
+  alarm-detail-tooltip-bg: rgba(22, 18, 9, 0.95),
+  alarm-radio-inner-bg: none,
+  alarm-radio-box-shadow: inset 0 0 3px 0 rgba(159, 152, 83, 0.7),
+  alarm-radio-inner-checked-bg: rgb(159 152 83),
+  alarm-plan-table-header-bg: rgba(100, 86, 46, 0.4),
+  alarm-repeat-table-hover-bg: #7A713D,
+  alarm-plan-table-option-text-color: #fffa28,
+  alarm-tag-delete-color: #ffeeb1,
+  alarm-tag-edit-default-box: rgba(255, 238, 177, 0.2),
+  alarm-tag-edit-default-box-after: rgba(255, 238, 177, 0.2),
+  alarm-tag-edit-default-box-div: rgba(255, 238, 177, 0.2),
+  alarm-tag-edit-default-item-text: #e4e7c1,
+  alarm-tag-edit-check-box: rgba(255, 224, 72, 0.2),
+  alarm-tag-edit-check-box-after: rgba(255, 224, 72, 0.2),
+  alarm-tag-edit-check-box-div: rgba(255, 224, 72, 0.2),
+  alarm-tag-edit-check-item-text: #ffeeb1,
+  alarm-tag-add-btn-border: 1px solid #ffeeb1,
+  alarm-tag-add-btn-text-color: #e4e7c1,
+  alarm-tag-add-btn-bg-color: rgba(100, 86, 46, 0.4),
+  alarm-tag-add-input-bg-color: rgba(100, 86, 46, 0.4),
+  alarm-tag-add-input-border: 1px solid #64562e,
+  alarm-tag-add-input-text-color: rgba(228, 231, 193, 0.7),
+  alarm-weather-wrapper-bg: linear-gradient(to top, rgba(5, 5, 4, 0.8) 0%, rgba(17, 17, 15, 0.8) 26%, rgba(139, 119, 61, 0.8) 100%),
+  alarm-weather-box-bg: url('~@component-gallery/assets/image/weather/todayweatherbg-gt.png'),
+  alarm-water-detail-arrow: rgba(21, 19, 12, 0.7),
+  alarm-water-detail-fullscreen: rgba(21, 19, 12, 0.7),
+  alarm-water-detail-font-color: #ffeeb1,
+  alarm-review-download-notice: #fffa28,
+  alarm-history-border: #fffa28,
+  alarm-audio-slider-rail: rgba(228, 231, 193, 0.2),
+  alarm-audio-slider-runaway: linear-gradient( 270deg, #FFFA28 0%, rgba(255,250,40,0) 100%),
+  alarm-audio-button-bg: #FFEEB1,
+  alarm-audio-button-border: #E4E7C1,
+  // base-components
+  base-card-content-bg: rgba(23, 20, 11, 0.9),
+  base-card-content-border-bg: #6e674e,
+  base-card-close-bg:
+  url('~@component-gallery/assets/image/base-card/close2.png') no-repeat,
+  base-card-header-line-after-bg:
+  linear-gradient(
+      90deg,
+      transparent,
+      rgba(156, 157, 100, 0.3176470588) 40%,
+      rgba(185, 186, 103, 0.4745098039) 60%,
+      transparent
+  ),
+  base-card-header-line-before-bg:
+  url('~@component-gallery/assets/image/base-card/card-liner3.png') no-repeat center center,
+  base-card-header-title-text-shadow: 1px 0 4px #dcd277,
+  base-card-terracotta-corner-bg: #a9a158,
+  // setConfig
+  alarm-event-set-config-close_icon-background-image:
+  url('~@component-gallery/assets/image/tool-box/terracotta/sp-icon_close2x.png'),
+  alarm-event-set-config-brcorner: none,
+  alarm-event-set-config-background:
+  linear-gradient(
+      180deg,
+      #857b3f 0%,
+      #3d3615 12%,
+      #1a1507 21%,
+      #140f05 27%,
+      #000000 100%
+  ),
+  alarm-event-set-config-border-image:
+  linear-gradient(180deg, rgba(255, 238, 177, 0.39), rgba(255, 248, 217, 0)) 1 1,
+  alarm-event-set-config-submit-button-background: #64562e,
+  alarm-event-set-config-submit-button-linear:
+  linear-gradient(180deg, rgba(255, 224, 72, 0.34), rgba(255, 241, 126, 0.1)),
+  alarm-event-set-config-submit-button-radial:
+  radial-gradient(
+      circle at 50% -250%,
+      rgba(255, 219, 117, 0.81) 0,
+      transparent 89%
+  ),
+  alarm-event-set-config-submit-button-color: #e4e7c1,
+  alarm-event-set-config-submit-button-box-shadow: unset,
+  alarm-event-set-config-submit-button-before-border-image-source: none,
+  alarm-event-set-config-submit-button-before-height: 100%,
+  alarm-event-set-config-submit-button-before-width: 100%,
+  alarm-event-set-config-submit-button-before-margin-top: 0px,
+  alarm-event-set-config-submit-button-before-margin-left: 0px,
+  alarm-event-set-config-submit-button-background-image-top-left:
+  url('~@component-gallery/assets/image/tool-box/terracotta/btn-top-left.png'),
+  alarm-event-set-config-submit-button-background-image-top-right:
+  url('~@component-gallery/assets/image/tool-box/terracotta/btn-top-right.png'),
+  alarm-event-set-config-submit-button-background-image-bottom-left:
+  url('~@component-gallery/assets/image/tool-box/terracotta/btn-bottom-left.png'),
+  alarm-event-set-config-submit-button-background-image-bottom-right:
+  url('~@component-gallery/assets/image/tool-box/terracotta/btn-bottom-right.png'),
+  alarm-event-set-config-submit-clear-button-background: #64562e,
+  alarm-event-set-config-submit-clear-button-box-shadow: none,
+  alarm-event-set-config-route-action-background:
+  linear-gradient(
+      180deg,
+      #857b3f 0%,
+      #3d3615 12%,
+      #1a1507 21%,
+      #140f05 27%,
+      #000000 100%
+  ),
+  alarm-event-set-config-route-action-route-item-text-shadow: 0 0 24px rgb(0 92 245 / 35%),
+  alarm-event-set-config-route-action-route-item-color: #ffffff,
+  alarm-event-set-config-route-action-after-background:
+  linear-gradient(
+      90deg,
+      rgb(255 255 255 / 0%) 0%,
+      #fff 50%,
+      rgb(255 255 255 / 0%) 100%
+  ),
+  alarm-event-set-config-route-action-after-border-image: unset,
+  alarm-event-set-config-route-action-route-item-title-bg: none,
+  alarm-event-set-config-route-action-route-item-title-liner: none,
+  alarm-event-set-config-route-action-route-item-active-text-shadow: 1px 0px 4px #dcd277,
+  alarm-event-set-config-route-action-route-item-active-background-image:
+  url('~@component-gallery/assets/image/tool-box/terracotta/xuanzhongv2.png'),
+  alarm-event-set-config-route-action-route-item-active-text-color: #fff,
+  alarm-event-set-config-sel_all-border-bottom: 1px solid rgb(255 255 255 / 20%),
+  alarm-event-set-config-el-checkbox-background-border-color: #9f9853,
+  alarm-event-set-config-el-checkbox__input_is-focus-box-shadow: none,
+  alarm-event-set-config-el-checkbox__inner_background: none,
+  alarm-event-set-config-active-font-color: #fffa28,
+  alarm-event-set-config-ulline-urline-background-color: rgb(97 255 251 / 100%),
+  alarm-event-set-config-normal-font-color: #e4e7c1,
+  alarm-event-set-config-el-switch-background-color: #64562e,
+  alarm-event-set-config-el-switch-border-color: #6e674e,
+  alarm-event-set-config-el-switch-active-background-color: #9f9853,
+  alarm-event-set-config-el-switch-active-border-color: #9f9853,
+  // uat-tree
+  uav-tree-grid-track-pop-background:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  uav-tree-grid-track-pop-before: normal,
+  uav-tree-grid-track-pop-after: normal,
+  uav-tree-grid-track-pop-border: px-to-rem(1) solid #6e674e,
+  uav-tree-plan-background: rgba(100, 86, 46, 0.4),
+  uav-tree-c-button-after-background: normal,
+  uav-tree-c-button-after-box-shadow: normal,
+  uav-tree-c-button-background: #64562e,
+  uav-tree-c-button-border-radius: px-to-rem(4),
+  uav-tree-c-button-submit-b-after-background:
+  url('~@component-gallery/assets/image/uav-tree/btn-j-yellow.png') center /
+    100% 100%,
+  uav-tree-c-button-submit-b-after-size: px-to-rem(8),
+  uav-tree-c-button-after-size: 100%,
+  uav-tree-c-button-after-top: 0,
+  uav-tree-c-button-submit-after-background:
+  radial-gradient(
+      313% 79% at 50% 0%,
+      rgba(255, 219, 117, 0.81) 0%,
+      rgba(0, 0, 0, 0) 100%
+  ),
+  uav-tree-c-button-submit-after-box-shadow: none,
+  uav-tree-c-button-color: #e4e7c1,
+  uav-tree-date-picker-background:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  uav-tree-date-picker-border: px-to-rem(2) solid #6e674e,
+  uav-tree-date-picker__editor-background: rgb(100 86 46 / 20%),
+  uav-tree-date-picker__editor-border-hover: px-to-rem(1) solid rgb(100 86 46 / 60%),
+  uav-tree-date-picker__editor-border-select: px-to-rem(1) solid rgb(100 86 46 / 100%),
+  uav-tree-date-picker-panel-background: #14100790,
+  uav-tree-date-picker-color-10: rgb(100 86 46 / 10%),
+  uav-tree-date-picker-color-20: rgb(100 86 46 / 20%),
+  uav-tree-date-picker-color-30: rgb(100 86 46 / 30%),
+  uav-tree-date-picker-color-40: rgb(100 86 46 / 40%),
+  uav-tree-date-picker-color-60: rgb(100 86 46 / 60%),
+  uav-tree-date-picker-color-100: rgb(100 86 46 / 100%),
+  uav-tree-date-picker-time-txt: #9f9853,
+  uav-tree-attribute-background:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  uav-tree-attribute-head-background:
+  linear-gradient(
+      91deg,
+      rgba(122, 113, 61, 0.2) 0%,
+      rgba(122, 113, 61, 0.15) 23%,
+      rgba(122, 113, 61, 0) 100%
+  ),
+  uav-tree-attribute-attrLabel: rgba(228, 231, 193, 0.7),
+  uav-tree-attribute-attrValue: #e4e7c1,
+  uav-tree-attribute-content: '',
+  uav-tree-attribute-left-bottom-icon:
+  url('~@component-gallery/assets/image/uav-tree/corner-3.png') no-repeat,
+  uav-tree-attribute-right-bottom-icon:
+  url('~@component-gallery/assets/image/uav-tree/corner-2.png') no-repeat,
+  uav-tree-attribute-before-bottom: px-to-rem(-13),
+  uav-tree-attribute-before-left: px-to-rem(-4),
+  uav-tree-attribute-after-bottom: px-to-rem(-13),
+  uav-tree-attribute-after-left: px-to-rem(-9),
+  uav-tree-attribute-border-radius: 0,
+  uav-tree-attribute-el-dialog__header-before: normal,
+  uav-tree-attribute-name-background: none,
+  uav-tree-attribute-close-icon:
+  url('~@component-gallery/assets/image/uav-tree/close-icon-yellow@2x.png'),
+  uav-tree-attribute-headdivider-width: 0,
+  uav-tree-attribute-name-left: px-to-rem(130),
+  uav-tree-date-picker-btn-shadow: none,
+  uav-tree-point-info-background:
+  linear-gradient(
+      180deg,
+      #857b3f 0%,
+      #3d3615 12%,
+      #1a1507 21%,
+      #140f05 27%,
+      #000000 100%
+  ),
+  // track-popup
+  track-popup-grid-track-pop-background:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  track-popup-grid-track-pop-before: normal,
+  track-popup-grid-track-pop-after: normal,
+  track-popup-grid-track-pop-border: px-to-rem(1) solid #6e674e,
+  track-popup-plan-background: rgba(100, 86, 46, 0.4),
+  track-popup-c-button-after-background: normal,
+  track-popup-c-button-after-box-shadow: normal,
+  track-popup-c-button-background: #64562e,
+  track-popup-c-button-border-radius: px-to-rem(4),
+  track-popup-c-button-submit-b-after-background:
+  url('~@component-gallery/assets/image/track-popup/btn-j-yellow.png') center /
+    100% 100%,
+  track-popup-c-button-submit-b-after-size: px-to-rem(8),
+  track-popup-c-button-after-size: 100%,
+  track-popup-c-button-after-top: 0,
+  track-popup-c-button-submit-after-background:
+  radial-gradient(
+      313% 79% at 50% 0%,
+      rgba(255, 219, 117, 0.81) 0%,
+      rgba(0, 0, 0, 0) 100%
+  ),
+  track-popup-c-button-submit-after-box-shadow: none,
+  track-popup-c-button-color: #e4e7c1,
+  track-popup-date-picker-background:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  track-popup-date-picker-border: px-to-rem(2) solid #6e674e,
+  track-popup-date-picker__editor-background: rgb(100 86 46 / 20%),
+  track-popup-date-picker__editor-border-hover: px-to-rem(1) solid rgb(100 86 46 / 60%),
+  track-popup-date-picker__editor-border-select: px-to-rem(1) solid rgb(100 86 46 / 100%),
+  track-popup-date-picker-panel-background: #14100790,
+  track-popup-date-picker-color-10: rgb(100 86 46 / 10%),
+  track-popup-date-picker-color-20: rgb(100 86 46 / 20%),
+  track-popup-date-picker-color-30: rgb(100 86 46 / 30%),
+  track-popup-date-picker-color-40: rgb(100 86 46 / 40%),
+  track-popup-date-picker-color-60: rgb(100 86 46 / 60%),
+  track-popup-date-picker-color-100: rgb(100 86 46 / 100%),
+  track-popup-date-picker-time-txt: #9f9853,
+  track-popup-date-picker-time-txt-active: #fffa28,
+  track-popup-attribute-background:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  track-popup-attribute-head-background:
+  linear-gradient(
+      91deg,
+      rgba(122, 113, 61, 0.2) 0%,
+      rgba(122, 113, 61, 0.15) 23%,
+      rgba(122, 113, 61, 0) 100%
+  ),
+  track-popup-attribute-attrLabel: rgba(228, 231, 193, 0.7),
+  track-popup-attribute-attrValue: #e4e7c1,
+  track-popup-attribute-content: '',
+  track-popup-attribute-left-bottom-icon:
+  url('~@component-gallery/assets/image/track-popup/corner-3.png') no-repeat,
+  track-popup-attribute-right-bottom-icon:
+  url('~@component-gallery/assets/image/track-popup/corner-2.png') no-repeat,
+  track-popup-attribute-before-bottom: px-to-rem(-13),
+  track-popup-attribute-before-left: px-to-rem(-4),
+  track-popup-attribute-after-bottom: px-to-rem(-13),
+  track-popup-attribute-after-left: px-to-rem(-9),
+  track-popup-attribute-border-radius: 0,
+  track-popup-attribute-el-dialog__header-before: normal,
+  track-popup-attribute-name-background: none,
+  track-popup-attribute-close-icon:
+  url('~@component-gallery/assets/image/track-popup/close-icon-yellow@2x.png'),
+  track-popup-attribute-headdivider-width: 0,
+  track-popup-attribute-name-left: px-to-rem(130),
+  track-popup-date-picker-btn-shadow: none,
+  track-popup-point-info-background:
+  linear-gradient(
+      180deg,
+      #857b3f 0%,
+      #3d3615 12%,
+      #1a1507 21%,
+      #140f05 27%,
+      #000000 100%
+  ),
+  // fire-warning
+  fire-warning-color-title: #fff,
+  fire-warning-color-popover-back: #9F9853,
+  fire-warning-list-color-label: #E4E7C1,
+  fire-warning-text-shadow: px-to-rem(1) 0 px-to-rem(4) #DCD277,
+  fire-warning-calendar-not-month: rgba(228,231,193,0.7),
+  fire-warning-color-expand-fold: #fff,
+  fire-warning-color-heatmap: #FFEEB1,
+  fire-warning-color-heatmap-choose: #fffa28,
+  fire-warning-popover-background: rgba(22,18,9,0.95),
+  fire-warning-bg-tree-div-before:
+  linear-gradient(90deg, rgb(0 176 140 / 0%), #857b3f, rgb(0 176 140 / 0%)),
+  fire-warning-bg-tree-content-hover: #64562e,
+  fire-warning-item-calendar-checked: #fffa28,
+  fire-warning-bg-icon-common-choose:
+  linear-gradient(
+      180deg,
+      rgba(255, 219, 117, 0.81) 0%,
+      rgba(59, 55, 36, 0.42) 100%
+  ),
+  fire-warning-color-icon-common-choose: #f9ff6c,
+  fire-warning-color-sort-caret: rgb(242 217 130 / 70%),
+  fire-warning-bg-item-list:
+  linear-gradient(90deg, rgba(255, 238, 177, 0.2) 0%, rgba(0, 0, 0, 0) 100%),
+  fire-warning-border-item-list: 1px solid rgba(255, 238, 177, 0.39),
+  fire-warning-shadow-item-list: inset 0px 0px 6px 0px rgba(255, 238, 177, 0.4),
+  fire-warning-shadow-item-list-img: url('~@component-gallery/assets/image/fire-warn/terracotta/fire-card-g.png') no-repeat center / 100% 100%,
+  fire-warning-bg-item-list-index-after:
+  linear-gradient(270deg, rgb(242 217 130 / 50%) 0%, rgb(21 91 100 / 0%) 100%),
+  fire-warning-bg-item-list-index-after-border:
+  linear-gradient(270deg, rgb(242 227 161 / 40%), rgb(172 154 93 / 0%)),
+  fire-warning-bg-item-list-index-after_1:
+  linear-gradient(90deg, rgb(255 239 0 / 0%) 0%, rgb(255 112 61 / 55%) 100%),
+  fire-warning-bg-item-list-index-after-border_1:
+  linear-gradient(90deg, rgb(255 249 177 / 0%), rgb(255 152 129 / 100%)),
+  fire-warning-bg-item-list-index-after_2:
+  linear-gradient(270deg, rgb(255 164 60 / 76%) 0%, rgb(0 0 0 / 0%) 100%),
+  fire-warning-bg-item-list-index-after-border_2:
+  linear-gradient(270deg, rgb(251 172 81 / 100%), rgb(181 66 66 / 0%)),
+  fire-warning-bg-item-list-index-after_3:
+  linear-gradient(270deg, rgb(228 207 19 / 60%) 0%, rgb(21 91 100 / 0%) 100%),
+  fire-warning-bg-item-list-index-after-border_3:
+  linear-gradient(270deg, rgb(255 238 177 / 80%), rgb(217 253 255 / 0%)),
+  fire-warning-bg-scale: rgba(228, 231, 193, 0.2),
+  fire-warning-bg-scale-passed: linear-gradient(270deg, #FFFA28 0%, rgba(255,250,40,0) 100%),
+  fire-warning-color-warn-progress: #e4e7c1,
+  fire-warning-bg-forest-warning-dialog:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  fire-warning-bg-forest-warning-dialog-new:rgba(23,20,11,0.9),
+  fire-warning-bg-forest-warning-dialog-border: #6e674e,
+  fire-warning-bg-forest-warning-dialog-before: '',
+  fire-warning-border-forest-warning-dialog: px-to-rem(1) solid #6e674e,
+  fire-warning-bg-dialog-til:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #423b1d 100%),
+  fire-warning-bg-dialog-til-before1:
+  url('~@component-gallery/assets/image/fire-warn/alarmList/singleTabSel.png') no-repeat bottom center,
+  fire-warning-bg-dialog-til-before2: '',
+  fire-warning-bg-dialog-til-before3: '',
+  fire-warning-bg-dialog-til-after:
+  linear-gradient(
+      270deg,
+      rgb(255 255 255 / 0%) 0%,
+      #fff 50%,
+      rgb(255 255 255 / 0%) 100%
+  ),
+  fire-warning-bg-dialog-con-before: '',
+  fire-warning-bg-dialog-con-after: '',
+  fire-warning-bg-dialog-til-name: #ffffff,
+  fire-warning-shadow-dialog-til-name: px-to-rem(1) 0px px-to-rem(4) #dcd277,
+  fire-warning-bg-el-checkbox: #9f9853,
+  fire-warning-bg-el-checkbox__inner: rgb(242 217 130 / 30%),
+  fire-warning-shadow-el-checkbox__inner: rgb(242 217 130 / 60%),
+  fire-warning-area-color: rgba(255, 250, 40, 1),
+  fire-warning-bg-forest-warning-dialog-btn:
+  linear-gradient(
+      180deg,
+      rgba(255, 224, 72, 0.34) 0%,
+      rgba(255, 241, 126, 0.1) 100%
+  ),
+  fire-warning-bg-forest-warning-dialog-btn-1:
+  radial-gradient(
+      313% 79% at 50% 0%,
+      rgba(255, 219, 117, 0.81) 0%,
+      rgba(0, 0, 0, 0) 100%
+  ),
+  fire-warning-shadow-forest-warning-dialog-btn: '',
+  fire-warning-border-forest-warning-dialog-btn: '',
+  fire-warning-bg-forest-warning-dialog-btn2: rgba(100, 86, 46, 0.6),
+  fire-warning-shadow-forest-warning-dialog-btn2: '',
+  fire-warning-title-bg-after-new: '',
+  fire-warning-date-picker-color:
+  linear-gradient(180deg, rgb(43 40 22) 0%, rgb(14 15 6) 21%, #141007 100%),
+  // 大喇叭树
+  horn-tree-shout-background:
+  url('~@component-gallery/assets/image/shout-off.png'),
+  horn-tree-shout-background-active:
+  url('~@component-gallery/assets/image/shout-on.png'),
+  tag-bg: rgba(255, 224, 72, 0.2),
+  tag-color: #ffeeb1,
+  tag-padding: 0 3px,
+  tag-txt-padding: 0 12px,
+  // alarm-filtering start
+  alarm-filter-dialog-view-background:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  alarm-filter-dialog-view-border: px-to-rem(1) solid #423b1d,
+  alarm-filter-dialog-view-title-before-background: rgb(232 243 254 / 35%),
+  alarm-filter-dialog-view-titleSelected-background: rgb(242 217 130 / 30%),
+  alarm-filter-dialog-view-alarm-title-hover: rgb(2 137 109 / 20%),
+  alarm-filter-dialog-view-v-deep-title-selected-color: rgb(249 255 108 / 100%),
+  alarm-filter-dialog-view-drop-down-select-background:
+  linear-gradient(
+      180deg,
+      rgb(0 67 63 / 95%) 0%,
+      rgb(0 19 30 / 74%) 21%,
+      #00131e 100%
+  ),
+  alarm-filter-dialog-view-input-bg-input-box-background: rgb(2 137 109 / 20%),
+  alarm-filter-dialog-view-input-bg-input-box-hover-border: px-to-rem(1) solid rgb(2 137 109 / 60%),
+  alarm-filter-dialog-view-input-bg-input-box-is-active-border: px-to-rem(1) solid rgb(2 137 109 / 100%),
+  alarm-filter-dialog-view-first-tag-hover-background-color:
+  rgba(
+    $color: #000,
+    $alpha: 0%
+  ) !important,
+  alarm-filter-dialog-view-first-tag-hover-color: #0dc985 !important,
+  alarm-filter-dialog-view-v-deep-el-collapse-item__header-background:
+  rgb(130 181 255 / 20%),
+  alarm-filter-dialog-view-v-deep-el-collapse-item__header-color: #e8f2fe,
+  alarm-filter-dialog-view-v-deep-el-collapse-item__content-color: #303133,
+  alarm-filter-dialog-view-v-deep-el-select-hover-el-input__inner-border-color:
+  rgb(2 137 109 / 60%) !important,
+  alarm-filter-dialog-view-alarm-type-empty-before-background:
+  url('~@component-gallery/assets/image/tool-box/noData-ly.png') no-repeat,
+  alarm-filter-dialog-view-alarm-drop-down-select-border: px-to-rem(1) solid #075b4a,
+  alarm-filter-dialog-view-v-deep-select-container-hover-background:
+  rgb(2 137 109 / 40%),
+  alarm-filter-dialog-view-el-date-range-picker-background:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  alarm-filter-dialog-view-el-date-range-picker-border-color: #6e674e,
+  // alarm-filtering end
+  // date-picker
+  date-picker-input-background: rgba(122, 113, 61, 0.36),
+  date-picker-input-border-hover: 1px solid rgba(122, 113, 61, 0.36),
+  // tag
+  tag-base-background: rgba(100, 86, 46, 0.2),
+  tag-base-select-background: rgba(100, 86, 46, 1),
+  tag-base-font-color: #e4e7c1,
+  // base-button
+  base-button-default-border: 1px solid rgba(110, 103, 78, 0.71),
+  base-button-default-bg: rgba(100, 86, 46, 0.71),
+  base-button-tiny-bg: rgba(100, 86, 46, 0.71),
+  base-button-tiny-border: 1px solid rgba(110, 103, 78, 0.71),
+  base-button-default-text-color: #e4e7c1,
+  base-button-corner-bg-img:
+  url('~@component-gallery/assets/image/base-button/c-btn-submit-corner-bg-terracotta.png') center / 100% 100%,
+  base-button-primary-bg-color: rgba(100, 86, 46, 0.71),
+  base-button-primary-bg-img: none,
+  base-button-primary-box-shadow: none,
+  el-dialog-card-header-star: '',
+  horn-tree-shout-line-active:
+  linear-gradient(
+      180deg,
+      rgba(251, 245, 224, 1) 0%,
+      rgba(255, 238, 177, 1) 100%
+  ),
+  alarm-detail-people-select-scrollbar__thumb: rgb(100, 86, 46, 0.4),
+  alarm-detail-people-select-tag-bgc: rgba(255, 238, 177, .2),
+  alarm-detail-people-select-tag-color: #ffeeb1,
+  alarm-detail-people-select-arrow-color: #FFEEB1,
+  alarm-detail-people-select-help-color: #ffeeb1,
+  alarm-detail-people-select-checkbox__inner: #9f9853,
+  alarm-detail-people-select-tree-node-hover:  rgba(255,238,177,0.4),
+  alarm-detail-people-select-tree-node--hover-deep:  rgba(255,238,177, .7),
+  alarm-detail-people-select-tree-node-color: #e4e7c1,
+  alarm-detail-people-select-showAll-background: rgba(100, 86, 46, 0.4),
+  alarm-detail-people-select-showAll-color: #e4e7c1,
+  alarm-detail-date-picker-background:
+  linear-gradient(180deg, #423b1d 0%, #28210e 11%, #000000 100%),
+  alarm-detail-date-picker-border: px-to-rem(2) solid #6e674e,
+  alarm-detail-date-picker__editor-background: rgb(100 86 46 / 20%),
+  alarm-detail-date-picker__editor-border-hover: px-to-rem(1) solid rgb(100 86 46 / 60%),
+  alarm-detail-date-picker__editor-border-select: px-to-rem(1) solid rgb(100 86 46 / 100%),
+  alarm-detail-date-picker-panel-background: #14100790,
+  alarm-detail-date-picker-color-10: rgb(100 86 46 / 10%),
+  alarm-detail-date-picker-color-20: rgb(100 86 46 / 20%),
+  alarm-detail-date-picker-color-30: rgb(100 86 46 / 30%),
+  alarm-detail-date-picker-color-40: rgb(100 86 46 / 40%),
+  alarm-detail-date-picker-color-60: rgb(100 86 46 / 60%),
+  alarm-detail-date-picker-color-100: rgb(100 86 46 / 100%),
+  alarm-detail-date-picker-time-txt: #9f9853,
+  tree-tag-base-select-background: rgba(100, 86, 46, 1),
+  tree-tag-base-font-color: #e4e7c1,
+  // search-map
+  search-map-default-color: rgba(228, 231, 193, 1),
+  search-map-default-color-70: rgba(228, 231, 193, 0.7),
+  search-input-height: 36,
+  search-map-input-hover-color: rgba(255, 238, 177, 0.7),
+  search-map-input-focus-color: rgba(255, 238, 177, 1),
+  search-map-position-icon-on: #FFFA28,
+  cg-button-color: rgba(228, 231, 193, 1),
+  //ar顶部菜单
+  ar-top-function-function-btn-background: linear-gradient(rgba(43, 48, 59, 0.82) 0%, rgba(40, 32, 19, 0.82) 100%),
+  ar-top-function-function-btn-border: 1px solid #6E674E,
+  ar-top-function-function-btn-color: #FFEEB1,
+  ar-top-function-function-btn-select-color: #FFFA28,
+  ar-top-function-function-btn-select-border: 1px solid #6E674E,
+  ar-top-function-function-btn-select-background: radial-gradient(circle at 50% -24.24%, #FFFC58 0%, rgba(0, 0, 0, 0.50) 35%),
+  ar-top-function-function-btn-select-background-1: linear-gradient(176deg, #FFE048 0%, rgba(255, 241, 126, 0.00) 100%),
+  ar-top-function-menuTitle-box-color: #E4E7C1,
+  ar-top-function-menuTitle-box-background: rgba(22, 18, 9, 0.95),
+  ar-top-function-menuTitle-box-border-bottom: px-to-rem(4) solid rgba(22, 18, 9, 0.95),
+  ar-top-function-label-search-box-background: linear-gradient(rgba(43, 48, 59, 0.82) 0%, rgba(40, 32, 19, 0.82) 100%),
+  ar-top-function-label-search-box-border: 1px solid #6E674E,
+  ar-top-function-label-search-box-padding: px-to-rem(4),
+  ar-top-function-label-search-all-wrap-background: linear-gradient(180deg, rgba(163, 144, 69, 0.53) 0%, rgba(105, 95, 42, 0.18) 10%, rgba(98, 88, 38, 0) 13%) rgba(0, 0, 0, 0.7),
+  ar-top-function-label-search-all-wrap-border: none,
+  ar-top-function-label-search-all-wrap-name-color: #E4E7C1,
+  ar-top-function-label-search-all-wrap-name-key-words-color: #FFFA28,
+  ar-top-function-label-search-all-wrap-p-hover-color: rgba(122, 113, 61, 0.36),
+  ar-top-function-label-search-all-wrap-webkit-scrollbar-thumb-background: rgba(255, 238, 177, 0.4),
+  ar-top-function-input-background: rgba(100, 86, 46, 0.4),
+  ar-top-function-input-hover-border: 1px solid rgba(255, 238, 177, 0.6),
+  ar-top-function-input-active-border: 1px solid rgba(255, 238, 177, 1),
+  ar-top-function-input-color: #E4E7C1,
+  ar-top-function-input-placeholder-color: rgba(228, 231, 193, 0.7),
+  ar-top-function-input-icon-color: #FFEEB1,
+  ar-top-function-input-icon-close-color: #FFEEB1,
+  ar-top-function-label-main-background: transparent,
+  ar-top-function-label-left-transform: translateX(-10000px),
+  ar-top-function-label-left-filter: drop-shadow(#FFEEB1 10000px 0),
+  ar-top-function-label-right-color: #E4E7C1,
+  //ar巡航计划
+  ar-cruise-plan-info-background: rgba(23,20,11,0.9),
+  ar-cruise-plan-info-border-color: #6E674E,
+  ar-cruise-plan-info-border-radius: px-to-rem(8),
+  ar-cruise-plan-list-list-text-color: #E4E7C1,
+  ar-cruise-plan-list-list-line-border-bottom: 1px solid #E4E7C1,
+  ar-cruise-plan-list-list-line-opacity: 0.24,
+  ar-cruise-plan-pagination-pageTextClass-color: #E4E7C1,
+  ar-cruise-plan-pagination-pageTextClass-opacity: 1,
+  ar-cruise-plan-pagination-btn-prev-color: #FFEEB1,
+  ar-cruise-plan-pagination-btn-prev-disabled-color: rgba(255, 238, 177, 0.4),
+  ar-cruise-plan-pagination-number-color: #E4E7C1,
+  ar-cruise-plan-pagination-number-active-background: #9F9853,
+  ar-cruise-plan-pagination-number-active-box-shadow: none,
+  ar-cruise-plan-list-no-datas-color: #E4E7C1,
+  ar-cruise-plan-list-no-datas-before-background: url('~@component-gallery/assets/image/ar-cruise-plan/noData-gt.png'),
+  //ar巡航计划详情
+  ar-cruise-plan-detail-body-padding: px-to-rem(21) 0 px-to-rem(20) px-to-rem(12),
+  ar-cruise-plan-detail-body-row-title-color: #FFEEB1,
+  ar-cruise-plan-detail-body-row-text-color: #E4E7C1,
+  ar-cruise-plan-detail-body-header-box-background: rgba(122, 113, 61, 0.36),
+  ar-cruise-plan-detail-body-center-box-color: #FFEEB1,
+  ar-cruise-plan-detail-body-table-line-box-border: 1px solid #E4E7C1,
+  ar-cruise-plan-detail-body-table-line-box-opacity: 0.24,
+  ar-cruise-plan-detail-body-table-webkit-scrollbar-thumb-background: rgba(121, 107, 61, 0.76),
+  ar-cruise-plan-detail-body-left-box-color: #E4E7C1,
+  ar-cruise-plan-detail-body-center-tag-box-color: rgba(255, 250, 40, 0.7),
+  //ar巡航配置
+  cruise-plan-config-body-top-box-background: transparent,
+  cruise-plan-config-body-cruise-title-box-color: #FFEEB1,
+  cruise-plan-config-body-text-box-color:#E4E7C1,
+  cruise-plan-config-body-icon-box-color: #FFEEB1,
+  cruise-plan-config-body-table-th-background: rgba(122, 113, 61, 0.36),
+  cruise-plan-config-body-table-th-background1: #413B22,
+  cruise-plan-config-body-table-td-background: rgba(0, 0, 0, 1),
+  cruise-plan-config-body-table-tr-background: transparent,
+  cruise-plan-config-body-table-th-border-bottom: 1px solid rgba(228, 231, 193, 0.24),
+  cruise-plan-config-body-table-cell-color: #E4E7C1,
+  cruise-plan-config-body-table-name-box-color: rgba(255, 250, 40, 0.7),
+  cruise-plan-config-body-table-td-border-bottom: 1px solid rgba(228, 231, 193, 0.24),
+  cruise-plan-config-body-table-fixed-right-box-shadow: 0 0 px-to-rem(10) rgba(0, 0, 20, .2),
+  cruise-plan-config-body-table-column-right-box-border-left: 1px solid #E4E7C1,
+  cruise-plan-config-body-name-box-color: rgba(255, 250, 40, 0.7),
+  cruise-plan-config-body-name-box-opacity: 1,
+  //ar巡航计划新增、修改
+  cruise-plan-config-aoe-form-text-color: #E4E7C1,
+  cruise-plan-config-aoe-division-color: #ffffff,
+  cruise-plan-config-aoe-division-text-shadow: 0px 1px px-to-rem(4) #DCD277,
+  cruise-plan-config-aoe-add-item-box-color: #E4E7C1,
+  cruise-plan-config-aoe-opt-i-color: #F9FF6C,
+  // 录像回放摄像机树
+  history-video-tree-active-color: #FFFA28,
+  history-video-tree-default-text-color: #E4E7C1,
+  history-video-tree-default-icon-color: #FFEEB1,
+  history-video-tree-placeholder-color: rgba(228, 231, 193, 0.7),
+  history-video-tree-off-line-icon-color: rgba(255, 238, 177, 0.5),
+  video-manage-alarm-btn: url('~@component-gallery/assets/image/video/alarm-gt.png'),
+  video-manage-alarm-btn-active: url('~@component-gallery/assets/image/video/alarm-gt-active.png'),
+  // 消息提示
+  common-message-background-color: #161209,
+  common-message-content-color: #E4E7C1,
+  common-message-warning-color: #FB913C,
+  common-message-error-color: #ED5158,
+  common-message-success-color: #13BE88,
+  common-message-info-color: #FFEEB1,
+  common-message-close-color: #FFEEB1,
+  // record-wall组件录像回放
+  record-wall-choose-style-bg: rgb(0 0 0 / 60%),
+  record-wall-top-title-left-color: #e4e7c1,
+  record-wall-top-title-channel-icon-color: rgb(255 238 177 / 100%),
+  record-wall-top-title-choosed-color: #fffa28,
+  record-wall-play-bottom-bg: rgb(122 113 61 / 15%),
+  record-wall-play-btn-on: #fffa28,
+  record-wall-play-split-bg: rgb(22 18 9 / 95%),
+  record-wall-play-split-border: rgb(22 18 9 / 95%),
+  record-wall-play-bottom-slider-runway: rgb(255 238 177 / 36%),
+  record-wall-play-bottom-slider-bar: linear-gradient(
+      to top,
+      #fffa28,
+      #fffa28
+  ),
+  record-wall-play-bottom-slider-point: #ffeeb1,
+  alarm-detail-large-tab-title-color: #E4E7C1,
+  alarm-detail-large-tab-title-active-color: #FFFFFF,
+  alarm-detail-large-tab-title-active-shadow: px-to-rem(1) 0 px-to-rem(4) #DCD277,
+  collect-active-btn: #FFFA28,
+  alarm-detail-bg: linear-gradient(180deg, #423B1D 0%, #28210E 11%, #000000 100%),
+  event-next-image: url('~@component-gallery/assets/image/terracotta-next.png') no-repeat,
+  event-prev-image: url('~@component-gallery/assets/image/terracotta-prev.png') no-repeat,
+  event-tag-after-default: rgba(255, 238, 177, 0.2),
+  event-tag-before-default: rgba(255, 238, 177, 0.2),
+  alarm-tag-edit-check-box-div-default: rgba(255, 238, 177, 0.2),
+  alarm-tag-default-text: #e4e7c1,
+  alarm-tag-check-text: #ffeeb1,
+  event-tag-after-active: rgba(255, 224, 72, 0.2),
+  event-tag-before-active: rgba(255, 224, 72, 0.2),
+  alarm-tag-edit-check-box-div-active: rgba(255, 224, 72, 0.2),
+  tab-check-bottom-shadow: url('~@component-gallery/assets/image/alarm-list/terracotta/select-footer-yellow.png') no-repeat center / 100% 100%,
+  // 火势蔓延预测弹窗 -- 国土
+  tool-fire-prediction__color: #E4E7C1,
+  tool-fire-prediction__title-text-shadow: 0px 1px 4px #DCD277,
+  tool-fire-prediction__chapter-title-bg: linear-gradient(90deg, rgb(255 238 177 / 10%) 0%, rgba(255, 238, 177, 0) 100%),
+  tool-fire-prediction__chapter-title-bg-before: linear-gradient(90deg, #EFE4BA 0%, rgba(100, 86, 46, 0.18) 51%, rgba(100, 86, 46, 0) 100%),
+  tool-fire-prediction__chapter-title-border: #CDBD86,
+  tool-fire-prediction__chapter-card-text-shadow: 0px 1px 4px #DCD277,
+  tool-fire-prediction__location-icon-color: #FFEEB1,
+  tool-fire-prediction__location-icon-active-color: #FFFA28,
+  tool-fire-prediction__placeholder-color: rgba(228, 231, 193, 0.7),
+  tool-fire-prediction__popup-bg: #9F9853,
+  tool-fire-prediction__scale-passed: linear-gradient(270deg, #FFFA28 0%, rgba(255, 250, 40, 0) 100%),
+  alarm-atlas-card-bg: url('~@component-gallery/assets/image/alarm-atlas/terracotta/atals-card-default.png'),
+  alarm-atlas-card-bg-select: url('~@component-gallery/assets/image/alarm-atlas/terracotta/atals-card-select.png'),
+  alarm-atlas-card-farmer-bg: url('~@component-gallery/assets/image/alarm-atlas/terracotta/farmer-bg.png'),
+  alarm-atlas-card-foodstuff-bg: url('~@component-gallery/assets/image/alarm-atlas/terracotta/foodstuff-bg.png'),
+  alarm-atlas-card-no-warning-bg: url('~@component-gallery/assets/image/alarm-atlas/terracotta/no-warning-bg.png'),
+  alarm-atlas-card-foodstuff-head: url('~@component-gallery/assets/image/alarm-atlas/terracotta/foodstuff-head-yellow.png'),
+  alarm-atlas-card-farmer-head: url('~@component-gallery/assets/image/alarm-atlas/terracotta/farmer-head-yellow.png'),
+  alarm-atlas-card-no-warning-head: url('~@component-gallery/assets/image/alarm-atlas/noData-head.png'),
+  alarm-atlas-base-header-bottom: url('~@component-gallery/assets/image/alarm-atlas/terracotta/header-bar.png'),
+  alarm-atlas-list-bg: rgba(23,20,11,0.9),
+  alarm-atlas-list-border: 1px solid #6E674E,
+  alarm-atlas-tab-title-color: #E4E7C1,
+  alarm-atlas-tab-title-active-color: #fff,
+  alarm-atlas-tab-title-text-shadow: 1px 0px 4px #DCD277,
+  alarm-atlas-split-bg: linear-gradient(90deg, rgba(255, 222, 76, 0), rgba(255, 222, 76, 1), rgba(255, 222, 76, 0)) 1 1,
+  alarm-atlas-tab-title-guang:
+  url('~@component-gallery/assets/image/common/terracotta/popup-title-guang-new.png') no-repeat center / 100% 100%,
+  alarm-atlas-base-info-bg: url('~@component-gallery/assets/image/alarm-atlas/terracotta/base-info-bg.png') no-repeat center / 100% 100%,
+  alarm-atlas-statistics-bg: url('~@component-gallery/assets/image/alarm-atlas/terracotta/statistics-bg.png') no-repeat center / 100% 100%,
+  alarm-list-item-time-color: #e4e7c1,
+  alarm-list-tree-time-str-color: #E4E7C1,
+  alarm-atlas-info-title-color: rgba(228,231,193,0.7),
+  alarm-atlas-info-content-color: #E4E7C1,
+  alarm-atlas-card-zero-color: rgba(228,231,193,0.4),
+  alarm-atlas-search-bg: rgba(23,20,11,0.9),
+  alarm-atlas-search-split: rgba(228,231,193,0.2),
+  alarm-atlas-board-bg: rgba(23,20,11,0.9),
+  alarm-atlas-search-filter-box-title-shadow: 0px 1px 4px #DCD277,
+  alarm-atlas-search-filter-box-title-color: #fff,
+  alarm-list-input-placeholder: #E4E7C1,
+  alarm-atlas-list-item-bg-hover: rgba(255,238,177,0.4),
+  one-key-alarm-upload: rgb(100 86 46 / 40%),
+
+
+
+  inspection-task-list-item-title-bg-done: url('~@component-gallery/assets/image/inspection-task/yellowDone.png') no-repeat,
+  inspection-task-list-item-title-bg-undone: url('~@component-gallery/assets/image/inspection-task/yellowUndone.png') no-repeat,
+  inspection-task-title-bg: none,
+  inspection-task-title-text-shadow: 1px 0px 4px #DCD277,
+  inspection-task-title-before: url('~@component-gallery/assets/image/inspection-task/titleBeforeYellow.png') center no-repeat,
+  inspection-task-title-before-top: px-to-rem(17),
+  inspection-task-title-name-left: px-to-rem(30),
+  inspection-task-title-name-after: url("~@component-gallery/assets/image/common/terracotta/popup-title-guang.png") no-repeat center / 100% 100%,
+  inspection-task-title-before-width: px-to-rem(18),
+  inspection-task-title-before-height: px-to-rem(14),
+  inspection-task-list-item-checked-bg-color: rgba(100, 86, 46, 0.4),
+  global-icon-active-color: #FFFA28,
+  global-icon-color: #FFEEB1,
+  inspection-task-header-bg-color: none,
+  inspection-task-header-border-bottom: px-to-rem(1) solid,
+  inspection-task-header-border-image: linear-gradient( 90deg, rgba(255, 222, 76, 0), rgba(255, 222, 76, 0.35), rgba(255, 222, 76, 0)) 1 1,
+  inspection-task-header-after-bg: none !important,
+  inspection-task-tab-text-color: #E4E7C1 !important,
+  inspection-task-tab-text-active-color: #fff !important,
+  inspection-task-tab-text-shadow: 1px 0px 4px #DCD277 !important,
+  inspection-task-tab-after: linear-gradient(90deg, rgba(255, 222, 76, 0) 0%, rgba(255, 222, 76, 1) 53%, rgba(255, 222, 76, 0) 100%) !important,
+
+  inspection-task-filter-input-bg-color: rgba(100, 86, 46, 0.4) !important,
+  inspection-task-filter-input-hover-color: 1px solid #FFEEB1 !important,
+  inspection-task-filter-icon-active-color: rgba(255, 250, 40, 1) !important,
+  inspection-task-filter-icon-divide: rgba(255,255,255,0.2) !important,
+  inspection-task-filter-icon-color: #FFEEB1 !important,
+  inspection-task-filter-text-placeholder-color: rgba(228,231,193,0.7) !important,
+  inspection-task-filter-text-color: #64562E !important,
+  inspection-task-filter-bg-color: rgba(23,20,11,0.9) !important,
+  inspection-task-filter-border-color: 1px solid #6E674E !important,
+
+  inspection-task-item-border-bottom: 1px solid rgba(228,231,193,0.2),
+  inspection-task-feedback-divide-after: linear-gradient( 90deg, #EEE380 0%, rgba(76,66,24,0) 100%),
+  inspection-task-feedback-divide-before-bg: url('~@component-gallery/assets/image/inspection-task/doneDivideYellow.png') center no-repeat,
+  inspection-task-feedback-divide-text-shadow: 0px 1px px-to-rem(4) #DCD277,
+  inspection-task-feedback-phrases-bg: rgba(100, 86, 46, 0.4),
+  inspection-task-feedback-phrases-line: rgba(228,231,193,0.2),
+
+  inspection-task-track-popup-slider-track: rgba(228,231,193,0.4),
+  inspection-task-track-popup-slider-i-shadow: 0px 0px 5px 0px rgba(255,238,177,0.5),
+  inspection-task-track-popup-slider-i-color: #fff,
+  inspection-task-track-popup-slider-thumb: #FFEEB1,
+
+  // 巡查任务轨迹地图弹窗
+  inspection-task-track-popup-map-dialog-bg: rgba(23,20,11,0.9),
+  inspection-task-track-popup-map-dialog-border-radius: 0,
+  inspection-task-track-popup-map-dialog-border: px-to-rem(1) solid #6E674E,
+  inspection-task-track-popup-map-dialog-border-image: none,
+
+  inspection-task-track-popup-map-dialog-top-bg: url('~@component-gallery/assets/image/track-popup/corner-3.png') no-repeat,
+  inspection-task-track-popup-map-dialog-top-width: px-to-rem(21),
+  inspection-task-track-popup-map-dialog-top-height:  px-to-rem(25),
+  inspection-task-track-popup-map-dialog-bottom-bg: url('~@component-gallery/assets/image/track-popup/corner-3.png') no-repeat,
+  inspection-task-track-popup-map-dialog-bottom-width: px-to-rem(21),
+  inspection-task-track-popup-map-dialog-bottom-height: px-to-rem(25),
+  inspection-task-track-popup-map-dialog-position-left: px-to-rem(-6),
+  inspection-task-track-popup-map-dialog-position-bottom: px-to-rem(-9),
+  list-view-item-border: 1px solid rgba(255,238,177,0.39),
+  list-view-item-box-shadow: inset 0px 0px px-to-rem(6) 0px rgba(255,238,177,0.4),
+  list-view-item-bg:rgba(6,21,20,0.2) linear-gradient( 90deg, rgba(255,238,177,0.2) 0%, rgba(0,0,0,0) 100%),
+  // 今日告警 摄像机
+  camera-supervise-left-bg: url('~@component-gallery/assets/image/camera-statistics/terracotta/camera-num-bg.png'),
+  camera-supervise-right-bg: url('~@component-gallery/assets/image/camera-statistics/terracotta/camera-alarm-bg.png'),
+  camera-supervise-online-bg: url('~@component-gallery/assets/image/camera-statistics/terracotta/online-bg.png'),
+  camera-supervise-online-diver: url('~@component-gallery/assets/image/camera-statistics/terracotta/online-diver.png'),
+  camera-supervise-online-point: url('~@component-gallery/assets/image/camera-statistics/terracotta/online-point.png'),
+  camera-supervise-right-arrow-queur: url('~@component-gallery/assets/image/camera-statistics/terracotta/right-arrow-queur.png'),
+  camera-supervise-progress-btn: url('~@component-gallery/assets/image/camera-statistics/terracotta/progress-btn.png'),
+  camera-supervise-header-bg: url('~@component-gallery/assets/image/camera-statistics/terracotta/header_bg.png'),
+  camera-supervise-chart-head-shadow: #4e85d1,
+  camera-supervise-chart-head-color: #fff,
+  camera-supervise-camera-online-top-color: #E4E7C1,
+  camera-supervise-left-num-shadow: #DCD277,
+  camera-supervise-left-title-color: #E4E7C1,
+  camera-supervise-right-num-shadow: #FF8458,
+  camera-supervise-right-title-color: #FF8458,
+  camera-supervise-online-top-right-shadow: #43c88f,
+  camera-supervise-bottom-online-before-bg: #B6FF58,
+  camera-supervise-bottom-offline-before-bg: rgba(255,224,72,0.4),
+  camera-supervise-r-l-c-p-inactive-bg: #FFE048,
+  camera-supervise-r-l-c-p-active-bg:  linear-gradient( 270deg, #B6FF58 0%, rgba(182,255,88,0.1) 100%),
+
+  alarm-today-statistics-item-bg: url('~@component-gallery/assets/image/alarm-today/terracotta/alarm-bg-1.png'),
+  alarm-today-statistics-item-wrapper-bg: url('~@component-gallery/assets/image/alarm-today/terracotta/alarm-1.png'),
+  alarm-today-statistics-item-second-bg: url('~@component-gallery/assets/image/alarm-today/terracotta/alarm-bg-2.png'),
+  alarm-today-statistics-item-second-wrapper-bg: url('~@component-gallery/assets/image/alarm-today/terracotta/alarm-2.png'),
+  alarm-today-statistics-item-third-bg: url('~@component-gallery/assets/image/alarm-today/terracotta/alarm-bg-3.png'),
+  alarm-today-statistics-item-third-warapper-bg: url('~@component-gallery/assets/image/alarm-today/terracotta/alarm-3.png'),
+  alarm-today-statistics-no-data: url('~@component-gallery/assets/image/alarm-today/terracotta/no-data.png'),
+  alarm-today-statistics-item-color: #fff,
+  alarm-today-statistics-countdown-color: #fffa28,
+  alarm-today-statistics-item-content-color: #e8f3fe,
+  alarm-today-no-data-color: #E4E7C1,
+
+
+  // 设备监管
+  device-supervise-uav-block-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/uav-block-bg.png'),
+  device-supervise-uav-block-title-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/uav-title-bg.png'),
+  device-supervise-uav-block-icon-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/uav-icon.png'),
+  device-supervise-iot-block-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/iot-block-bg.png'),
+  device-supervise-iot-block-title-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/iot-title-bg.png'),
+  device-supervise-iot-block-icon-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/iot-icon.png'),
+  device-supervise-horn-block-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/horn-block-bg.png'),
+  device-supervise-horn-block-title-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/horn-title-bg.png'),
+  device-supervise-horn-block-icon-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/horn-icon.png'),
+  device-supervise-radar-block-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/radar-block-bg.png'),
+  device-supervise-radar-block-title-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/radar-title-bg.png'),
+  device-supervise-radar-block-icon-bg: url('~@component-gallery/assets/image/device-statistics/terracotta/radar-icon.png'),
+
+  el-tooltip-popper-color: rgb(228, 231, 193),
+  enable-algorithms-statistics-bg: url('~@component-gallery/assets/image/enable-algorithms-statistics/terracotta/bg-body.png')  no-repeat,
+  header-spit-line:linear-gradient(to right, rgba(255, 222, 76, 0) 0%, rgba(255, 222, 76, 1) 50%, rgba(255, 222, 76, 0) 100%),
+  progressBar-bg-default:linear-gradient(270deg, #9f9853 0%, rgb(255 224 72 / 3%) 100%),
+  progress-top1: url('~@component-gallery/assets/image/enable-algorithms-statistics/terracotta/rig-area-icon-1.png'),
+  progress-top2: url('~@component-gallery/assets/image/enable-algorithms-statistics/terracotta/rig-area-icon-2.png'),
+  progress-top3: url('~@component-gallery/assets/image/enable-algorithms-statistics/terracotta/rig-area-icon-3.png'),
+  progress-default: url('~@component-gallery/assets/image/enable-algorithms-statistics/terracotta/rig-area-icon-default.png'),
+  epidemic-wood-elimination-title-text-shadow: px-to-rem(1) 0px px-to-rem(4) #DCD277,
+  epidemic-wood-elimination-bg-module: rgba(23,20,11,0.9),
+  epidemic-wood-statistics-tree-color: #e4e7c1,
+  epidemic-wood-statistics-tree-active-color: #f9ff6c,
+
+  //物种图片
+  species-picture-item-selected-color: #FFFA28,
+  species-picture-fliter-custom-tree-node-label-color: #e4e7c1,
+  species-picture-fliter-custom-tree-node-el-tree-bg-color: #312B19,
+
+  //诱捕器采集记录
+  trap-collect-log-fliter-bg-color:linear-gradient(180deg, #857b3f 0%, #1a1507 21%, rgb(0 0 0 / 80%) 100%),
+  trap-collect-log-fliter-bg-border: px-to-rem(1) solid #6e674e,
+  trap-collect-log-fliter-til-text-shadow: 0 0 px-to-rem(10) transparent,
+
+
+
+
+
+
+  // 地图查询
+  search-map-wrapper-bg: url("~@component-gallery/assets/image/search-map/search-map-bg-t.png") no-repeat center/100% 100%,
+  search-map-wrapper-height: px-to-rem(36),
+  search-map-color: rgb(228, 231, 193),
+  search-map-icon-color: #FFEEB1,
+  search-map-color-70: rgba(228, 231, 193, 0.7),
+  search-map-border-radius: px-to-rem(8),
+  search-map-area-bg: rgba(23, 20, 11, 0.9),
+  search-map-area-border: 1px solid #6e674e,
+  search-map-area-item-hover-bg: rgba(100, 86, 46, 0.4),
+  search-map-area-item-activer-color: #FFFA28,
+  search-map-bar-line: rgba(232,243,254,0.2),
+
+  search-map-ainput-border: 1px solid rgba(255,238,177,0),
+  search-map-ainput-bg: rgba(100,86,46,0.4),
+  search-map-positon-top: px-to-rem(42),
+
+  iot-map-pop-icon-background: rgba(21, 19, 12, 0.70),
+  iot-map-pop-select-bottom-line: linear-gradient(90deg, rgba(255, 222, 76, 0), rgba(255, 222, 76, 1), rgba(255, 222, 76, 0)) 1 1,
+
+
+  //卫星遥感
+  satellite-sense-menu-bg-color: rgba(23,20,11,0.9),
+  satellite-sense-menu-bg-border: 1px solid #6E674E,
+  satellite-sense-menu-btn-title-color: #E4E7C1,
+  satellite-sense-menu-btn-title-active-color: #f9ff6c,
+  satellite-sense-menu-btn-icon-color: #FFEEB1,
+  satellite-sense-btn-bg-color: linear-gradient( 180deg, #36301B 0%, #90804B 100%),
+  satellite-sense-btn-active-bg-color: radial-gradient(( 109% 65% at 4% 7%, #FF9251 0%, rgba(255,163,107,0) 100%), #2C1102),
+  satellite-sense-btn-bg-border-image: linear-gradient(180deg, rgba(213, 193, 116, 0.4), rgba(213, 193, 116, 1)),
+  satellite-sense-btn-bg-active-border-image: linear-gradient(180deg, rgba(255, 216, 177, 0.3), rgba(255, 216, 177, 0.5)),
+  satellite-sense-btn-title-color: #E4E7C1,
+  satellite-sense-btn-title-text-shadow: 0px 0px 12px #FFEEB1,
+  satellite-sense-btn-title-active-color: #FFEADE,
+  satellite-sense-btn-title-active-text-shadow: 0px 0px 12px #FF7F3C,
+  satellite-sense-btn-icon-nor-image: '~@component-gallery/assets/image/satellite-sense/terracotta-bg.png',
+  satellite-sense-btn-icon-active-image: '~@component-gallery/assets/image/satellite-sense/terracotta-active-bg.png',
+
+  // 矿业权
+  mining-tree-guoqi-color: rgba(228, 231, 193, 0.50),
+)

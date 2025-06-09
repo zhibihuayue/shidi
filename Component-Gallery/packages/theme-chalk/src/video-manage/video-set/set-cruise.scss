@@ -1,0 +1,140 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.plan_Time .el-date-picker__header-label {
+  color: #fff;
+}
+
+//.fd-pagination-text {
+//  float: right;
+//  margin-top: px-to-rem(10);
+//  height: px-to-rem(32);
+//  margin-right: px-to-rem(10);
+//  line-height: px-to-rem(32);
+//  color: #fff;
+//}
+
+.width-confirm {
+  width: px-to-rem(340) !important;
+}
+
+#plan-table-id {
+  height: calc(100% - px-to-rem(300));
+  .el-table__empty-block {
+    height: var(--plan-table-id-height) !important;
+  }
+}
+
+.video {
+  @include themeify(false) {
+    @if $theme-name == 'theme-terracotta' {
+      .more-select.el-select .el-tag.el-tag--info {
+        background: rgb(255 224 72 / 20%) !important;
+        color: #fffa28 !important;
+
+        .el-tag__close {
+          &::before {
+            color: #fffa28 !important;
+          }
+        }
+      }
+
+      .more-select-dropdown {
+        .check-all {
+          .el-checkbox__label {
+            color: #e4e7c1 !important;
+          }
+
+          &.is-check-all {
+            .el-checkbox__label {
+              color: #fffa28 !important;
+            }
+          }
+        }
+
+        .el-checkbox .el-checkbox__inner {
+          background: none !important;
+          border: px-to-rem(1) solid rgb(159 152 83 / 70%) !important;
+          box-shadow: none !important;
+        }
+
+        .el-checkbox .el-checkbox__input.is-indeterminate .el-checkbox__inner,
+        .el-checkbox__input.is-checked .el-checkbox__inner,
+        .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+          background: #9f9853 !important;
+          box-shadow: none !important;
+        }
+
+        .el-scrollbar__thumb:hover {
+          background: rgb(121 107 61 / 76%) !important;
+          border-radius: px-to-rem(3) !important;
+        }
+
+        .el-scrollbar__thumb {
+          background: rgb(121 107 61 / 76%) !important;
+          border-radius: px-to-rem(3) !important;
+        }
+      }
+    }
+    @if $theme-name == 'theme-aquamarine' {
+      .more-select.el-select .el-tag.el-tag--info {
+        background: rgb(13 201 133 / 20%) !important;
+        color: #0dc985 !important;
+
+        .el-tag__close {
+          &::before {
+            color: #0dc985 !important;
+          }
+        }
+      }
+
+      .more-select-dropdown {
+        .check-all {
+          .el-checkbox__label {
+            color: #fff !important;
+          }
+
+          &.is-check-all {
+            .el-checkbox__label {
+              color: #f9ff6c !important;
+            }
+          }
+        }
+
+        .el-checkbox .el-checkbox__inner {
+          background: rgb(2 137 109 / 30%) !important;
+          border: px-to-rem(1.5) solid rgb(2 137 109 / 30%) !important;
+          box-shadow: inset
+            px-to-rem(0)
+            px-to-rem(0)
+            px-to-rem(3)
+            px-to-rem(0)
+            rgb(2 137 109 / 60%) !important;
+        }
+
+        .el-checkbox .el-checkbox__input.is-indeterminate .el-checkbox__inner,
+        .el-checkbox__input.is-checked .el-checkbox__inner,
+        .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+          background: rgb(2 137 109 / 70%) !important;
+          box-shadow: inset
+            px-to-rem(0)
+            px-to-rem(0)
+            px-to-rem(4)
+            px-to-rem(0)
+            #02896d !important;
+        }
+
+        .el-scrollbar__thumb:hover {
+          background: rgb(2 137 109 / 40%) !important;
+          border-radius: px-to-rem(3) !important;
+        }
+
+        .el-scrollbar__thumb {
+          background: rgb(2 137 109 / 40%) !important;
+          border-radius: px-to-rem(3) !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.el-vue-search-box {
+  @include themeify() {
+    position: absolute !important;
+    background: transparent;
+    z-index: 10;
+
+    .search-box-wrapper {
+      display: flex;
+      align-items: center;
+      left: 0;
+      top: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background: #fff;
+      box-shadow: 0px 1px px-to-rem(4) 0px rgba(0, 0, 0, 0.08);
+      line-height: 100%;
+
+      ::v-deep input {
+        flex: 1;
+        height: px-to-rem(20);
+        line-height: px-to-rem(20);
+        letter-spacing: 0.5px;
+        font-size: px-to-rem(14);
+        text-indent: px-to-rem(10);
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+      }
+
+      ::v-deep .el-input__inner {
+        text-indent: 0 !important;
+      }
+      ::v-deep .el-input__suffix {
+        top: px-to-rem(-10);
+      }
+
+      .search-btn {
+        width: px-to-rem(48);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ff6a6c !important;
+        cursor: pointer;
+        color: #ffffff;
+        border-radius: 0 px-to-rem(4) px-to-rem(4) 0;
+      }
+      .el-icon-circle-close {
+        line-height: px-to-rem(32) !important;
+      }
+      .search-input-new ::v-deep .el-input__inner {
+        // padding-left: 0;
+        font-size: px-to-rem(14);
+      }
+      .search-input-new ::v-deep input {
+        &::placeholder,
+        &::-webkit-input-placeholder,
+        &:-moz-placeholder,
+        &:-ms-input-placeholder {
+          /* Internet Explorer 10+  适配ie*/
+          color: #909399 !important;
+          font-size: px-to-rem(14);
+        }
+      }
+    }
+
+    .search-tips {
+      top: 100%;
+      background: #fff;
+      overflow-x: hidden;
+      overflow-y: auto;
+      width: 100%;
+      margin-top: px-to-rem(4);
+      box-shadow: 0 px-to-rem(2) px-to-rem(5) rgba(0, 0, 0, 0.15);
+      border-radius: px-to-rem(4);
+
+      ul {
+        padding: 0;
+        margin: 0;
+
+        li {
+          height: px-to-rem(40);
+          line-height: px-to-rem(40);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+          padding: 0 px-to-rem(10);
+          cursor: pointer;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          &.autocomplete-selected {
+            background: #eee;
+          }
+        }
+      }
+    }
+    .auto-item-span {
+      color: #c1c1c1 !important;
+      padding-left: px-to-rem(4);
+    }
+    ::v-deep input::-webkit-input-placeholder,
+    textarea::-webkit-input-placeholder {
+      color: #ffffff !important;
+      opacity: 0.7 !important;
+    }
+
+    ::v-deep input:-moz-placeholder,
+    textarea:-moz-placeholder {
+      color: #ffffff !important;
+      opacity: 0.7 !important;
+    }
+
+    ::v-deep input::-moz-placeholder,
+    textarea::-moz-placeholder {
+      color: #ffffff !important;
+      opacity: 0.7 !important;
+    }
+
+    ::v-deep input:-ms-input-placeholder,
+    textarea:-ms-input-placeholder {
+      color: #ffffff !important;
+      opacity: 0.7 !important;
+    }
+  }
+}

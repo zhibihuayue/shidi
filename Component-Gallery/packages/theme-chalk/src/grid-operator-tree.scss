@@ -1,0 +1,137 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins.scss';
+@import "mixins/px-to-rem";
+
+
+.grid-operator-tree {
+  ::v-deep .el-tree-node.is-current > .el-tree-node__content {
+    background: transparent !important;
+
+    @include themeify(false) {
+      .custom-tree-left {
+        @if $theme-name == 'theme-aquamarine' {
+          color: #fff !important;
+        }
+        @if $theme-name == 'theme-terracotta' {
+          color: #E4E7C1 !important;
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          color: #e8f3fe !important;
+        }
+      }
+    }
+  }
+
+  ::v-deep .key-word {
+    pointer-events: none;
+  }
+
+  ::v-deep .el-tree-node {
+    > .el-tree-node__content.nocheck {
+      background: transparent !important;
+      @include themeify(false) {
+        .custom-tree-left {
+          @if $theme-name == 'theme-aquamarine' {
+            color: #fff !important;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #E4E7C1 !important;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: #e8f3fe !important;
+          }
+        }
+      }
+    }
+
+    > .el-tree-node__content:hover {
+      @include themeify(false) {
+        background: themed('tree-primary-color') !important;
+      }
+    }
+
+    > .el-tree-node__content.check {
+      @include themeify(false) {
+        @if $theme-name == 'theme-aquamarine' {
+          background: rgba(2, 137, 109, 0.4) !important;
+          .custom-tree-left {
+            color: #F9FF6C !important;
+          }
+        }
+        @if $theme-name == 'theme-terracotta' {
+          background: rgba(60, 54, 21, 0.9) !important;
+          .custom-tree-left {
+            color: rgb(255, 250, 40) !important;
+          }
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          background: rgba(79, 159, 255, 0.4) !important;
+          .custom-tree-left {
+            color: rgb(79, 159, 255) !important;
+          }
+        }
+      }
+    }
+  }
+
+  ::v-deep .el-tree-node > .el-tree-node__content.leaf-checked {
+    @include themeify(false) {
+      @if $theme-name == 'theme-aquamarine' {
+        background: rgba(2, 137, 109, 0.4) !important;
+      }
+      @if $theme-name == 'theme-terracotta' {
+        background: rgba(60, 54, 21, 0.9) !important;
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        background: rgba(79, 159, 255, 0.4) !important;
+      }
+
+      .custom-tree-node {
+        .custom-tree-left {
+          .tree-name {
+            @if $theme-name == 'theme-aquamarine' {
+              color: #F9FF6C !important;
+            }
+            @if $theme-name == 'theme-terracotta' {
+              color: rgb(255, 250, 40) !important;
+            }
+            @if $theme-name == 'theme-wiseblue' {
+              color: rgb(79, 159, 255) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .fast-btn1 {
+    display: block;
+    line-height: px-to-rem(32);
+    height: px-to-rem(32) !important;
+
+    ::v-deep .iconfont_tools  {
+      @include themeify(false) {
+        @if $theme-name == 'theme-aquamarine' {
+          color: #fff !important;
+        }
+        @if $theme-name == 'theme-terracotta' {
+          color: #E4E7C1 !important;
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          color: #e8f3fe !important;
+        }
+      }
+    }
+  }
+}
+
+.has-grid-info {
+  height: calc(100% - px-to-rem(216)) !important;
+}
+
+.iwhale-speciesLYstyle.el-tooltip__popper {
+  @include themeify(false) {
+    color: themed('el-tooltip-popper-color') !important;
+  }
+}
+

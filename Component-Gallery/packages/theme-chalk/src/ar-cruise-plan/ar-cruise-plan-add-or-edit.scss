@@ -1,0 +1,290 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/bem-mixins.scss';
+@import "../mixins/theme-tooltip-mixins";
+@import "../mixins/theme-dialog-header-mixins";
+
+.ar-cruise-plan-shield{
+  height: 100% !important;
+  @include b('ar-creise-aoe-shield') {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1099;
+    pointer-events: auto;
+    display: flex;
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.7);
+    .cruise-plan-aoe-box{
+      @include border_radius('border-radius-8');
+      @include background_color('background-color-theme');
+      @include el_dialog_header_styles();
+      @include cg_button_styles();
+
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: px-to-rem(800);
+      pointer-events: auto;
+      z-index: 1100;
+
+
+      .el-dialog__header .name {
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            justify-content: center !important;
+            padding-left: 0 !important;
+          }
+        }
+
+        &:before {
+          @include themeify(false) {
+            @if $theme-name == "theme-aquamarine" {
+              content: "";
+              width: 100%;
+              height: 100%;
+              opacity: 0.96;
+              background: url("~@component-gallery/assets/image/history-video-tree/popup-header-xx.png") no-repeat center / auto 100%,
+              url("~@component-gallery/assets/image/history-video-tree/popup-header-k.png") no-repeat top center;
+              pointer-events: none;
+              position: absolute;
+              left: 0;
+              bottom: auto;
+              top: -1px;
+              box-shadow: none;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+      ::v-deep .base-card-content-header {
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            background: linear-gradient(90deg, rgba(2, 137, 109, 0) 0%, rgba(2, 137, 109, 0.2) 51%, rgba(2, 137, 109, 0) 100%);
+            text-shadow: 0 0 px-to-rem(18) rgba(0, 245, 193, 0.7);
+          }
+        }
+      }
+      .cruise-plan-aoe-body {
+        @include themeify(false) {
+          padding: px-to-rem(12) px-to-rem(6) px-to-rem(12) px-to-rem(12);
+          ::v-deep .f-input {
+            display: flex;
+            align-items: center;
+            height: px-to-rem(32);
+            line-height: px-to-rem(32);
+            background: themed('ar-top-function-input-background');
+            border: 0;
+            border-radius: px-to-rem(4);
+            opacity: 1;
+
+            &:not(.readonly):not(.disabled):hover:before {
+              content: "";
+              width: 100%;
+              height: 100%;
+              border: themed('ar-top-function-input-hover-border');
+              border-radius: inherit;
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 2;
+              pointer-events: none;
+            }
+
+            &:not(.readonly):not(.disabled):focus-within:before, &.active:before {
+              content: "";
+              width: 100%;
+              height: 100%;
+              border: themed('ar-top-function-input-active-border');
+              border-radius: inherit;
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 2;
+              pointer-events: none;
+            }
+
+            .el-input__inner {
+              height: 100%;
+              line-height: inherit;
+              background: none;
+              border: 0;
+              border-radius: inherit;
+              color: themed('ar-top-function-input-color');
+              font-size: px-to-rem(14);
+              transition: border-color 0s;
+              padding: 0 px-to-rem(12);
+
+              &::placeholder {
+                color: themed('ar-top-function-input-placeholder-color');
+              }
+            }
+
+            .el-input-group__append {
+              background: transparent;
+              border: none;
+              font-weight: 400;
+              color: #e8f3fe;
+              font-size: px-to-rem(14);
+            }
+
+            .el-input__icon {
+              color: themed('ar-top-function-input-icon-color');
+              font-size: px-to-rem(14);
+              margin: 0;
+              padding: 0;
+              display: inline-block;
+              line-height: inherit;
+              float: right;
+              overflow: hidden;
+
+              &.el-icon-circle-close {
+                &:before {
+                  content: "\ec12";
+                  font-family: 'iconfont_tools';
+                  color: themed('ar-top-function-input-icon-close-color');
+                  font-size: px-to-rem(20);
+                }
+              }
+            }
+            &.el-input--suffix{
+              .el-input__inner{
+                padding: 0 px-to-rem(32) 0 px-to-rem(12);
+              }
+            }
+          }
+          .form-top-box {
+            display: flex;
+            align-items: center;
+
+            .flex-box {
+              display: flex;
+              align-items: center;
+              ::v-deep .f-input{
+                width: px-to-rem(186);
+              }
+            }
+          }
+          .form-text {
+            font-size: px-to-rem(14);
+            font-weight: 400;
+            color: themed('cruise-plan-config-aoe-form-text-color');
+            line-height: px-to-rem(20);
+            margin-right: px-to-rem(10);
+          }
+          .division {
+            font-size: px-to-rem(16);
+            color: themed('cruise-plan-config-aoe-division-color');
+            line-height: px-to-rem(20);
+            margin: px-to-rem(24) 0;
+            text-shadow: themed('cruise-plan-config-aoe-division-text-shadow');
+          }
+          .config-list {
+            height: px-to-rem(220);
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            .add-list {
+              display: flex;
+              align-items: center;
+              margin-bottom: px-to-rem(12);
+
+              .add-item-box {
+                display: flex;
+                align-items: center;
+
+                .form-text-num {
+                  font-size: px-to-rem(14);
+                  font-weight: 400;
+                  color: themed('cruise-plan-config-aoe-add-item-box-color');
+                  line-height: px-to-rem(20);
+                }
+                ::v-deep .f-input{
+                  width: px-to-rem(92);
+                }
+              }
+            }
+
+            .opt {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              height: px-to-rem(32);
+            }
+
+            .opt i {
+              display: block;
+              text-align: center;
+              cursor: pointer;
+              font-size: px-to-rem(24);
+              color: themed('cruise-plan-config-aoe-opt-i-color');
+            }
+
+            .opt i.disabled {
+              text-shadow: none;
+              opacity: 0.5;
+              cursor: not-allowed;
+            }
+
+            .opt i.disabled:hover {
+              opacity: 0.7;
+            }
+
+            .addCruise-button-box {
+              display: flex;
+              justify-content: center;
+            }
+          }
+          .input-width-200 {
+            width: px-to-rem(200);
+          }
+
+          ::v-deep .input-width-216 {
+            width: px-to-rem(216);
+
+            .el-input {
+              .el-input__suffix {
+                .el-input__suffix-inner {
+                  .el-input__icon:before {
+                    content: "\EC0C";
+                    font-family: 'iconfont_tools';
+                    font-size: px-to-rem(20);
+                  }
+                }
+              }
+            }
+          }
+
+          ::v-deep .input-width-120 {
+            width: px-to-rem(118);
+
+            .el-input {
+              .el-input__suffix {
+                .el-input__suffix-inner {
+                  .el-input__icon:before {
+                    content: "\EC0C";
+                    font-family: 'iconfont_tools';
+                    font-size: px-to-rem(20);
+                  }
+                }
+              }
+            }
+          }
+        }
+        .config-footer{
+          display: flex;
+          margin-top: px-to-rem(12);
+          justify-content: center;
+          button{
+            width: px-to-rem(108);
+          }
+          @include cg_button_styles();
+        }
+      }
+    }
+  }
+}

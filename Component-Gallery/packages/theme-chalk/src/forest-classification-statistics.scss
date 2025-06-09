@@ -1,0 +1,170 @@
+
+@import 'mixins/px-to-rem';
+
+.forest-classification-statistics {
+  &-container {
+    width: px-to-rem(370);
+
+    &__echartsBox {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: px-to-rem(12);
+      width: 100%;
+      height: px-to-rem(194);
+      background-repeat: no-repeat;
+      background-size: px-to-rem(370) px-to-rem(194);
+      background-image:
+      url('~@component-gallery/assets/image/forest-classification-statistics/speciesChart-bgweb.png'),
+      url('~@component-gallery/assets/image/forest-classification-statistics/speciesChart-bg.png');
+
+      &::before {
+        position: absolute;
+        top: calc(50% - px-to-rem(34));
+        width: px-to-rem(68);
+        height: px-to-rem(68);
+        background-size: contain;
+        pointer-events: none;
+        content: '';
+        background-image: url('~@component-gallery/assets/image/forest-classification-statistics/pie-icon.png');
+      }
+
+      .ring {
+        pointer-events: none;
+        position: absolute;
+        width: px-to-rem(140);
+        height: px-to-rem(140);
+        background-image: url('~@component-gallery/assets/image/forest-classification-statistics/pie-bg.png');
+        background-size: contain;
+      }
+
+      .rtitle {
+        pointer-events: none;
+        position: absolute;
+        top: px-to-rem(12);
+        left: px-to-rem(12);
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(20);
+      }
+
+      .chartdom {
+        position: absolute;
+        margin-top: px-to-rem(-13);
+        width: 100%;
+        height: 100%;
+      }
+
+      .chartbottom {
+        position: absolute;
+        bottom: px-to-rem(3);
+        left: calc(50% - px-to-rem(72));
+        width: px-to-rem(145);
+        height: px-to-rem(50);
+      }
+
+      .circle {
+        position: absolute;
+        top: px-to-rem(34);
+        left: calc(50% - px-to-rem(78));
+        width: px-to-rem(156);
+        height: px-to-rem(156);
+        border-radius: 50%;
+      }
+    }
+
+    &__myCarousel {
+      .carouselpage {
+        display: grid;
+        color: #C7FFFA;
+        font-size: px-to-rem(14);
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, px-to-rem(20));
+        gap: px-to-rem(6) px-to-rem(23);
+        font-weight: 500;
+        line-height: px-to-rem(14);
+
+        .colorbox {
+          display: inline-block;
+          margin-right: px-to-rem(4);
+          width: px-to-rem(10);
+          height: px-to-rem(10);
+          flex-shrink: 0;
+        }
+
+        .unittitle {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+
+          .unitbg {
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index: -1;
+            height: px-to-rem(50); // 这个高度意义不大 只是个范围 不是用来定尺寸的
+          }
+
+          .name {
+            overflow: hidden;
+            max-width: px-to-rem(78);
+            font-family: PingFangSC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-break: keep-all;
+          }
+
+          span.percenttxt {
+            margin-right: 1px; // 处理轮播组件transform水平偏移溢出
+          }
+        }
+      }
+
+      ::v-deep .el-carousel__indicators--horizontal {
+          bottom: 0;
+          font-size: 0;
+
+          .el-carousel__indicator.el-carousel__indicator--horizontal {
+            .el-carousel__button {
+              background-color: rgb(255 255 255 / 20%);
+            }
+
+            &.is-active {
+              .el-carousel__button {
+                background-color: rgb(249 255 108 / 100%);
+              }
+            }
+          }
+
+      }
+    }
+
+    ::v-deep .el-carousel--horizontal{
+      overflow: hidden;
+      height: px-to-rem(106);
+    }
+
+    ::v-deep .el-carousel__indicator--horizontal{
+      padding: px-to-rem(1) px-to-rem(4);
+    }
+
+    ::v-deep .el-loading-spinner{
+      transform: translateY(-50%);
+    }
+
+  }
+}
+
+::v-deep .innercomp-sccontainer-body {
+    padding-top: px-to-rem(12);
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .forest-classification-statistics{
+
+}
+
+// 国土
+[data-theme="theme-terracotta"] .forest-classification-statistics{
+
+}

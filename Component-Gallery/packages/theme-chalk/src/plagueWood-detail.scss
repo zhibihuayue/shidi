@@ -1,0 +1,581 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.plagueWood-detail {
+  &-container {
+    ::v-deep .innercomp-abcontainer-header.highlight-title.left-title::before {
+      transform: translateX(0);
+    }
+
+    ::v-deep .icon.icon-ctw {
+      color: var(--iw-text-color) !important;
+      font-size: px-to-rem(14) !important;
+    }
+
+    width: px-to-rem(368);
+
+    .headStyle {
+      display: flex;
+      align-items: center;
+      padding-left: 0 !important;
+
+      h4 {
+        width: px-to-rem(254);
+        height: 100%;
+        font-size: px-to-rem(16);
+        text-shadow: 0 0 px-to-rem(18) rgba(0, 245, 193, 0.9);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        span {
+          font-weight: 600;
+        }
+      }
+
+      .favicon {
+        margin-left: px-to-rem(6);
+        font-size: px-to-rem(20);
+      }
+
+      .active {
+        color: var(--iw-active-text-color);
+      }
+
+      .tag {
+        margin-left: px-to-rem(10);
+        width: px-to-rem(52);
+        height: px-to-rem(20);
+        border-radius: px-to-rem(4);
+        font-weight: 500;
+        color: #fff;
+        font-size: px-to-rem(12);
+        text-align: center;
+        line-height: px-to-rem(20);
+        text-shadow: none !important;
+
+        &.color1 {
+          background: linear-gradient(135deg, #ffa43c 0%, #ff8d0b 100%);
+        }
+
+        &.color2 {
+          background: linear-gradient(90deg, #d4b02d 0%, #bd9400 100%);
+        }
+
+        &.color3 {
+          background: linear-gradient(90deg, #15bd94 0%, #00a179 100%);
+        }
+
+        &.color4 {
+          background: linear-gradient(90deg, #52a1e5 0%, #1f7ccc 100%);
+        }
+      }
+    }
+
+    .mainBox {
+      height: px-to-rem(300);
+
+      .main {
+        padding: px-to-rem(12);
+        width: 100%;
+        height: px-to-rem(252);
+
+        .baseInfo {
+          div {
+            display: flex;
+            margin-top: px-to-rem(6);
+            height: px-to-rem(20);
+
+            span {
+              height: px-to-rem(20);
+              line-height: px-to-rem(20);
+            }
+
+            .sp1 {
+              width: 6em;
+              text-align: right;
+              flex-shrink: 0;
+            }
+
+            .sp2 {
+              flex: 1;
+              display: flex;
+              align-items: center;
+              overflow: hidden;
+
+              .icon-fuzhiicon {
+                margin-left: px-to-rem(6);
+                font-size: px-to-rem(20);
+              }
+            }
+          }
+          .introduce {
+            min-height: px-to-rem(20);
+            height: auto;
+
+            span {
+              min-height: px-to-rem(20);
+              height: auto;
+            }
+          }
+          & > :first-child {
+            margin-top: 0;
+          }
+        }
+
+        .player {
+          margin-top: px-to-rem(10);
+        }
+
+        .fit-height {
+          width: 100%;
+          height: 100%;
+        }
+
+        .fullscreen {
+          position: absolute;
+          right: px-to-rem(6);
+          bottom: px-to-rem(6);
+          z-index: 10;
+          width: px-to-rem(32);
+          height: px-to-rem(32);
+          border-radius: px-to-rem(4);
+          font-size: px-to-rem(20);
+          text-align: center;
+          line-height: px-to-rem(32);
+          padding-top: px-to-rem(1);
+          cursor: pointer;
+
+          span {
+            font-size: px-to-rem(20) !important;
+          }
+        }
+
+        .no-data {
+          margin-top: px-to-rem(46);
+          color: #fff;
+          font-size: px-to-rem(14);
+          text-align: center;
+
+          &::before {
+            display: block;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .textStyle {
+      font-size: px-to-rem(14);
+    }
+
+    ::v-deep .el-carousel__container {
+      width: px-to-rem(344);
+      height: px-to-rem(208);
+      border-radius: px-to-rem(4);
+    }
+
+    ::v-deep .el-carousel__indicators--horizontal {
+      display: none;
+    }
+
+    ::v-deep .el-scrollbar__view {
+      padding: px-to-rem(0);
+    }
+
+    ::v-deep .el-scrollbar__wrap::-webkit-scrollbar {
+      display: none;
+    }
+
+    .listScroll {
+      overflow: hidden;
+      max-height: px-to-rem(160);
+      p {
+        margin-left: px-to-rem(6);
+      }
+    }
+
+    ::v-deep .el-scrollbar {
+      .el-scrollbar__wrap {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .smallLogo {
+      margin-top: px-to-rem(-3);
+    }
+  }
+
+  &-tab {
+    position: relative;
+    height: px-to-rem(48);
+
+    &__wrap {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__tabItem {
+      height: 100%;
+      font-size: px-to-rem(16);
+      text-align: center;
+      flex: 1;
+      cursor: pointer;
+      line-height: px-to-rem(48);
+    }
+
+    &__tabLine {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: px-to-rem(1);
+      background: linear-gradient(
+        270deg,
+        rgba(234, 244, 255, 0) 0%,
+        #eaf4ff 53%,
+        rgba(234, 244, 255, 0) 100%
+      );
+      opacity: 0.2;
+    }
+
+    .tab_active {
+      position: relative;
+      font-weight: 600;
+
+      &::after {
+        position: absolute;
+        bottom: px-to-rem(0);
+        left: px-to-rem(34);
+        display: inline-block;
+        width: px-to-rem(116);
+        height: px-to-rem(11);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        content: '';
+      }
+    }
+  }
+
+  &-ul-list {
+    width: px-to-rem(232);
+    max-height: px-to-rem(160);
+    border-radius: 8px;
+
+    > li {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: px-to-rem(6) px-to-rem(10);
+      height: px-to-rem(32);
+      font-size: px-to-rem(14);
+      cursor: pointer;
+
+      p {
+        width: px-to-rem(82);
+        overflow: hidden;
+        margin: 0 px-to-rem(13) 0 px-to-rem(4);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: left;
+      }
+
+      .num {
+        width: px-to-rem(90);
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: right;
+      }
+
+      &:hover {
+        background-color: rgb(134 176 227 / 10%);
+      }
+    }
+  }
+}
+
+// 通用
+[data-theme='theme-wiseblue'] .plagueWood-detail {
+  &-container {
+    .headStyle {
+      h4 {
+        margin-left: px-to-rem(6);
+        color: #e8f3fe;
+      }
+    }
+
+    .titleStyle {
+      color: rgb(255 255 255 / 70%);
+    }
+
+    .valueStyle {
+      color: #fff;
+    }
+
+    .main {
+      .no-data {
+        &::before {
+          content: url('~@component-gallery/assets/image/plagueWood-detail/no-data_blue.png');
+        }
+      }
+    }
+
+    .mainBox {
+      .main {
+        .fullscreen {
+          background: rgb(23 37 55 / 90%);
+          color: #e8f3fe;
+        }
+      }
+    }
+
+    ::v-deep .el-carousel__arrow {
+      width: px-to-rem(30);
+      height: px-to-rem(30);
+      background: rgb(23 37 55 / 80%);
+      color: #FFFFFF;
+      &--left {
+        left: px-to-rem(6);
+      }
+      &--right {
+        right: px-to-rem(6);
+      }
+    }
+  }
+
+  &-ul-list {
+    .outline {
+      color: rgb(232 243 254 / 50%);
+
+      span {
+        color: rgb(232 243 254 / 50%);
+      }
+    }
+
+    > li {
+      color: #e8f3fe;
+
+      span {
+        color: #ffeeb1;
+      }
+    }
+  }
+
+  &-tab {
+    &__tabItem {
+      color: rgb(232 243 254 / 70%);
+    }
+
+    .tab_active {
+      text-shadow: 0 0 10px rgb(74 141 254 / 70%);
+      color: #e8f3fe;
+
+      &::after {
+        background-image: url('~@component-gallery/assets/image/plagueWood-detail/tongyong_blue.png');
+      }
+    }
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .plagueWood-detail {
+  &-container {
+    .headStyle {
+      .iconShow {
+        display: none;
+      }
+
+      h4 {
+        padding-left: px-to-rem(16);
+        text-shadow: 0 0 18px rgb(0 245 193 / 90%);
+        color: #fff;
+      }
+    }
+
+    .titleStyle {
+      color: rgb(255 255 255 / 70%);
+    }
+
+    .valueStyle {
+      color: #fff;
+    }
+
+    .main {
+      .no-data {
+        &::before {
+          content: url('~@component-gallery/assets/image/plagueWood-detail/no-data_green.png');
+        }
+      }
+    }
+
+    .mainBox {
+      .main {
+        .fullscreen {
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          background-image: url('~@component-gallery/assets/image/plagueWood-detail/full_bg.png');
+          color: #fff;
+        }
+      }
+    }
+
+    ::v-deep .el-carousel__arrow {
+      width: px-to-rem(30);
+      height: px-to-rem(30);
+      background: rgba(2, 50, 32, 0.7);
+      color: #FFFFFF;
+      &--left {
+        left: px-to-rem(6);
+      }
+      &--right {
+        right: px-to-rem(6);
+      }
+    }
+  }
+
+  &-tab {
+    &__tabItem {
+      text-shadow: 0 0 24px rgb(0 92 245 / 35%);
+      color: #0dc985;
+    }
+
+    .tab_active {
+      text-shadow: 0 0 18px rgb(0 245 193 / 70%);
+      color: #fff;
+
+      &::after {
+        background-image: url('~@component-gallery/assets/image/plagueWood-detail/tongyong_green.png');
+      }
+    }
+  }
+
+  &-ul-list {
+    > li {
+      color: #fff;
+
+      i,
+      span {
+        color: #fff;
+      }
+
+      &:hover {
+        background-color: rgba(2, 137, 109, 0.4);
+      }
+
+      &.active {
+        background-color: rgba(2, 137, 109, 0.4);
+
+        p {
+          color: #f9ff6c;
+          span {
+            color: #f9ff6c;
+          }
+        }
+      }
+    }
+
+    .outline {
+      color: rgb(255 255 255 / 40%);
+
+      i,
+      span {
+        color: rgb(255 255 255 / 40%);
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .plagueWood-detail {
+  &-container {
+    .headStyle {
+      h4 {
+        margin-left: px-to-rem(6);
+        text-shadow: 0 1px 4px #dcd277;
+        color: #fff;
+      }
+    }
+
+    .titleStyle {
+      color: rgb(228 231 193 / 70%);
+    }
+
+    .valueStyle {
+      color: #e4e7c1;
+    }
+
+    .main {
+      .no-data {
+        &::before {
+          content: url('~@component-gallery/assets/image/plagueWood-detail/no-data_yellow.png');
+        }
+      }
+    }
+
+    .mainBox {
+      .main {
+        .fullscreen {
+          background: #e4e7c1;
+          color: #ffeeb1;
+        }
+      }
+    }
+
+    ::v-deep .el-carousel__arrow {
+      width: px-to-rem(30);
+      height: px-to-rem(30);
+      background: rgba(21,19,12,0.7);
+      &--left {
+        left: px-to-rem(6);
+        &::before {
+          color: #FFEEB1;
+        }
+      }
+      &--right {
+        right: px-to-rem(6);
+        &::before {
+          color: #FFEEB1;
+        }
+      }
+    }
+  }
+
+  &-ul-list {
+    > li {
+      color: #e4e7c1;
+
+      i,
+      span {
+        color: #ffeeb1;
+      }
+    }
+
+    .outline {
+      color: rgb(228 231 193 / 40%);
+
+      i,
+      span {
+        color: rgb(255 238 177 / 40%);
+      }
+    }
+  }
+
+  &-tab {
+    &__tabItem {
+      color: #e4e7c1;
+    }
+
+    .tab_active {
+      text-shadow: 1px 0 4px #dcd277;
+      color: #fff;
+
+      &::after {
+        background-image: url('~@component-gallery/assets/image/plagueWood-detail/tongyong_yellow.png');
+      }
+    }
+  }
+}

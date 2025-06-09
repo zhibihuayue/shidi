@@ -1,0 +1,520 @@
+@import "mixins/mixins";
+@import "mixins/theme-mixins";
+@import "mixins/px-to-rem";
+
+.tool-box {
+  &-container {
+    position: absolute;
+    top: px-to-rem(43);
+    right: px-to-rem(335);
+    transform-origin: top right;
+    z-index: 100;
+  }
+
+  &-trigger {
+    width: px-to-rem(40);
+    height: px-to-rem(40);
+    line-height: px-to-rem(40);
+    text-align: center;
+    cursor: pointer;
+
+    &__icon {
+      width: px-to-rem(40);
+      height: px-to-rem(40);
+      background-size: 100% 100%;
+    }
+  }
+
+  &-menu {
+    position: absolute;
+    z-index: 101;
+    height: auto;
+    transition: all 1s;
+
+    &__button {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: px-to-rem(5);
+      width: px-to-rem(30);
+      height: px-to-rem(30);
+      color: #fff;
+      cursor: pointer;
+
+      i.iconfont_tools {
+        min-width: px-to-rem(26);
+        font-size: px-to-rem(20);
+        text-align: center;
+
+        // iconfont提供的看这里和周边分析的大小严重小于其他图标，需要手动调整
+        &.icon-icon_kanzheli_30_s,
+        &.icon-icon_kanzheli_30_n {
+          font-size: px-to-rem(26);
+        }
+
+        &.icon-icon_zhoubianfenxi_30_s,
+        &.icon-icon_zhoubianfenxi_30_n {
+          font-size: px-to-rem(26);
+        }
+      }
+
+      &--active {
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #f9ff6c;
+        background-image: url('~@component-gallery/assets/image/funcicon-bg.png');
+      }
+    }
+  }
+
+  // 二级小工具浮层样式
+  &-subtoolbox {
+    top: 0;
+    right: px-to-rem(41); // 定位在离按钮6px的位置
+    overflow: hidden;
+  }
+
+  &-subtool {
+    // position: relative;
+    width: px-to-rem(120);
+    border-radius: 8px;
+
+    &__item {
+      padding: px-to-rem(6) px-to-rem(12);
+      font-size: px-to-rem(14);
+
+      &:first-child {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+
+      &:only-child {
+        border-radius: 8px;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+    }
+  }
+
+  // teleport
+  &-teleport {
+    position: absolute;
+    top: px-to-rem(52);
+    right: px-to-rem(-38);
+  }
+
+  // 火险等级
+  &-fire-level {
+    position: absolute;
+    top: px-to-rem(638);
+    right: px-to-rem(6);
+    width: px-to-rem(124);
+    height: px-to-rem(156);
+
+    .fire-level-content {
+      display: flex;
+      justify-content: space-between;
+      padding: px-to-rem(12);
+      width: px-to-rem(124);
+      height: px-to-rem(156);
+      flex-direction: column;
+
+      .item {
+        display: flex;
+        height: px-to-rem(12);
+
+        .icon {
+          margin-right: px-to-rem(12);
+          width: px-to-rem(12);
+          height: px-to-rem(12);
+        }
+
+        .label {
+          height: px-to-rem(12);
+          color: var(--iw-text-color);
+          font-size: px-to-rem(12);
+          font-weight: 400;
+          line-height: px-to-rem(12);
+        }
+      }
+    }
+  }
+
+  // 火险预警
+  &-fire-warning {
+    position: absolute;
+    top: px-to-rem(662);
+    right: px-to-rem(6);
+    width: px-to-rem(124);
+    height: px-to-rem(132);
+
+    ::v-deep .fire-warning-content {
+      display: flex;
+      justify-content: space-between;
+      padding: px-to-rem(12);
+      width: px-to-rem(124);
+      height: px-to-rem(132);
+      flex-direction: column;
+
+      .item {
+        display: flex;
+        height: px-to-rem(12);
+
+        .icon {
+          margin-right: px-to-rem(12);
+          width: px-to-rem(12);
+          height: px-to-rem(12);
+        }
+
+        .label {
+          height: px-to-rem(12);
+          color: var(--iw-text-color);
+          font-size: px-to-rem(12);
+          font-weight: 400;
+          line-height: px-to-rem(12);
+        }
+      }
+    }
+  }
+
+  // 病虫害严重程度图层
+  &-deseases-pest {
+    position: relative;
+
+    .timer-controller {
+      position: absolute;
+      top: px-to-rem(-40);
+      left: px-to-rem(-386);
+      width: px-to-rem(380);
+      height: px-to-rem(160);
+
+      .panel-content {
+        padding: px-to-rem(18) px-to-rem(12);
+        width: px-to-rem(380);
+        height: px-to-rem(112);
+
+        ::v-deep .el-input__inner {
+          height: px-to-rem(32);
+          font-size: px-to-rem(14);
+        }
+
+        ::v-deep .el-date-editor {
+          .el-input__prefix {
+            display: flex;
+            align-items: center;
+          }
+
+          i.iconfont_tools.icon-tongyong-shaixuanriqi {
+            line-height: 1;
+            height: 1em;
+          }
+        }
+
+
+        ::v-deep .el-input--prefix {
+          .el-input__inner {
+            padding-left: .42rem;
+          }
+        }
+
+        ::v-deep .el-input--suffix {
+          .el-input__inner {
+            padding-right: px-to-rem(30);
+          }
+        }
+
+        ::v-deep .el-date-editor .el-range-separator {
+          line-height: 1;
+          height: auto;
+        }
+
+        ::v-deep .el-date-editor--daterange.el-input__inner {
+          width: 100%;
+        }
+
+        .time-picker {
+          display: grid;
+          margin-bottom: px-to-rem(12);
+          height: px-to-rem(32);
+          grid-template-columns: px-to-rem(92) 1fr;
+          grid-template-rows: px-to-rem(32);
+          column-gap: px-to-rem(6);
+        }
+
+        .progress-operate {
+          display: flex;
+
+          .operate-icon {
+            margin-top: px-to-rem(2);
+            margin-right: px-to-rem(6);
+            width: px-to-rem(20);
+            height: px-to-rem(20);
+            cursor: pointer;
+          }
+
+          .progress-line {
+            flex: 1;
+
+            .label-group {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              height: px-to-rem(14);
+              color: #FFF;
+              font-size: px-to-rem(14);
+              font-weight: 400;
+              line-height: px-to-rem(14);
+            }
+          }
+
+          .el-slider{
+            ::v-deep{
+              .el-slider__runway{
+                  margin: px-to-rem(8) 0;
+              }
+
+              .el-slider__button {
+                width: px-to-rem(12);
+                height: px-to-rem(14);
+                background: url('~@component-gallery/assets/image/tool-box/slider-icon.png') no-repeat 50% / 100% auto transparent !important;
+                background-repeat: no-repeat;
+                border: none;
+                border-radius: inherit;
+              }
+
+              .el-slider__button-wrapper {
+                top: px-to-rem(-5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: px-to-rem(12);
+                height: px-to-rem(14);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .range-panel {
+      position: absolute;
+      top: px-to-rem(580);
+      right: 0;
+      width: px-to-rem(124);
+      height: px-to-rem(80);
+
+      .panel-content {
+        display: flex;
+        padding: px-to-rem(12);
+        width: px-to-rem(124);
+        height: px-to-rem(80);
+
+        .range-bar {
+          margin-right: px-to-rem(12);
+          width: px-to-rem(8);
+          height: 100%;
+          background: linear-gradient( 180deg, #F00 0%, #329FFF 54%, #43BE92 100%);
+        }
+
+        .range-label {
+          display: flex;
+          justify-content: space-between;
+          height: 100%;
+          color: #FFF;
+          font-size: px-to-rem(14);
+          flex-direction: column;
+          font-weight: 400;
+          line-height: px-to-rem(14);
+        }
+      }
+    }
+  }
+}
+
+// 通用换肤
+[data-theme="theme-wiseblue"] .tool-box {
+  &-trigger {
+    &__icon {
+      background-image: url('~@component-gallery/assets/image/tool-box/wiseBlue/gongjuxiang.png');
+    }
+
+    .active {
+      background-image: url('~@component-gallery/assets/image/tool-box/wiseBlue/gongjuxiang.png');
+    }
+  }
+
+  &-menu {
+    background: rgb(23 37 55 / 90%);
+    border-radius: 8px;
+
+    &__button {
+      color: rgb(232 243 254);
+
+      &--active {
+        color: rgb(79 159 255);
+        background-image: none;
+      }
+    }
+  }
+
+  &-subtool {
+    &__item {
+      &.active {
+        color: var(--iw-theme-color);
+      }
+
+      &.active,
+      &:hover {
+        background-color: var(--iw-theme-color-40);
+      }
+    }
+  }
+}
+
+// 林业换肤
+[data-theme="theme-aquamarine"] .tool-box {
+  &-subtool {
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #075B4A;
+      border-radius: 8px;
+      content: '';
+      pointer-events: none;
+    }
+  }
+
+  &-subtoolbox {
+    &.innercomp-abcontainer {
+      background: linear-gradient( 180deg, rgb(0 67 63 / 85%) 0%, rgb(0 19 30 / 74%) 21%, #00131E 100%);
+    }
+
+    border-radius: 8px;
+
+    >::v-deep .previous-vacancies {
+      pointer-events: none;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #075B4A;
+      border-radius: 8px;
+
+      &::before,&::after {
+        display: none; // 此处不要以前角装饰了，影响到所有内部ab弹窗，需手动关闭，去除组件内nocorner
+      }
+    }
+
+    &::before,
+    &::after {
+      display: none; // 此处不要以前角装饰了，影响到所有内部ab弹窗，需手动关闭，去除组件内nocorner
+    }
+  }
+
+  &-trigger {
+    &__icon {
+      background-image: url('~@component-gallery/assets/image/tool-box/aquamarine/gongjuxiang.png');
+    }
+
+    .active {
+      background-image: url('~@component-gallery/assets/image/tool-box/aquamarine/gongjuxiang_active.png');
+    }
+  }
+
+  &-menu {
+    background: #022227;
+
+    &__button {
+      color: #fff;
+
+      &--active {
+        color: #f9ff6c;
+        background-image: url('~@component-gallery/assets/image/tool-box/aquamarine/funcicon-bg.png');
+      }
+    }
+  }
+
+  &-subtool {
+    &__item {
+      &.active {
+        color: #f9ff6c;
+      }
+
+      &.active,
+      &:hover {
+        background-color: rgb(2 137 109 / 40%);
+      }
+    }
+  }
+
+  // 火险等级
+  &-fire-level {
+    .fire-level-content {
+      .item {
+        .label {
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+
+// 国土换肤
+[data-theme="theme-terracotta"] .tool-box {
+  &-trigger {
+    position: relative;
+
+    &__icon {
+      background-image: url('~@component-gallery/assets/image/tool-box/terracotta/gongjuxiang.png');
+    }
+
+    .active {
+      background-image: url('~@component-gallery/assets/image/tool-box/terracotta/gongjuxiang_active.png');
+    }
+  }
+
+  &-menu {
+    background: linear-gradient( 180deg, #423B1D 0%, #28210E 11%, #000 100%);
+    border-radius: 8px;
+
+    &__button {
+      color: #FFEEB1;
+
+      &--active {
+        color: #FFFA28;
+        background-image: url('~@component-gallery/assets/image/tool-box/terracotta/funcicon-bg.png');
+      }
+    }
+  }
+
+  &-subtool {
+    &__item {
+      &.active,
+      &:hover {
+        background-color: var(--iw-theme-color-40);
+        border-radius: 0;
+      }
+
+      &.active {
+        color: #FFFA28;
+      }
+    }
+  }
+
+  // 火险等级
+  &-fire-level {
+    .fire-level-content {
+      .item {
+        .label {
+          color: #E4E7C1;
+        }
+      }
+    }
+  }
+}

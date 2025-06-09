@@ -1,0 +1,11 @@
+
+@import './mixins/px-to-rem';
+
+.common-comp-map__bottom_background {
+  position: absolute;
+  right: px-to-rem(24);
+  bottom: px-to-rem(6);
+  z-index: 1;
+  color: #fff;
+  font-size: px-to-rem(12);
+}

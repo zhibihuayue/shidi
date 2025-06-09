@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="25px" viewBox="0 0 21 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_页脚</title>
+    <defs>
+        <linearGradient x1="21.4487112%" y1="3.69843045e-13%" x2="51.6074018%" y2="76.7417389%" id="linearGradient-1">
+            <stop stop-color="#43C88F" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#43C88F" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="功能列表" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.7地图首页_导航搜索" transform="translate(-141.000000, -373.000000)">
+            <g id="导航-默认" transform="translate(141.000000, 254.000000)">
+                <g id="icon_页脚" transform="translate(0.000000, 119.000000)">
+                    <polygon id="矩形备份-21" fill="url(#linearGradient-1)" points="0 0 2 1.90819582e-14 2 16 9 23 18 23 21 25 0 25"></polygon>
+                    <polygon id="路径-2备份-2" fill="#F9FF6C" points="0 25 0 19 6 25"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

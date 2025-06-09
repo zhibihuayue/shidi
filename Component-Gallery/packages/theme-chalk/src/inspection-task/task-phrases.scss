@@ -1,0 +1,157 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/bem-mixins.scss';
+
+@include b('task-phrases') {
+  @include themeify(false) {
+    border: px-to-rem(1) solid transparent;
+
+    &:not(.readonly, .disabled):hover {
+      outline: 1px solid themed('alarm-detail-input-hover-border');
+      border-radius: px-to-rem(4);
+    }
+
+    &:not(.readonly, .disabled):focus-within {
+      outline: 1px solid themed('alarm-detail-input-hover-border');
+      border-radius: px-to-rem(4);
+    }
+
+    .text-class {
+      width: 100%;
+      font-size: px-to-rem(14) !important;
+
+      ::v-deep .el-textarea__inner {
+        padding: px-to-rem(5) px-to-rem(12);
+        background: themed('alarm-detail-input-background');
+        border: 0;
+        border-radius: px-to-rem(4) px-to-rem(4) 0 0 !important;
+        color: themed('alarm-detail-compare-arrow-color');
+        &::placeholder {
+          color: themed('inspection-task-filter-text-placeholder-color');
+        }
+      }
+    }
+
+    .phrases {
+      width: 100%;
+      background: themed('alarm-phrases-bg-color');
+      border-radius: 0 0 px-to-rem(4) px-to-rem(4);
+      border-top: none;
+
+      .phrases-title {
+        padding-left: px-to-rem(12);
+        color: themed('alarm-info-data-content-color');
+        background: themed('inspection-task-feedback-phrases-bg');
+        font-size: px-to-rem(14);
+        font-weight: 400;
+        line-height: px-to-rem(32);
+        border-top: 1px solid rgba(228, 231, 193, 0.2);
+
+        .phrases-shousuo {
+          margin-top: px-to-rem(2);
+          margin-left: px-to-rem(2);
+          font-size: px-to-rem(12);
+          font-weight: bold;
+        }
+
+        .phrases-button {
+          float: right;
+          margin-right: px-to-rem(12);
+          color: themed('alarm-detail-compare-arrow-color');
+          font-size: px-to-rem(14);
+          font-weight: 400;
+          line-height: px-to-rem(32);
+          cursor: pointer;
+        }
+      }
+
+      .phrases-body {
+        padding: 0 px-to-rem(12) px-to-rem(12);
+        background: themed('inspection-task-feedback-phrases-bg');
+        display: flex;
+        flex-flow: column;
+        .phrases-list {
+          margin-bottom: px-to-rem(6);
+          width: 100%;
+          height: px-to-rem(20);
+
+          ::v-deep .el-input--small {
+            height: px-to-rem(20);
+            background: transparent;
+            border-radius: px-to-rem(4);
+
+            .el-input__inner {
+              display: block;
+              overflow: hidden;
+              padding-left: px-to-rem(6);
+              margin-top: 0;
+              height: 100%;
+              background: themed('alarm-phrases-item-bg-color') !important;
+              border: none !important;
+              @if $theme-name == 'theme-aquamarine' {
+                outline: 1px solid rgb(2 137 109 / 50%) !important;
+              }
+              color: themed('alarm-detail-compare-arrow-color');
+              font-size: px-to-rem(12);
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              font-weight: 400;
+              cursor: pointer;
+              line-height: initial;
+            }
+          }
+
+          ::v-deep .phrases-input {
+            ::placeholder {
+              color: themed('alarm-phrases-item-placeholder');
+              font-size: px-to-rem(12);
+              font-weight: 400;
+            }
+          }
+
+          ::v-deep .el-input__suffix {
+            color: themed('global-text-color') !important;
+
+            .el-icon-circle-close {
+              display: block !important;
+              margin-right: px-to-rem(-4);
+              line-height: initial;
+            }
+
+            .el-icon-circle-close::before {
+              color: themed('alarm-detail-compare-arrow-color');
+              font-size: px-to-rem(12);
+              font-family: iconfont;
+              content: '\E64E';
+            }
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .phrases-test {
+        padding-top: px-to-rem(12);
+        height: px-to-rem(77);
+        color: rgb(255 255 255 / 50%);
+        font-size: px-to-rem(14);
+        text-align: center;
+        font-weight: 400;
+      }
+    }
+
+    .content-input-close {
+      color: #fff;
+      font-size: px-to-rem(12);
+      line-height: px-to-rem(21);
+    }
+
+    // .line {
+    //   margin: 0 auto;
+    //   width: 100%;
+    //   height: px-to-rem(1);
+    //   background: themed('inspection-task-feedback-phrases-line');
+    // }
+  }
+}

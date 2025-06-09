@@ -1,0 +1,228 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.ptz-box {
+  @include themeify() {
+    /*height: 100%;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*width: 100%;*/
+
+    .ptz-margin {
+      margin-left: px-to-rem(12);
+      margin-top: px-to-rem(12);
+
+      .box-class {
+        margin-bottom: px-to-rem(6);
+        display: flex;
+
+        .box-left {
+          width: px-to-rem(40);
+          height: px-to-rem(40);
+          background: rgba(23, 37, 55, 0.9);
+          border-radius: px-to-rem(8);
+          font-size: px-to-rem(13);
+          color: #e8f3fe;
+          line-height: px-to-rem(40);
+          text-align: center;
+          margin-right: px-to-rem(4);
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          i {
+            font-size: px-to-rem(24) !important;
+          }
+        }
+
+        .box-right1 {
+          width: px-to-rem(232);
+          height: px-to-rem(40);
+          background: rgba(23, 37, 55, 0.9);
+          border-radius: px-to-rem(8);
+          display: flex;
+          padding: px-to-rem(4);
+
+          // ::v-deep .el-input--small {
+          ::v-deep .el-input {
+            width: px-to-rem(54) !important;
+            margin-right: px-to-rem(4) !important;
+          }
+
+          // ::v-deep .el-input--small .el-input__inner {
+          ::v-deep .el-input .el-input__inner {
+            background: rgba(79, 159, 255, 0.2) !important;
+            border-radius: px-to-rem(4) !important;
+            border-color: transparent !important;
+            font-size: px-to-rem(14) !important;
+            font-family: Source Han Sans SC !important;
+            font-weight: 400 !important;
+            color: #e8f3fe;
+            padding-left: px-to-rem(12) !important;
+          }
+        }
+
+        .box-right2 {
+          width: px-to-rem(232);
+          height: px-to-rem(40);
+          background: rgba(23, 37, 55, 0.9);
+          border-radius: px-to-rem(8);
+          display: flex;
+          padding: px-to-rem(4);
+
+          ::v-deep .el-select {
+            width: px-to-rem(170) !important;
+            margin-right: px-to-rem(4) !important;
+          }
+
+          // ::v-deep .el-input--small .el-input__inner {
+          ::v-deep .el-input .el-input__inner {
+            background: rgba(79, 159, 255, 0.2) !important;
+            border-radius: px-to-rem(4) !important;
+            font-size: px-to-rem(14) !important;
+            border: transparent !important;
+            color: #e8f3fe;
+            padding-left: px-to-rem(12) !important;
+          }
+
+          ::v-deep .el-select .el-input .el-select__caret {
+            color: rgba(232, 242, 254, 1) !important;
+          }
+        }
+
+        .box-right3 {
+          min-width: px-to-rem(174);
+          height: px-to-rem(40);
+          background: rgba(23, 37, 55, 0.9);
+          border-radius: px-to-rem(8);
+          display: flex;
+          align-items: center;
+          padding-right: px-to-rem(12);
+
+          div {
+            font-size: px-to-rem(14);
+            font-weight: 400;
+            color: #e8f3fe;
+            margin-left: px-to-rem(12);
+          }
+        }
+
+        .button-box {
+          width: px-to-rem(52);
+          height: px-to-rem(32);
+          background: rgba(79, 159, 255, 0.2);
+          border-radius: px-to-rem(4);
+          font-size: px-to-rem(14);
+          font-weight: 500;
+          color: #e8f3fe;
+          line-height: px-to-rem(32);
+          text-align: center;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.6;
+          }
+          &:active {
+            opacity: 0.8;
+          }
+        }
+
+        .placeholder-box ::v-deep input::-webkit-input-placeholder {
+          color: #e8f3fe !important;
+          font-size: px-to-rem(14) !important;
+          font-weight: 400 !important;
+        }
+
+        .placeholder-box ::v-deep input:-moz-placeholder {
+          color: #e8f3fe !important;
+          font-size: px-to-rem(14) !important;
+          font-weight: 400 !important;
+        }
+
+        .placeholder-box ::v-deep input::-moz-placeholder {
+          color: #e8f3fe !important;
+          font-size: px-to-rem(14) !important;
+          font-weight: 400 !important;
+        }
+
+        .placeholder-box ::v-deep input:-ms-input-placeholder {
+          color: #e8f3fe !important;
+          font-size: px-to-rem(14) !important;
+          font-weight: 400 !important;
+        }
+      }
+    }
+  }
+  .g,
+  .ar-g {
+    .ptz-box .ptz-margin .box-class {
+      .box-left {
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(73, 58, 20, 0.9) 100%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(238, 227, 128, 0.9) 0%,
+            rgba(105, 95, 42, 0.18) 81%,
+            rgba(76, 66, 24, 0) 100%
+          ),
+          rgba(0, 0, 0, 0.45) !important;
+        border: px-to-rem(1) solid rgba(110, 103, 78, 0.9) !important;
+      }
+      .box-right1,
+      .box-right2,
+      .box-right3 {
+        /*那按钮统一填充#64562E 70%。描边 #6E674E纯色*/
+        background: linear-gradient(
+          360deg,
+          rgba(43, 48, 59, 0.82) 0%,
+          rgba(40, 32, 19, 0.82) 100%
+        ) !important;
+        border: px-to-rem(1) solid rgba(110, 103, 78, 0.9) !important;
+      }
+      .box-right1,
+      .box-right2 {
+        padding: px-to-rem(3);
+      }
+      .box-left {
+        i {
+          text-shadow: none !important;
+          color: #ffeeb1 !important;
+        }
+      }
+      // .box-right1 ::v-deep .el-input--small .el-input__inner {
+      .box-right1 ::v-deep .el-input .el-input__inner {
+        background: rgba(100, 86, 46, 0.4) !important;
+        color: #e4e7c1 !important;
+      }
+      .placeholder-box ::v-deep input::-webkit-input-placeholder {
+        color: #e4e7c1 !important;
+      }
+      .box-right2 {
+        ::v-deep .el-select .el-input .el-select__caret {
+          color: #ffeeb1 !important;
+        }
+        // ::v-deep .el-input--small .el-input__inner {
+        ::v-deep .el-input .el-input__inner {
+          background: rgba(100, 86, 46, 0.4) !important;
+          color: #e4e7c1 !important;
+        }
+      }
+      .box-right3 div {
+        color: #e4e7c1 !important;
+      }
+      ::v-deep .el-input__inner {
+        background: rgba(100, 86, 46, 0.4) !important;
+        color: #e4e7c1 !important;
+      }
+      .button-box {
+        background: rgba(100, 86, 46, 0.71) !important;
+        color: #e4e7c1 !important;
+        border: px-to-rem(0.5) solid rgba(100, 86, 46, 1) !important;
+        line-height: px-to-rem(30);
+      }
+    }
+  }
+}

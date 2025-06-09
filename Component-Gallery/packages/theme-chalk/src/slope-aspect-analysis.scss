@@ -1,0 +1,121 @@
+@import "mixins/px-to-rem";
+
+.slope-aspect-analysis{
+    &-container{
+        padding: px-to-rem(12);
+        button {
+          width: px-to-rem(108);
+          margin-right: px-to-rem(12);
+          height: px-to-rem(32);
+          line-height: 1;
+        }
+    }
+
+    &-form{
+        .fakeBar {
+            width: px-to-rem(12);
+            height: px-to-rem(4);
+        }
+        .defaultBar {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+        &-item{
+            display: flex;
+            align-items: center;
+            height: px-to-rem(32);
+
+            & + &{
+                margin-top: px-to-rem(12);
+            }
+            
+            ::v-deep .el-slider__button {
+                margin-left: px-to-rem(12);
+                width: px-to-rem(12);
+                height: px-to-rem(14);
+                background: url('~@component-gallery/assets/image/tool-box/slider-icon.png') no-repeat 50% / 100% auto transparent !important;
+                background-repeat: no-repeat;
+                border: none;
+                border-radius: inherit;
+            }
+            ::v-deep .el-input__inner{
+                height: px-to-rem(32);
+                line-height: px-to-rem(32);
+            }
+        }
+
+        label{
+            width: px-to-rem(74);
+            line-height: px-to-rem(32);
+            flex-shrink: 0;
+            font-size: px-to-rem(14);
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        &__input{
+            margin-left: px-to-rem(12);
+            flex-grow: 1;
+            font-size: 0;
+        }
+
+        &__select{
+            font-size: px-to-rem(12);
+        }
+
+        &__num{
+            padding: 0 px-to-rem(12);
+            width: px-to-rem(48);
+            background-color: rgb(79 159 255 / 20%);
+            border-radius: 4px;
+            text-align: left;
+            color: #E8F3FE;
+            font-size: px-to-rem(14);
+            flex-shrink: 0;
+            height: px-to-rem(28);
+            line-height: px-to-rem(28);
+        }
+    }
+
+    &-btns{
+        display: flex;
+        justify-content: center;
+        margin-top: px-to-rem(12);
+        font-size: 0;
+    }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .slope-aspect-analysis{
+    &-form{
+        &__num{
+            background-color: rgb(2 137 109 / 20%);
+            color: #fff;
+        }
+        .defaultBar {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+    }
+}
+
+// 国土
+[data-theme="theme-terracotta"] .slope-aspect-analysis{
+    &-form{
+        &__num{
+            background-color: rgba(100, 86, 46, 0.4);
+            color: #e4e7c1;
+        }
+
+        &-item{
+          ::v-deep .el-slider__button {
+            background: url('~@component-gallery/assets/image/tool-box/terracotta/slider-icon.png') no-repeat 50% / 100% auto transparent !important;
+          }
+        }
+        .defaultBar {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+    }
+
+}

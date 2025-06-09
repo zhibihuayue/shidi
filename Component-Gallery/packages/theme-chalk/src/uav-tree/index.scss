@@ -1,0 +1,968 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+[data-theme='theme-wiseblue'] {
+  .popup-header {
+    display: none;
+  }
+  .popup-header,
+  .close_icon {
+    // display: none;
+  }
+}
+
+[data-theme='theme-terracotta'] {
+  .popup-header {
+    display: none;
+  }
+  .popup-header,
+  .close_icon {
+    // display: none;
+  }
+}
+.common-comp-uav-tree {
+
+  @include themeify(false) {
+    .verify {
+      position: relative;
+
+      // border-image-slice: 1;
+      background: rgb(2 137 109 / 30%);
+      border: px-to-rem(1) solid #02896d;
+      box-shadow: inset 0 0 px-to-rem(13) 0 rgb(0 255 248 / 60%);
+      color: #fff;
+
+      &::after {
+        position: absolute;
+        top: px-to-rem(-2);
+        left: px-to-rem(-2);
+        width: calc(100% + px-to-rem(4));
+        height: calc(100% + px-to-rem(4));
+        background-position: top left, top left, bottom right, bottom right;
+        background-repeat: no-repeat;
+        background-size: px-to-rem(10) 100%, 100% px-to-rem(10);
+        content: '';
+        background-image: linear-gradient(#02896d px-to-rem(2),
+            transparent px-to-rem(2),
+            transparent calc(100% - px-to-rem(2)),
+            #02896d calc(100% - px-to-rem(2)),
+            #02896d 100%),
+          linear-gradient(90deg,
+            #02896d px-to-rem(2),
+            transparent px-to-rem(2),
+            transparent calc(100% - px-to-rem(2)),
+            #02896d calc(100% - px-to-rem(2)),
+            #02896d 100%),
+          linear-gradient(#02896d px-to-rem(2),
+            transparent px-to-rem(2),
+            transparent calc(100% - px-to-rem(2)),
+            #02896d calc(100% - px-to-rem(2)),
+            #02896d 100%),
+          linear-gradient(90deg,
+            #02896d px-to-rem(2),
+            transparent px-to-rem(2),
+            transparent calc(100% - px-to-rem(2)),
+            #02896d calc(100% - px-to-rem(2)),
+            #02896d 100%);
+      }
+    }
+
+    .cancel {
+      background: rgb(2 137 109 / 10%);
+      box-shadow: inset 0 0 px-to-rem(3) 0 rgb(2 137 109 / 60%);
+      color: #fff;
+    }
+
+    .wrj_bootom_box_top {
+      &::before {
+        position: absolute;
+        top:  px-to-rem(-1);
+        left: 0;
+        width: px-to-rem(8);
+        height: px-to-rem(1);
+        background: #00fff8;
+        content: normal;
+      }
+    }
+
+    .grid-track-pop {
+      position: fixed;
+      left: 51%;
+      z-index: 151;
+      overflow: initial;
+
+      // transform: translateX(-50%);
+      padding: px-to-rem(20) px-to-rem(12);
+      width: px-to-rem(1284);
+      background: themed('uav-tree-grid-track-pop-background');
+      // background: linear-gradient(180deg, rgb(0 19 30 / 70%), #00131e);
+      border: themed('uav-tree-grid-track-pop-border');
+      border-radius: px-to-rem(8);
+      transform-origin: bottom center;
+      // border-image: linear-gradient(180deg,
+      //     rgb(7 91 74 / 75%),
+      //     rgb(7 91 74 / 30%)) 1 1;
+      cursor: move;
+
+      &::before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        width: px-to-rem(21);
+        height: px-to-rem(25);
+
+        // background: url('../../assets/border-corner-l.svg') no-repeat;
+        background: url('~@component-gallery/assets/image/uav-tree/border-corner-l.svg') no-repeat;
+        content: themed('uav-tree-grid-track-pop-before');
+        ;
+      }
+
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        width: px-to-rem(21);
+        height: px-to-rem(25);
+
+        // background: url('../../assets/border-corner-r.svg') no-repeat;
+        background: url('~@component-gallery/assets/image/uav-tree/border-corner-r.svg') no-repeat;
+        content: themed('uav-tree-grid-track-pop-after');
+      }
+
+      .grid-track-pop-flex {
+        display: flex;
+        align-items: center;
+        cursor: auto;
+
+        .g-t-plan {
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          padding: px-to-rem(5) px-to-rem(16);
+          margin-left: px-to-rem(20);
+          height: px-to-rem(32);
+          background: themed('uav-tree-plan-background');
+          // background: rgb(2 137 109 / 20%);
+          border-radius: px-to-rem(4);
+          flex: 1 1;
+
+          .g-t-plan-btn {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            margin-right: px-to-rem(16);
+
+            .icon-linye_icon_bofang {
+              // font-size: px-to-rem(28);
+              font-size: px-to-rem(20);
+            }
+
+            .icon-AR-qjzanting {
+              // font-size: px-to-rem(28);
+              font-size: px-to-rem(20);
+            }
+
+            i {
+              margin: 0 px-to-rem(3);
+              color: #e8f3fe;
+              cursor: pointer;
+
+              // font-size: px-to-rem(24);
+              font-size: px-to-rem(20);
+            }
+          }
+        }
+
+        .g-t-p-f-btn {
+          display: flex;
+          flex-shrink: 0;
+          margin-left: px-to-rem(12);
+        }
+
+        .tj_footer_btns {
+          .c-button {
+            position: relative;
+            z-index: 3;
+            display: inline-block;
+            padding: 0 px-to-rem(12);
+            width: px-to-rem(104);
+            background: themed('uav-tree-c-button-background');
+            // background: none;
+            border: px-to-rem(1) dashed rgb(2 137 109 / 15%);
+            border-radius: themed('uav-tree-c-button-border-radius');
+            color: themed('uav-tree-c-button-color');
+            font-size: px-to-rem(14);
+            text-align: center;
+            line-height: px-to-rem(28);
+            cursor: pointer;
+
+            &::after {
+              position: absolute;
+              // top: px-to-rem(1);
+              // left: px-to-rem(1);
+              top: themed('uav-tree-c-button-after-top');
+              left: themed('uav-tree-c-button-after-top');
+              z-index: -1;
+              width: themed('uav-tree-c-button-after-size');
+              height: themed('uav-tree-c-button-after-size');
+              // width: calc(100% - px-to-rem(2));
+              // height: calc(100% - px-to-rem(2));
+              background: themed('uav-tree-c-button-after-background');
+              box-shadow: themed('uav-tree-c-button-after-box-shadow');
+              // background: rgb(2 137 109 / 10%);
+              // box-shadow: inset 0 0 px-to-rem(3) 0 rgb(2 137 109 / 60%);
+              content: '';
+            }
+
+            &:hover {
+              opacity: 0.6;
+            }
+          }
+
+          .c-button.submit {
+            margin-right: px-to-rem(10);
+
+            b {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              pointer-events: none;
+
+              &::before,
+              &::after {
+                position: absolute;
+                width: themed('uav-tree-c-button-submit-b-after-size');
+                height: themed('uav-tree-c-button-submit-b-after-size');
+
+                // background: url('../../assets/btn-j.png') center / 100% 100%;
+                background: themed('uav-tree-c-button-submit-b-after-background');
+                // background: url('~@component-gallery/assets/image/uav-tree/btn-j.png') center / 100% 100%;
+                content: '';
+              }
+
+              &:first-child {
+                &::before {
+                  top: 0;
+                  left: 0;
+                }
+
+                &::after {
+                  top: 0;
+                  right: 0;
+                  transform: rotate(90deg);
+                }
+              }
+
+              &:last-child {
+                &::before {
+                  right: 0;
+                  bottom: 0;
+                  transform: rotate(180deg);
+                }
+
+                &::after {
+                  bottom: 0;
+                  left: 0;
+                  transform: rotate(270deg);
+                }
+              }
+            }
+
+            &::before {
+              position: absolute;
+              top: px-to-rem(1);
+              left: px-to-rem(1);
+              z-index: -2;
+              overflow: hidden;
+              width: calc(100% - px-to-rem(2));
+              height: calc(100% - px-to-rem(2));
+
+              // background: url('../../assets/popup-header-xx.png') no-repeat 50%;
+              background: url('~@component-gallery/assets/image/uav-tree/popup-header-xx.png') no-repeat 50%;
+              opacity: 0.25;
+              content: '';
+            }
+
+            &::after {
+
+              background: themed('uav-tree-c-button-submit-after-background');
+              box-shadow: themed('uav-tree-c-button-submit-after-box-shadow');
+              // background: rgb(2 137 109 / 30%);
+              // box-shadow: inset 0 0 13px 0 rgb(0 255 248 / 60%);
+            }
+          }
+        }
+      }
+    }
+
+    .slider {
+      position: relative;
+      padding: px-to-rem(2) 0;
+      outline: 0;
+      flex: 1 1;
+    }
+
+    .slider-track {
+      display: block;
+      width: 100%;
+      height: px-to-rem(2);
+      background: rgb(255 255 255 / 35%);
+      border-radius: px-to-rem(1);
+
+      i {
+        display: block;
+        height: 100%;
+        background: linear-gradient(117deg, #229f6a 0%, #48f6ac 100%);
+      }
+    }
+
+    .slider-thumb {
+      position: absolute;
+      top: 0;
+      left: calc(1% * var(--percent));
+      margin: auto px-to-rem(-4);
+      width: px-to-rem(6);
+      height: px-to-rem(6);
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 px-to-rem(5) 0 rgb(0 245 193 / 70%);
+      transition: all 0.15s 0.15s, left 0s 0s;
+    }
+
+    .fun-btn {
+      font {
+        line-height: px-to-rem(32);
+      }
+    }
+
+    .close_icon {
+      position: absolute;
+      top: px-to-rem(-20);
+      right: px-to-rem(-20);
+      width: px-to-rem(38);
+      height: px-to-rem(38);
+
+      // background: url('../../assets/closeIcon@2x.png');
+      background: themed('uav-tree-attribute-close-icon');
+      background-size: 100% 100%;
+      line-height: px-to-rem(38);
+      cursor: pointer;
+    }
+
+    #footer-menu-function {
+      .el-date-editor {
+        background: rgb(2 137 109 / 20%);
+      }
+
+      ::v-deep.icon-tongyong-shaixuanriqi {
+        font-size: px-to-rem(16);
+        line-height: px-to-rem(26);
+      }
+    }
+
+    #footer-menu-function .el-range-separator {
+      line-height: px-to-rem(28);
+    }
+
+    ::v-deep .el-date-range-picker {
+      margin-bottom: px-to-rem(26);
+
+      .popper__arrow {
+        border-top-color: rgb(0 19 30 / 90%);
+
+        &::after {
+          border-top-color: rgb(0 19 30 / 90%);
+        }
+      }
+      background: themed('uav-tree-date-picker-background');
+      // background: linear-gradient(180deg, rgb(0 19 30 / 70%) 0%, #00131e 100%),
+      // linear-gradient(180deg, rgb(2 137 109 / 34%) 0%, rgb(2 137 109 / 0%) 100%);
+      // border: px-to-rem(2) solid #075b4a;
+      border: themed('uav-tree-date-picker-border');
+
+      .el-picker-panel__body {
+        padding: 0 px-to-rem(12);
+      }
+
+      .el-date-range-picker__content {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-top: px-to-rem(2) solid rgb(255 255 255 / 20%);
+        border-bottom: px-to-rem(2) solid rgb(255 255 255 / 20%);
+
+        &.is-left {
+          padding-left: 0;
+        }
+
+        &.is-right {
+          padding-right: 0;
+        }
+      }
+
+      .el-button,
+      button {
+        position: relative;
+        border: none;
+        color: #fff;
+        font-size: px-to-rem(12);
+        font-family: PingFangSC, 'PingFang SC';
+        font-weight: 400;
+
+        &.el-button--text,
+        &.cancel {
+          margin-left: px-to-rem(15);
+          background: themed('uav-tree-date-picker-color-10');
+          // box-shadow: inset 0 0 px-to-rem(3) 0 rgb(2 137 109 / 60%);
+        }
+
+        &+.el-button {
+          margin-right: 0;
+          margin-left: 0;
+        }
+
+        &.el-button--mini {
+          padding: px-to-rem(7) px-to-rem(15);
+        }
+
+        &.cancel,
+        &.confirm {
+          padding: 0 px-to-rem(12);
+        }
+
+        &.is-plain,
+        &.confirm {
+          background: themed('uav-tree-date-picker-color-30');
+          box-shadow: themed('uav-tree-date-picker-btn-shadow');
+
+          // box-shadow: inset 0 0 13px 0 rgb(0 255 248 / 60%);
+          transform: scale(1.001);
+
+          &:hover {
+            opacity: 0.7;
+          }
+
+          &::after {
+            position: absolute;
+            top:  px-to-rem(-1);
+            left:  px-to-rem(-1);
+            width: calc(100% + px-to-rem(2));
+            height: calc(100% + px-to-rem(2));
+            background-position: top left, top left, bottom right, bottom right;
+            background-repeat: no-repeat;
+            background-size: px-to-rem(5) 100%, 100% px-to-rem(5);
+            content: '';
+            // background-image: linear-gradient(#02896d px-to-rem(2),
+            //     transparent px-to-rem(2),
+            //     transparent calc(100% - px-to-rem(2)),
+            //     #02896d calc(100% - px-to-rem(2)),
+            //     #02896d 100%),
+            //   linear-gradient(90deg,
+            //     #02896d px-to-rem(2),
+            //     transparent px-to-rem(2),
+            //     transparent calc(100% - px-to-rem(2)),
+            //     #02896d calc(100% - px-to-rem(2)),
+            //     #02896d 100%),
+            //   linear-gradient(#02896d px-to-rem(2),
+            //     transparent px-to-rem(2),
+            //     transparent calc(100% - px-to-rem(2)),
+            //     #02896d calc(100% - px-to-rem(2)),
+            //     #02896d 100%),
+            //   linear-gradient(90deg,
+            //     #02896d px-to-rem(2),
+            //     transparent px-to-rem(2),
+            //     transparent calc(100% - px-to-rem(2)),
+            //     #02896d calc(100% - px-to-rem(2)),
+            //     #02896d 100%);
+          }
+        }
+      }
+
+      .el-picker-panel__footer {
+        display: flex;
+        padding: px-to-rem(12) px-to-rem(12) px-to-rem(12) 0;
+        background: transparent;
+        flex-direction: row-reverse;
+
+        .el-button--text {
+          position: relative;
+          z-index: 3;
+          display: inline-block;
+          padding: 0 px-to-rem(12);
+          width:  px-to-rem(64);
+          background: none;
+          border: px-to-rem(1) dashed rgb(2 137 109 / 15%);
+          border-radius: 0;
+          color: #fff;
+          font-size: px-to-rem(12);
+          text-align: center;
+          line-height: px-to-rem(28);
+          cursor: pointer;
+
+          &::after {
+            position: absolute;
+            top: px-to-rem(1);
+            left: px-to-rem(1);
+            z-index: -1;
+            width: calc(100% - px-to-rem(2));
+            height: calc(100% - px-to-rem(2));
+            background: themed('uav-tree-date-picker-color-10');
+            // background: rgb(2 137 109 / 10%);
+            // box-shadow: inset 0 0 px-to-rem(3) 0 rgb(2 137 109 / 60%);
+            content: '';
+          }
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+
+        .is-plain {
+          padding: 0 px-to-rem(12);
+          margin-top: px-to-rem(2);
+          width:  px-to-rem(64);
+          height: px-to-rem(26);
+          line-height: px-to-rem(26);
+        }
+      }
+
+      .el-date-range-picker__editor {
+
+        background: themed('uav-tree-date-picker__editor-background');
+        // background: rgb(2 137 109 / 20%);
+        border: px-to-rem(1) solid transparent;
+        border-radius: px-to-rem(4);
+
+        &:hover {
+          border: themed('uav-tree-date-picker__editor-border-hover');
+          // border: px-to-rem(1) solid rgb(2 137 109 / 60%);
+        }
+
+        &:focus-within {
+          border: themed('uav-tree-date-picker__editor-border-select');
+          // border: px-to-rem(1) solid rgb(2 137 109 / 100%);
+        }
+
+        input {
+          background: transparent;
+          border: none;
+          color: rgb(255 255 255 / 70%);
+          font-size: px-to-rem(14);
+          font-family: PingFangSC, 'PingFang SC';
+          font-weight: 400;
+        }
+      }
+
+      .el-date-range-picker__time-header {
+        padding: px-to-rem(12) 0;
+
+        input {
+          cursor: pointer;
+        }
+      }
+
+      .el-date-range-picker__time-header,
+      .el-picker-panel__footer {
+        border: none;
+      }
+
+      .el-date-range-picker__header,
+      .el-date-range-picker__header button {
+        color: #fff;
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, 'PingFang SC';
+        font-weight: 400;
+      }
+
+      .el-date-range-picker__content.is-left {
+        border-color: rgb(255 255 255 / 20%);
+      }
+
+      .el-date-table td {
+        padding: 0;
+      }
+
+      .el-date-table td.available:hover,
+      .el-date-table td.today span {
+        // color: #0dc985;
+        color: themed('uav-tree-date-picker-time-txt')
+      }
+
+      .el-date-table td.available div {
+        color: #fff;
+      }
+
+      .el-date-table td.next-month,
+      .el-date-table td.prev-month {
+        background-color: transparent;
+        color: rgb(255 255 255 / 70%);
+      }
+
+      .el-date-table td.disabled div {
+        background-color: transparent;
+        color: rgb(255 255 255 / 50%);
+      }
+
+      .el-date-range-picker .el-date-table td.available div {
+        background-color: themed('uav-tree-date-picker-color-40');
+      }
+
+      .el-date-table td.start-date span,
+      .el-date-table td.end-date span {
+        background-color: themed('uav-tree-date-picker-color-100');
+      }
+
+      .el-date-table td.in-range div:hover,
+      .el-date-table td.in-range div {
+        background-color: themed('uav-tree-date-picker-color-40');
+      }
+
+      .el-date-table th {
+        color: #fff;
+        border-bottom: px-to-rem(2) solid rgb(255 255 255 / 20%);
+      }
+
+      .el-time-panel {
+        margin-left: px-to-rem(5);
+        width: calc(100% - px-to-rem(10));
+        // background: rgb(0 19 30 / 90%);
+        background: themed('uav-tree-date-picker-panel-background');
+
+        border-color: rgb(255 255 255 / 20%);
+
+        .el-time-panel__content::after,
+        .el-time-panel__content::before,
+        .el-time-panel__footer {
+          border-color: rgb(255 255 255 / 20%);
+        }
+
+        .el-time-spinner__item {
+          color: rgb(255 255 255 / 70%);
+        }
+
+        .el-time-spinner__item.active:not(.disabled) {
+          color: #fff;
+        }
+
+        .el-time-spinner__item:hover:not(.disabled, .active) {
+          background-color: rgb(0 19 30 / 90%);
+        }
+      }
+    }
+
+    ::v-deep .gridTrackPopDatetimerange {
+      top: px-to-rem(-380) !important;
+      left: 0 !important;
+
+      .el-scrollbar__wrap {
+        overflow: scroll;
+      }
+    }
+
+    ::v-deep .el-input__inner {
+      background: rgb(130 181 255 / 20%);
+      border-radius: px-to-rem(4);
+    }
+
+    ::v-deep .el-range-editor .el-range-input {
+      background: none;
+      color: #e8f3fe;
+    }
+
+    ::v-deep .el-date-editor .el-range__icon {
+      height: px-to-rem(24);
+      color: #e8f3fe;
+      font-size: px-to-rem(18);
+      line-height: px-to-rem(24);
+
+      &::before {
+        margin-left: px-to-rem(6) !important;
+      }
+    }
+
+    ::v-deep .el-date-editor .el-range-separator {
+      height: px-to-rem(28);
+      color: #e8f3fe;
+    }
+    ::v-deep .grid-track-pop-flex .g-t-p-f-time {
+      font-size: px-to-rem(16);
+    }
+    ::v-deep .grid-track-pop-flex .g-t-p-f-time .el-range-editor {
+      background: themed('uav-tree-date-picker-color-20');
+      border: px-to-rem(1) solid transparent;
+
+      &:hover {
+        border-width: px-to-rem(1);
+        border-style: solid;
+        border-color: themed('uav-tree-date-picker-color-60');
+        // border: px-to-rem(1) solid rgb(2 137 109 / 60%);
+      }
+
+      &.is-active {
+        border-width: px-to-rem(1);
+        border-style: solid;
+        border-color: themed('uav-tree-date-picker-color-100');
+        // border: px-to-rem(1) solid rgb(2 137 109 / 100%);
+      }
+    }
+
+    ::v-deep .el-input__icon.el-range__close-icon {
+      margin-left: px-to-rem(20);
+
+      // display: none;
+      height: px-to-rem(22);
+    }
+  }
+
+}
+.common-comp-tree-box {
+  @include themeify(false) {
+    .attrDetailsBox_ly_s {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 100;
+      width: px-to-rem(360);
+      // background-color: rgb(23 37 55 / 90%);
+      background: themed('uav-tree-attribute-background');
+      border-radius: themed('uav-tree-attribute-border-radius');
+      transform: translate(-50%, -50%);
+      &::before {
+        position: absolute;
+        bottom: themed('uav-tree-attribute-before-bottom');
+        left: themed('uav-tree-attribute-before-left');
+        content: themed('uav-tree-attribute-content');
+        width: px-to-rem(21);
+        height: px-to-rem(25);
+        background: themed('uav-tree-attribute-left-bottom-icon');
+        z-index: 10;
+      }
+      &::after {
+        position: absolute;
+        bottom: themed('uav-tree-attribute-after-bottom');
+        right: themed('uav-tree-attribute-after-left');
+        content: themed('uav-tree-attribute-content');
+        width: px-to-rem(21);
+        height: px-to-rem(25);
+        background: themed('uav-tree-attribute-right-bottom-icon');
+        z-index: 10;
+      }
+
+
+      .el-dialog__header {
+        position: relative;
+        padding: 0 px-to-rem(12) 0 0;
+        padding-left: px-to-rem(12) !important;
+        height: px-to-rem(48);
+        background: themed('uav-tree-attribute-head-background');
+        border-radius: 0;
+        color: #fff;
+        font-size: px-to-rem(14);
+        text-align: left;
+        line-height: px-to-rem(34);
+
+        &::before {
+          position: absolute;
+          top:  px-to-rem(-1);
+          left: 0;
+          width: px-to-rem(8);
+          height: px-to-rem(1);
+          background: #61fffb;
+          content: themed('uav-tree-attribute-el-dialog__header-before');
+        }
+
+        &::after {
+          position: absolute;
+          top: px-to-rem(-7);
+          left: px-to-rem(45);
+          width: px-to-rem(36);
+          height: px-to-rem(14);
+          background: url('~@component-gallery/assets/image/card-liner.png')
+            no-repeat;
+          content: themed('uav-tree-attribute-el-dialog__header-before');
+        }
+
+        .name {
+          position: relative;
+          display: flex;
+          align-items: center;
+          padding-left: px-to-rem(16);
+          width: 100%;
+          height: 100%;
+          background: themed('uav-tree-attribute-name-background');
+          left: themed('uav-tree-attribute-name-left');
+          // background: url('~@component-gallery/assets/image/cardtitle-bg.png')
+          //   no-repeat;
+          color: #fff;
+
+          &::before {
+            position: absolute;
+            top: px-to-rem(20);
+            left: 0;
+            display: block;
+            width: px-to-rem(8);
+            height: px-to-rem(8);
+            background: url('~@component-gallery/assets/image/cardheader-star.png')
+              center no-repeat;
+            background-size: 100% 100%;
+            content: themed('uav-tree-attribute-el-dialog__header-before');
+          }
+
+          &::after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: px-to-rem(-13);
+            height: px-to-rem(10);
+            background-position: left 100%;
+            background-repeat: no-repeat;
+            background-size: px-to-rem(120) px-to-rem(10);
+            content: themed('uav-tree-attribute-el-dialog__header-before');
+            background-image: url('~@component-gallery/assets/image/selected-bottom.png');
+          }
+
+          h4 {
+            overflow: hidden;
+            text-shadow: rgb(0 245 193 / 90%) px-to-rem(1) 0 px-to-rem(10);
+            font-size: px-to-rem(16);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1 0;
+            font-weight: bold;
+          }
+
+          .iconfont {
+            margin: 0 px-to-rem(8);
+            font-size: px-to-rem(18);
+            line-height: px-to-rem(18);
+          }
+
+          .icon-weishoucang {
+            cursor: pointer;
+          }
+
+          span {
+            padding: 0 px-to-rem(8);
+            margin-right: px-to-rem(6);
+            background: linear-gradient(90deg, #15bd94 0%, #00a179 100%);
+            border-radius: px-to-rem(4);
+            font-size: px-to-rem(12);
+            text-align: center;
+            line-height: px-to-rem(20);
+
+            &.offline {
+              background: linear-gradient(90deg, #8fa7cf 0%, #6f85aa 100%);
+            }
+          }
+
+          .keeperTips {
+            margin-right: 0;
+            margin-left: px-to-rem(6);
+          }
+        }
+
+        .headdivider {
+          position: absolute;
+          bottom: 0;
+          width: themed('uav-tree-attribute-headdivider-width');
+          height: px-to-rem(1);
+          background: linear-gradient(
+            90deg,
+            rgb(255 255 255 / 0%) 0%,
+            #fff 15%,
+            rgb(255 255 255 / 0%) 45%,
+            rgb(255 255 255 / 0%) 100%
+          );
+        }
+      }
+      // .el-dialog__header {
+      //   padding: 0;
+      //   height: px-to-rem(36);
+      //   background: themed('uav-tree-attribute-head-background');
+      //   // background: linear-gradient(
+      //   //   180deg,
+      //   //   rgb(132 180 250 / 70%) 0%,
+      //   //   rgb(132 180 250 / 24%) 100%
+      //   // );
+      //   border: none;
+      //   border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+      //   color: #e8f3fe;
+      //   font-size: px-to-rem(14);
+      //   text-align: center;
+      //   line-height: px-to-rem(36);
+      //   &::after {
+      //     position: absolute;
+      //     top: -7px;
+      //     left: 45px;
+      //     width: px-to-rem(36);
+      //     height: px-to-rem(14);
+      //     content: '';
+      //     background: url('~@component-gallery/assets/image/uav-tree/card-liner.png') no-repeat;
+      //   }
+
+      //   // background: linear-gradient(180deg, #84b4fa, rgba(132, 180, 250, .35));
+      // }
+
+      .attrContent {
+        padding: px-to-rem(20) px-to-rem(16);
+        color: #e8f3fe;
+        font-size: px-to-rem(14);
+      }
+
+      .closeImg {
+        position: absolute;
+        top: px-to-rem(-18);
+        right: px-to-rem(-17);
+        width: px-to-rem(36);
+        height: px-to-rem(36);
+        z-index: 1;
+        background: themed('uav-tree-attribute-close-icon');
+        // background: url('~@component-gallery/assets/image/uav-tree/closeIcon@2x.png');
+        background-size: 100% 100%;
+        line-height: px-to-rem(18);
+        cursor: pointer;
+      }
+      .attrLabel {
+        color: themed('uav-tree-attribute-attrLabel')
+      }
+      .attrValue {
+        color: themed('uav-tree-attribute-attrValue');
+      }
+    }
+  }
+  .attrItem {
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+
+    .attrLabel {
+      font-size: px-to-rem(14);
+      flex-shrink: 0;
+    }
+
+    .attrValue {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      font-size: px-to-rem(14);
+      flex-grow: 1;
+
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .icon-one-fuzhi {
+      cursor: pointer;
+      margin-left: px-to-rem(4);
+      font-size: px-to-rem(18);
+      line-height: px-to-rem(14);
+    }
+  }
+}

@@ -1,0 +1,129 @@
+@import "mixins/mixins";
+@import "mixins/theme-mixins";
+@import "mixins/px-to-rem";
+
+.layers-control {
+  position: absolute;
+  top: 0;
+  right: px-to-rem(38);
+  z-index: 1001;
+  overflow: hidden;
+  width: px-to-rem(170);
+  border-radius: 8px;
+  --limit-height: pxtorem(384);
+
+  &.active {
+    right: px-to-rem(90);
+  }
+
+  .limitcontainer {
+    height: var(--limit-height);
+  }
+
+  ::v-deep .el-scrollbar {
+    .el-scrollbar__wrap {
+      margin-right: -6px !important;
+    }
+
+    .el-scrollbar__bar {
+      right: 0;
+    }
+  }
+
+  &-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: px-to-rem(384);
+    color: var(--iw-theme-color);
+    font-size: px-to-rem(14);
+    text-align: center;
+    flex-direction: column;
+    line-height: px-to-rem(32);
+
+    i {
+      font-size: px-to-rem(32);
+    }
+
+    span {
+      display: block;
+      color: var(--iw-theme-color);
+    }
+  }
+
+  &-tree {
+    background: rgb(23 37 55 / 10%);
+    color: var(--iw-text-color);
+    font-size: px-to-rem(14);
+    font-family: PingFangSC, "PingFang SC";
+    font-weight: 400;
+
+    ::v-deep .el-tree .el-tree-node__expand-icon {
+      margin-right: px-to-rem(6);
+    }
+
+    ::v-deep .el-tree-node__content>label.el-checkbox {
+      margin-right: px-to-rem(6);
+    }
+
+    ::v-deep > .el-tree-node {
+      .el-tree-node__content {
+        padding-right: px-to-rem(12);
+        padding-left: px-to-rem(6);
+      }
+
+      // 手工的锯齿状偏移量。不修改el-tree或在js层做计算的话我想不出别的不那么烦躁的办法。
+      // 至少堆叠5层。对于图层树而言
+      > .el-tree-node__children {
+        > .el-tree-node {
+          .el-tree-node__content {
+            padding-left: px-to-rem(12);
+          }
+
+          > .el-tree-node__children {
+            > .el-tree-node {
+              .el-tree-node__content {
+                padding-left: px-to-rem(18);
+              }
+
+              > .el-tree-node__children {
+                > .el-tree-node {
+                  .el-tree-node__content {
+                    padding-left: px-to-rem(24);
+                  }
+
+                  > .el-tree-node__children {
+                    > .el-tree-node {
+                      .el-tree-node__content {
+                        padding-left: px-to-rem(30);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__node-label {
+      overflow: hidden;
+      font-size: px-to-rem(14);
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+[data-theme="theme-aquamarine"] .layers-control.innercomp-abcontainer {
+  ::v-deep > .previous-vacancies {
+    border-color: #075B4A;
+    border-image: none;
+  }
+
+  ::v-deep .el-tree {
+    .el-tree-node:focus>.el-tree-node__content,.el-tree-node__content:hover {
+      background-color: rgb(2 137 109 / 40%)
+    }
+  }
+}

@@ -1,0 +1,91 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.real-cruise {
+  @include themeify() {
+    .search-cruise {
+      width: calc(100% - px-to-rem(114));
+      position: relative;
+
+      .cruise-set-btn {
+        display: block;
+        width: px-to-rem(108);
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+        text-align: center;
+        background: rgba(79, 159, 255, 0.2);
+        border-radius: px-to-rem(4);
+        color: #e8f3fe;
+        margin-left: px-to-rem(6);
+        position: absolute;
+        left: 100%;
+        top: 0;
+        cursor: pointer;
+        font-style: normal;
+
+        &:after {
+          display: none;
+        }
+        &:hover {
+          opacity: 0.6;
+        }
+
+        &:active {
+          opacity: 0.8;
+        }
+      }
+
+      .c-input {
+        ::v-deep(.el-input__icon) {
+          font-size: px-to-rem(20) !important;
+        }
+      }
+    }
+
+    .cruise-list {
+      flex: 1;
+      position: relative;
+      overflow: auto;
+      width: calc(100% + px-to-rem(24));
+      margin-left: px-to-rem(-12);
+      overflow-x: hidden;
+
+      .item {
+        height: px-to-rem(49);
+        border-bottom: px-to-rem(1) solid rgba(232, 243, 254, 0.2);
+        display: flex;
+        align-items: center;
+        margin: 0 px-to-rem(12);
+        .ll {
+          color: #e8f3fe;
+          font-size: px-to-rem(14);
+          flex: 1;
+          line-height: px-to-rem(48);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        .bb {
+          width: px-to-rem(50);
+          height: px-to-rem(24);
+          line-height: px-to-rem(24);
+          text-align: center;
+          color: #e8f3fe;
+          font-size: px-to-rem(12);
+          background: rgba(79, 159, 255, 0.2);
+          border-radius: px-to-rem(4);
+          margin-left: px-to-rem(12);
+          cursor: pointer;
+          &:hover {
+            opacity: 0.6;
+          }
+          &:active {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

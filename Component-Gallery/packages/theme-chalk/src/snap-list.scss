@@ -1,0 +1,483 @@
+@import "mixins/px-to-rem";
+
+.snap-list {
+  
+  &-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--iw-theme-color);
+    font-size: px-to-rem(14);
+    text-align: center;
+    flex-direction: column;
+    line-height: px-to-rem(32);
+
+    i {
+      font-size: px-to-rem(32);
+    }
+
+    span {
+      display: block;
+      color: var(--iw-theme-color);
+    }
+  }
+
+  &-container {
+    position: relative;
+    overflow: hidden;
+
+    ::v-deep .el-scrollbar .el-scrollbar__wrap::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    ::v-deep .innercomp-sccontainer-body{
+      overflow: hidden;
+      height: px-to-rem(260);
+    }
+
+    .isOpen {
+      transform: rotate(-90deg);
+    }
+
+    .icon-linye_icon_biaotizhankai_you{
+      transform: rotate(90deg);
+    }
+  }
+
+  &-body{
+    position: relative;
+    display: flex;
+    padding-bottom: px-to-rem(12);
+    height: 100%;
+    flex-direction: column;
+
+    ::v-deep .el-scrollbar__wrap{
+      margin-right: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    ::v-deep .el-scrollbar__bar.is-vertical{
+      top: px-to-rem(2) !important;
+      width: px-to-rem(6) !important;
+    }
+
+    .no-data {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+      width: px-to-rem(68);
+      height: px-to-rem(94);
+      flex-wrap: wrap;
+      transform: translate(-50%, -50%);
+
+      &-img{
+        margin: px-to-rem(-4) 0;
+        width: px-to-rem(68);
+        height: px-to-rem(68);
+        background: url('~@component-gallery/assets/image/common/aquamarine/noData.png') no-repeat center/100% 100%;
+      }
+
+      .text {
+        color: #fff;
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, "PingFang SC";
+        text-align: right;
+        font-weight: 400;
+        line-height: px-to-rem(14);
+        font-style: normal;
+      }
+    }
+  }
+
+  &-search {
+    padding: px-to-rem(12);
+    font-size: 0;
+
+    .active {
+      color: #f9ff6c;
+    }
+
+    ::v-deep .el-input__suffix {
+      right: px-to-rem(6);
+      display: flex;
+      align-items: center;
+    }
+
+    ::v-deep .el-input__inner {
+      padding-right: px-to-rem(100);
+      padding-left: px-to-rem(12);
+      height: px-to-rem(32);
+      font-size: px-to-rem(14);
+    }
+
+    ::v-deep .el-input__suffix-inner {
+      display: flex;
+      align-items: center;
+      // line-height: px-to-rem(32);
+
+      .el-divider--vertical {
+        height: px-to-rem(10);
+        background-color: rgb(255 255 255 / 20%);
+      }
+
+      .iconfont_tools {
+        font-size: px-to-rem(20);
+
+        & + & {
+          margin-left: px-to-rem(6);
+        }
+      }
+    }
+
+    .onBlur {
+      .icon-linye_icon_qingkong {
+        margin-right: px-to-rem(6);
+        opacity: 0;
+      }
+    }
+
+    .onFocus {
+      .icon-linye_icon_qingkong{
+        margin-right: px-to-rem(6);
+        opacity: 1;
+      }
+    }
+  }
+
+  &-list {
+    display: grid;
+    padding: px-to-rem(12);
+    padding-top: 0;
+    gap: px-to-rem(12);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    >div{
+      display: flex;
+      overflow: hidden;
+      padding-bottom: px-to-rem(12);
+      background: rgb(2 137 109 / 10%);
+      border: px-to-rem(1) solid #02896D;
+      border-radius: px-to-rem(8);
+      flex-direction: column;
+    }
+
+    &__cardImg{
+      position: relative;
+      display: flex;
+      height: px-to-rem(97);
+
+      ::v-deep .el-image {
+        width: 100%;
+        height: 100%;
+        border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+      }
+
+      .carLabel {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0 px-to-rem(6);
+        background: rgb(5 15 23 / 70%);
+        border-radius: 0 px-to-rem(4) 0 0;
+        color: #FFF;
+        font-size: px-to-rem(12);
+        font-weight: 400;
+        height: px-to-rem(24);
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__info{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: px-to-rem(12) px-to-rem(12) px-to-rem(6) px-to-rem(12);
+      font-size: px-to-rem(14);
+      white-space: nowrap;
+      line-height: px-to-rem(14);
+
+      > div {
+        margin-right: px-to-rem(16);
+        text-shadow: 0 0 px-to-rem(18) rgb(0 245 193 / 70%);
+        color: #FFF;
+        text-align: left;
+        font-weight: 500;
+      }
+
+      > span {
+        font-weight: 400;
+        color: #FFF;
+        text-align: right;
+        &.spname{
+          text-shadow: 0 0 px-to-rem(18) rgba(0,245,193,0.7);
+        }
+      }
+    }
+
+    &__address {
+      display: flex;
+      align-items: center;
+      margin: 0 px-to-rem(12);
+      font-size: px-to-rem(14);
+
+      i{
+        margin-right: px-to-rem(6);
+        font-size: px-to-rem(20);
+      }
+
+      span {
+        overflow: hidden;
+        color: #FFF;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &-modal{
+    position: fixed;
+    z-index: 22;
+    padding: px-to-rem(12);
+    width: px-to-rem(346);
+    height: px-to-rem(204);
+    background: linear-gradient( 180deg, rgb(0 67 63 / 85%) 0%, rgb(0 19 30 / 74%) 21%, #00131E 100%);
+    border: 1px solid #075B4A;
+    border-radius: px-to-rem(8);
+    font-size: px-to-rem(14);
+
+    ::v-deep .el-scrollbar {
+      height: px-to-rem(128);
+    }
+
+    ::v-deep .el-select {
+      .el-select__tags {
+        flex-wrap: nowrap;
+        .el-tag {
+          color: var(--iw-theme-color);
+          padding: 0 px-to-rem(12);
+          max-width: px-to-rem(129);
+          display: flex;
+          align-items: center;
+
+          .el-select__tags-text {
+            flex: 1;
+          }
+        }
+
+        .el-tag__close.el-icon-close {
+          color: var(--iw-theme-color);
+          margin-left: px-to-rem(6);
+          margin-right: 0;
+          height: px-to-rem(20);
+          width: px-to-rem(20);
+          line-height: px-to-rem(20);
+          right: unset;
+          margin-top: px-to-rem(1);
+        }
+      }
+    }
+
+    ::v-deep .el-button {
+      width: px-to-rem(104);
+      height: px-to-rem(28);
+    }
+
+    ::v-deep .el-date-editor{
+      padding: 0;
+      margin-bottom: px-to-rem(12);
+      width: 100%;
+      height: px-to-rem(32);
+      line-height: px-to-rem(32);
+
+      i.iconfont_tools.icon-tongyong-shaixuanriqi {
+        margin-left: 0;
+        font-size: px-to-rem(20);
+        line-height: px-to-rem(32);
+      }
+    }
+
+    ::v-deep .el-tag{
+      height: px-to-rem(24);
+      line-height: px-to-rem(22);
+    }
+
+    ::v-deep .el-range-input {
+      text-align: left;
+    }
+
+    ::v-deep .el-range__close-icon {
+      line-height: px-to-rem(32);
+    }
+
+    ::v-deep .el-picker-panel__shortcut {
+      font-size: px-to-rem(14);
+    }
+
+    ::v-deep .el-range-separator{
+      margin-right: px-to-rem(12);
+      line-height: px-to-rem(32);
+    }
+
+    &__input {
+      display: flex;
+      align-items: center;
+      height: px-to-rem(32);
+      // background: rgb(2 137 109 / 20%);
+      // border: 1px solid rgb(2 137 109 / 0%);
+      border-radius: px-to-rem(4);
+      margin-bottom: px-to-rem(16);
+
+      >span {
+        margin-left: px-to-rem(6);
+        color: rgb(255 255 255 / 70%);
+      }
+    }
+
+    .grey {
+      color: hsl(0deg 0% 100% / 60%);
+    }
+
+    &__treeNode {
+      position: relative;
+      display: flex;
+      height: px-to-rem(32);
+      align-items: center;
+
+      .tree-img {
+        position: absolute;
+        left: 0;
+        width: px-to-rem(20);
+        height: 100%;
+      }
+
+      > span{
+        margin-right: px-to-rem(6);
+        font-size: px-to-rem(20);
+      }
+      i {
+        font-size: px-to-rem(20);
+        margin-right: px-to-rem(6);
+      }
+    }
+
+    &__more {
+      margin-left: px-to-rem(6);
+    }
+
+    &__title{
+      margin-bottom: px-to-rem(12);
+      text-shadow: 0 0 px-to-rem(18) rgb(0 245 193 / 70%);
+      color: #FFF;
+      font-size: px-to-rem(16);
+      text-align: left;
+      font-weight: 400;
+      line-height: px-to-rem(16);
+      font-style: normal;
+    }
+
+    &__treeScroll{
+      margin-top: px-to-rem(12);
+      margin-bottom: px-to-rem(12);
+      height: px-to-rem(128);
+    }
+
+    &__btn {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    .iconfont_tools{
+      position: absolute;
+      top: 50%;
+      z-index: 10001;
+      padding: px-to-rem(15);
+      width: px-to-rem(60);
+      height: px-to-rem(60);
+      background: rgb(2, 50, 32, .7);
+      border-radius: px-to-rem(60);
+      font-size: px-to-rem(30);
+      transform: translateY(-50%);
+      &.left{
+        left: px-to-rem(24);
+        transform: rotate(180deg);
+      }
+      &.right{
+        right: px-to-rem(24);
+      }
+    }
+
+    &__close {
+      position: absolute;
+      top: px-to-rem(24);
+      right: px-to-rem(24);
+      width: px-to-rem(38);
+      height: px-to-rem(38);
+    }
+
+    &__picture{
+      flex: 1;
+    }
+
+    &__footer{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 10001;
+      display: flex;
+      justify-content: space-between;
+      padding: px-to-rem(40) px-to-rem(24) px-to-rem(12) px-to-rem(24);
+      height: px-to-rem(98);
+      background: linear-gradient( 180deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 70%) 100%);
+    }
+
+    &__car {
+      display: flex;
+      margin-bottom: px-to-rem(6);
+    }
+
+    &__carInfo{
+      font-size: px-to-rem(14);
+
+      .icon-tongyong_icon_shexiangji{
+        margin-right: px-to-rem(6);
+        font-size: px-to-rem(20);
+      }
+    }
+
+    &__type{
+      margin-left: px-to-rem(6);
+      width: px-to-rem(40);
+      height: px-to-rem(20);
+      background: linear-gradient( 90deg, #15BD94 0%, #00A179 100%);
+      border-radius: 4px;
+      font-size: px-to-rem(12);
+      text-align: center;
+      font-weight: 500;
+      line-height: px-to-rem(20);
+    }
+
+    &__address{
+      color: rgb(255 255 255 / 70%);
+      font-size: px-to-rem(12);
+      line-height: px-to-rem(20);
+
+      .date{
+        margin-bottom: px-to-rem(6);
+      }
+    }
+  }
+}

@@ -1,0 +1,597 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+@import 'mixins/bem-mixins.scss';
+.iot-equipment {
+  @include themeify(false) {
+    &-title {
+      display: flex;
+      align-items: center;
+      padding: 0 px-to-rem(12);
+      margin-right: px-to-rem(-12);
+      margin-left: px-to-rem(-12);
+      height: 100%;
+      img {
+        width: px-to-rem(20);
+        height: px-to-rem(20);
+        margin-right: px-to-rem(6);
+      }
+      > h4 {
+        overflow: hidden;
+        font-size: px-to-rem(16);
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      .deviceicon {
+        line-height: 1;
+        margin-right: px-to-rem(10);
+        font-size: px-to-rem(20);
+        text-shadow: none;
+        ::v-deep .ct-icon {
+          display: flex;
+          justify-content: center;
+          .icon {
+            @if $theme-name == 'theme-wiseblue' {
+              color: #e8f3fe !important;
+            }
+            @if $theme-name == 'theme-terracotta' {
+              color: #ffeeb1 !important;
+            }
+            font-size: px-to-rem(16) !important;
+          }
+        }
+      }
+
+      .favicon {
+        text-shadow: none;
+        margin-left: px-to-rem(6);
+        font-size: px-to-rem(20);
+        color: themed('global-icon-color');
+      }
+
+      .inline {
+        text-shadow: none;
+        text-align: center;
+        width: px-to-rem(40);
+        height: px-to-rem(20);
+        background: linear-gradient(90deg, #15bd94 0%, #00a179 100%);
+        border-radius: 4px;
+        font-size: px-to-rem(12);
+        line-height: px-to-rem(20);
+        color: #fff;
+      }
+      .outline {
+        text-shadow: none;
+        text-align: center;
+        width: px-to-rem(40);
+        height: px-to-rem(20);
+        background: linear-gradient(90deg, #8fa7cf 0%, #6f85aa 100%);
+        border-radius: 4px;
+        font-size: px-to-rem(12);
+        line-height: px-to-rem(20);
+        color: #fff;
+      }
+      .active {
+        color: var(--iw-active-text-color);
+      }
+    }
+    @if $theme-name == 'theme-wiseblue' {
+      &-title {
+        h4 {
+          color: #e8f3fe;
+        }
+      }
+    }
+    @if $theme-name == 'theme-aquamarine' {
+      &-title {
+        .leftIcon {
+          display: none;
+        }
+        h4 {
+          margin-left: px-to-rem(14);
+        }
+      }
+    }
+    @if $theme-name == 'theme-terracotta' {
+      &-title {
+        &::after {
+          height: 0 !important;
+        }
+      }
+    }
+
+    &-body {
+      &__content {
+        width: 100%;
+
+        .cont_tab_right {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: px-to-rem(12);
+          height: px-to-rem(224);
+          &.cont_tab_right_short {
+            height: px-to-rem(224);
+          }
+
+          .iot-equipment-body__nodata {
+            color: themed('global-text-color');
+            font-size: px-to-rem(14);
+            text-align: center;
+
+            &::before {
+              display: block;
+              margin: 0;
+              content: themed('no-data-img');
+            }
+          }
+
+          .iot-equipment-body__carouselwrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            ::v-deep .el-carousel {
+              overflow: hidden;
+              width: 100%;
+              aspect-ratio: 16 / 9;
+
+              .el-carousel__container {
+                height: 100%;
+
+                i {
+                  line-height: px-to-rem(30);
+                  font-size: px-to-rem(14);
+                  font-weight: bold;
+                  text-align: center;
+                }
+                .iot-equipment-body__fullscreen i {
+                  font-size: px-to-rem(16);
+                }
+              }
+
+              .el-carousel--horizontal {
+                height: 100%;
+              }
+            }
+          }
+
+          .iot-equipment-body__fullscreen {
+            position: absolute;
+            right: px-to-rem(6);
+            bottom: px-to-rem(6);
+            z-index: 2;
+            width: px-to-rem(30);
+            height: px-to-rem(30);
+            border-radius: px-to-rem(4);
+            background: themed('iot-map-pop-icon-background');
+            color: themed('alarm-list-bg-color-item-icon');
+            font-size: px-to-rem(16);
+            text-align: center;
+            line-height: px-to-rem(30);
+
+            .iconfont {
+              font-size: px-to-rem(16);
+            }
+          }
+
+          .el-carousel__item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+          }
+
+          .iot-equipment-body__fitheight {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          ::v-deep .el-carousel__arrow {
+            width: px-to-rem(30);
+            height: px-to-rem(30);
+            border-radius: 50%;
+            background: themed('iot-map-pop-icon-background');
+            color: themed('alarm-list-bg-color-item-icon');
+            font-size: px-to-rem(16);
+          }
+          ::v-deep .el-carousel__arrow--left {
+            left: px-to-rem(6);
+          }
+          ::v-deep .el-carousel__arrow--right {
+            right: px-to-rem(6);
+          }
+          ::v-deep .el-carousel__indicators {
+            display: none;
+          }
+
+          video::-webkit-media-controls-fullscreen-button {
+            display: none;
+          }
+
+          video::-webkit-media-controls-mute-button {
+            display: none;
+          }
+
+          video::-webkit-media-controls-toggle-closed-captions-button {
+            display: none;
+          }
+
+          video::-webkit-media-controls-volume-slider {
+            display: none;
+          }
+
+          video::-webkit-media-controls
+            input[pseudo='-internal-media-controls-overflow-button' i] {
+            display: none;
+          }
+
+          video::-internal-media-controls-overflow-button {
+            display: none !important;
+          }
+
+          video::-webkit-media-controls-volume-control-container {
+            display: none;
+          }
+
+          video::-webkit-media-controls-volume-control-container.closed {
+            display: none;
+          }
+        }
+      }
+      &__contentbox {
+        padding: px-to-rem(12) 0 px-to-rem(12) px-to-rem(12);
+        width: calc(100% - px-to-rem(12));
+        height: px-to-rem(224);
+      }
+      &__tab {
+        position: relative;
+        height: px-to-rem(48);
+
+        .iot-equipment-body__wrap {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+
+          .tab_item {
+            @if $theme-name == 'theme-aquamarine' {
+              color: rgba(13, 201, 133, 1);
+            }
+            @if $theme-name == 'theme-terracotta' {
+              color: #e4e7c1;
+            }
+            @if $theme-name == 'theme-wiseblue' {
+              color: rgb(232 243 254 / 70%);
+            }
+            height: 100%;
+            font-size: px-to-rem(16);
+            text-align: center;
+            flex: 1;
+            cursor: pointer;
+            line-height: px-to-rem(48);
+          }
+          .tab_active {
+            position: relative;
+            &::after {
+              position: absolute;
+              display: inline-block;
+              width: px-to-rem(116);
+              height: px-to-rem(11);
+            }
+            @if $theme-name == 'theme-aquamarine' {
+              color: #ffffff;
+              text-shadow: 0px 0px 18px rgba(0, 245, 193, 0.7);
+              &::after {
+                bottom: px-to-rem(-4);
+                left: px-to-rem(54);
+                background: url('~@component-gallery/assets/image/alarm-detail/aquamarine/popup-title-guang.png')
+                  no-repeat;
+                background-size: contain;
+                content: '';
+              }
+            }
+            @if $theme-name == 'theme-terracotta' {
+              text-shadow: 1px 0 4px #dcd277;
+              color: #fff;
+              &::after {
+                bottom: px-to-rem(-2);
+                left: px-to-rem(34);
+                background: url('~@component-gallery/assets/image/alarm-detail/terracotta/popup-title-guang.png')
+                  no-repeat;
+                background-size: contain;
+                content: '';
+              }
+            }
+            @if $theme-name == 'theme-wiseblue' {
+              text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+              color: #e8f3fe;
+              &::after {
+                bottom: px-to-rem(-4);
+                left: px-to-rem(34);
+                background: url('~@component-gallery/assets/image/common/wiseblue/popup-title-guang.png')
+                  no-repeat;
+                background-size: contain;
+                content: '';
+              }
+            }
+
+            font-weight: 600;
+          }
+        }
+        .iot-equipment-body__bottomline {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: px-to-rem(1);
+          background-image: themed('iot-map-pop-select-bottom-line');
+          @if $theme-name == 'theme-terracotta' {
+            border-bottom: px-to-rem(1) solid;
+            border-image: themed('iot-map-pop-select-bottom-line');
+            background-image: none;
+          }
+          opacity: 0.35;
+        }
+      }
+      &__item {
+        line-height: px-to-rem(20);
+        display: flex;
+        align-items: center;
+        font-size: px-to-rem(14);
+        margin-bottom: px-to-rem(6);
+      }
+      .iotlabel {
+        text-align: right;
+        width: px-to-rem(98);
+      }
+      .hornlabel {
+        text-align: right;
+        width: px-to-rem(70);
+      }
+
+      .isTop {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      &__label {
+        @if $theme-name == 'theme-aquamarine' {
+          color: rgb(255 255 255 / 70%);
+        }
+        @if $theme-name == 'theme-terracotta' {
+          color: rgb(228 231 193 / 70%);
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          color: rgb(232 243 254 / 70%);
+        }
+        font-size: px-to-rem(14);
+        text-align: right;
+      }
+      &__value {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        > span {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .desc {
+          display: inline-block;
+          overflow-x: hidden;
+          overflow-y: auto;
+          max-height: px-to-rem(60);
+        }
+      }
+      .icon-fuzhiicon {
+        margin-left: px-to-rem(6);
+        font-size: px-to-rem(20);
+      }
+      &__bottom {
+        padding: px-to-rem(12) 0;
+        margin: 0 px-to-rem(12);
+        display: flex;
+        color: themed('global-icon-color');
+        border-top: themed('inspection-task-item-border-bottom');
+        .active {
+          color: themed('global-icon-active-color');
+          @if $theme-name == 'theme-aquamarine' {
+            background: url('~@component-gallery/assets/image/tool-box/aquamarine/funcicon-bg.png')
+              no-repeat
+              center;
+            background-size: contain;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            background: none;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            background: url('~@component-gallery/assets/image/tool-box/terracotta/funcicon-bg.png')
+              no-repeat
+              center;
+            background-size: contain;
+          }
+        }
+        // .icon-tongyong_icon_jianceshuju_n_30 {
+        //   &:hover{
+        //     &::before{
+        //       content: '\ec6d'
+        //     }
+        //   }
+        // }
+        // .icon-tongyong_icon_guanlianshijian_s_30 {
+        //   &:hover{
+        //     &::before{
+        //       content: '\ec6f'
+        //     }
+        //   }
+        // }
+        // .icon-tongyong_icon_zhoubianfenxi_n_30 {
+        //   &:hover{
+        //     &::before{
+        //       content: '\ec65'
+        //     }
+        //   }
+        // }
+        // .icon-tongyong_icon_daozheli_n_30 {
+        //   &:hover{
+        //     &::before{
+        //       content: '\ec60'
+        //     }
+        //   }
+        // }
+        // .icon-tongyong_icon_hanhua_n_30 {
+        //   &:hover{
+        //     &::before{
+        //       content: '\ec6a'
+        //     }
+        //   }
+        // }
+        > i.iconfont_tools {
+          display: inline-block;
+          line-height: px-to-rem(30);
+          font-size: px-to-rem(30);
+          cursor: pointer;
+
+          + i {
+            margin-left: px-to-rem(6);
+          }
+
+          // &:hover{
+          //   color: var(--iw-active-text-color);
+          // }
+        }
+      }
+    }
+    &-ul-list {
+      width: px-to-rem(230);
+      max-height: px-to-rem(172);
+      border-radius: 8px;
+      overflow: auto;
+      .outline {
+        color: rgba(232, 243, 254, 0.5);
+        span {
+          color: rgba(232, 243, 254, 0.5);
+        }
+        ::v-deep .ct-icon {
+          display: flex;
+          justify-content: center;
+          .icon {
+            color: rgba(232, 243, 254, 0.5) !important;
+            font-size: px-to-rem(16) !important;
+          }
+        }
+      }
+      > li {
+        padding: px-to-rem(6) px-to-rem(10);
+        display: flex;
+        align-items: center;
+        font-size: px-to-rem(14);
+        color: #e8f3fe;
+        height: px-to-rem(32);
+        overflow: hidden;
+        cursor: pointer;
+        p {
+          margin: 0 px-to-rem(13) 0 px-to-rem(4);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          flex: 1;
+        }
+        span {
+          color: #ffeeb1;
+        }
+        &:hover {
+          background-color: rgb(134 176 227 / 10%);
+        }
+        ::v-deep .ct-icon {
+          display: flex;
+          justify-content: center;
+          .icon {
+            color: #e8f3fe !important;
+            font-size: px-to-rem(16) !important;
+          }
+        }
+      }
+    }
+    @if $theme-name == 'theme-aquamarine' {
+      &-ul-list {
+        > li {
+          color: #ffffff;
+          i,
+          span {
+            color: #ffffff;
+          }
+          ::v-deep .ct-icon {
+            display: flex;
+            justify-content: center;
+            .icon {
+              color: #ffffff !important;
+              font-size: px-to-rem(16) !important;
+            }
+          }
+        }
+        .outline {
+          color: rgba(255, 255, 255, 0.4);
+          i,
+          span {
+            color: rgba(255, 255, 255, 0.4);
+          }
+          ::v-deep .ct-icon {
+            display: flex;
+            justify-content: center;
+            .icon {
+              color: rgba(255, 255, 255, 0.4) !important;
+              font-size: px-to-rem(16) !important;
+            }
+          }
+        }
+      }
+    }
+    @if $theme-name == 'theme-terracotta' {
+      &-ul-list {
+        > li {
+          color: #e4e7c1;
+          i,
+          span {
+            color: #ffeeb1;
+          }
+          ::v-deep .ct-icon {
+            display: flex;
+            justify-content: center;
+            .icon {
+              color: #ffeeb1 !important;
+              font-size: px-to-rem(16) !important;
+            }
+          }
+        }
+        .outline {
+          color: rgba(228, 231, 193, 0.4);
+          i,
+          span {
+            color: rgba(255, 238, 177, 0.4);
+          }
+          ::v-deep .ct-icon {
+            display: flex;
+            justify-content: center;
+            .icon {
+              color: rgba(255, 238, 177, 0.4) !important;
+              font-size: px-to-rem(16) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

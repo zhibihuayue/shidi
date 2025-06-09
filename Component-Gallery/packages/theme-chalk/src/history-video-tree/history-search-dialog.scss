@@ -1,0 +1,322 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/theme-date-picker-mixins';
+@import '../mixins/bem-mixins.scss';
+@import "../mixins/theme-tooltip-mixins";
+@import "../mixins/theme-dialog-header-mixins";
+
+// 录像回放树样式补充
+@mixin ar-history-dialog-styles() {
+  @include themeify() {
+    @if $theme-name == "theme-terracotta" {
+      .is-show-terracotta-corner{
+        &::before{
+          display: none;
+        }
+        &::after{
+          display: none;
+        }
+        ::v-deep .base-card-content{
+          &::before{
+            display: none;
+          }
+          &::after{
+            display: none;
+          }
+        }
+        ::v-deep .base-card-content-header{
+          &::before{
+            content: "";
+            width: 100%;
+            height: 100%;
+            opacity: .96;
+            background: url("~@component-gallery/assets/image/history-video-tree/singleTabSel.png") no-repeat bottom center;
+            pointer-events: none;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+          }
+          &::after{
+            content: "";
+            width: 100%;
+            height: 1px;
+            opacity: .35;
+            background: linear-gradient(90deg, rgba(255, 222, 76, 0), #ffde4c, rgba(255, 222, 76, 0));
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+          }
+        }
+        ::v-deep .is-show-terracotta-line{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+
+.common-theme {
+  height: 100% !important;
+  @include b('ar-history-search-dialog') {
+    @include border_radius('border-radius-8');
+    @include background_color('background-color-theme');
+    @include el_dialog_header_styles();
+    @include cg_button_styles();
+    @include ar-history-dialog-styles();
+
+    z-index: 2004 !important; 
+    position: relative;
+
+    @include themeify(false) {
+      @if $theme-name == "theme-aquamarine" {
+        &::before{
+          display: none;
+        }
+        &::after{
+          display: none;
+        }
+      }
+    }
+    
+
+    .el-dialog__header .name{
+      font-weight: 600;
+      font-size: 16px;
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          justify-content: center !important;
+          padding-left: 0 !important;
+          text-shadow: 0px 0px 18px rgba(0,245,193,0.7);
+        }
+        @if $theme-name == "theme-terracotta" {
+          text-shadow: 1px 0px 4px #DCD277;
+          color: #FFFFFF;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          font-weight: 500;
+        }
+      }
+      
+      &:before{
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            content: "";
+            width: 100%;
+            height: 100%;
+            opacity: 0.96;
+            background: 
+                        url("~@component-gallery/assets/image/history-video-tree/popup-header-xx.png") no-repeat center / auto 100%, 
+                        url("~@component-gallery/assets/image/history-video-tree/popup-header-k.png") no-repeat top center;
+            pointer-events: none;
+            position: absolute;
+            left: 0;
+            bottom: auto;
+            top: -1px;
+            box-shadow: none;
+            background-color: none;
+          } 
+        }
+      }
+    }
+    ::v-deep .base-card-content-header{
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          background: linear-gradient(90deg, rgba(2, 137, 109, 0) 0%, rgba(2, 137, 109, 0.2) 51%, rgba(2, 137, 109, 0) 100%);
+          text-shadow: 0px 0px 18px rgba(0, 245, 193, 0.7);
+        }
+      }
+      &:before{
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            background: none;
+          } 
+        }
+      }
+      .base-card-content-header__line.is-aquamarine-line-center::before{
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            position: absolute;
+            bottom: 0;
+            left: 50% !important;
+            transform: translate(-50%, 0%) !important;
+            background: url("~@component-gallery/assets/image/history-video-tree/singleTabSel-ly.png")
+              no-repeat
+              bottom
+              center !important;
+            background-size: 100% 100% !important;
+            width: px-to-rem(180) !important;
+            height: px-to-rem(10) !important;
+            content: "";
+            z-index: 2;
+          } 
+        }
+      }
+      .base-card-content-header__line.is-aquamarine-line-center::after{
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 1px !important;
+            background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #ffffff 50%, rgba(255, 255, 255, 0) 100%) !important;
+            content: "" !important;
+            z-index: 1 !important;
+          } 
+        }
+      }
+    }
+    ::v-deep .base-card-content:before{
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          left: calc(50% - px-to-rem(13)) !important;
+          width: 0;
+        }
+      }
+    }
+    
+    .hasData{
+      width: px-to-rem(800);
+      height: px-to-rem(340);
+      position: fixed;
+      left: calc(50% - px-to-rem(360));
+      top: calc(50% - px-to-rem(175));
+      ::v-deep .base-card-content{
+        border-radius: px-to-rem(8) !important;
+      }
+    }
+    .noData{
+      width: px-to-rem(368);
+      position: fixed;
+      left: calc(50% - px-to-rem(160));
+      top: calc(50% - px-to-rem(87));
+      ::v-deep .base-card-content{
+        border-radius: px-to-rem(8) !important;
+      }
+    }
+    .no-result{
+      position: relative;
+      padding-bottom: px-to-rem(12);
+      .pop-content{
+        font-size: px-to-rem(14);
+        padding: px-to-rem(24);
+        @include themeify(false) {
+          color: themed('history-video-tree-default-text-color');
+        }
+      }
+      .btn-view{
+        text-align: center;
+        font-size: 0;
+        margin-top: 0;
+        height: px-to-rem(32);
+        .search-btn{
+          width: px-to-rem(108);
+        }
+        .search-btn > span{
+          @include themeify(false) {
+            color: themed('history-video-tree-default-text-color');
+          }
+        }
+      }
+    }
+    .result-pop{
+      width: px-to-rem(800);
+      height: px-to-rem(292);
+      position: relative;
+      .table-content{
+        width: 100%;
+        height: px-to-rem(192);
+        padding: px-to-rem(12);
+        overflow: hidden;
+        ::v-deep .el-table{
+          height: px-to-rem(192);
+          width: 100%;
+          font-size: px-to-rem(14);
+          background: none;
+          @include themeify(false) {
+            color: themed('history-video-tree-default-text-color');
+          }
+          .el-table__body-wrapper {
+            height: px-to-rem(160);
+            overflow-y: auto;
+            overflow-x: hidden;
+            &:before {
+              background: none;
+            }
+          }
+          .cell-div{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .cell{
+            padding-left: px-to-rem(12);
+            padding-right: px-to-rem(12);
+            @include themeify(false) {
+              color: themed('history-video-tree-default-text-color');
+            }
+          }
+          .el-table__row{
+            background: none;
+          }
+          thead tr th {
+            height: px-to-rem(32);
+            padding: 0;
+            @include themeify(false) {
+              @if $theme-name == "theme-aquamarine" {
+                background-color: rgba(2, 137, 109, 0.2);
+                border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+              }
+              @if $theme-name == "theme-terracotta" {
+                background-color: rgba(100, 86, 46, 0.4);
+                border-bottom: 1px solid rgba(228, 231, 193, 0.2) !important;
+              }
+              @if $theme-name == "theme-wiseblue" {
+                background-color: rgba(79, 159, 255, 0.2);
+                border-bottom: 1px solid rgba(232, 243, 254, 0.2) !important;
+              }
+            }
+          }
+          tr, td{
+            height: px-to-rem(32);
+            background: none !important;
+            padding: 0;
+            @include themeify(false) {
+              @if $theme-name == "theme-aquamarine" {
+                border-bottom: solid 1px rgba(205,227,255,0.2);
+              }
+              @if $theme-name == "theme-terracotta" {
+                border-bottom: 1px solid rgba(228, 231, 193, 0.24) !important;
+              }
+              @if $theme-name == "theme-wiseblue" {
+                border-bottom: 1px solid rgba(232, 243, 254, 0.2) !important;
+              }
+            }
+          }
+        }
+
+        
+      }
+      .btn-view{
+        text-align: center;
+        font-size: 0;
+        position: absolute;
+        left: calc(50% - px-to-rem(54));
+        bottom: px-to-rem(12);
+        height: px-to-rem(32);
+        .search-btn{
+          width: px-to-rem(108);
+        }
+        .search-btn > span{
+          @include themeify(false) {
+            color: themed('history-video-tree-default-text-color');
+          }
+        }
+      }
+    }
+  }
+}

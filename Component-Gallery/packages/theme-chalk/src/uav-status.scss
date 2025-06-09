@@ -1,0 +1,366 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.uav-status {
+  width: px-to-rem(370);
+
+  &-content {
+    position: relative;
+    margin-top: px-to-rem(12);
+    height: px-to-rem(89);
+    font-family: PingFangSC, 'PingFang SC' Microsoft YaHei;
+
+    .img-num {
+      position: absolute;
+      bottom: px-to-rem(0);
+      left: 0;
+      width: px-to-rem(90);
+      height: px-to-rem(60);
+    }
+
+    .img-rate {
+      position: absolute;
+      top: px-to-rem(8);
+      right: px-to-rem(94);
+      width: px-to-rem(96);
+      height: px-to-rem(9);
+    }
+
+    .img-icon {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: px-to-rem(12);
+      width: px-to-rem(54);
+      height: px-to-rem(38);
+    }
+
+    .img-online-bg {
+      position: absolute;
+      top: px-to-rem(38);
+      right: 0;
+      width: px-to-rem(190);
+      height: px-to-rem(15);
+      cursor: pointer;
+    }
+
+    .img-offline-bg {
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      bottom: px-to-rem(8);
+      width: px-to-rem(190);
+      height: px-to-rem(15);
+    }
+
+    .text-num {
+      position: absolute;
+      top: px-to-rem(5);
+      left: px-to-rem(12);
+      font-weight: 600;
+      font-size: px-to-rem(14);
+      line-height: px-to-rem(16);
+    }
+
+    .text-rate {
+      position: absolute;
+      top: px-to-rem(7);
+      left: px-to-rem(204);
+      font-weight: 400;
+      font-size: px-to-rem(14);
+      line-height: px-to-rem(12);
+    }
+
+    .text-online {
+      position: absolute;
+      top: px-to-rem(36);
+      right: px-to-rem(121);
+      display: flex;
+      align-items: center;
+      height: px-to-rem(14);
+      font-size: px-to-rem(14);
+      font-weight: 400;
+
+      &::before {
+        width: px-to-rem(6);
+        height: 100%;
+        border-radius: px-to-rem(1);
+        content: '';
+        clip-path: inset(28.6% 0 round px-to-rem(1)); // 目标是6px基准的正方形，直接rem会导致部分分辨率变形，使用clip处理规避此问题
+      }
+
+      span {
+        margin-left: px-to-rem(6);
+      }
+    }
+
+    .text-offline {
+      position: absolute;
+      top: px-to-rem(63);
+      right: px-to-rem(121);
+      display: flex;
+      align-items: center;
+      height: px-to-rem(14);
+      font-size: px-to-rem(14);
+      font-weight: 400;
+
+      &::before {
+        width: px-to-rem(6);
+        height: 100%;
+        border-radius: px-to-rem(1);
+        opacity: 0.4;
+        content: '';
+        clip-path: inset(28.6% 0 round px-to-rem(1)); // 目标是6px基准的正方形，直接rem会导致部分分辨率变形，使用clip处理规避此问题
+      }
+
+      span {
+        margin-left: px-to-rem(6);
+      }
+    }
+
+    .value-num {
+      position: absolute;
+      bottom: px-to-rem(27);
+      left: px-to-rem(33);
+      width: px-to-rem(26);
+      font-size: px-to-rem(16);
+      text-align: center;
+      font-weight: 600;
+      line-height: px-to-rem(16);
+    }
+
+    .value-rate {
+      position: absolute;
+      top: px-to-rem(4);
+      right: px-to-rem(12);
+      font-weight: 600;
+      font-size: px-to-rem(16);
+      line-height: px-to-rem(16);
+    }
+
+    .value-online {
+      position: absolute;
+      top: px-to-rem(36);
+      right: px-to-rem(12);
+      font-weight: 400;
+      font-size: px-to-rem(14);
+      line-height: px-to-rem(14);
+    }
+
+    .value-offline {
+      position: absolute;
+      top: px-to-rem(63);
+      right: px-to-rem(12);
+      font-size: px-to-rem(14);
+      font-weight: 400;
+      line-height: px-to-rem(14);
+    }
+  }
+}
+
+// 通用
+[data-theme='theme-wiseblue'] .uav-status {
+  &-content {
+    background-size: px-to-rem(372) px-to-rem(89);
+    color: #e8f3fe;
+    background-image: url('~@component-gallery/assets/image/uav-status/wiseblue/content-bg.png');
+
+    .img-num {
+      background-image: url('~@component-gallery/assets/image/uav-status/wiseblue/num-icon.png');
+      background-size: px-to-rem(90) px-to-rem(60);
+    }
+
+    .img-rate {
+      background-image: url('~@component-gallery/assets/image/uav-status/wiseblue/online.png');
+      background-size: 100% 100%;
+    }
+
+    .img-icon {
+      background-image: url('~@component-gallery/assets/image/uav-status/wiseblue/uav-icon.png');
+      background-size: 100% 100%;
+    }
+
+    .img-online-bg {
+      background-image: url('~@component-gallery/assets/image/uav-status/wiseblue/online-bg.png');
+      background-size: 100% 100%;
+    }
+
+    .img-offline-bg {
+      background-image: url('~@component-gallery/assets/image/uav-status/wiseblue/offline-bg.png');
+      background-size: 100% 100%;
+    }
+
+    .text-online {
+      &::before {
+        background: #4f9fff;
+      }
+    }
+
+    .text-offline {
+      &::before {
+        background: #4f9fff;
+      }
+    }
+
+    .text-num {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #4f9fff;
+    }
+
+    .value-num {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #4f9fff;
+    }
+
+    .value-rate {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #4f9fff;
+    }
+
+    .value-online {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #4f9fff;
+    }
+
+    .value-offline {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #4f9fff;
+    }
+  }
+}
+
+// 林业换肤
+[data-theme='theme-aquamarine'] .uav-status {
+  &-content {
+    background-size: px-to-rem(372) px-to-rem(89);
+    color: #fff;
+    background-image: url('~@component-gallery/assets/image/uav-status/aquamarine/content-bg.png');
+
+    .img-num {
+      background-image: url('~@component-gallery/assets/image/uav-status/aquamarine/num-icon.png');
+      background-size: px-to-rem(90) px-to-rem(60);
+    }
+
+    .img-rate {
+      background-image: url('~@component-gallery/assets/image/uav-status/aquamarine/rate-bg.png');
+      background-size: 100% 100%;
+    }
+
+    .img-icon {
+      background-image: url('~@component-gallery/assets/image/uav-status/aquamarine/uav-icon.png');
+      background-size: 100% 100%;
+    }
+
+    .img-online-bg {
+      background-image: url('~@component-gallery/assets/image/uav-status/aquamarine/num-bg.png');
+      background-size: px-to-rem(190) px-to-rem(15);
+    }
+
+    .img-offline-bg {
+      background-image: url('~@component-gallery/assets/image/uav-status/aquamarine/num-bg.png');
+      background-size: px-to-rem(190) px-to-rem(15);
+    }
+
+    .text-online {
+      &::before {
+        background: #fb913c;
+      }
+    }
+
+    .text-offline {
+      &::before {
+        background: #fb913c;
+      }
+    }
+
+    .text-num {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #fb913c;
+    }
+
+    .value-num {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #ffe549;
+    }
+
+    .value-rate {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #fb913c;
+    }
+
+    .value-online {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #fb913c;
+    }
+
+    .value-offline {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #fb913c;
+    }
+  }
+}
+
+// 国土换肤
+[data-theme='theme-terracotta'] .uav-status {
+  &-content {
+    background-size: px-to-rem(372) px-to-rem(89);
+    color: #e8f3fe;
+    background-image: url('~@component-gallery/assets/image/uav-status/terracotta/content-bg.png');
+
+    .img-num {
+      background-image: url('~@component-gallery/assets/image/uav-status/terracotta/num-icon.png');
+      background-size: px-to-rem(90) px-to-rem(60);
+    }
+
+    .img-rate {
+      background-image: url('~@component-gallery/assets/image/uav-status/terracotta/online.png');
+      background-size: 100% 100%;
+    }
+
+    .img-icon {
+      background-image: url('~@component-gallery/assets/image/uav-status/terracotta/uav-icon.png');
+      background-size: 100% 100%;
+    }
+
+    .img-online-bg {
+      background-image: url('~@component-gallery/assets/image/uav-status/terracotta/online-bg.png');
+      background-size: 100% 100%;
+    }
+
+    .img-offline-bg {
+      background-image: url('~@component-gallery/assets/image/uav-status/terracotta/offline-bg.png');
+      background-size: 100% 100%;
+    }
+
+    .text-rate{
+      color: #E4E7C1;
+    }
+
+    .text-online {
+      color: #E4E7C1;
+
+      &::before {
+        background: #F0EC67;
+      }
+    }
+
+    .text-offline {
+      color: #E4E7C1;
+
+      &::before {
+        background: #F0EC67;
+      }
+    }
+
+    .text-num {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #dcd277;
+    }
+
+    .value-num {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #DCD277;
+    }
+
+    .value-rate {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #DCD277;
+    }
+
+    .value-online {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #DCD277;
+    }
+
+    .value-offline {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #DCD277;
+    }
+  }
+}

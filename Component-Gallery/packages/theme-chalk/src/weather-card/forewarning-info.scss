@@ -1,0 +1,296 @@
+@import "../mixins/mixins";
+@import "../mixins/theme-mixins.scss";
+.weather-warning_container {
+
+  ::v-deep .innercomp-abcontainer-header {
+    border-radius: 0 !important;
+  }
+
+  ::v-deep .innercomp-abcontainer-header__title {
+    overflow: unset !important;
+  }
+
+  .weather-warning_wrapper {
+    top: 0;
+    left: px-to-rem(380);
+    width: px-to-rem(380);
+    height: max-content;
+
+    ::v-deep .left-title {
+      border: none !important;
+      @include themeify(false) {
+        span {
+          @if $theme-name == 'theme-terracotta' {
+            text-shadow: none;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            text-shadow: none;
+          }
+        }
+
+        &::after {
+          @if $theme-name == 'theme-terracotta' {
+            position: absolute;
+            bottom: 0;
+            left: px-to-rem(12) !important;
+            width: calc(100% - px-to-rem(24));
+            height: px-to-rem(2);
+            background: linear-gradient( 63deg, #E4E7C1 0%, rgba(232,243,254,0.2) 100%);
+            content: "";
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            position: absolute;
+            bottom: 0;
+            left: px-to-rem(12) !important;
+            width: calc(100% - px-to-rem(24));
+            height: px-to-rem(2);
+            background: linear-gradient( 63deg, #E8F3FE 0%, rgba(232,243,254,0.2) 100%);
+            content: "";
+          }
+        }
+
+        &::before {
+          @if $theme-name == 'theme-terracotta' {
+            display: none !important;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            display: none !important;
+          }
+        }
+      }
+    }
+
+    ::v-deep .title-text::after {
+      @include themeify(false) {
+        @if $theme-name == 'theme-terracotta' {
+          display: none;
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          display: none;
+        }
+        @if $theme-name == 'theme-aquamarine' {
+          left: px-to-rem(-12) !important;
+        }
+      }
+    }
+
+    .warning-title {
+      @include themeify(false) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+
+        ::v-deep .title-text {
+          pointer-events: none;
+          @if $theme-name == 'theme-aquamarine' {
+            font-weight: 600;
+          } @else {
+            font-weight: 400;
+          }
+          font-size: px-to-rem(16);
+          color: themed('global-text-color');
+        }
+      }
+    }
+
+    .mb-12 {
+      margin-bottom: px-to-rem(12);
+    }
+    .scroll-bar {
+      height: px-to-rem(220);
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      &::-webkit-scrollbar {
+        width: px-to-rem(6);
+        height: px-to-rem(6);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        @include themeify(false) {
+          background: themed('scroll-bar-primary-color') !important;
+        }
+        border: 0;
+        border-radius: px-to-rem(3);
+        height: auto !important;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        @include themeify(false) {
+          background: themed('scroll-bar-primary-color') !important;
+        }
+      }
+    }
+
+    .out-wrapper {
+      width: px-to-rem(380);
+      padding: px-to-rem(12);
+      padding-bottom: 0;
+
+      .flex-group {
+        display: flex;
+        align-items: center;
+        height: px-to-rem(20);
+        margin-bottom: px-to-rem(12);
+        font-weight: 400;
+        font-size: px-to-rem(14);
+        text-align: justify;
+        font-style: normal;
+        white-space: nowrap;
+        @include themeify(false) {
+          color: themed('global-text-color');
+        }
+
+        svg {
+          margin-right: px-to-rem(6);
+          width: px-to-rem(20);
+          height: px-to-rem(20);
+          @include themeify(false) {
+            fill: themed('weather-card-forewarning-icon-color');
+          }
+        }
+
+        .title {
+          width: fit-content
+        }
+
+        .text {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          flex: 1;
+        }
+      }
+
+      .content {
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 400;
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(20);
+        text-align: justify;
+        font-style: normal;
+        overflow: auto;
+        @include themeify(false) {
+          @if $theme-name == 'theme-aquamarine' {
+            color: #FFFFFF;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #E4E7C1;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: #E8F3FE;
+          }
+        }
+      }
+    }
+
+    .footer {
+      margin: px-to-rem(12);
+      margin-bottom: px-to-rem(7);
+      padding-top: px-to-rem(8);
+      border-top: px-to-rem(1) solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: px-to-rem(2);
+    }
+
+    .walarmbtn {
+      cursor: pointer;
+      width: px-to-rem(36);
+      height: px-to-rem(36);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      &:first-child {
+        margin-left: px-to-rem(-5);
+      }
+
+
+      .qwicon {
+        width: px-to-rem(20);
+        height: px-to-rem(20);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: px-to-rem(11);
+        border-radius: px-to-rem(2);
+        position: relative;
+
+        &::before {
+          display: flex;
+          align-items: center;
+          line-height: normal;
+        }
+      }
+
+      &.blue {
+        background: url('~@component-gallery/assets/image/weather/warning_bg_blue.png')
+            no-repeat center / 100%;
+        &.active {
+          background: url('~@component-gallery/assets/image/weather/warning_bg_blue_active.png')
+            no-repeat center / 100%;
+          color: #fff;
+          &::after {
+            padding: 0;
+          }
+        }
+        &::after {
+          background: linear-gradient(180deg, rgba(104, 183, 255, 0.3), rgba(79, 159, 255, 0.06));
+        }
+        color: #4F9FFF;
+      }
+      &.yellow {
+        background: url('~@component-gallery/assets/image/weather/warning_bg_yellow.png')
+        no-repeat center / 100%;
+        &.active {
+          background: url('~@component-gallery/assets/image/weather/warning_bg_yellow_active.png')
+            no-repeat center / 100%;
+          color: #fff;
+          &::after {
+            padding: 0;
+          }
+        }
+        &::after {
+          background: linear-gradient(180deg, rgba(246, 252, 106, 0.3), rgba(246, 252, 106, 0.12));
+        }
+        color: #F9FF6C;
+      }
+      &.red {
+        background: url('~@component-gallery/assets/image/weather/warning_bg_red.png')
+            no-repeat center / 100%;
+        &.active {
+          background: url('~@component-gallery/assets/image/weather/warning_bg_red_active.png')
+            no-repeat center / 100%;
+          color: #fff;
+          &::after {
+            padding: 0;
+          }
+        }
+        &::after {
+          background: linear-gradient(180deg, rgba(251, 87, 87, 0.3), rgba(251, 87, 87, 0.12));
+        }
+        color: #ED5158;
+      }
+      &.orange {
+        background: url('~@component-gallery/assets/image/weather/warning_bg_orange.png')
+            no-repeat center / 100%;
+        &.active {
+          background: url('~@component-gallery/assets/image/weather/warning_bg_orange_active.png')
+            no-repeat center / 100%;
+          color: #fff;
+          &::after {
+            padding: 0;
+          }
+        }
+        &::after {
+          background: linear-gradient(180deg, rgba(251, 150, 30, 0.3), rgba(251, 150, 30, 0.12));
+        }
+        color: #FB913C;
+      }
+    }
+  }
+}

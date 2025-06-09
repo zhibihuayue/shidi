@@ -1,0 +1,662 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.status-container {
+  padding-top: px-to-rem(12);
+  width: px-to-rem(370);
+
+  .cardrow {
+    display: flex;
+  }
+
+  .card {
+    position: relative;
+    padding: 0 px-to-rem(12);
+    width: px-to-rem(179);
+    height: px-to-rem(248);
+
+    .num {
+      cursor: pointer;
+      padding-top: px-to-rem(47);
+      margin-top: px-to-rem(12);
+      height: px-to-rem(82);
+      color: #fff;
+      font-size: px-to-rem(24);
+      font-family: PingFangSC, 'PingFang SC' Microsoft YaHei;
+      text-align: center;
+      font-weight: 600;
+      line-height: px-to-rem(16);
+    }
+
+    .title {
+      color: #fff;
+      font-size: px-to-rem(14);
+      font-family: PingFangSC, 'PingFang SC' Microsoft YaHei;
+      text-align: center;
+      font-weight: 600;
+      line-height: px-to-rem(14);
+      margin-top: px-to-rem(10);
+    }
+
+    .percent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 px-to-rem(12);
+      margin-top: px-to-rem(16);
+      width: px-to-rem(155);
+      height: px-to-rem(24);
+
+      .labelname {
+        position: relative;
+        color: #fff;
+        font-size: px-to-rem(14);
+      }
+
+      .value {
+        font-size: px-to-rem(14);
+      }
+    }
+
+    .flag {
+      margin-right: px-to-rem(6);
+      width: px-to-rem(10);
+      height: px-to-rem(10);
+      border-radius: 1px;
+      clip-path: rect(px-to-rem(2) px-to-rem(8) px-to-rem(8) px-to-rem(2) round px-to-rem(1));
+    }
+
+    .onlinenum {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: px-to-rem(12);
+      padding-bottom: px-to-rem(10);
+      margin-top: px-to-rem(12);
+      height: px-to-rem(15);
+      cursor: pointer;
+
+      .labelname {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        font-size: px-to-rem(14);
+      }
+
+      .value {
+        color: #fff;
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, 'PingFang SC' Microsoft YaHei;
+        font-weight: 400;
+      }
+    }
+
+    .offlinenum {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: px-to-rem(12);
+      padding-bottom: px-to-rem(10);
+      margin-top: px-to-rem(12);
+      height: px-to-rem(15);
+      cursor: pointer;
+
+      .labelname {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        font-size: px-to-rem(14);
+      }
+
+      .value {
+        font-size: px-to-rem(14);
+      }
+    }
+
+    .progressbar {
+      position: relative;
+      margin-top: px-to-rem(10);
+      height: px-to-rem(4);
+    }
+
+    &.camera {
+      .num {
+      }
+
+      .title {
+      }
+
+      .percent {
+        .labelname {
+          &::before {
+            position: absolute;
+            top: px-to-rem(6);
+            display: block;
+            width: px-to-rem(62);
+            height: px-to-rem(8);
+            content: '';
+          }
+        }
+
+        .value {
+        }
+      }
+
+      .onlinenum {
+        .flag {
+        }
+
+        .value {
+        }
+      }
+
+      .offlinenum {
+        .flag {
+        }
+
+        .value {
+        }
+      }
+
+      .progressbar {
+        .current {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          &::after {
+            position: absolute;
+            top: px-to-rem(-3);
+            right: px-to-rem(-2);
+            width: px-to-rem(6);
+            height: px-to-rem(10);
+            background-color: #fff;
+            content: '';
+            transform: skewX(-20deg);
+          }
+        }
+      }
+    }
+
+    &.channel {
+      background: url('~@component-gallery/assets/image/camera-status-statistics/channel-bg.png')
+        left top/100% 100% no-repeat;
+
+      .num {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/channel-sign.png')
+          center top/px-to-rem(115) px-to-rem(82) no-repeat;
+      }
+
+      .title {
+      }
+
+      .percent {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/channel-perbg.png')
+          left top/100% 100% no-repeat;
+
+        .labelname {
+          &::before {
+            position: absolute;
+            top: px-to-rem(6);
+            display: block;
+            width: px-to-rem(62);
+            height: px-to-rem(8);
+            background: url('~@component-gallery/assets/image/camera-status-statistics/channel-arrow.png')
+              left top/100% 100% no-repeat;
+            content: '';
+          }
+        }
+
+        .value {
+        }
+      }
+
+      .onlinenum {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/channel-onlinebg.png')
+          left top/100% 100% no-repeat;
+
+        .flag {
+          background: #f9ff6c;
+        }
+
+        .value {
+        }
+      }
+
+      .offlinenum {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/channel-offlinebg.png')
+          left top/100% 100% no-repeat;
+
+        .flag {
+          background-color: rgb(255 216 124 / 40%);
+        }
+
+        .value {
+        }
+      }
+
+      .progressbar {
+        background: linear-gradient(
+          270deg,
+          rgb(255 224 72 / 36%) 0%,
+          rgb(255 241 126 / 13%) 100%
+        );
+
+        .current {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            270deg,
+            #ffe549 0%,
+            rgb(255 229 73 / 10%) 100%
+          );
+
+          &::after {
+            position: absolute;
+            top: px-to-rem(-3);
+            right: px-to-rem(-2);
+            width: px-to-rem(6);
+            height: px-to-rem(10);
+            background-color: #fff;
+            box-shadow: 0 0 7px 0 rgb(255 229 73 / 70%);
+            content: '';
+            transform: skewX(-20deg);
+          }
+        }
+      }
+    }
+
+    .title {
+      color: #fff;
+      font-size: px-to-rem(14);
+      font-family: PingFangSC, 'PingFang SC' Microsoft YaHei;
+      font-weight: 600;
+    }
+
+    + .card {
+      margin-left: px-to-rem(12);
+    }
+  }
+}
+
+// 通用
+[data-theme='theme-wiseblue'] .status-container {
+  .card {
+    &.camera {
+      background: url('~@component-gallery/assets/image/camera-status-statistics/camera-bg.png')
+        left top/100% 100% no-repeat;
+
+      .num {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/camera-sign.png')
+          center top/px-to-rem(116) px-to-rem(82) no-repeat;
+        text-shadow: 0 1px 4px #43c88f;
+      }
+
+      .title {
+        text-shadow: 0 1px 4px rgb(67 200 143 / 40%);
+      }
+
+      .percent {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/camera-perbg.png')
+          left top/100% 100% no-repeat;
+
+        .labelname {
+          &::before {
+            background: url('~@component-gallery/assets/image/camera-status-statistics/camera-arrow.png')
+              left top/100% 100% no-repeat;
+          }
+        }
+
+        .value {
+          color: #0dc985;
+        }
+      }
+
+      .onlinenum {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/camera-onlinebg.png')
+          left top/100% 100% no-repeat;
+
+        .flag {
+          background-color: #43c88f;
+        }
+
+        .value {
+          text-shadow: 0 1px 4px #43c88f;
+        }
+      }
+
+      .offlinenum {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/camera-offlinebg.png')
+          left top/100% 100% no-repeat;
+
+        .flag {
+          background-color: rgb(67 200 143 / 40%);
+        }
+
+        .value {
+          text-shadow: 0 1px 4px #43c88f;
+        }
+      }
+
+      .progressbar {
+        background: linear-gradient(
+          270deg,
+          rgb(2 137 109 / 40%) 0%,
+          rgb(2 137 109 / 10%) 100%
+        );
+
+        .current {
+          background: linear-gradient(
+            270deg,
+            #41c48d 0%,
+            rgb(46 255 245 / 10%) 100%
+          );
+
+          &::after {
+            box-shadow: 0 0 7px 0 rgb(118 206 255 / 70%);
+          }
+        }
+      }
+    }
+
+    &.channel {
+      .percent {
+        .value {
+          color: #f9ff6c;
+        }
+      }
+      .onlinenum {
+        .value {
+          text-shadow: 0px 1px 4px #ffe549;
+        }
+      }
+      .offlinenum {
+        .value {
+          text-shadow: 0px 1px 4px #ffe549;
+        }
+      }
+    }
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .status-container {
+  .card {
+    &.camera {
+      background: url('~@component-gallery/assets/image/camera-status-statistics/camera-bg.png')
+        left top/100% 100% no-repeat;
+
+      .num {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/camera-sign.png')
+          center top/px-to-rem(116) px-to-rem(82) no-repeat;
+        text-shadow: 0 1px 4px #43c88f;
+      }
+
+      .title {
+        text-shadow: 0 1px 4px rgb(67 200 143 / 40%);
+      }
+
+      .percent {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/camera-perbg.png')
+          left top/100% 100% no-repeat;
+
+        .labelname {
+          &::before {
+            position: absolute;
+            top: px-to-rem(6);
+            display: block;
+            width: px-to-rem(62);
+            height: px-to-rem(8);
+            background: url('~@component-gallery/assets/image/camera-status-statistics/camera-arrow.png')
+              left top/100% 100% no-repeat;
+            content: '';
+          }
+        }
+
+        .value {
+          color: #0dc985;
+        }
+      }
+
+      .onlinenum {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/camera-onlinebg.png')
+          left top/100% 100% no-repeat;
+
+        .flag {
+          background-color: #43c88f;
+        }
+
+        .value {
+          text-shadow: 0 1px 4px #43c88f;
+        }
+      }
+
+      .offlinenum {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/camera-offlinebg.png')
+          left top/100% 100% no-repeat;
+
+        .flag {
+          background-color: rgb(67 200 143 / 40%);
+        }
+
+        .value {
+          text-shadow: 0 1px 4px #43c88f;
+        }
+      }
+
+      .progressbar {
+        background: linear-gradient(
+          270deg,
+          rgb(2 137 109 / 40%) 0%,
+          rgb(2 137 109 / 10%) 100%
+        );
+
+        .current {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            270deg,
+            #41c48d 0%,
+            rgb(46 255 245 / 10%) 100%
+          );
+
+          &::after {
+            position: absolute;
+            top: px-to-rem(-3);
+            right: px-to-rem(-2);
+            width: px-to-rem(6);
+            height: px-to-rem(10);
+            background-color: #fff;
+            box-shadow: 0 0 7px 0 rgb(118 206 255 / 70%);
+            content: '';
+            transform: skewX(-20deg);
+          }
+        }
+      }
+    }
+
+    &.channel {
+      .percent {
+        .value {
+          color: #f9ff6c;
+        }
+      }
+      .onlinenum {
+        .value {
+          text-shadow: 0px 1px 4px #ffe549;
+        }
+      }
+      .offlinenum {
+        .value {
+          text-shadow: 0px 1px 4px #ffe549;
+        }
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .status-container {
+  .card {
+    &.camera {
+      background: url('~@component-gallery/assets/image/camera-status-statistics/bg_yellow.png')
+        left top/100% 100% no-repeat;
+
+      .num {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/icon_yellow.png')
+          center top/px-to-rem(116) px-to-rem(82) no-repeat;
+        text-shadow: 0 1px 4px #dcd277;
+      }
+
+      .title {
+        text-shadow: 0 1px 4px #dcd277;
+      }
+
+      .percent {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/camera-perbg-gt.png')
+          left top/100% 100% no-repeat;
+
+        .labelname {
+          color: #e4e7c1;
+
+          &::before {
+            position: absolute;
+            top: px-to-rem(6);
+            display: block;
+            width: px-to-rem(62);
+            height: px-to-rem(8);
+            background: url('~@component-gallery/assets/image/camera-status-statistics/camera-arrow-gt.png')
+              left top/100% 100% no-repeat;
+            content: '';
+          }
+        }
+
+        .value {
+          text-shadow: 0 1px 4px #dcd277;
+          color: #fff;
+        }
+      }
+
+      .onlinenum {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/bg2_yellow.png')
+          left top/100% 100% no-repeat;
+
+        .labelname {
+          color: #e4e7c1;
+        }
+
+        .flag {
+          background: #ff9458;
+        }
+
+        .value {
+          text-shadow: 0 1px 4px #dcd277;
+          color: #fff;
+        }
+      }
+
+      .offlinenum {
+        background: url('~@component-gallery/assets/image/camera-status-statistics/bg3_yellow.png')
+          left top/100% 100% no-repeat;
+
+        .labelname {
+          color: #e4e7c1;
+        }
+
+        .flag {
+          background: rgb(255 148 88 / 40%);
+        }
+
+        .value {
+          text-shadow: 0 1px 4px #dcd277;
+          color: #fff;
+        }
+      }
+
+      .progressbar {
+        background: rgb(255 224 72 / 24%);
+
+        .current {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            270deg,
+            #ff9458 0%,
+            rgb(255 148 88 / 10%) 100%
+          );
+
+          &::after {
+            position: absolute;
+            top: px-to-rem(-3);
+            right: px-to-rem(-2);
+            width: px-to-rem(6);
+            height: px-to-rem(10);
+            background-color: #fff;
+            box-shadow: 0 0 7px 0 rgb(118 206 255 / 70%);
+            content: '';
+            transform: skewX(-20deg);
+          }
+        }
+      }
+    }
+
+    &.channel {
+      .num {
+        text-shadow: 0px 1px 4px #dcd277;
+      }
+      .title {
+        text-shadow: 0px 1px 4px #dcd277;
+      }
+      .onlinenum {
+        .value {
+          text-shadow: 0 1px 4px #dcd277;
+          color: #fff;
+        }
+      }
+
+      .offlinenum {
+        .value {
+          text-shadow: 0 1px 4px #dcd277;
+          color: #fff;
+        }
+      }
+
+      .percent {
+        .value {
+          text-shadow: 0 1px 4px #dcd277;
+          color: #fff;
+        }
+      }
+    }
+
+    .percent {
+      .labelname {
+        color: #e4e7c1;
+      }
+    }
+
+    .onlinenum {
+      .labelname {
+        color: #e4e7c1;
+      }
+    }
+
+    .offlinenum {
+      .labelname {
+        color: #e4e7c1;
+      }
+    }
+  }
+}

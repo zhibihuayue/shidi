@@ -1,0 +1,121 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+@import '../mixins/theme-button-mixins';
+
+.mining-base-head {
+  @include themeify(false) {
+    display: flex;
+    border-bottom: px-to-rem(1) solid;
+    margin-bottom: px-to-rem(10);
+    @if $theme-name == 'theme-aquamarine' {
+      // 绿的
+      border-image: linear-gradient(
+          90deg,
+          rgba(83, 87, 91, 0) 0%,
+          #eaf4ff 53%,
+          rgba(234, 244, 255, 0) 100%
+        )
+        1
+        1;
+      &::after {
+        position: absolute;
+        top: 0;
+        width: px-to-rem(8);
+        height: px-to-rem(1);
+        background: #00fff8;
+        content: '';
+        right: 0;
+      }
+    }
+    @if $theme-name == 'theme-terracotta' {
+      // 黄的
+      border-image: linear-gradient(90deg,rgba(255,222,76,0),rgba(255,222,76,.35),rgba(255,222,76,0)) 1 1;
+    }
+    @if $theme-name == 'theme-wiseblue' {
+      // 蓝的
+      border-image: linear-gradient(
+          90deg,
+          rgba(176, 212, 255, 0),
+          rgba(176, 212, 255, 0.35),
+          rgba(176, 212, 255, 0)
+        )
+        1
+        1;
+    }
+    .head-item {
+      cursor: pointer;
+      width: px-to-rem(184);
+      height: px-to-rem(48);
+      text-align: center;
+      font-size: px-to-rem(16);
+      line-height: px-to-rem(48);
+      position: relative;
+      @if $theme-name == 'theme-aquamarine' {
+        // 绿的
+        color: #0dc985;
+        text-shadow: 0px 0px px-to-rem(24) rgba(0, 92, 245, 0.35);
+      }
+      @if $theme-name == 'theme-terracotta' {
+        // 黄的
+        color: rgba(228, 231, 193, 0.7);
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        // 蓝的
+        color: rgba(232, 243, 254, 0.7);
+      }
+    }
+
+    .is-selected {
+      font-weight: 600;
+      @if $theme-name == 'theme-aquamarine' {
+        // 绿的
+        color: #ffffff;
+        text-shadow: 0 0 px-to-rem(18) rgba(0, 245, 193, 0.7);
+      }
+      @if $theme-name == 'theme-terracotta' {
+        // 黄的
+        color: #ffffff;
+        text-shadow: px-to-rem(1) 0 px-to-rem(4) #dcd277;
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        // 蓝的
+        color: #e8f3fe;
+        text-shadow: 0 0 px-to-rem(10) rgba(74, 141, 254, 0.7);
+      }
+      span {
+        font-weight: 600 !important;
+      }
+      &::after {
+        position: absolute;
+        display: block;
+        content: '';
+        @if $theme-name == 'theme-terracotta' {
+          width: px-to-rem(180);
+          height: px-to-rem(15);
+          left: 0;
+          bottom: 0;
+          background: url('~@component-gallery/assets/image/mining-tree/select-footer-yellow.png')
+            no-repeat
+            center /
+            100%
+            100%;
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          width: px-to-rem(116);
+          height: px-to-rem(11);
+          left: px-to-rem(35);
+          bottom: 0;
+          background: themed('alarm-list-base-head-selected-foot-img');
+        }
+        @if $theme-name == 'theme-aquamarine' {
+          width: px-to-rem(180);
+          height: px-to-rem(10);
+          left: 0;
+          bottom: 0;
+          background: themed('alarm-list-base-head-selected-foot-img');
+        }
+      }
+    }
+  }
+}

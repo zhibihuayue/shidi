@@ -1,0 +1,82 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+@import 'mixins/bem-mixins.scss';
+@include b('dialog-real-time-shout-box') {
+  &.innercomp-abcontainer {
+    @include themeify(false) {
+      &.horn-shout-box {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      z-index: 9999 !important;
+      .dialog-real-time-shout-content {
+        padding: px-to-rem(43) 0;
+        .dialog-real-time-shout-circle {
+          position: relative;
+          margin: 0 auto px-to-rem(20);
+          width: px-to-rem(106);
+          height: px-to-rem(106);
+          cursor: pointer;
+          background: themed('horn-tree-shout-background') no-repeat center /
+            100% 100% !important;
+          &.active {
+            background: themed('horn-tree-shout-background-active') no-repeat
+              center / 100% 100% !important;
+          }
+        }
+        .dialog-real-time-shout-animation {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .dialog-real-time-shout-line {
+            width: px-to-rem(4);
+            height: px-to-rem(34);
+            background: themed('horn-tree-shout-line-active');
+            color: themed('tag-base-font-color');
+            border-radius: px-to-rem(4);
+            animation: lineAnimation 0.8s linear infinite;
+          }
+        }
+
+        .dialog-real-time-shout-line + .dialog-real-time-shout-line {
+          margin-left: px-to-rem(6);
+        }
+        .dialog-real-time-shout-message {
+          color: themed('track-popup-attribute-attrValue');
+          font-size: px-to-rem(14);
+          text-align: center;
+          line-height: 1;
+        }
+
+        @keyframes lineAnimation {
+          0% {
+            height: px-to-rem(34);
+          }
+          50% {
+            height: px-to-rem(6);
+          }
+          100% {
+            height: px-to-rem(34);
+          }
+        }
+
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}

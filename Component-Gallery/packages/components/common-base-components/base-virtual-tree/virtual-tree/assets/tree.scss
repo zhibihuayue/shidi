@@ -1,0 +1,139 @@
+@import 'mixins/mixins';
+@import 'common/var';
+@import 'common/transition';
+@import 'checkbox';
+
+@include b(tree) {
+  position: relative;
+  cursor: default;
+  background: $--color-white;
+  color: $--tree-font-color;
+
+  @include e(empty-block) {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: px-to-rem(60);
+    text-align: center;
+  }
+
+  @include e(empty-text) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $--color-text-secondary;
+    font-size: $--font-size-base;
+    transform: translate(-50%, -50%);
+  }
+
+  @include e(drop-indicator) {
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: px-to-rem(1);
+    background-color: $--color-primary;
+  }
+
+  .fixed-root {
+    > .vue-recycle-scroller__item-wrapper {
+      margin-top: var(--fixed-root-item-size);
+    }
+  }
+}
+
+@include b(tree-node) {
+  outline: none;
+  white-space: nowrap;
+
+  &:focus {
+    /* focus */
+    > .el-tree-node__content {
+      background-color: $--tree-node-hover-background-color;
+    }
+  }
+
+  @include when(drop-inner) {
+    > .el-tree-node__content .el-tree-node__label {
+      background-color: $--color-primary;
+      color: #fff;
+    }
+  }
+
+  @include e(content) {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    & > .el-tree-node__expand-icon {
+      padding: px-to-rem(6);
+    }
+
+    & > label.el-checkbox {
+      margin-right: px-to-rem(8);
+    }
+
+    &:hover {
+      background-color: $--tree-node-hover-background-color;
+    }
+
+    .el-tree.is-dragging & {
+      cursor: move;
+
+      & * {
+        pointer-events: none;
+      }
+    }
+
+    .el-tree.is-dragging.is-drop-not-allow & {
+      cursor: not-allowed;
+    }
+  }
+
+  @include e(expand-icon) {
+    transition: transform 0.3s ease-in-out;
+    color: $--tree-expand-icon-color;
+    font-size: px-to-rem(12);
+    cursor: pointer;
+    transform: rotate(0deg);
+
+    &.expanded {
+      transform: rotate(90deg);
+    }
+
+    &-no-transition {
+      transition: none;
+    }
+
+    &.is-leaf {
+      color: transparent;
+      cursor: default;
+    }
+  }
+
+  @include e(label) {
+    font-size: $--font-size-base;
+  }
+
+  @include e(loading-icon) {
+    margin-right: px-to-rem(8);
+    color: $--tree-expand-icon-color;
+    font-size: $--font-size-base;
+  }
+
+  & > .el-tree-node__children {
+    overflow: hidden;
+    background-color: transparent;
+  }
+
+  &.is-expanded > .el-tree-node__children {
+    display: block;
+  }
+}
+
+.el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
+  background-color: mix($--color-white, $--color-primary, 92%);
+}
+
+.el-scrollbar__bar {
+  border-radius: px-to-rem(3);
+}

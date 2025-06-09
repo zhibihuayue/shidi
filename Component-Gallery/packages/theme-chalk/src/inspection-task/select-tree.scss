@@ -1,0 +1,23 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/bem-mixins.scss';
+@import '../mixins/theme-checkbox-mixins';
+
+@include b('people-select-tree-box') {
+  @include themeify(false) {
+    ::v-deep .el-input__inner {
+      font-size: px-to-rem(14);
+      padding-left: px-to-rem(12);
+      &::placeholder {
+        color: themed('inspection-task-filter-text-placeholder-color');
+      }
+    }
+    &::v-deep.common-iw-s
+      .el-select
+      .el-input
+      .el-select__caret.el-input__icon.el-icon-arrow-up::before {
+      color: themed('global-icon-color');
+    }
+  }
+}

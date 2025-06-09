@@ -1,0 +1,14 @@
+{
+  "name": "@component-gallery/build-event-bus-path",
+  "version": "1.0.0",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "pnpm exec node ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "markdown-it": "^14.1.0"
+  }
+}

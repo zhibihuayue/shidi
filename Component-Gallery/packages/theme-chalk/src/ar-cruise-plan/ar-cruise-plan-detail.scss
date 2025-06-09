@@ -1,0 +1,169 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/theme-date-picker-mixins';
+@import '../mixins/bem-mixins.scss';
+@import "../mixins/theme-tooltip-mixins";
+@import "../mixins/theme-dialog-header-mixins";
+
+.cruise-plan{
+  height: 100% !important;
+  @include b('ar-creise-detail-shield') {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1199;
+    pointer-events: auto;
+    display: flex;
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.7);
+    .cruise-plan-detail-box {
+      @include border_radius('border-radius-8');
+      @include background_color('background-color-theme');
+      @include el_dialog_header_styles();
+      @include cg_button_styles();
+
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: px-to-rem(800);
+      pointer-events: auto;
+      z-index: 1100;
+
+
+      .el-dialog__header .name {
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            justify-content: center !important;
+            padding-left: 0 !important;
+          }
+        }
+
+        &:before {
+          @include themeify(false) {
+            @if $theme-name == "theme-aquamarine" {
+              content: "";
+              width: 100%;
+              height: 100%;
+              opacity: 0.96;
+              background: url("~@component-gallery/assets/image/history-video-tree/popup-header-xx.png") no-repeat center / auto 100%,
+              url("~@component-gallery/assets/image/history-video-tree/popup-header-k.png") no-repeat top center;
+              pointer-events: none;
+              position: absolute;
+              left: 0;
+              bottom: auto;
+              top: -1px;
+              box-shadow: none;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+
+      ::v-deep .base-card-content-header {
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            background: linear-gradient(90deg, rgba(2, 137, 109, 0) 0%, rgba(2, 137, 109, 0.2) 51%, rgba(2, 137, 109, 0) 100%);
+            text-shadow: 0 0 px-to-rem(18) rgba(0, 245, 193, 0.7);
+          }
+        }
+      }
+
+      .cruise-plan-detail-body {
+        @include themeify(false) {
+          padding: themed('ar-cruise-plan-detail-body-padding');
+          .row-box {
+            margin-bottom: px-to-rem(16);
+            display: flex;
+            align-items: center;
+            height: px-to-rem(13);
+
+            .row-title {
+              font-size: px-to-rem(14);
+              font-weight: 400;
+              color: themed('ar-cruise-plan-detail-body-row-title-color');
+            }
+
+            .row-text {
+              font-size: px-to-rem(14);
+              font-weight: 400;
+              color: themed('ar-cruise-plan-detail-body-row-text-color');
+            }
+          }
+
+          .header-box {
+            width: px-to-rem(776);
+            height: px-to-rem(32);
+            background: themed('ar-cruise-plan-detail-body-header-box-background');
+            display: flex;
+            align-items: center;
+
+            .center-box {
+              height: px-to-rem(36);
+              line-height: px-to-rem(36);
+              padding-left: px-to-rem(12);
+              align-items: center;
+              justify-content: center;
+              font-size: px-to-rem(14);
+              font-weight: 500;
+              color: themed('ar-cruise-plan-detail-body-center-box-color');
+            }
+          }
+
+          .table-line-box {
+            width: px-to-rem(776);
+            border: themed('ar-cruise-plan-detail-body-table-line-box-border');
+            opacity: themed('ar-cruise-plan-detail-body-table-line-box-opacity');
+          }
+
+          ::v-deep .body-box {
+            height: px-to-rem(250);
+            width: px-to-rem(776);
+            overflow-y: scroll;
+            overflow-x: hidden;
+            /*滚动条样式*/
+            &::-webkit-scrollbar {
+              width: 6px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background: themed('ar-cruise-plan-detail-body-table-webkit-scrollbar-thumb-background');
+              border-radius: 2px;
+              border: 0;
+            }
+
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+          }
+
+          .body-item-box {
+            height: px-to-rem(32);
+            display: flex;
+            align-items: center;
+
+            .left-box {
+              font-size: px-to-rem(14);
+              font-weight: 400;
+              color: themed('ar-cruise-plan-detail-body-left-box-color');
+              padding-left: px-to-rem(12);
+              white-space: nowrap;
+              display: inline-block;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              vertical-align: bottom;
+              text-align: left;
+            }
+
+            .center-tag-box {
+              color: themed('ar-cruise-plan-detail-body-center-tag-box-color');
+            }
+          }
+        }
+      }
+    }
+  }
+}

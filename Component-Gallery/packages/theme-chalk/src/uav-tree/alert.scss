@@ -1,0 +1,222 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+// 无人机样式弹窗
+.droneTracksWinInfoBox {
+  @include themeify(false) {
+    width: px-to-rem(364);
+    background: themed('uav-tree-point-info-background');
+    border: px-to-rem(1) solid #032a2c;
+    transform-origin: top left;
+
+    &::before {
+      position: absolute;
+      bottom: themed('uav-tree-attribute-before-bottom');
+      left: themed('uav-tree-attribute-before-left');
+      z-index: 10;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+
+      // background: url('../../assets/border-corner-l.svg') no-repeat;
+      background: themed('uav-tree-attribute-left-bottom-icon');
+      content: themed('uav-tree-attribute-content');
+    }
+
+    &::after {
+      position: absolute;
+      right: themed('uav-tree-attribute-after-left');
+      bottom: themed('uav-tree-attribute-after-bottom');
+      z-index: 10;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+
+      // background: url('../../assets/border-corner-r.svg') no-repeat;
+      background: themed('uav-tree-attribute-right-bottom-icon');
+      content: themed('uav-tree-attribute-content');
+    }
+
+    .trajectoryInfoCloseBtn {
+      position: absolute;
+      top: px-to-rem(-20);
+      right: px-to-rem(-20);
+      width: px-to-rem(38);
+      height: px-to-rem(38);
+
+      // background: url('../../assets/closeIcon@2x.png');
+      background: themed('uav-tree-attribute-close-icon');
+      background-size: 100% 100%;
+      color: transparent;
+      line-height: px-to-rem(38);
+      cursor: pointer;
+    }
+
+    .trajectoryinfo::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: px-to-rem(8);
+      height: px-to-rem(1);
+      background: #61fffb;
+      content: themed('uav-tree-attribute-name-background');
+    }
+
+    .trajectoryFlexBox {
+      position: relative;
+      display: flex;
+      padding: px-to-rem(12);
+      user-select: none;
+
+      .tlabel,
+      .tvalue {
+        margin-bottom: px-to-rem(6);
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, 'PingFang SC';
+        font-weight: 400;
+        line-height: px-to-rem(20);
+      }
+
+      .tlabel {
+        color: rgb(255 255 255 / 70%);
+        text-align: right;
+      }
+
+      .tvalue {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.trajectoryInfoBox {
+  @include themeify(false) {
+    transform-origin: bottom left;
+    width: px-to-rem(364);
+    height: px-to-rem(70);
+    background: themed('uav-tree-point-info-background');
+    font-size: px-to-rem(14);
+
+    &::after {
+      position: absolute;
+      right: themed('uav-tree-attribute-after-left');
+      bottom: themed('uav-tree-attribute-after-bottom');
+      z-index: 10;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+      background: themed('uav-tree-attribute-right-bottom-icon');
+      content: themed('uav-tree-attribute-content');
+    }
+
+    &::before {
+      position: absolute;
+      bottom: themed('uav-tree-attribute-before-bottom');
+      left: themed('uav-tree-attribute-before-left');
+      z-index: 10;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+
+      // background: url('../../assets/border-corner-l.svg') no-repeat;
+      background: themed('uav-tree-attribute-left-bottom-icon');
+      content: themed('uav-tree-attribute-content');
+    }
+
+    .trajectoryFlexBox {
+      display: flex;
+      flex-direction: row;
+      padding: px-to-rem(12);
+
+      &::before {
+        position: absolute;
+        top: px-to-rem(-1);
+        left: 0;
+        width: px-to-rem(8);
+        height: px-to-rem(1);
+        background: #00fff8;
+        content: themed('uav-tree-attribute-name-background');
+      }
+    }
+
+    .closeImg.InfoWindowCloseBtn {
+      position: absolute;
+      top: px-to-rem(-20);
+      right: px-to-rem(-20);
+      width: px-to-rem(38);
+      height: px-to-rem(38);
+
+      // background: url('../../assets/closeIcon@2x.png');
+      background: themed('uav-tree-attribute-close-icon');
+      background-size: 100% 100%;
+      line-height: px-to-rem(38);
+      cursor: pointer;
+    }
+
+    .labelBox {
+      color: rgb(255 255 255 / 70%);
+      text-align: right;
+    }
+
+    .valueBox {
+      color: #fff;
+    }
+
+    .tvalue {
+      line-height: px-to-rem(20);
+
+      & + .tvalue {
+        margin-top: px-to-rem(6);
+      }
+    }
+
+    .tlabel {
+      line-height: px-to-rem(20);
+
+      & + .tlabel {
+        margin-top: px-to-rem(6);
+      }
+    }
+  }
+}
+
+.startEndWinInfoBox {
+  @include themeify(false) {
+    padding: px-to-rem(6) px-to-rem(10);
+    min-width: px-to-rem(178);
+    background: themed('uav-tree-attribute-background');
+    border: themed('uav-tree-grid-track-pop-border');
+    border-radius: px-to-rem(4);
+    color: rgb(255 255 255 / 70%);
+    font-size: px-to-rem(12);
+    text-align: center;
+    user-select: none;
+    transform-origin: bottom center;
+    line-height: 1;
+    box-sizing: border-box;
+    font-weight: 400;
+
+    label {
+      font-weight: 400;
+    }
+
+    .triangle_wgy_wc {
+      position: absolute;
+      bottom: px-to-rem(-4);
+      left: px-to-rem(85);
+
+      // width: 0;
+      // height: 0;
+      // border: px-to-rem(6) solid;
+      // border-color: transparent transparent transparent transparent;
+      // border-top: px-to-rem(6) solid rgba(0, 19, 30, 0.7);
+      // border-right: px-to-rem(6) solid transparent;
+      // border-left: px-to-rem(6) solid transparent;
+      // border-bottom: px-to-rem(6) solid transparent;
+      width: px-to-rem(8);
+      height: px-to-rem(8);
+      background: themed('uav-tree-date-picker-panel-background');
+      border: themed('uav-tree-grid-track-pop-border');
+      transform: rotate(-45deg);
+      transform-origin: center;
+      clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    }
+  }
+}

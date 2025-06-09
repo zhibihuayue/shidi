@@ -1,0 +1,108 @@
+#user  nobody;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  365;
+
+    #gzip  on;
+    gzip  on;
+      gzip_min_length 1k;
+      gzip_buffers 4 16k;
+      gzip_http_version 1.0;
+      gzip_comp_level 2;
+      gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+      gzip_vary on;
+
+    server {
+        listen       80 default_server;
+        server_name  localhost;
+        client_max_body_size 100M;
+        location / {
+            gzip  on;
+            gzip_min_length 1k;
+            gzip_buffers 4 16k;
+            gzip_http_version 1.0;
+            gzip_comp_level 2;
+            gzip_types text/plain application/javascript application/x-javascript  text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+            gzip_vary on;
+	          root /usr/share/nginx/html/industry-11181;
+            # 用于配合 browserHistory 使用
+            try_files $uri $uri/ /index.html;
+            index  index.html index.htm;
+        }
+		location ~/industry-11181/ {
+            gzip  on;
+            gzip_min_length 1k;
+            gzip_buffers 4 16k;
+            gzip_http_version 1.0;
+            gzip_comp_level 2;
+            gzip_types text/plain application/javascript application/x-javascript  text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+            gzip_vary on;
+	          root /usr/share/nginx/html/;
+            # 用于配合 browserHistory 使用
+            try_files $uri $uri/ /index.html;
+            index  index.html index.htm;
+        }
+		
+        location /api/ {
+            add_header 'Access-Control-Allow-Origin' *;
+            add_header 'Access-Control-Allow-Credentials' 'true';
+            add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS';
+            proxy_pass http://10.43.86.213:9091/;     # 网关内网地址端口
+            proxy_set_header   X-Real-IP         $remote_addr;
+            proxy_set_header   Host              $http_host;
+            proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+            proxy_read_timeout 600;
+        }
+        location ^~ /preview/ {
+            add_header 'Access-Control-Allow-Origin' "$http_origin" always;
+            add_header 'Access-Control-Allow-Credentials' 'true' always;
+            add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS' always;
+            add_header 'Access-Control-Allow-Headers' 'Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-  Since,Keep-Alive,Origin,User-Agent,X-Requested-With' always;
+            proxy_pass  https://video-platform.obs.cn-north-4.myhuaweicloud.com/;
+        }
+	      location ^~ /iserver/services/{
+            add_header 'Access-Control-Allow-Origin' "$http_origin" always;
+            add_header 'Access-Control-Allow-Credentials' 'true' always;
+            add_header 'Access-Control-Allow-Methods' 'GET, OPTIONS' always;
+            add_header 'Access-Control-Allow-Headers' 'Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-  Since,Keep-Alive,Origin,User-Agent,X-Requested-With' always;
+            proxy_pass  http://10.43.86.213:8090/iserver/services/;
+        }
+        location /apiserver/ {                                                                                          
+            add_header 'Access-Control-Allow-Origin' "$http_origin" always;                                                            
+            add_header 'Access-Control-Allow-Credentials' 'true';                                                 
+            add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS';                                         
+            proxy_pass  http://10.43.74.79:18080/;     # 网关内网地址端口                                          
+            proxy_set_header   X-Real-IP         $remote_addr;                                                    
+            proxy_set_header   Host              $http_host;                                                      
+            proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;                                      
+            proxy_read_timeout 600;                                                                               
+          }
+       
+    }
+    
+}

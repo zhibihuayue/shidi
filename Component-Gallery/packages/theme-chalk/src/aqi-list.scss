@@ -1,0 +1,100 @@
+@import "mixins/mixins";
+@import "mixins/theme-mixins.scss";
+.common-theme {
+  // position: absolute;
+  .common-comp-aqi__wrapper {
+    ::v-deep .el-scrollbar__bar {
+      display: none;
+    }
+    top: 0;
+    left: px-to-rem(384);
+
+    .out-wrapper {
+      .custom-scrollbar{
+        height: px-to-rem(160);
+      }
+      padding: px-to-rem(12) 0;
+
+      ::v-deep .el-scrollbar__wrap {
+        margin-right: 0 !important;
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .aqiContainer {
+      padding: 0 px-to-rem(12);
+    }
+
+    .question-icon {
+      margin-left: px-to-rem(6);
+      text-shadow: none;
+      @include themeify(false) {
+        color: themed('weather-card-question-icon-color');
+      }
+      font-size: px-to-rem(22);
+    }
+
+    .aqiline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: px-to-rem(5) px-to-rem(6);
+
+      .textarea {
+        display: flex;
+        align-items: center;
+      }
+
+      .indnum {
+        display: inline-block;
+        overflow: hidden;
+        padding: 0 px-to-rem(4);
+        min-width: px-to-rem(32);
+        font-size: px-to-rem(14);
+        text-align: center;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+      }
+
+      .address {
+        display: inline-block;
+        overflow: hidden;
+        width: 13em;
+        font-size: px-to-rem(14);
+        text-overflow: ellipsis;
+        word-break: keep-all;
+      }
+
+      &:nth-child(odd) {
+        // background-color: rgb(2 136 109 / 40%);
+        @include get_bg_no_corner('global-bg-color');
+      }
+    }
+
+    .weather-air {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: px-to-rem(6);
+      width: px-to-rem(97);
+      height: px-to-rem(22);
+      font-size: px-to-rem(14);
+
+      .air-icon {
+        margin-right: px-to-rem(8);
+        width: px-to-rem(12);
+        height: px-to-rem(8);
+      }
+
+      .air-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: px-to-rem(97);
+        height: px-to-rem(22);
+        pointer-events: none;
+      }
+    }
+  }
+}

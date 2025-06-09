@@ -1,0 +1,185 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.video-item-body-label-zj{
+  @include themeify(false) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    //display: grid;
+    //padding: px-to-rem(12) px-to-rem(12) 0 px-to-rem(12);
+    //grid-template-columns: repeat(var(--column, 1), 1fr);
+    //gap: px-to-rem(12);
+    width: 100%;
+    .one_screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: grid;
+      padding: px-to-rem(12) px-to-rem(12) 0 px-to-rem(12);
+      grid-template-columns: repeat(var(--column, 1), 1fr);
+      gap: px-to-rem(12);
+      width: 100%;
+      .video-item-label{
+        height: px-to-rem(194);
+        border-radius: px-to-rem(6);
+        position: relative;
+        overflow: hidden;
+        background: black;
+
+        div {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .noScreen:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 150%;
+        height: 100%;
+        transform: scale(0.5);
+        margin-left: -25%;
+        background: url('~@component-gallery/assets/image/ar-label/logo-png.svg') no-repeat center;
+        background-size: 65%;
+      }
+    }
+    .exceed_one_screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: px-to-rem(12) px-to-rem(12) 0 px-to-rem(12);
+      width: 100%;
+      .video-item-label{
+        height: px-to-rem(194);
+        border-radius: px-to-rem(6);
+        position: relative;
+        overflow: hidden;
+        background: black;
+
+        div {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .bottom-file-btn-box {
+        display: flex;
+        margin-top: px-to-rem(12);
+        width: 100%;
+        height: px-to-rem(42);
+
+        .bottom-left-btn {
+          display: flex;
+          place-content: center center;
+          width: px-to-rem(11);
+          height: 100%;
+          background: themed('alarm-carousel-btn');
+          border-radius: px-to-rem(4);
+          color: #fff;
+          flex-wrap: wrap;
+          cursor: pointer;
+
+          &:hover {
+            background: themed('alarm-carousel-btn');
+          }
+        }
+
+        .bottom-content-box {
+          position: relative;
+          display: flex;
+          overflow: hidden;
+          width: px-to-rem(322);
+          height: 100%;
+
+          .bottom-content-box-list {
+            height: 100%;
+            display: flex;
+          }
+
+          .bottom-content-item {
+            margin: 0 px-to-rem(3);
+            width: px-to-rem(74);
+            min-width: px-to-rem(74);
+            height: 100%;
+            border-radius: px-to-rem(4);
+            position: relative;
+            line-height: 0;
+
+            .carousel-img-bottom {
+              width: px-to-rem(74);
+              height: 100%;
+              border-radius: px-to-rem(4);
+            }
+          }
+
+          .choose {
+            @if $theme-name == 'theme-wiseblue' {
+              border: 2px solid #4f9fff;
+            } @else {
+              border: 2px solid #f9ff6c;
+            }
+
+            .carousel-video-botttom {
+              width: px-to-rem(70);
+            }
+
+            .carousel-img-bottom {
+              width: px-to-rem(70);
+            }
+          }
+        }
+
+        .bottom-right-btn {
+          display: flex;
+          place-content: center center;
+          width: px-to-rem(11);
+          height: 100%;
+          background: themed('alarm-carousel-btn');
+          border-radius: px-to-rem(4);
+          color: #fff;
+          flex-wrap: wrap;
+          cursor: pointer;
+
+          &:hover {
+            background: themed('alarm-carousel-btn-hover');
+          }
+        }
+
+        .disable-btn {
+          opacity: 0.4;
+          cursor: no-drop;
+
+          &:hover {
+            background: unset !important;
+          }
+        }
+      }
+    }
+
+    //隐藏easyplayer原始动画，控制条
+    ::v-deep .easy-player {
+      .vjs-control-bar,
+      .vjs-progress-control,
+      .vjs-big-play-button,
+      .video-tools,
+      .logo,
+      .loading-text {
+        display: none !important;
+      }
+
+      .vjs-error {
+        .easy-player-loading {
+          display: none !important;
+        }
+      }
+
+      .vjs-error-display {
+        .vjs-modal-dialog-description,
+        .vjs-modal-dialog-content {
+          display: none !important;
+        }
+      }
+    }
+  }
+}

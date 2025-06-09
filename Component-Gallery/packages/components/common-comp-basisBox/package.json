@@ -1,0 +1,10 @@
+{
+  "name": "@component-gallery/basisBox",
+  "version": "0.0.1",
+  "description": "basisBox组件",
+  "dependencies": {
+    "@component-gallery/assets": "workspace:^",
+    "@component-gallery/utils": "workspace:^",
+    "@component-gallery/build-event-bus-path": "workspace:^"
+  }
+}

@@ -1,0 +1,160 @@
+@import '../mixins/px-to-rem';
+
+.statistics-card {
+
+    &-container {
+        display: flex;
+        justify-content: center;
+        padding: px-to-rem(10) 0 px-to-rem(6);
+        height: px-to-rem(132);
+
+        &.showLine {
+            margin-bottom: px-to-rem(12);
+            background: linear-gradient(270deg, rgba(176, 212, 255, 0) 0%, #B0D4FF 52%, rgba(176, 212, 255, 0) 100%) no-repeat center 100%/100% px-to-rem(1);
+        }
+    }
+    
+
+    &-item {
+        padding-top: px-to-rem(72);
+        width: px-to-rem(120);
+        text-align: center;
+        font-size: px-to-rem(16);
+        font-weight: 600;
+        color: #fff;
+        background: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_1.png') no-repeat center/100%;
+        cursor: pointer;
+
+        div,span {
+            line-height: 1;
+            font-size: px-to-rem(14);
+            font-weight: 600;
+            text-shadow: 0 0 px-to-rem(10) #177494;
+        }
+        div{
+            margin-bottom: px-to-rem(6);
+        }
+        span{
+            font-size: px-to-rem(16);
+        }
+
+        &.active {
+            background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_1_active.png');
+        }
+
+        &:nth-of-type(2) {
+            background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_2.png');
+            &.active {
+                background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_2_active.png');
+            }
+            div,span {
+                text-shadow: 0 0 px-to-rem(10) #7E5F00;
+            }
+        }
+
+        &:last-of-type {
+            background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_3.png');
+
+            &.active {
+                background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_3_active.png');
+            }
+
+            div,span {
+                text-shadow: 0 0 px-to-rem(10) #00568E;
+            }
+        }
+
+        &+& {
+            margin-left: px-to-rem(-2);
+        }
+    }
+}
+
+
+// 林业
+[data-theme="theme-aquamarine"] .statistics-card{
+
+    &-container {
+        &.showLine {
+            background-image: linear-gradient( 270deg, rgba(0,176,140,0.1) 0%, #00B08C 51%, rgba(0,176,140,0) 100%);
+        }
+    }
+    
+
+    &-item {
+        padding-top: px-to-rem(68);
+        background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_1_ly.png');
+
+        div,span {
+            text-shadow: 0 0 px-to-rem(10) #005E36;
+        }
+
+        &.active {
+            background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_1_ly_active.png');
+        }
+
+        &:nth-of-type(2) {
+            background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_2_ly.png');
+            &.active {
+                background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_2_ly_active.png');
+            }
+            div,span {
+                text-shadow: 0 0 px-to-rem(10) #7E5F00;
+            }
+        }
+
+        &:last-of-type {
+            background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_3_ly.png');
+
+            &.active {
+                background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_3_ly_active.png');
+            }
+            div,span {
+                text-shadow: 0 0 px-to-rem(10) #00568E;
+            }
+        }
+    }
+}
+
+
+// 国土
+[data-theme="theme-terracotta"] .statistics-card{
+
+    &-container {
+        &.showLine {
+            background-image: linear-gradient(90deg, rgba(255, 222, 76, 0), rgba(255, 222, 76, 1), rgba(255, 222, 76, 0));
+        }
+    }
+    
+
+    &-item {
+        background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_1_gt.png');
+        div,span {
+            text-shadow: 0 0 px-to-rem(10) #655B00;
+        }
+
+        &.active {
+            background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_1_gt_active.png');
+        }
+
+        &:nth-of-type(2) {
+            background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_2_gt.png');
+            div,span {
+                text-shadow: 0 0 px-to-rem(10) #FFAB10;
+            }
+            &.active {
+                background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_2_gt_active.png');
+            }
+        }
+
+        &:last-of-type {
+            background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_3_gt.png');
+            div,span {
+                text-shadow: 0 0 px-to-rem(10) #655B00;
+            }
+            &.active {
+                background-image: url('~@component-gallery/assets/image/disease-and-pest-monitoring-statistics/card_bg_3_gt_active.png');
+            }
+        }
+    }
+}

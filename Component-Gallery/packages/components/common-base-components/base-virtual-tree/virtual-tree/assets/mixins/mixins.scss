@@ -1,0 +1,87 @@
+@import 'function';
+@import '../common/var';
+
+/* Placeholder
+ -------------------------- */
+
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+
+  &::placeholder {
+    @content;
+  }
+
+  &::input-placeholder {
+    @content;
+  }
+}
+
+/* BEM
+ -------------------------- */
+
+@mixin b($block) {
+  $b: $namespace + '-' + $block !global;
+  .#{$b} {
+    @content;
+  }
+}
+
+@mixin e($element) {
+  $e: $element !global;
+  $selector: &;
+  $current-selector: '';
+
+  @each $unit in $element {
+    $current-selector: #{$current-selector +
+      '.' +
+      $b +
+      $element-separator +
+      $unit +
+      ','};
+  }
+
+  @if hit-all-special-nest-rule($selector) {
+    @at-root {
+      #{$selector} {
+        #{$current-selector} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @at-root {
+      #{$current-selector} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin m($modifier) {
+  $selector: &;
+  $current-selector: '';
+
+  @each $unit in $modifier {
+    $current-selector: #{$current-selector +
+      & +
+      $modifier-separator +
+      $unit +
+      ','};
+  }
+
+  @at-root {
+    #{$current-selector} {
+      @content;
+    }
+  }
+}
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}

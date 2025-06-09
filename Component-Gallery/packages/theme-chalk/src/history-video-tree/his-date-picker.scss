@@ -1,0 +1,195 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/bem-mixins.scss';
+
+@function px-to-rem($px) {
+  @return calc($px * 1rem / 100);
+}
+.his-datepicker {
+  right: px-to-rem(32);
+  left: unset !important;
+  border-radius: px-to-rem(4) !important;
+  width: px-to-rem(500) !important;
+}
+.his-datepicker.el-popper[x-placement^=top] {
+  margin-bottom: px-to-rem(6) !important;
+}
+.his-datepicker.el-picker-panel.el-date-range-picker {
+  @include themeify(false) {
+    @if $theme-name == "theme-terracotta" {
+      .el-input .el-input__inner:not([readonly], [disabled]):hover{
+        border-color: rgba(255, 238, 177, 1) !important;
+      }
+      .el-input__inner:not([readonly], [disabled]):focus{
+        border-color: rgba(255, 238, 177, 1) !important;
+      }
+    }
+  }
+
+  .el-time-panel {
+    right: 0 !important;
+    left: unset;
+    border-radius: px-to-rem(4);
+    @include themeify(false) {
+      @if $theme-name == "theme-terracotta" {
+        background: rgba(23,20,11,0.9);
+      }
+    }
+    .el-time-panel__content {
+      &::before {
+        border-top: px-to-rem(1) solid rgb(232 243 254 / 20%);
+        border-bottom: px-to-rem(1) solid rgb(232 243 254 / 20%);
+
+        @if $theme-name == 'theme-aquamarine' {
+          border-top: px-to-rem(1) solid rgb(255 255 255 / 20%);
+          border-bottom: px-to-rem(1) solid rgb(255 255 255 / 20%);
+        }
+
+        @if $theme-name == 'theme-terracotta' {
+          border-top: px-to-rem(1) solid rgb(228 231 193 / 20%);
+          border-bottom: px-to-rem(1) solid rgb(228 231 193 / 20%);
+        }
+      }
+
+      &::before {
+        height: 32px !important;
+      }
+
+      &::after {
+        height: 32px !important;
+        border: 0;
+      }
+
+      .el-time-spinner__item {
+        height: 32px !important;
+        color: #e8f3fe;
+        font-size: px-to-rem(14) !important;
+        line-height: 32px !important;
+        @include themeify(false) {
+          @if $theme-name == 'theme-aquamarine' {
+            color: #fff;
+          }
+  
+          @if $theme-name == 'theme-terracotta' {
+            color: #e4e7c1;
+          }
+  
+          &:not(.disabled, .active):hover {
+            background: rgb(79 159 255 / 40%);
+  
+            @if $theme-name == 'theme-aquamarine' {
+              background: rgb(2 137 109 / 40%);
+            }
+  
+            @if $theme-name == 'theme-terracotta' {
+              background: rgb(159 152 83 / 40%);
+            }
+          }
+  
+          &.active {
+            font-weight: normal;
+            color: #4f9fff;
+  
+            @if $theme-name == 'theme-aquamarine' {
+              color: #02896d;
+            }
+  
+            @if $theme-name == 'theme-terracotta' {
+              color: #fffa28;
+            }
+          }
+        }
+      }
+    }
+    .el-time-panel__footer{
+      display: flex;
+      flex-direction: row-reverse;
+      padding: px-to-rem(12) px-to-rem(7) px-to-rem(12) px-to-rem(12);
+      height: auto;
+    }
+    @include themeify(false) {
+      @if $theme-name != "theme-wiseblue" {
+        .el-time-panel__btn {
+          width: px-to-rem(48);
+          height: px-to-rem(24);
+          line-height: px-to-rem(24);
+          border-radius: px-to-rem(3);
+        }
+        .el-time-panel__btn.cancel {
+          border-color: transparent;
+        }
+      }
+      @if $theme-name == "theme-aquamarine" {
+        background: linear-gradient(
+          180deg,
+          rgb(0 67 63 / 85%),
+          rgb(0 19 30 / 74%) 21%,
+          #00131e
+        );
+        border: 1px solid #075b4a;
+        .el-time-panel__btn.cancel::before {
+          border: 0 !important;
+        }
+      }
+      @if $theme-name == "theme-terracotta" {
+        .el-time-panel__footer{
+          border-top-color: rgb(228 231 193 / 20%);
+        } 
+      }
+    }
+  }
+
+  .el-picker-panel__footer {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: px-to-rem(12);
+    .el-button + .el-button{
+      margin-right: px-to-rem(10);
+    }
+    @include themeify(false) {
+      @if $theme-name == "theme-terracotta" {
+        background-color: transparent !important;
+        border-top-color: rgb(228 231 193 / 20%);
+        .el-picker-panel__link-btn {
+          padding: 0;
+          width: px-to-rem(48);
+          height: px-to-rem(24);
+          text-align: center;
+          line-height: px-to-rem(24);
+        }
+        .el-picker-panel__link-btn.el-button--text{
+          border-color: transparent !important;
+        }
+      }
+      @if $theme-name == "theme-aquamarine" {
+        background-color: transparent !important;
+        border-top-color: rgb(255 255 255 / 20%);
+        .el-button--text::before {
+          border: 0 !important;
+        }
+      }
+      .el-picker-panel__link-btn {
+        padding: 0 !important;
+        width: px-to-rem(48);
+        height: px-to-rem(24);
+        text-align: center;
+        line-height: px-to-rem(24);
+        font-size: px-to-rem(12);
+      }
+    }
+  }
+  .el-date-range-picker__time-header {
+    padding: px-to-rem(12) 0;
+    @include themeify(false) {
+      @if $theme-name == "theme-terracotta" {
+        border-bottom-color: rgb(228 231 193 / 20%);
+      }
+      @if $theme-name != "theme-wiseblue" {
+        .el-icon-arrow-right {
+          color: transparent;
+        }
+      }
+    }
+  }
+}

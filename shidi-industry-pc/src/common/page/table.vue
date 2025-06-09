@@ -1,0 +1,246 @@
+// 表格组件
+<template>
+    <div class="table">
+        <div v-if="tableType=='default'" class="defaultTable">
+            <el-table
+                :data="tableData"
+                height="100%"
+                :key="keyIndex"
+                header-row-class-name="headerRowStyle">
+                <template slot="empty">
+                    <div class="empty">
+                        <img src="@/assets/image/newCommon/imgIcon4.png" alt="">
+                        <p class="text">暂无数据</p>
+                    </div>
+                </template>
+                <el-table-column
+                    v-for="(item,index) in tableHeadList"
+                    :key="index"
+                    :label="item.label"
+                    :prop="item.prop"
+                    :align="item.align||'center'"
+                    :width="item.width||'auto'">
+                </el-table-column>
+            </el-table>
+        </div>
+        
+        <div  v-else  class="otherTable">
+            <el-table
+                :data="tableData"
+                height="100%"
+                :key="keyIndex"
+                header-row-class-name="headerRowStyle">
+                <template slot="empty">
+                    <div class="empty">
+                        <img src="@/assets/image/newCommon/imgIcon4.png" alt="">
+                        <p class="text">暂无数据</p>
+                    </div>
+                </template>
+                <el-table-column
+                    fixed
+                    align="left">
+                    <template slot="header">
+                        <div class="elHeadCon" >
+                            <div class="headerCon1">{{timeHandle[1]}}2029</div>
+                            <div class="headerCon2">{{timeHandle[0]}}2098</div>
+                            <div class="headerLine"></div>
+                        </div>
+                    </template>
+                    <template slot-scope="scope">
+                        <p>{{scope.row.type}}</p>
+                    </template>
+                </el-table-column>
+                <el-table-column
+                    v-for="(item,index) in tableHeadList"
+                    :key="index"
+                    :label="item.label"
+                    :prop="item.prop"
+                    :align="item.align||'center'"
+                    :width="item.width||'auto'">
+                </el-table-column>
+            </el-table>
+        </div>
+        
+    </div>
+</template>
+
+<script>
+export default {
+    props:{
+        tableHeadList:{
+            type:Array,
+            default:[]
+        },
+        tableData:{
+            type:Array,
+            default:[]
+        },
+        timeList:{
+            type:Array,
+            default:()=>{
+                return []
+            }
+        },
+        tableType:{
+            type:String,
+            default:'default'
+        }
+    },
+    watch:{
+        timeList:{
+            handler(val){
+                this.keyIndex+=1
+            },
+            deep:true
+        }
+    },
+    computed:{
+        timeHandle(){
+            return this.timeList
+        }
+    },
+    data(){
+        return{
+            keyIndex:0
+        }
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+    @import '~@/assets/styles/px-to-rem';
+    .table{
+        height:100%;
+        width: 100%;
+        box-sizing: border-box;
+        .defaultTable{
+            height:100%;
+            width: 100%;
+            ::v-deep .el-table{
+                .headerRowStyle{
+                    .cell{
+                        line-height: px-to-rem(32);
+                    }
+                }
+                .el-table__row{
+                    .el-table__cell{
+                        padding: px-to-rem(7.1) 0;
+                    }
+                }
+            }
+        }
+        .otherTable{
+            height:100%;
+            width: 100%;
+            ::v-deep .el-table{
+                .el-table__fixed{
+                    background: #01393f;
+                    &::before{
+                        height: 0;
+                    }
+                }
+                .headerRowStyle{
+                    .is-hidden{
+                        .cell{
+                            padding-right: 0;
+                        }
+                    }
+                    .cell{
+                        height: px-to-rem(56);
+                        line-height: px-to-rem(56) ;
+                    }
+                }
+                .el-table__row{
+                    .el-table__cell{
+                        line-height: px-to-rem(56.5) ;
+                        height: px-to-rem(56.5);
+                    }
+                }
+            }
+        }
+        ::v-deep .el-table{
+            .headerRowStyle{
+                background: rgba(2, 137, 109, 0.2);;
+                color:#fff;
+            }
+            .el-table__row{
+                background: transparent;
+                color:#fff;
+                .el-table__cell{
+                    font-size:px-to-rem(12);
+                }
+            }
+            background: transparent;
+            .el-table__header{
+                width:auto !important
+            }
+            th{
+                padding:0;
+            }
+            .el-table__cell{
+                background: transparent;
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+                .cell{
+                    font-size: px-to-rem(14);
+                    white-space: nowrap;
+                }
+            }
+            &::before{
+                display: none;
+            }
+            .el-table__row:hover td{
+                background: transparent;
+                color:#fff;
+            }
+            .title{
+                font-size: px-to-rem(14);
+                white-space: nowrap;
+                .unit{
+                    color:#fff;
+                }
+            }
+            .el-table__empty-block{
+                width: auto !important;
+            }
+            .empty{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width:px-to-rem(68)
+                }
+                .text{
+                    line-height: px-to-rem(24);
+                    color:#fff
+                }
+            }
+        }
+        .elHeadCon {
+            white-space: nowrap;
+            height: px-to-rem(56);
+            font-size: px-to-rem(14);
+            position: relative;
+            width:80px
+        }
+        .headerCon1 {
+            position: absolute;
+            left:0;
+            bottom: px-to-rem(-12);
+        }
+        .headerCon2 {
+            position: absolute;
+            right: px-to-rem(10);
+            top: px-to-rem(-12);
+        }
+        .headerLine {
+            width: 0.01rem;
+            height: 1.1rem;
+            transform: rotate(-58deg) translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            top: -49%;
+            left: 45%;
+        }
+    }
+</style>

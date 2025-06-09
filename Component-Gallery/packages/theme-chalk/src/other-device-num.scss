@@ -1,0 +1,362 @@
+@import "mixins/mixins";
+@import "mixins/theme-mixins";
+@import "mixins/px-to-rem";
+
+.other-device-num {
+  width: px-to-rem(370);
+
+  &-content {
+    display: grid;
+    margin-top: px-to-rem(12);
+    grid-template-columns: repeat(2, px-to-rem(179));
+    grid-template-rows: repeat(2, px-to-rem(118));
+    gap: px-to-rem(12);
+
+    .card {
+      display: flex;
+      align-items: center;
+      width: px-to-rem(179);
+      height: px-to-rem(118);
+      cursor: pointer;
+
+      &.wildcamera {
+        justify-content: space-between;
+
+        .icon {
+          margin-right: 0;
+        }
+
+        .text {
+          margin-right: px-to-rem(12);
+          max-width: none;
+          white-space: nowrap;
+        }
+      }
+
+      .icon {
+        margin-top: px-to-rem(13);
+        margin-right: px-to-rem(12);
+        margin-left: px-to-rem(6);
+        width: px-to-rem(71);
+        height: px-to-rem(92);
+      }
+
+      .text {
+        max-width: px-to-rem(84);
+
+        .label {
+          height: fit-content;
+          font-size: px-to-rem(14);
+          font-family: PingFangSC, "PingFang SC";
+          font-weight: 400;
+          line-height: px-to-rem(14);
+        }
+
+        .value {
+          margin-top: px-to-rem(12);
+          font-size: px-to-rem(24);
+          font-family: PingFangSC, "PingFang SC";
+          font-weight: 400;
+          line-height: px-to-rem(24);
+        }
+      }
+    }
+  }
+}
+
+// 通用换肤
+[data-theme="theme-wiseblue"] .other-device-num {
+  &-content {
+    .card {
+      color: #FFF;
+
+      &.wildcamera {
+        background-image: url('~@component-gallery/assets/image/other-device-num/wiseblue/wildcamera-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/wiseblue/wildcamera-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #00EDFF;
+            color: #FFF;
+          }
+
+          .value {
+            text-shadow: 0 0 px-to-rem(5) #00EDFF;
+            color: #FFF;
+          }
+        }
+      }
+
+      &.trap {
+        background-image: url('~@component-gallery/assets/image/other-device-num/wiseblue/trap-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/wiseblue/trap-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #FF703D;
+            color: #FFF;
+          }
+
+          .value {
+            text-shadow: 0 0 px-to-rem(5) #FF703D;
+            color: #FFF;
+          }
+        }
+      }
+
+      &.horn {
+        background-image: url('~@component-gallery/assets/image/other-device-num/wiseblue/horn-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/wiseblue/horn-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #43C88F;
+            color: #FFF;
+          }
+
+          .value {
+            text-shadow: 0 0 px-to-rem(5) #43C88F;
+            color: #FFF;
+          }
+        }
+      }
+
+      &.recorder {
+        background-image: url('~@component-gallery/assets/image/other-device-num/wiseblue/recorder-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/wiseblue/recorder-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            width: 5em;
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #0090FF;
+            color: #FFF;
+            line-height: px-to-rem(20);
+          }
+
+          .value {
+            text-shadow: 0 0 px-to-rem(5) #0090FF;
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 林业换肤
+[data-theme="theme-aquamarine"] .other-device-num {
+  &-content {
+    .card {
+      color: #FFF;
+
+      &.wildcamera {
+        background-image: url('~@component-gallery/assets/image/other-device-num/aquamarine/wildcamera-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/aquamarine/wildcamera-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            text-shadow: px-to-rem(0) px-to-rem(2) px-to-rem(4) #00EDFF;
+            color: #FFF;
+          }
+
+          .value {
+            text-shadow: px-to-rem(0) px-to-rem(0) px-to-rem(5) #00EDFF;
+            color: #FFF;
+          }
+        }
+      }
+
+      &.trap {
+        background-image: url('~@component-gallery/assets/image/other-device-num/aquamarine/trap-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/aquamarine/trap-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #FF703D;
+            color: #FFF;
+          }
+
+          .value {
+            text-shadow: 0 0 px-to-rem(5) #FF703D;
+            color: #FFF;
+          }
+        }
+      }
+
+      &.horn {
+        background-image: url('~@component-gallery/assets/image/other-device-num/aquamarine/horn-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/aquamarine/horn-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #43C88F;
+            color: #FFF;
+          }
+
+          .value {
+            text-shadow: 0 0 px-to-rem(5) #43C88F;
+            color: #FFF;
+          }
+        }
+      }
+
+      &.recorder {
+        background-image: url('~@component-gallery/assets/image/other-device-num/aquamarine/recorder-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/aquamarine/recorder-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            width: 5em;
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #0090FF;
+            color: #FFF;
+            line-height: px-to-rem(20);
+          }
+
+          .value {
+            text-shadow: 0 0 px-to-rem(5) #0090FF;
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 国土换肤
+[data-theme="theme-terracotta"] .other-device-num {
+  &-content {
+    .card {
+      color: #FFF;
+
+      &.wildcamera {
+        background-image: url('~@component-gallery/assets/image/other-device-num/terracotta/wildcamera-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/terracotta/wildcamera-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #43C88F;
+            color: #FFF;
+          }
+
+          .value {
+            text-shadow: 0 px-to-rem(0) px-to-rem(5) #43C88F;
+            color: #FFF;
+          }
+        }
+      }
+
+      &.trap {
+        background-image: url('~@component-gallery/assets/image/other-device-num/terracotta/trap-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/terracotta/trap-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #DCD277;
+            color: #FFF;
+          }
+
+          .value {
+            text-shadow: 0 0 px-to-rem(5) #DCD277;
+            color: #FFF;
+          }
+        }
+      }
+
+      &.horn {
+        background-image: url('~@component-gallery/assets/image/other-device-num/terracotta/horn-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/terracotta/horn-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #FF7F3D;
+            color: #FFF;
+          }
+
+          .value {
+            text-shadow: 0 0 px-to-rem(5) #FF7F3D;
+            color: #FFF;
+          }
+        }
+      }
+
+      &.recorder {
+        background-image: url('~@component-gallery/assets/image/other-device-num/terracotta/recorder-bg.png');
+        background-size: 100% 100%;
+
+        .icon {
+          background-image: url('~@component-gallery/assets/image/other-device-num/terracotta/recorder-icon.png');
+          background-size: 100% 100%;
+        }
+
+        .text {
+          .label {
+            width: 5em;
+            text-shadow: 0 px-to-rem(2) px-to-rem(4) #FF8458;
+            color: #FFF;
+            line-height: px-to-rem(20);
+          }
+
+          .value {
+            text-shadow: 0 0 px-to-rem(5) #FF8458;
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
+}

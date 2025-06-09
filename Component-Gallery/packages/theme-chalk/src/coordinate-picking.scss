@@ -1,0 +1,62 @@
+@import "mixins/px-to-rem";
+
+.dia-padding {
+  padding: 0 px-to-rem(12);;
+
+  .mt-6 {
+    margin-top: px-to-rem(6);;
+  }
+}
+
+.dialog-content {
+  display: flex;
+  justify-content: center;
+  min-height: px-to-rem(112);
+  flex-direction: column;
+
+  .dialog-content-inner {
+    display: flex;
+    align-items: center;
+
+    + .dialog-content-inner {
+      margin-top: px-to-rem(12);
+    }
+  }
+}
+
+.content-text {
+  width: px-to-rem(50);
+  color: var(--iw-text-color);
+  font-size: px-to-rem(14);
+  font-family: PingFangSC-Regular, "PingFang SC";
+  text-align: right;
+  white-space: nowrap;
+  font-weight: 400;
+  line-height: px-to-rem(14);
+}
+
+::v-deep .input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-left: px-to-rem(12);
+
+  .el-input__inner {
+    height: px-to-rem(32);
+    border-radius: 4px;
+    font-size: px-to-rem(14);
+    padding-left: px-to-rem(12);
+  }
+}
+
+.input,
+.input_altitude{
+  height: px-to-rem(32);
+}
+
+.copy-button {
+  margin-left: px-to-rem(12);
+  width: px-to-rem(108);
+  height: px-to-rem(32);
+  flex-shrink: 0;
+}

@@ -1,0 +1,413 @@
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.wildlife-details-dialog {
+  &-body {
+    max-height: none;
+    padding-top: px-to-rem(12);
+    &__toparea {
+      display: flex;
+      width: px-to-rem(600);
+      padding: 0 px-to-rem(12);
+
+      .imageArea {
+        width: px-to-rem(260);
+        margin-right: px-to-rem(12);
+        background: rgba(2,137,109,0.05);
+        border-radius: px-to-rem(8);
+        border: px-to-rem(1) solid rgba(2, 137, 109, 0.5);
+        .carousel {
+          position: relative;
+          &.never {
+            ::v-deep .el-carousel__arrow {
+              opacity: 0;
+            }
+          }
+          ::v-deep .el-carousel__arrow {
+              width: px-to-rem(24)!important;
+              height: px-to-rem(24)!important;
+              background: rgba(2,50,32,0.7)!important;
+              i{
+                font-weight: 700;
+                font-size: px-to-rem(14);
+              }
+            }
+          .carouselpage {
+            width: px-to-rem(258);
+            height: px-to-rem(145);
+            cursor: pointer;
+            position: relative;
+            img, video {
+              width: 100%;
+              height: 100%;
+              border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+              object-fit: cover;
+            }
+            .playicon {
+              position: absolute;
+              left: calc(50% - px-to-rem(25));
+              top: calc(50% - px-to-rem(25));
+              font-size: px-to-rem(50);
+            }
+          }
+
+          .footerlabel {
+            position: absolute;
+            z-index: 10;
+            left: 0;
+            bottom: 0;
+            height: px-to-rem(24);
+            padding: 0 px-to-rem(6);
+            background: rgba(5, 15, 23, 0.7);
+            border-radius: 0 px-to-rem(4) 0 0;
+            font-size: px-to-rem(12);
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: px-to-rem(24);
+          }
+
+        }
+        .submsg {
+            padding: px-to-rem(12);
+            .srow {
+              display: flex;
+              align-items: center;
+              margin-bottom: px-to-rem(6);
+
+              .iconfont_tools {
+                font-size: px-to-rem(12);
+              }
+            }
+
+            .line {
+              word-break: keep-all;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              font-size: px-to-rem(12);
+              font-family: PingFangSC, PingFang SC;
+              font-weight: 400;
+              color: #FFFFFF;
+              margin-left: px-to-rem(6);
+            }
+
+            .createmsg {
+              display: flex;
+              padding-left: px-to-rem(18);
+              font-size: px-to-rem(12);
+              font-family: PingFangSC, PingFang SC;
+              font-weight: 400;
+              color: rgba(255,255,255,0.7);
+            }
+          }
+      }
+
+      .profile {
+        flex: 1;
+        width: px-to-rem(200);
+        .name {
+          font-size: px-to-rem(18);
+          font-family: PingFangSC, PingFang SC;
+          font-weight: 500;
+          color: #0DC985;
+          display: flex;
+          align-items: baseline;
+          span {
+            max-width: 50%;
+            text-overflow: ellipsis;
+            word-break: keep-all;
+            white-space: nowrap;
+            overflow: hidden;
+            font-weight: 400;
+            flex-shrink: 0;
+
+            + span {
+              max-width: none;
+              flex-shrink: 1;
+              font-size: px-to-rem(12);
+              margin-left: px-to-rem(12);
+            }
+          }
+        }
+        .diminsion {
+          margin-top: px-to-rem(12);
+          font-size: px-to-rem(12);
+          line-height: px-to-rem(15);
+          padding: px-to-rem(3) px-to-rem(14);
+          width: fit-content;
+          font-family: PingFangSC, PingFang SC;
+          color: #F9FF6C;
+          background: rgba(249,255,108,0.1);
+          position: relative;
+          .box {
+            display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            left: px-to-rem(1);
+            top: calc(50% - px-to-rem(6));
+            width: px-to-rem(2);
+            height: px-to-rem(12);
+            background: #F9FF6C;
+            box-shadow: 0 0 px-to-rem(6) 0 rgba(249,255,108,0.5);
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: calc(50% - px-to-rem(6));
+            width: px-to-rem(2);
+            height: px-to-rem(12);
+            background: #F9FF6C;
+            box-shadow: 0 0 px-to-rem(6) 0 rgba(249,255,108,0.5);
+          }
+        }
+        .attr {
+          margin-top: px-to-rem(12);
+          font-size: px-to-rem(14);
+          font-family: PingFangSC, PingFang SC;
+          color: #FFFFFF;
+          label {
+            color: rgba(255,255,255,0.7);
+            display: inline-block;
+            width: 7em;
+            text-align: right;
+            font-weight: 400;
+          }
+        }
+      }
+    }    
+    &__divider {
+      height: px-to-rem(1);
+      opacity: 0.2;
+      border: px-to-rem(1) solid #FFFFFF;
+      margin: px-to-rem(12);      
+    }
+    &__intro {
+      padding: 0 px-to-rem(12) px-to-rem(12) px-to-rem(12);
+      .title {
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 500;
+        color: #FFFFFF;
+        text-shadow: 0 0 px-to-rem(10) rgba(0,245,193,0.94);
+        margin-bottom: px-to-rem(12);
+      }
+      .desc {
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 400;
+        color: rgba(255,255,255,0.7);
+        line-height: px-to-rem(20);
+
+      }      
+    }
+
+  }
+  &-title {
+    display: flex;
+    align-items: center;
+    padding: 0 px-to-rem(12);
+    margin-right: px-to-rem(-12);
+    margin-left: px-to-rem(-12);
+    height: 100%;
+    > h4 {
+      overflow: hidden;
+      font-size: px-to-rem(16);
+      line-height: 1;
+      text-align: left;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
+      font-weight: 700;
+    }
+    .deviceicon {
+      margin-right: px-to-rem(10);
+      font-size: px-to-rem(20);
+      line-height: 1;
+    }
+  }
+}
+// 通用
+[data-theme="theme-wiseblue"] .wildlife-details-dialog {
+  ::v-deep .innercomp-abcontainer {
+    &-header {
+      padding: 0;
+      &::before {
+        width: 0!important;
+        height: 0!important;
+      }
+    }
+  }
+  &-body {
+
+    &__toparea {
+
+      .imageArea {
+        background: rgba(23, 37, 55, 0.2);
+        border: px-to-rem(1) solid rgba(232,243,254,0.3);
+
+        .carousel {
+
+          ::v-deep .el-carousel__arrow {
+              background: rgba(23,37,55,0.8)!important;
+              i {
+                color: #E8F3FE;
+              }
+            }
+          .footerlabel {
+            background: rgba(23,37,55,0.7);
+            color: #E8F3FE;
+          }
+        }
+        .submsg {
+            .line {
+              color: #E8F2FE;
+            }
+            .createmsg {
+              color: rgba(232, 243, 254, 0.7);
+            }
+          }
+      }
+      .profile {
+        .name {
+          color: #FFFFFF;
+        }
+        .diminsion {
+          color: #FFEEB1;
+          border-radius: 4px;
+          background: rgba(251,145,60,0.2);
+          &::before {
+            display: none;   
+          }
+          &::after {
+             display: none;   
+          }
+        }
+        .attr {
+          color: #E8F3FE;
+          label {
+            color: rgba(232,243,254,0.7);
+          }
+        }
+      }
+    }    
+    &__divider {
+      border: px-to-rem(1) solid rgba(228,231,193);
+    }
+    &__intro {
+      .title {
+        text-shadow: 0 0 px-to-rem(10) rgba(74,141,254,0.7);
+      }
+      .desc {
+        color: rgba(232,243,254,0.7);
+        line-height: px-to-rem(20);
+      }      
+    }
+
+  }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .wildlife-details-dialog {
+  &-title {
+    .leftIcon {
+      display: none;
+    }
+    h4 {
+      margin-left: px-to-rem(14);
+    }
+  }
+}
+
+// 国土
+[data-theme="theme-terracotta"] .wildlife-details-dialog {
+  &.innercomp-abcontainer.highlight-title  {
+    background:linear-gradient(180deg, rgba(163, 144, 69, 0.48), rgba(105, 95, 42, 0.16) px-to-rem(35), rgba(98, 88, 38, 0) px-to-rem(100)) rgba(0, 0, 0, 0.81);
+  }
+  ::v-deep .innercomp-abcontainer {
+    &-header {
+      border-bottom: none!important;
+      padding: 0;
+      &::before {
+        width: 0!important;
+        height: 0!important;
+      }
+      span::after {
+        display: none;
+      }
+    }
+  }
+  &-body {
+
+    &__toparea {
+
+      .imageArea {
+        background: rgba(122,113,61,0.1);
+        border: px-to-rem(1) solid #CCC256;
+        .carousel {
+
+          ::v-deep .el-carousel__arrow {
+              background: rgba(21,19,12,0.7)!important;
+              i {
+                color: #FFEEB1;
+              }
+            }
+          .footerlabel {
+            opacity: .9;
+            background: rgba(0,0,0,0.8);
+            color: #E4E7C1;
+          }
+        }
+        .submsg {
+            .line {
+              color: #E4E7C1;
+            }
+            .createmsg {
+              color: rgba(228,231,193,0.7);
+            }
+          }
+      }
+      .profile {
+        .name {
+          color: #E4E7C1;
+        }
+        .diminsion {
+          color: #FFEEB1;
+          border-radius: 4px;
+          background: rgba(255,224,72,0.2);
+          &::before {
+            display: none;   
+          }
+          &::after {
+             display: none;   
+          }
+        }
+        .attr {
+          color: #E4E7C1;
+          label {
+            color: rgba(228,231,193,0.7);
+          }
+        }
+      }
+    }    
+    &__divider {
+      border: px-to-rem(1) solid rgba(228,231,193);
+    }
+    &__intro {
+      .title {
+        text-shadow: 0 px-to-rem(1) px-to-rem(4) #DCD277;
+      }
+      .desc {
+        color: rgba(228,231,193,0.7);;
+        line-height: px-to-rem(20);
+      }      
+    }
+
+  }
+}

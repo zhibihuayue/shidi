@@ -1,0 +1,57 @@
+@import '../common/themes';
+@import 'theme-mixins';
+
+@mixin el_checkbox_styles() {
+  @include themeify(false) {
+    ::v-deep .el-checkbox {
+      .el-checkbox__inner {
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        @if $theme-name == 'theme-aquamarine' {
+          box-shadow: themed('cg-button-default-box-shadow');
+          background: themed('checkbox-default-background');
+          border: 1px solid #fff0;
+        }
+        @if $theme-name == 'theme-terracotta' {
+          border: 1px solid;
+          border-color: themed('checkbox-is-checked-background');
+          background: themed('checkbox-default-background');
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          border: 1px solid;
+          border-color: themed('checkbox-is-checked-background');
+          background: themed('checkbox-default-background');
+        }
+
+        &::after {
+          height: 7px !important;
+          left: 4px !important;
+          border-bottom: 3px solid #fff !important;
+          border-right: 3px solid #fff !important;
+          border-radius: 1px;
+          width: 3px !important;
+        }
+      }
+
+      .el-checkbox__label {
+        color: map-get($theme-map, 'default-color');
+        font-weight: 400;
+      }
+
+      &.is-checked {
+        .el-checkbox__inner {
+          box-shadow: themed('cg-button-default-box-shadow');
+          background: themed('checkbox-is-checked-background');
+        }
+
+        .el-checkbox__label {
+          color: map-get(
+            $theme-map,
+            'search-select-dropdown-selected-text-color'
+          );
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+
+@import '../mixins/theme-mixins';
+
+.el-tooltip__popper.is-dark {
+    @include themeify(false) {
+    color: themed('global-text-color');
+    background: themed('alarm-repeat-tooltip-bg');
+    }
+}

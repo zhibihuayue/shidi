@@ -1,0 +1,61 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.scale_panel {
+  @include themeify(false) {
+    padding: px-to-rem(7) 0;
+    margin-left: px-to-rem(7);
+    width: px-to-rem(330);
+    color: #fff;
+    font-size: px-to-rem(12);
+    line-height: px-to-rem(18);
+  
+    .scale {
+      position: relative;
+      height: px-to-rem(4);
+      background-position: 0 100%;
+      background-repeat: repeat-x;
+      background-color: themed('fire-warning-bg-scale');
+      border-radius: px-to-rem(3);
+      font-size: 0;
+      border-left: px-to-rem(1) themed('fire-warning-bg-scale-passed') solid;
+  
+      .dp-btn {
+        position: absolute;
+        top: px-to-rem(-5);
+        left: px-to-rem(-2);
+        width: px-to-rem(14);
+        height: px-to-rem(14);
+        background: url('~@component-gallery/assets/image/fire-warn/slider.png') center/cover no-repeat;
+        cursor: e-resize;
+      }
+  
+      .dp-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: px-to-rem(4);
+        background-repeat: repeat-x;
+        background-color: themed('fire-warning-bg-scale-passed');
+        border-width: px-to-rem(6);
+      }
+  
+      .progress-popover {
+        transform-origin: center bottom !important;
+        z-index: 2014 !important;
+  
+        .progress-popper__arrow,
+        .progress-popper__arrow::after {
+          position: absolute;
+          display: block;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-color: transparent;
+        }
+      }
+    }
+  }
+}

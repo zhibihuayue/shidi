@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="30px" viewBox="0 0 22 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>分组 4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="新增" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="日常管理-巡查历史查看" transform="translate(-1117.000000, -828.000000)">
+            <g id="分组-3" transform="translate(892.000000, 661.000000)">
+                <g id="分组-4" transform="translate(220.000000, 165.000000)">
+                    <g id="定位-copy-3" fill-rule="nonzero">
+                        <g id="Group">
+                            <rect id="Rectangle" fill="#000000" opacity="0" x="0" y="0" width="32" height="32"></rect>
+                            <path d="M10.8605946,30.636677 C10.8605946,31.3896195 13.1676204,32 16.013481,32 C18.8593417,32 21.1663675,31.3896195 21.1663675,30.636677 C21.1663675,29.8837345 18.8593417,29.2733541 16.013481,29.2733541 C13.1676204,29.2733541 10.8605946,29.8837345 10.8605946,30.636677 L10.8605946,30.636677 Z" id="Path" fill="#AAAAAA"></path>
+                            <path d="M16.3562882,30.3223581 C16.8148016,29.4659665 16.8802009,27.6128572 18.5216503,24.3094885 C20.4865027,20.3561888 26.0404088,18.7461322 26.2437933,12.3616336 C26.2437933,12.3616336 26.4615513,2.22492449 16.1155326,2.00604275 L16.1122986,2.00604275 C16.0379159,2.00604275 15.968564,2 15.8884319,2 L15.8884319,2.01174979 C5.34693416,2.61803879 5.75945256,12.4170255 5.75945256,12.4170255 C5.58768966,17.3418648 11.608374,21.2051948 13.4672221,24.3658875 C14.1837392,25.5841726 15.2811531,28.9029839 15.6433644,30.415685" id="Path" fill="#FF6A6C"></path>
+                        </g>
+                    </g>
+                    <text id="终" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" letter-spacing="0.5714286" fill="#FFFFFF">
+                        <tspan x="10.4285714" y="16">终</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

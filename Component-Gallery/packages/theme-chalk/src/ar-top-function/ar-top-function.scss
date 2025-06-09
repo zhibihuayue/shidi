@@ -1,0 +1,272 @@
+@import "../mixins/px-to-rem";
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/theme-tooltip-mixins';
+@import '../mixins/bem-mixins.scss';
+
+.ar-container{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  .ar-top-container {
+    height: 100%;
+    width: 100%;
+    @include themeify(false) {
+      &-buttons {
+        position: absolute;
+        top: px-to-rem(30);
+        right: px-to-rem(83);
+        z-index: 902;
+        pointer-events: none;
+        display: flex;
+        &.left {
+          right: px-to-rem(485);
+        }
+
+        .label-search-box {
+          background: themed('ar-top-function-label-search-box-background');
+          border: themed('ar-top-function-label-search-box-border');
+          height: px-to-rem(40);
+          padding: themed('ar-top-function-label-search-box-padding');
+          border-radius: px-to-rem(8) 0 0 px-to-rem(8);
+          border-right-style: none;
+          margin-right: px-to-rem(-6);
+          pointer-events: auto;
+
+          ::v-deep .search-input {
+            width: px-to-rem(240);
+            display: flex;
+            align-items: center;
+            height: px-to-rem(32);
+            line-height: px-to-rem(32);
+            background: themed('ar-top-function-input-background');
+            border: 0;
+            border-radius: px-to-rem(4);
+            opacity: 1;
+
+            &:not(.readonly):not(.disabled):hover:before {
+              content: "";
+              width: 100%;
+              height: 100%;
+              border: themed('ar-top-function-input-hover-border');
+              border-radius: inherit;
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 2;
+              pointer-events: none;
+            }
+
+            &:not(.readonly):not(.disabled):focus-within:before, &.active:before {
+              content: "";
+              width: 100%;
+              height: 100%;
+              border: themed('ar-top-function-input-active-border');
+              border-radius: inherit;
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 2;
+              pointer-events: none;
+            }
+
+            .el-input__inner {
+              height: 100%;
+              line-height: inherit;
+              background: none;
+              border: 0;
+              border-radius: inherit;
+              color: themed('ar-top-function-input-color');
+              font-size: px-to-rem(14);
+              transition: border-color 0s;
+              padding: 0 px-to-rem(32) 0 px-to-rem(12);
+
+              &::placeholder {
+                color: themed('ar-top-function-input-placeholder-color');
+              }
+            }
+
+            .el-input__icon {
+              color: themed('ar-top-function-input-icon-color');
+              font-size: px-to-rem(14);
+              margin: 0;
+              padding: 0;
+              display: inline-block;
+              line-height: inherit;
+              float: right;
+              overflow: hidden;
+
+              &.el-icon-circle-close {
+                &:before {
+                  content: "\ec12";
+                  font-family: 'iconfont_tools';
+                  color: themed('ar-top-function-input-icon-close-color');
+                  font-size: px-to-rem(20);
+                }
+              }
+            }
+          }
+
+          .search-all-wrap {
+            z-index: 9999;
+            position: relative;
+            top: px-to-rem(8);
+            background: themed('ar-top-function-label-search-all-wrap-background');
+            border: themed('ar-top-function-label-search-all-wrap-border');
+            border-radius: px-to-rem(8);
+            height: px-to-rem(192);
+            width: px-to-rem(240);
+            overflow: hidden;
+
+            .search-all {
+              border-radius: px-to-rem(8);
+              overflow: auto;
+              width: 100%;
+              height: 100%;
+
+              > p {
+                height: px-to-rem(32);
+                padding-left: px-to-rem(12);
+                line-height: px-to-rem(32);
+                cursor: pointer;
+                display: flex;
+
+                .name {
+                  font-size: px-to-rem(14);
+                  color: themed('ar-top-function-label-search-all-wrap-name-color');
+                  max-width: px-to-rem(228);
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+
+                  ::v-deep .key-words {
+                    color: themed('ar-top-function-label-search-all-wrap-name-key-words-color');
+                    font-weight: normal;
+                  }
+                }
+
+                &:hover {
+                  background: themed('ar-top-function-label-search-all-wrap-p-hover-color');
+                }
+              }
+            }
+
+            .search-all::-webkit-scrollbar {
+              width: px-to-rem(6);
+            }
+
+            .search-all::-webkit-scrollbar-thumb {
+              border: none;
+              border-radius: px-to-rem(3);
+              background-color: themed('ar-top-function-label-search-all-wrap-webkit-scrollbar-thumb-background');
+            }
+
+            .search-all::-webkit-scrollbar-track {
+              border-radius: 0;
+              background: none;
+            }
+          }
+        }
+
+        .function-btn {
+          width: px-to-rem(40);
+          height: px-to-rem(40);
+          background: themed('ar-top-function-function-btn-background');
+          border-radius: px-to-rem(8);
+          border: themed('ar-top-function-function-btn-border');
+          color: themed('ar-top-function-function-btn-color');
+          opacity: 1;
+          font-size: px-to-rem(14);
+          text-align: center;
+          line-height: px-to-rem(40);
+          margin: 0 px-to-rem(3);
+          pointer-events: auto;
+          cursor: pointer;
+          position: relative;
+
+          &.btn-select {
+            color: themed('ar-top-function-function-btn-select-color');
+            background: themed('ar-top-function-function-btn-select-background'), themed('ar-top-function-function-btn-select-background-1');
+            border: themed('ar-top-function-function-btn-select-border');
+          }
+
+          &.search-no-radius {
+            border-radius: 0 px-to-rem(8) px-to-rem(8) 0;
+            border-left-color: transparent;
+          }
+
+          .function-btn-icon {
+            line-height: px-to-rem(38);
+            text-align: center;
+            font-size: px-to-rem(24);
+            width: px-to-rem(38);
+            height: px-to-rem(38);
+            border-radius: px-to-rem(8);
+            display: inline-block;
+          }
+          .menuTitle-box{
+            position: absolute;
+            top: px-to-rem(40);
+            width: max-content;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: px-to-rem(5) px-to-rem(12);
+            font-size: px-to-rem(14);
+            font-weight: 400;
+            color: themed('ar-top-function-menuTitle-box-color');
+            line-height: px-to-rem(20);
+            background: themed('ar-top-function-menuTitle-box-background');
+            white-space: nowrap;
+            border-radius: px-to-rem(4);
+            margin-top: px-to-rem(7);
+            &:before{
+              width: 0;
+              height: 0;
+              border-top: px-to-rem(4) solid transparent;
+              border-right: px-to-rem(4) solid transparent;
+              border-left: px-to-rem(4) solid transparent;
+              border-bottom: themed('ar-top-function-menuTitle-box-border-bottom');
+              content:'';
+              display: block;
+              top: px-to-rem(-7);
+              left: calc(50% - px-to-rem(2));
+              position: absolute;
+            }
+          }
+        }
+      }
+      &-canvas {
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: auto;
+        canvas {
+          width: 100%;
+          height: 100%;
+          z-index: 4;
+          position: relative;
+        }
+        .focus-big {
+          width: px-to-rem(34);
+          height: px-to-rem(34);
+          position: absolute;
+          left: px-to-rem(-30);
+          top: 0;
+          cursor: none;
+          z-index: 3;
+
+          span {
+            font-size: px-to-rem(34);
+            color: #fff;
+            text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+

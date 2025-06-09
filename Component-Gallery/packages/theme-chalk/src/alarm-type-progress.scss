@@ -1,0 +1,272 @@
+@import 'mixins/px-to-rem';
+
+.type-container {
+  display: grid;
+  padding-top: px-to-rem(8);
+  width: px-to-rem(370);
+  grid-template-columns: 1fr 1fr;
+  gap: px-to-rem(6);
+
+  .card {
+    padding: 0 px-to-rem(6);
+    width: px-to-rem(182);
+    height: px-to-rem(80);
+    background-size: 100% 100%;
+
+    .num {
+      display: flex;
+      align-items: center;
+      margin-top: px-to-rem(16);
+      margin-bottom: px-to-rem(23);
+      color: #fff;
+      font-size: px-to-rem(14);
+      font-family: PingFangSC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      font-weight: 400;
+
+      &::before {
+        content: '';
+        margin-right: px-to-rem(6);
+        width: px-to-rem(2);
+        height: px-to-rem(6);
+        border-radius: 2px;
+      }
+    }
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: px-to-rem(6);
+      padding-left: px-to-rem(4);
+      color: #fff;
+      font-size: px-to-rem(16);
+      font-family: PingFangSC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      text-align: left;
+      font-weight: 400;
+      line-height: px-to-rem(20);
+      font-style: normal;
+
+      .percent {
+        color: #fff;
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+// 通用
+[data-theme='theme-wiseblue'] .type-container {
+  .card {
+    &.todo {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/bg-todo.png');
+
+      .num {
+        &::before {
+          background: #80baff;
+          box-shadow: 0 0 8px 0 rgb(37 136 255 / 70%);
+        }
+      }
+    }
+
+    &.check {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/bg-check.png');
+
+      .num {
+        &::before {
+          background: #ff7602;
+          box-shadow: 0 0 px-to-rem(8) 0 rgb(255 118 2 / 70%);
+        }
+      }
+    }
+
+    &.dispatch {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/bg-dispatch.png');
+
+      .num {
+        &::before {
+          background: #7fd6fc;
+          box-shadow: 0 0 px-to-rem(8) 0 rgb(127 214 252 / 70%);
+        }
+      }
+    }
+
+    &.deal {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/bg-deal.png');
+
+      .num {
+        &::before {
+          background: #f9ff6c;
+          box-shadow: 0 0 px-to-rem(8) 0 rgb(249 255 108 / 70%);
+        }
+      }
+    }
+
+    &.judge {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/bg-judge.png');
+
+      .num {
+        &::before {
+          background: #ffb4b5;
+          box-shadow: 0 0 px-to-rem(8) 0 rgb(255 87 90 / 70%);
+        }
+      }
+    }
+
+    &.finish {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/bg-finish.png');
+
+      .num {
+        &::before {
+          background: #4ef0b1;
+          box-shadow: 0 0 px-to-rem(8) 0 rgb(78 240 177 / 70%);
+        }
+      }
+    }
+  }
+}
+
+// 林业换肤
+[data-theme='theme-aquamarine'] .type-container {
+  .card {
+    &.todo {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/aquamarine/bg-todo.png');
+
+      .num {
+        &::before {
+          background: #00ffeb;
+          box-shadow: 0 0 8px 0 rgb(88 255 242 / 70%);
+        }
+      }
+    }
+
+    &.check {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/aquamarine/bg-check.png');
+
+      .num {
+        &::before {
+          background: #FF7602;
+          box-shadow: 0 0 8px 0 rgb(255 118 2 / 70%);
+        }
+      }
+    }
+
+    &.dispatch {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/aquamarine/bg-dispatch.png');
+
+      .num {
+        &::before {
+          background: #7fd6fc;
+          box-shadow: 0 0 8px 0 rgb(127 214 252 / 70%);
+        }
+      }
+    }
+
+    &.deal {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/aquamarine/bg-deal.png');
+
+      .num {
+        &::before {
+          background: #f9ff6c;
+          box-shadow: 0 0 px-to-rem(8) 0 rgb(249 255 108 / 70%);
+        }
+      }
+    }
+
+    &.judge {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/aquamarine/bg-judge.png');
+
+      .num {
+        &::before {
+          background: #FFB4B5;
+          box-shadow: 0 0 8px 0 rgb(255 87 90 / 70%);
+        }
+      }
+    }
+
+    &.finish {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/aquamarine/bg-finish.png');
+
+      .num {
+        &::before {
+          background: #4ef0b1;
+          box-shadow: 0 0 px-to-rem(8) 0 rgb(78 240 177 / 70%);
+        }
+      }
+    }
+  }
+}
+
+[data-theme='theme-terracotta'] .type-container {
+  .card {
+    .num {
+      color: #E4E7C1;
+    }
+
+    &.todo {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/terracotta/bg-todo.png');
+
+      .num {
+        &::before {
+          background: rgb(232 124 31 / 66%);
+        }
+      }
+    }
+
+    &.check {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/terracotta/bg-check.png');
+
+      .num {
+        &::before {
+          background: #ffb4b5;
+          box-shadow: 0 0 8px 0 rgb(255 87 90 / 70%);
+        }
+      }
+    }
+
+    &.dispatch {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/terracotta/bg-dispatch.png');
+
+      .num {
+        &::before {
+          background: #caae5d;
+          box-shadow: 0 0 8px 0 rgb(202 174 93 / 70%);
+        }
+      }
+    }
+
+    &.deal {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/terracotta/bg-deal.png');
+
+      .num {
+        &::before {
+          background: #fffa28;
+          box-shadow: 0 0 8px 0 rgb(255 250 40 / 70%);
+        }
+      }
+    }
+
+    &.judge {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/terracotta/bg-judge.png');
+
+      .num {
+        &::before {
+          background: #ffb4b5;
+          box-shadow: 0 0 px-to-rem(8) 0 rgb(255 87 90 / 70%);
+        }
+      }
+    }
+
+    &.finish {
+      background-image: url('~@component-gallery/assets/image/alarm-type-progress/terracotta/bg-finish.png');
+
+      .num {
+        &::before {
+          background: #b6ff58;
+          box-shadow: 0 0 8px 0 rgb(182 255 88 / 70%);
+        }
+      }
+    }
+  }
+}

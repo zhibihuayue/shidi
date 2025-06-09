@@ -1,0 +1,100 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.video-set-slider {
+  width: 100%;
+  .slider-head {
+    background: rgba(79, 159, 255, 0.2);
+    margin: px-to-rem(12) 0;
+  }
+  .slider-row {
+    height: px-to-rem(32);
+    line-height: px-to-rem(32);
+    margin-bottom: px-to-rem(12);
+    &:last-child {
+      margin-bottom: px-to-rem(0);
+    }
+    .slider-label {
+      width: px-to-rem(56);
+      height: inherit;
+      float: left;
+      color: #e8f2fe;
+      padding-left: px-to-rem(0);
+      position: relative;
+      font-size: px-to-rem(14);
+    }
+    .slider-info {
+      margin: 0 px-to-rem(24) 0 px-to-rem(56);
+      height: inherit;
+      display: flex;
+      align-items: center;
+      user-select: none;
+      .item {
+        width: px-to-rem(56);
+        margin-right: px-to-rem(2);
+        position: relative;
+      }
+      b {
+        height: px-to-rem(10);
+        border-radius: px-to-rem(2);
+        background: rgba(79, 159, 255, 0.2);
+        cursor: pointer;
+        &.on {
+          background: #4f9fff;
+        }
+        &.disabled {
+          cursor: default !important;
+        }
+      }
+    }
+    .hh {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(-50%, -50%);
+      word-break: keep-all;
+      white-space: nowrap;
+      color: #e8f2fe;
+      font-size: px-to-rem(14);
+    }
+  }
+}
+.video {
+  @include themeify(false) {
+    @if $theme-name == 'theme-terracotta' {
+      .slider-head {
+        background: rgba(100, 86, 46, 0.4);
+      }
+      .slider-label {
+        color: #e4e7c1 !important;
+      }
+      .hh {
+        color: #e4e7c1 !important;
+      }
+      b {
+        background: rgba(100, 86, 46, 0.4) !important;
+        &.on {
+          background: rgba(100, 86, 46, 1) !important;
+        }
+      }
+    }
+    @if $theme-name == 'theme-aquamarine' {
+      .slider-head {
+        background: rgba(2, 137, 109, 0.2);
+      }
+      .slider-label {
+        color: #ffffff !important;
+      }
+      .hh {
+        color: #ffffff !important;
+      }
+      b {
+        background: rgba(2, 137, 109, 0.2) !important;
+        &.on {
+          background: #02896d !important;
+        }
+      }
+    }
+  }
+}

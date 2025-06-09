@@ -1,0 +1,373 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/bem-mixins.scss';
+@import '../mixins/theme-checkbox-mixins';
+
+@include b('task-feedback') {
+  @include themeify(false) {
+    padding: 0 0 px-to-rem(12) px-to-rem(12);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    .source-content-box {
+      margin-top: px-to-rem(-4);
+      width: 100%;
+      // 公共样式
+      .titleWidth {
+        opacity: 0.7;
+        color: themed('global-text-color') !important;
+      }
+      .contentWidth {
+        color: themed('global-text-color') !important;
+      }
+      .infoDataTitle {
+        height: px-to-rem(26);
+        font-size: px-to-rem(14);
+        text-align: right;
+        font-weight: 400;
+        line-height: px-to-rem(26);
+      }
+
+      .infoDataTitle-video {
+        display: flex;
+        justify-content: space-between;
+        height: px-to-rem(26);
+        font-size: px-to-rem(14);
+        text-align: right;
+        font-weight: 400;
+        line-height: px-to-rem(26);
+        flex-wrap: nowrap;
+
+        .infoVideoBox {
+          margin-top: px-to-rem(3);
+          margin-left: px-to-rem(13);
+          width: px-to-rem(20);
+          height: px-to-rem(20);
+
+          // background-image: url('~@/assets/image/monitorWarnNew/alarmList/alarm-info-video.png');
+          background-size: cover;
+          cursor: pointer;
+        }
+      }
+
+      .infoDataContent {
+        height: px-to-rem(26);
+        font-size: px-to-rem(14);
+        text-align: left;
+        font-weight: 400;
+        line-height: px-to-rem(26);
+      }
+
+      .infoDataContentLong {
+        overflow: hidden;
+        font-size: px-to-rem(14);
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 400;
+        line-height: px-to-rem(26);
+      }
+
+      .infoDataContentLong-img {
+        overflow: hidden;
+        font-size: px-to-rem(14);
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 400;
+        line-height: px-to-rem(26);
+      }
+
+      .addressChange {
+        display: flex;
+        flex-wrap: wrap;
+        place-content: center center;
+
+        .address-btn {
+          width: px-to-rem(60);
+          height: px-to-rem(32);
+          line-height: px-to-rem(32);
+        }
+      }
+
+      .model-alarm-info {
+        margin-top: px-to-rem(10);
+      }
+    }
+
+    .feedbackTitle {
+      display: flex;
+      align-items: center;
+      margin-bottom: px-to-rem(12);
+      text-shadow: themed('inspection-task-feedback-divide-text-shadow');
+      font-size: px-to-rem(14);
+      font-weight: 500;
+      color: #fff;
+      line-height: px-to-rem(14);
+      &::before {
+        content: '';
+        display: block;
+        width: px-to-rem(14);
+        height: px-to-rem(14);
+        background: themed('inspection-task-feedback-divide-before-bg');
+        background-size: contain;
+        margin-right: px-to-rem(6);
+      }
+      .title-right-line {
+        margin-left: px-to-rem(6);
+        width: px-to-rem(390);
+        height: px-to-rem(2);
+        background: themed('inspection-task-feedback-divide-after');
+        opacity: 0.92;
+      }
+    }
+
+    // 标准title宽度
+    .titleWidth {
+      width: px-to-rem(100) !important;
+    }
+
+    // 详情下拉框高度
+    .inputTitleHeight {
+      height: px-to-rem(32) !important;
+      line-height: px-to-rem(33) !important;
+    }
+
+    // 标准content宽度
+    .contentWidth {
+      width: calc(100% - px-to-rem(112)) !important;
+    }
+
+    // input内容高度
+    .inputContentHeight {
+      height: px-to-rem(32) !important;
+      line-height: px-to-rem(32) !important;
+    }
+
+    // 二分之一标准content宽度
+    .contentWidthSamll {
+      width: calc(50% - px-to-rem(125)) !important;
+    }
+
+    // 地址content宽度
+    .contentWidthAddress {
+      width: calc(100% - px-to-rem(195)) !important;
+    }
+
+    // 地址btn宽度
+    .contentWidthBtn {
+      width: px-to-rem(70) !important;
+    }
+
+    .text-source {
+      width: px-to-rem(18);
+      height: px-to-rem(18);
+      background-repeat: no-repeat;
+
+      // background-image: url('~@/assets/image/monitorWarnNew/alarmList/hint-ly.png');
+      background-size: 100% 100%;
+    }
+
+    // 详情展示附件样式
+    .fileBox {
+      display: flex;
+    }
+
+    .file-imageAll-main-box {
+      overflow: hidden;
+      width: px-to-rem(235);
+    }
+
+    .file-imageAll-box {
+      display: flex;
+      transition: all 0.5s;
+      flex-wrap: wrap;
+    }
+
+    .file-image-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: px-to-rem(6);
+      width: px-to-rem(68);
+      height: px-to-rem(68);
+      background: rgb(2 137 109 / 20%);
+      border-radius: px-to-rem(4);
+
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+
+      &:nth-of-type(n + 4) {
+        margin-top: px-to-rem(6);
+      }
+
+      .file-box-zhezhao {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: px-to-rem(68);
+        height: px-to-rem(68);
+        background-color: rgb(0 0 0 / 70%);
+        border-radius: px-to-rem(4);
+
+        .zhezhao-icon-box {
+          display: flex;
+          place-content: center center;
+          margin: 0 px-to-rem(3);
+          width: px-to-rem(24);
+          height: px-to-rem(24);
+          background-color: rgb(0 0 0 / 70%);
+          border-radius: px-to-rem(4);
+          font-size: px-to-rem(11);
+          line-height: px-to-rem(24);
+        }
+      }
+    }
+
+    .file-image-bg {
+      background: transparent;
+    }
+
+    .file-image {
+      width: px-to-rem(68);
+      min-width: px-to-rem(68);
+      height: px-to-rem(68);
+      min-height: px-to-rem(68);
+      border-radius: px-to-rem(4);
+    }
+
+    .highlight {
+      width: px-to-rem(66);
+      height: px-to-rem(66);
+      border: px-to-rem(2) solid #f9ff6c;
+    }
+
+    .file-video {
+      width: px-to-rem(68);
+      height: px-to-rem(68);
+      object-fit: fill;
+      border-radius: px-to-rem(4);
+    }
+
+    .file-image-default {
+      width: px-to-rem(40);
+      height: px-to-rem(40);
+      object-fit: fill;
+    }
+
+    .fileLeft {
+      position: absolute;
+      float: left;
+      width: px-to-rem(20);
+      height: px-to-rem(38);
+      background: rgb(0 0 0 / 50%);
+      border-radius: px-to-rem(5) 0 0 px-to-rem(5);
+      color: #fff;
+      font-size: px-to-rem(25);
+      text-align: center;
+      line-height: px-to-rem(35);
+    }
+
+    .fileRight {
+      position: absolute;
+      left: px-to-rem(286);
+      float: right;
+      width: px-to-rem(20);
+      height: px-to-rem(38);
+      background: rgb(0 0 0 / 50%);
+      border-radius: 0 px-to-rem(5) px-to-rem(5) 0;
+      font-size: px-to-rem(25);
+      text-align: center;
+      line-height: px-to-rem(35);
+    }
+
+    .btn-active-class {
+      margin-left: px-to-rem(8);
+      color: #f9ff6c !important;
+
+      // 文字颜色变黄
+      font-size: px-to-rem(14);
+    }
+
+    .btn-no-active-class {
+      margin-left: px-to-rem(8);
+      font-size: px-to-rem(14);
+    }
+
+    .y-select-alarmSelect {
+      height: px-to-rem(32) !important;
+      line-height: px-to-rem(28) !important;
+    }
+
+    .el-tooltip__popper.is-dark.alarm-info-tooltip {
+      max-width: px-to-rem(400);
+      background-color: #00131e;
+      font-size: px-to-rem(14);
+
+      .popper__arrow,
+      .popper__arrow::after {
+        border-top-color: #00131e;
+      }
+    }
+
+    // 告警原因下拉框无数据
+    .y-select-dropdown-alarmSelect {
+      min-height: px-to-rem(150);
+
+      .el-select-dropdown__empty {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: px-to-rem(150);
+        flex-direction: column;
+
+        &::before {
+          // content: url('~@/assets/image/monitorWarnNew/alarmList/noData-ly.png');
+          width: px-to-rem(68);
+          height: px-to-rem(68);
+        }
+      }
+    }
+
+    .y-select-dropdown-alarmSelect.el-select-dropdown .el-scrollbar {
+      width: 100% !important;
+    }
+
+    .y-select-dropdown-alarmSelect.el-select-dropdown
+      .el-select-dropdown__list
+      .el-select-dropdown__item.selected {
+      width: 100% !important;
+    }
+
+    .y-select-dropdown-alarmSelect.el-select-dropdown
+      .el-select-dropdown__list
+      .el-select-dropdown__item.hover {
+      width: 100% !important;
+    }
+
+    .heightAuto {
+      padding-top: px-to-rem(4);
+      height: auto !important;
+    }
+
+    .heightAutos {
+      height: auto !important;
+    }
+
+    .gridNames {
+      display: inline-block;
+      // overflow: hidden;
+      max-width: calc(100% - px-to-rem(82)) !important;
+      // text-overflow: ellipsis;
+      white-space: wrap;
+    }
+
+    .constAl {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

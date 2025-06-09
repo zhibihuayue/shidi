@@ -1,0 +1,437 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.iot-device-status {
+  width: px-to-rem(370);
+
+  &-content {
+    position: relative;
+    margin-top: px-to-rem(12);
+    height: px-to-rem(88);
+    background-size: 100% 100%;
+    font-family: PingFangSC, 'PingFang SC' Microsoft YaHei;
+
+    .iot-num {
+      position: absolute;
+      top: px-to-rem(6);
+      left: 0;
+      display: flex;
+      align-items: center;
+      padding-right: px-to-rem(12);
+      width: px-to-rem(264);
+      height: px-to-rem(28);
+      background-size: 100% 100%;
+
+      .icon {
+        margin: 0 px-to-rem(12);
+        width: px-to-rem(20);
+        height: px-to-rem(20);
+        background-size: 100% 100%;
+      }
+
+      .label {
+        margin-right: px-to-rem(76);
+        width: px-to-rem(84);
+        height: px-to-rem(14);
+        font-size: px-to-rem(14);
+        font-weight: 600;
+        line-height: px-to-rem(14);
+      }
+
+      .value {
+        overflow: hidden;
+        font-size: px-to-rem(20);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: right;
+        flex: 1;
+        font-weight: 600;
+      }
+    }
+
+    .bg-online-num {
+      cursor: pointer;
+      position: absolute;
+      top: px-to-rem(44);
+      left: px-to-rem(12);
+      width: px-to-rem(238.82);
+      height: px-to-rem(15);
+      background-size: 100% 100%;
+    }
+
+    .bg-offline-num {
+      cursor: pointer;
+      position: absolute;
+      top: px-to-rem(70);
+      left: px-to-rem(12);
+      width: px-to-rem(238.82);
+      height: px-to-rem(15);
+      background-size: 100% 100%;
+    }
+
+    .bg-rate {
+      position: absolute;
+      top: px-to-rem(4);
+      right: px-to-rem(12);
+      width: px-to-rem(94);
+      height: px-to-rem(80);
+      background-size: px-to-rem(94) px-to-rem(80);
+      cursor: pointer;
+    }
+
+    .label-online {
+      position: absolute;
+      top: px-to-rem(40);
+      left: px-to-rem(12);
+      display: flex;
+      align-items: center;
+      height: px-to-rem(12);
+      font-size: px-to-rem(14);
+      font-weight: 400;
+
+      &::before {
+        margin-right: px-to-rem(6);
+        width: px-to-rem(6);
+        height: px-to-rem(6);
+        border-radius: 1px;
+        content: '';
+      }
+    }
+
+    .label-offline {
+      position: absolute;
+      top: px-to-rem(66);
+      left: px-to-rem(12);
+      display: flex;
+      align-items: center;
+      height: px-to-rem(12);
+      font-size: px-to-rem(14);
+      font-weight: 400;
+
+      &::before {
+        margin-right: px-to-rem(6);
+        width: px-to-rem(6);
+        height: px-to-rem(6);
+        border-radius: 1px;
+        content: '';
+      }
+    }
+
+    .value-online {
+      position: absolute;
+      right: px-to-rem(119);
+      bottom: px-to-rem(32);
+      font-size: px-to-rem(14);
+      font-weight: 400;
+    }
+
+    .value-offline {
+      position: absolute;
+      right: px-to-rem(119);
+      bottom: px-to-rem(6);
+      font-size: px-to-rem(14);
+      font-weight: 400;
+    }
+
+    .label-rate {
+      position: absolute;
+      right: px-to-rem(38);
+      bottom: px-to-rem(6);
+      font-size: px-to-rem(14);
+      font-family: SourceHanSansCN;
+      text-align: center;
+      font-weight: 400;
+      line-height: px-to-rem(21);
+    }
+
+    .value-rate {
+      position: absolute;
+      right: px-to-rem(29);
+      bottom: px-to-rem(40);
+      width: px-to-rem(59);
+      font-size: px-to-rem(16);
+      text-align: center;
+      font-weight: 600;
+      line-height: px-to-rem(16);
+    }
+
+    .pcontainer {
+      position: relative;
+      height: 100%;
+    }
+
+    .progresssvg,
+    .pointer {
+      position: absolute;
+    }
+
+    .progresssvg {
+      top: px-to-rem(6);
+      left: px-to-rem(17);
+      width: px-to-rem(60);
+      height: px-to-rem(60);
+      fill: transparent;
+      stroke-width: px-to-rem(6);
+      stroke-dasharray: calc(3.14 * (50% - px-to-rem(6)) * 2);
+      stroke-dashoffset: calc(0.22 * 3.14 * (50% - px-to-rem(6)) * 2);
+      transform: rotate(130deg);
+
+      circle {
+        r: calc(50% - px-to-rem(6));
+
+        &.highlight {
+        }
+      }
+    }
+
+    .pointer {
+      // 缺口简单测算是大概40度*2
+      transform: rotate(130deg);
+      transform-origin: left center;
+      top: px-to-rem(34);
+      left: px-to-rem(47);
+      width: px-to-rem(27);
+      height: px-to-rem(2);
+      background: linear-gradient(
+        90deg,
+        rgb(255 255 255 / 0%),
+        rgb(255 255 255 / 95%)
+      );
+    }
+  }
+}
+
+// 通用换肤
+[data-theme='theme-wiseblue'] .iot-device-status {
+  &-content {
+    background-image: url('~@component-gallery/assets/image/iot-device-status/wiseblue/content-bg.png');
+    color: #e8f3fe;
+
+    .iot-num {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/wiseblue/num-bg.png');
+
+      .icon {
+        background-image: url('~@component-gallery/assets/image/iot-device-status/wiseblue/iot-icon.png');
+      }
+
+      .label {
+        text-shadow: 0 px-to-rem(1) px-to-rem(4) rgb(67 200 143 / 40%),
+          0 px-to-rem(1) px-to-rem(4) #1373e6;
+      }
+
+      .value {
+        text-shadow: 0 px-to-rem(1) px-to-rem(4) #1373e6;
+      }
+    }
+
+    .label-online {
+      &::before {
+        background: #4f9fff;
+      }
+    }
+
+    .label-offline {
+      &::before {
+        background: rgb(79 159 255 / 40%);
+      }
+    }
+
+    .value-online {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #1373e6;
+    }
+
+    .value-offline {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #1373e6;
+    }
+
+    .value-rate {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #1373e6;
+    }
+
+    .progresssvg {
+      stroke: rgb(79 159 255 / 40%);
+
+      circle {
+        &.highlight {
+          stroke: rgb(79 159 255 / 60%);
+        }
+      }
+    }
+
+    .bg-online-num {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/wiseblue/online-bg.png');
+    }
+
+    .bg-offline-num {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/wiseblue/offline-bg.png');
+    }
+
+    .bg-rate {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/wiseblue/rate-bg.png');
+    }
+  }
+}
+
+// 林业换肤
+[data-theme='theme-aquamarine'] .iot-device-status {
+  &-content {
+    background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/content-bg.png');
+    color: #fff;
+
+    .iot-num {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/num-bg.png');
+
+      .icon {
+        margin: 0 px-to-rem(9);
+        width: px-to-rem(26);
+        height: px-to-rem(26);
+        background-size: px-to-rem(26) px-to-rem(26);
+        background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/iot-icon.png');
+      }
+
+      .label {
+        text-shadow: 0 1px 4px #FB913C;
+        color: #fff;
+      }
+
+      .value {
+        text-shadow: 0 px-to-rem(1) px-to-rem(4) #fb913c;
+      }
+    }
+
+    .label-online {
+      &::before {
+        background: #fb913c;
+      }
+    }
+
+    .label-offline {
+      &::before {
+        background: rgb(251 145 60 / 40%);
+      }
+    }
+
+    .value-online {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #fb913c;
+    }
+
+    .value-offline {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #fb913c;
+    }
+
+    .value-rate {
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) #fb913c;
+    }
+
+    .progresssvg {
+      stroke: rgb(251 145 60 / 40%);
+
+      circle {
+        &.highlight {
+          stroke: rgb(251 145 60 / 60%);
+        }
+      }
+    }
+
+    .bg-online-num {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/online-bg.png');
+    }
+
+    .bg-offline-num {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/offline-bg.png');
+    }
+
+    .bg-rate {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/rate-bg.png');
+    }
+  }
+}
+
+// 国土换肤
+[data-theme='theme-terracotta'] .iot-device-status {
+  &.terracotta-classic {
+    height: px-to-rem(156);
+
+    .iot-device-status-content {
+
+    }
+  }
+
+  &-content {
+    background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/content-bg.png');
+    color: #fff;
+
+    .iot-num {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/num-bg.png');
+
+      .icon {
+        margin: 0 px-to-rem(9);
+        width: px-to-rem(26);
+        height: px-to-rem(26);
+        background-size: px-to-rem(26) px-to-rem(26);
+        background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/iot-icon.png');
+      }
+
+      .label {
+        text-shadow: 0 px-to-rem(1) px-to-rem(4) rgb(67 200 143 / 40%),
+          0 px-to-rem(1) px-to-rem(4) #fb913c;
+        color: #fff;
+      }
+
+      .value {
+        text-shadow: 0 px-to-rem(1) px-to-rem(4) #fb913c;
+      }
+    }
+
+    .label-online {
+      color: #E4E7C1;
+
+      &::before {
+        background: #fb913c;
+      }
+    }
+
+    .label-offline {
+      color: #E4E7C1;
+
+      &::before {
+        background: rgb(251 145 60 / 40%);
+      }
+    }
+
+    .value-online {
+      text-shadow: 0 1px 4px #DCD277;
+    }
+
+    .value-offline {
+      text-shadow: 0 1px 4px #DCD277;
+    }
+
+    .value-rate {
+      text-shadow: 0 1px 4px #DCD277;
+    }
+
+    .progresssvg {
+      stroke: rgb(251 145 60 / 40%);
+
+      circle {
+        &.highlight {
+          stroke: rgb(251 145 60 / 60%);
+        }
+      }
+    }
+
+    .bg-online-num {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/online-bg.png');
+    }
+
+    .bg-offline-num {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/offline-bg.png');
+    }
+
+    .bg-rate {
+      background-image: url('~@component-gallery/assets/image/iot-device-status/aquamarine/rate-bg.png');
+    }
+  }
+}

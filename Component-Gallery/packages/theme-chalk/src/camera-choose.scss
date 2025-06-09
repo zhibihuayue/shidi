@@ -1,0 +1,137 @@
+@import 'mixins/px-to-rem';
+
+.camera-choose {
+  &-container {
+    --text-error-color: #ed5158;
+    --text-bg-color: rgb(237 81 88 / 20%);
+
+    padding: px-to-rem(12) 0 px-to-rem(12) px-to-rem(6);
+
+    button {
+      width: px-to-rem(108);
+
+      + button {
+        margin-left: px-to-rem(12);
+      }
+    }
+  }
+
+  &-form {
+    &-item {
+      margin-right: px-to-rem(12);
+      margin-bottom: px-to-rem(12);
+
+      &__box {
+        display: flex;
+        align-items: center;
+
+        &.leftItem {
+         label {
+          margin-left: px-to-rem(6);
+          width: px-to-rem(93);
+         }
+        }
+      }
+
+      label {
+        width: px-to-rem(86);
+        font-size: px-to-rem(14);
+        flex-shrink: 0;
+        text-align: right;
+
+        &::before {
+          content: '*';
+          margin-right: 1px;
+          color: var(--text-error-color);
+        }
+      }
+
+      &__input {
+        margin-left: px-to-rem(12);
+        width: px-to-rem(174);
+
+        ::v-deep {
+          .el-input__inner {
+            padding-left: px-to-rem(12);
+            height: px-to-rem(32);
+            line-height: px-to-rem(32);
+          }
+
+          .el-input__inner::placeholder {
+            color: rgb(255 255 255 / 70%);
+          }
+
+          .el-input__inner::-webkit-inner-spin-button {
+            display: none;
+          }
+        }
+      }
+
+      &__error {
+        font-size: 0;
+        text-align: right;
+        transform: translateY(px-to-rem(6));
+
+        span {
+          display: inline-flex;
+          align-items: center;
+          padding: px-to-rem(6) px-to-rem(12);
+          height: px-to-rem(32);
+          background-color: var(--text-bg-color);
+          border-radius: 4px;
+          color: var(--text-error-color);
+          font-size: px-to-rem(14);
+        }
+
+        i {
+          margin-top: px-to-rem(2);
+          margin-right: px-to-rem(6);
+          font-size: px-to-rem(18);
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  &-btns {
+    display: flex;
+    justify-content: center;
+    font-size: 0;
+
+    .el-button {
+      width: px-to-rem(108);
+    }
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .camera-choose {
+  &-form {
+    &-item {
+      &__input {
+        ::v-deep {
+          .el-input__inner::placeholder {
+            color: rgb(255 255 255 / 70%);
+          }
+        }
+      }
+    }
+  }
+
+  &-container {
+    button {
+      height: px-to-rem(32);
+      line-height: 1;
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .camera-choose {
+}
+
+[data-theme='theme-terracotta'] .innercomp-abcontainer {
+  ::v-deep .innercomp-abcontainer-body {
+    margin-right: px-to-rem(-1);
+  }
+}

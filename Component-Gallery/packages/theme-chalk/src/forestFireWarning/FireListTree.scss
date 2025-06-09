@@ -1,0 +1,174 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.common-comp-fire-warning_func_area {
+  @include themeify(false) {
+    .el-tree {
+      margin-top: px-to-rem(12);
+      height: calc(100% - px-to-rem(12));
+      background: none !important;
+      cursor: default;
+    }
+
+    .el-tree ::v-deep .el-tree-node__content {
+      height: px-to-rem(32);
+      background: none !important;
+      color: themed('fire-warning-list-color-label');
+      line-height: px-to-rem(32);
+    }
+    .el-tree ::v-deep .el-tree-node__children .el-tree-node__content {
+      padding-right: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .el-tree ::v-deep .el-tree-node.is-current > .el-tree-node__content {
+      background: themed('fire-warning-bg-tree-content-hover') !important;
+    }
+
+    .el-tree ::v-deep .el-tree-node__expand-icon {
+      color: themed('search-filter-box-btn-icon-color');
+      margin-left: px-to-rem(6);
+      width: px-to-rem(20);
+      height: px-to-rem(20);
+      padding: 0 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: px-to-rem(6);
+    }
+
+    .el-tree ::v-deep .el-tree-node__expand-icon.is-leaf {
+      visibility: hidden;
+
+      &::before {
+        content: '';
+        display: block;
+        width: px-to-rem(7);
+        height: px-to-rem(7);
+        border: px-to-rem(2) solid #c7f1e0;
+        border-radius: 50%;
+      }
+    }
+
+    .el-tree ::v-deep .el-tree-node__label {
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(14);
+    }
+
+    .el-tree ::v-deep > .el-tree-node > .el-tree-node__children {
+      overflow: hidden auto !important;
+      height: calc(100% - px-to-rem(32));
+    }
+
+    .el-tree .custom-tree-node {
+      overflow: visible;
+      width: 100%;
+      height: 100%;
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(14);
+      line-height: inherit;
+
+      .node-label {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-break: keep-all;
+        cursor: pointer;
+        ::v-deep .key-word {
+          color: themed('fire-warning-item-calendar-checked') !important;
+          pointer-events: none;
+        }
+      }
+
+      .node-left {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        float: left;
+        width: calc(100% - px-to-rem(122));
+
+        .node-label {
+          max-width: calc(100% - px-to-rem(80));
+        }
+
+        .fireWarn-item-calendar {
+          position: absolute;
+          right: px-to-rem(50);
+          display: none;
+          width: px-to-rem(20);
+          height: px-to-rem(20);
+          font-size: px-to-rem(20);
+          cursor: pointer;
+          line-height: px-to-rem(32);
+
+          &.checked {
+            color: themed('fire-warning-item-calendar-checked');
+          }
+        }
+      }
+    }
+
+    .el-tree .custom-tree-node.is-leaf {
+      cursor: default !important;
+    }
+
+    .el-tree ::v-deep .el-tree-node__content:hover {
+      background: themed('fire-warning-bg-tree-content-hover') !important;
+
+      .fireWarn-item-calendar {
+        display: block;
+      }
+    }
+
+    .el-tree .custom-tree-node .node-left .node-level {
+      width: px-to-rem(48);
+      text-align: center;
+      font-size: px-to-rem(12);
+    }
+
+    .el-tree .is-current > .el-tree-node__content .custom-tree-node .node-label,
+    .el-tree
+      .is-current
+      > .el-tree-node__content
+      .custom-tree-node
+      .node-level {
+      color: themed('fire-warning-item-calendar-checked');
+    }
+
+    .el-tree .custom-tree-node .icon-jilianicon {
+      float: right;
+      margin-right: px-to-rem(10);
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(16);
+      line-height: px-to-rem(32);
+    }
+
+    .el-tree .node-right {
+      float: right;
+      margin-top: px-to-rem(4);
+    }
+
+    .area-color,
+    ::v-deep .area-color {
+      color: #0dc985;
+    }
+
+    .loading {
+      display: flex;
+      justify-content: center;
+      height: px-to-rem(60);
+      color: rgb(255 255 255 / 50%);
+      font-size: px-to-rem(12);
+      text-align: center;
+      line-height: 1.5;
+      flex-direction: column;
+      cursor: default;
+    }
+
+    .loading i {
+      display: block;
+    }
+  }
+}

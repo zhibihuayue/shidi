@@ -1,0 +1,12 @@
+{
+  "name": "@component-gallery/components",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "build": "node ../../internal/build-full/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

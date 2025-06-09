@@ -1,0 +1,141 @@
+@import "mixins/mixins";
+@import "mixins/theme-mixins";
+@import "mixins/px-to-rem";
+
+.fire-level-dialog {
+  width: px-to-rem(368);
+
+  &-header {
+    height: px-to-rem(48);
+    display: flex;
+    align-items: center;
+
+    .header-icon {
+      ::v-deep i {
+        color: #E8F3FE !important;
+        width: px-to-rem(20);
+        height: px-to-rem(20);
+      }
+    }
+
+    .header-title {
+      width: px-to-rem(260);
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 600;
+      font-size: px-to-rem(16);
+      color: #E8F3FE;
+      padding-left: px-to-rem(6);
+    }
+
+    .icon-label {
+      width: fit-content;
+      height: px-to-rem(20);
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: px-to-rem(12);
+      color: #FFFFFF;
+      padding: 0 px-to-rem(8);
+      display: flex;
+      align-items: center;
+      line-height: px-to-rem(20);
+    }
+  }
+
+  &-content {
+    height: px-to-rem(470);
+    padding: px-to-rem(12);
+  }
+
+  &-title {
+    font-weight: 400;
+    font-size: px-to-rem(16);
+    color: #E8F3FE;
+    line-height: px-to-rem(16);
+    text-shadow: 0 0 px-to-rem(10) rgba(74,141,254,0.7);
+    margin-bottom: px-to-rem(12);
+  }
+
+  &-info {
+    height: px-to-rem(20);
+    display: flex;
+    .info-label {
+      width: px-to-rem(126);
+      font-weight: 400;
+      font-size: px-to-rem(14);
+      color: rgba(232,243,254,0.7);
+      line-height: px-to-rem(20);
+      text-align: right;
+      padding-right: px-to-rem(6);
+    }
+    .info-value {
+      font-weight: 400;
+      font-size: px-to-rem(14);
+      color: #E8F3FE;
+      line-height: px-to-rem(20);
+    }
+  }
+
+  &-item + &-item {
+    margin-top: px-to-rem(24);
+  }
+  &-info + &-info {
+    margin-top: px-to-rem(6);
+  }
+}
+
+// 林业换肤
+[data-theme="theme-aquamarine"] .fire-level-dialog {
+  &-header {
+    .header-icon-ly {
+      width: px-to-rem(8);
+      height: px-to-rem(8);
+      background-image: url('~@component-gallery/assets/image/tool-box/aquamarine/window-icon.png');
+      background-size: 100% 100%;
+      // margin-right: px-to-rem(6);
+    }
+
+    .header-title {
+      color: #fff;
+      text-shadow: 0 0 px-to-rem(18) rgba(0,245,193,0.9);
+    }
+  }
+  &-title {
+    color: #FFFFFF;
+    text-shadow: 0 0 px-to-rem(18) rgba(0,245,193,0.7);
+  }
+
+  &-info {
+    .info-label {
+      color: rgba(255,255,255,0.7);
+    }
+    .info-value {
+      color: #FFFFFF;
+    }
+  }
+}
+
+// 国土换肤
+[data-theme="theme-terracotta"] .fire-level-dialog {
+  &-header {
+    .header-icon {
+      ::v-deep i {
+        color: #FFEEB1 !important
+      }
+    }
+  }
+  &-title {
+    color: #FFFFFF;
+    text-shadow: 0 px-to-rem(1) px-to-rem(4) #DCD277;
+  }
+
+  &-info {
+    .info-label {
+      color: rgba(228,231,193,0.7);
+    }
+    .info-value {
+      color: #E4E7C1;
+    }
+  }
+}

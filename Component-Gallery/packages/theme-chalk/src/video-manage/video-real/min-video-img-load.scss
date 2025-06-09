@@ -1,0 +1,113 @@
+@import '../../mixins/mixins';
+@import "../../mixins/theme-mixins";
+@import '../../mixins/px-to-rem';
+
+
+.video-snap {
+  @include themeify(false) {
+    .image {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      //object-fit: cover;
+    }
+
+    .right-left-show {
+      left: 0;
+      transition: all 1s;
+    }
+
+    .right-left-hide {
+      left: -100%;
+      transition: all 1s;
+    }
+
+    .preview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 998;
+      overflow: hidden;
+      width: 0;
+      height: 0;
+      border: px-to-rem(2) solid #4f9fff;
+      pointer-events: none;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .top-show,
+    .pre-top-show {
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      padding: 0 px-to-rem(42) 0 px-to-rem(12);
+      width: 100%;
+      height: px-to-rem(32);
+      background: rgb(0 0 0 / 70%);
+      color: #e8f3fe;
+      font-size: px-to-rem(14);
+      line-height: px-to-rem(32);
+    }
+
+    .pre-top-show {
+      padding: 0 px-to-rem(12);
+    }
+
+    .top-circle-red {
+      margin-left: px-to-rem(4);
+      width: px-to-rem(12);
+      height: px-to-rem(12);
+
+      i {
+        color: #ff4e4f;
+        font-size: px-to-rem(14);
+      }
+
+      flex: 1;
+    }
+
+    .top-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .top-time {
+      float: right;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .flex-box {
+      display: flex;
+
+      /* justify-content: space-between; */
+
+      /* align-items: center; */
+    }
+
+    .right-slide-enter {
+      transform: translateX(100%);
+    }
+
+    .right-slide-leave-active {
+      transform: translateX(0%);
+    }
+
+    .right-slide-leave-active,
+    .right-slide-enter-active {
+      transition: all 1s;
+    }
+
+    .right-slide-leave-to {
+      transform: translateX(-100%);
+    }
+  }
+}

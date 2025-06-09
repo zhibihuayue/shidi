@@ -1,0 +1,96 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.common-comp-fire-warning_func_area {
+  @include themeify(false) {
+    .warn-count {
+      overflow: hidden;
+      padding: px-to-rem(12);
+      background: rgb(1 20 13 / 30%);
+      border-radius: px-to-rem(5);
+      box-shadow: 0 px-to-rem(2) px-to-rem(2) px-to-rem(2) rgb(38 38 38 / 6%), 0 px-to-rem(4) px-to-rem(4) px-to-rem(4) rgb(0 0 0 / 10%);
+    }
+    
+    .warn-count .item {
+      float: left;
+      width: px-to-rem(84);
+      height: px-to-rem(116);
+    
+      .fire-icon-common {
+        margin: px-to-rem(6) auto 0;
+        width: px-to-rem(70);
+        height: px-to-rem(60);
+      }
+    
+      .fire-icon-red {
+        background: url('~@component-gallery/assets/image/fire-warn/fire-icon-red.png') center/cover no-repeat;
+      }
+    
+      .fire-icon-orange {
+        background: url('~@component-gallery/assets/image/fire-warn/fire-icon-orange.png') center/cover no-repeat;
+      }
+    
+      .fire-icon-yellow {
+        background: url('~@component-gallery/assets/image/fire-warn/fire-icon-yellow.png') center/cover no-repeat;
+      }
+    
+      .fire-icon-blue {
+        background: url('~@component-gallery/assets/image/fire-warn/fire-icon-blue.png') center/cover no-repeat;
+      }
+    }
+    
+    .warn-count .item:nth-child(1).on {
+      background: url('~@component-gallery/assets/image/fire-warn/fire-bg-red.png') no-repeat;
+      background-size: 100% 100%;
+    }
+    
+    .warn-count .item:nth-child(2).on {
+      background: url('~@component-gallery/assets/image/fire-warn/fire-bg-orange.png') no-repeat;
+      background-size: 100% 100%;
+    }
+    
+    .warn-count .item:nth-child(3).on {
+      background: url('~@component-gallery/assets/image/fire-warn/fire-bg-yellow.png') no-repeat;
+      background-size: 100% 100%;
+    }
+    
+    .warn-count .item:nth-child(4).on {
+      background: url('~@component-gallery/assets/image/fire-warn/fire-bg-blue.png') no-repeat;
+      background-size: 100% 100%;
+    }
+    
+    .warn-count .item:nth-child(1),
+    .warn-count .item:nth-child(2) {
+      margin-bottom: px-to-rem(2);
+    }
+    
+    .warn-count .item .til {
+      display: block;
+      width: 100%;
+      height: px-to-rem(14);
+      color: #fff;
+      font-size: px-to-rem(14);
+      font-weight: 400;
+      text-align: center;
+      line-height: px-to-rem(14);
+    }
+    
+    .warn-count .item .num {
+      display: block;
+      float: left;
+      overflow: hidden;
+      margin-top: px-to-rem(6);
+      width: 100%;
+      color: #fff;
+      font-size: px-to-rem(14);
+      text-align: center;
+      line-height: px-to-rem(14);
+      font-weight: 400;
+    }
+    
+    .warn-count .left6 {
+      margin-left: px-to-rem(6);
+    }
+  }
+}

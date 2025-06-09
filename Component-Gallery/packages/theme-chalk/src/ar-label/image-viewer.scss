@@ -1,0 +1,72 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+@mixin ar-label-image-viewer-zj-class() {
+  .ar-label-image-viewer-zj {
+    .el-image-viewer__actions {
+      border-radius: px-to-rem(22);
+    }
+
+    .el-image-viewer__close {
+      background: #606266;
+      border-radius: 50%;
+      font-size: px-to-rem(24);
+
+      &:hover {
+        opacity: 0.6;
+      }
+
+      &:active {
+        opacity: 0.8;
+      }
+    }
+
+    .el-image-viewer__prev,
+    .el-image-viewer__next {
+      width: px-to-rem(44);
+      height: px-to-rem(44);
+      background: #606266;
+      border-radius: 50%;
+      font-size: px-to-rem(24);
+
+      &:hover {
+        opacity: 0.6;
+      }
+
+      &:active {
+        opacity: 0.8;
+      }
+    }
+
+    video::-webkit-media-controls-enclosure {
+      position: relative;
+    }
+
+    video::-webkit-media-controls-panel {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: var(--controls-width, 100%);
+      height: var(--controls-height, 100%);
+      transition: all;
+      transform: translate(-50%, -50%) rotate(var(--controls-rotate, 0));
+    }
+  }
+}
+
+[data-theme='theme-wiseblue'] {
+  // 睿智蓝
+  @include ar-label-image-viewer-zj-class;
+}
+
+[data-theme='theme-terracotta'] {
+  // 赤土黄
+  @include ar-label-image-viewer-zj-class;
+
+}
+
+[data-theme='theme-aquamarine'] {
+  // 碧山绿
+  @include ar-label-image-viewer-zj-class;
+}

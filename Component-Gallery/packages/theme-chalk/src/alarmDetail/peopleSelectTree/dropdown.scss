@@ -1,0 +1,31 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem.scss';
+
+body {
+  @include themeify(false) {
+    .y-select-dropdown.el-select-dropdown
+      .el-select-dropdown__list
+      .el-select-dropdown__item {
+      padding: 0;
+      &.people-option-tree-box {
+        padding-top: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: px-to-rem(32) !important;
+      }
+
+      // background: transparent !important;
+    }
+
+    .y-select-dropdown.el-select-dropdown
+      .el-select-dropdown__list
+      .el-select-dropdown__item:hover {
+      background: transparent !important;
+    }
+
+    .y-select-dropdown.el-select-dropdown .is-vertical .el-scrollbar__thumb {
+      background: themed('alarm-detail-people-select-tree-node-hover');
+    }
+  }
+}

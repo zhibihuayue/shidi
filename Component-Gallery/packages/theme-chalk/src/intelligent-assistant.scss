@@ -1,0 +1,841 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.intelligent-assistant {
+  position: absolute;
+  z-index: 9999;
+  width: fit-content;
+  height: fit-content;
+
+  &-ip {
+    width: px-to-rem(151);
+    height: px-to-rem(200);
+    background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/ip.webp');
+    background-size: 100% 100%;
+
+    .speechControl {
+      position: absolute;
+      top: px-to-rem(58);
+      right: px-to-rem(6);
+      width: px-to-rem(40);
+      height: px-to-rem(40);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      cursor: pointer;
+    }
+  }
+
+  &-ip_hidden {
+    margin-bottom: px-to-rem(-10);
+    margin-left: px-to-rem(22);
+    width: px-to-rem(98);
+    height: px-to-rem(115);
+    background-size: 100% 100%;
+    background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/ip_hidden.webp');
+  }
+
+  &-progress {
+    margin-left: px-to-rem(-124.6);
+    width: px-to-rem(260);
+    height: px-to-rem(229);
+    background-size: 100% 100%;
+  }
+
+  .absolute-container {
+    position: absolute;
+    bottom: px-to-rem(64);
+    left: px-to-rem(156);
+    width: px-to-rem(932);
+  }
+
+  &-panel {
+    position: relative;
+    padding: px-to-rem(24) px-to-rem(0) px-to-rem(24) px-to-rem(24);
+    border-radius: 8px;
+    color: #e8f3fe;
+    font-size: px-to-rem(14);
+    font-family: PingFangSC, 'PingFang SC';
+    text-align: left;
+    font-weight: 400;
+    line-height: px-to-rem(20);
+    font-style: normal;
+  }
+
+  .padding-right-12 {
+    padding-right: px-to-rem(24);
+  }
+
+  .margin-right-12 {
+    margin-right: px-to-rem(24);
+  }
+
+  .mirror {
+    transform: scaleX(-1);
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  &-close {
+    position: absolute;
+    top: px-to-rem(-19);
+    right: px-to-rem(-19);
+    width: px-to-rem(38);
+    height: px-to-rem(38);
+    background-size: 100% 100%;
+    background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/close.png');
+    cursor: pointer;
+  }
+
+  &-cards {
+    margin: px-to-rem(12) 0 px-to-rem(12) 0;
+
+    .text {
+      margin-bottom: px-to-rem(12);
+    }
+
+    .card-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: px-to-rem(72);
+      gap: px-to-rem(12);
+
+      // 卡片
+      .card {
+        display: flex;
+        align-items: center;
+        padding-right: px-to-rem(12);
+        background-size: 100% 100%;
+        background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/card-bg.png');
+        cursor: pointer;
+
+        .icon {
+          margin: 0 px-to-rem(2) px-to-rem(2) 0;
+          width: px-to-rem(64);
+          height: px-to-rem(48);
+          background-size: 100% 100%;
+
+          &1 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/icon1.png');
+          }
+
+          &2 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/icon2.png');
+          }
+
+          &3 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/icon3.png');
+          }
+
+          &4 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/icon4.png');
+          }
+        }
+
+        .label {
+          height: fit-content;
+          color: #e8f3fe;
+          font-family: PingFangSC, 'PingFang SC';
+          text-align: left;
+          flex: 1;
+          font-weight: 400;
+          font-style: normal;
+
+          .title {
+            margin-bottom: px-to-rem(6);
+            text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+            font-size: px-to-rem(16);
+            line-height: px-to-rem(16);
+          }
+
+          .question {
+            overflow: hidden;
+            width: 100%;
+            font-size: px-to-rem(14);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: px-to-rem(20);
+          }
+        }
+
+        &:hover {
+          background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/card-select.png');
+
+          .icon {
+            &1 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/icon1-select.png');
+            }
+
+            &2 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/icon2-select.png');
+            }
+
+            &3 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/icon3-select.png');
+            }
+
+            &4 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/icon4-select.png');
+            }
+          }
+
+          .label {
+            .title {
+              text-shadow: 0 0 px-to-rem(10) #fb913c;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-window {
+    ::v-deep .el-scrollbar {
+      .el-scrollbar__wrap {
+        max-height: px-to-rem(320);
+      }
+
+      padding-bottom: px-to-rem(12);
+    }
+  }
+
+  &-sender {
+    .input-area {
+      position: relative;
+      height: px-to-rem(140);
+      background: rgb(79 159 255 / 20%);
+      border: px-to-rem(1) solid rgb(79 159 255 / 0%);
+      border-radius: 4px;
+      cursor: text;
+
+      .btns {
+        position: absolute;
+        right: px-to-rem(12);
+        bottom: px-to-rem(12);
+        height: px-to-rem(32);
+
+        .el-button + .el-button {
+          margin-left: px-to-rem(12);
+        }
+      }
+
+      ::v-deep .el-textarea {
+        .el-textarea__inner {
+          padding: px-to-rem(6) px-to-rem(12);
+          background: none;
+          border: none;
+          font-size: px-to-rem(14);
+          font-weight: 400;
+          line-height: px-to-rem(20);
+        }
+      }
+
+      textarea {
+        padding: px-to-rem(6) px-to-rem(12);
+        width: 100%;
+        height: 100%;
+        background: none;
+        border: none;
+        color: #e8f3fe;
+        font-size: px-to-rem(14);
+        font-weight: 400;
+        line-height: px-to-rem(20);
+      }
+
+      textarea:focus {
+        /* 标准的焦点样式，用于不支持focus-visible的浏览器 */
+        outline: none;
+      }
+
+      textarea:focus-visible {
+        outline: none;
+      }
+
+      textarea::placeholder {
+        color: rgb(232 243 254 / 70%);
+      }
+    }
+
+    .human {
+      display: none;
+      width: px-to-rem(400);
+      height: px-to-rem(400);
+    }
+
+    .btn-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: px-to-rem(14);
+      width: 100%;
+      height: px-to-rem(32);
+
+      .mode {
+        display: flex;
+        min-width: px-to-rem(154);
+        height: px-to-rem(22);
+        background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/mode-bg.png');
+        background-size: 100% 100%;
+
+        .mode-item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: rgb(232 243 254 / 70%);
+          font-size: px-to-rem(12);
+          font-family: PingFangSC, 'PingFang SC';
+          white-space: nowrap;
+          flex: 1;
+          font-weight: 400;
+          line-height: px-to-rem(12);
+        }
+
+        .active-item {
+          justify-content: flex-start;
+          background-size: 100% 100%;
+          text-shadow: 0 px-to-rem(2) px-to-rem(4) #1373e6;
+          color: #e8f3fe;
+          background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/mode-item-bg.png');
+          padding-right: px-to-rem(6);
+
+          &::before {
+            margin-right: px-to-rem(3);
+            width: px-to-rem(22);
+            height: px-to-rem(22);
+            background-size: 100% 100%;
+            content: '';
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/mode-item-icon.png');
+          }
+        }
+      }
+
+      .rightModule {
+        display: flex;
+        width: px-to-rem(272);
+        height: px-to-rem(32);
+        margin-right: px-to-rem(12);
+
+        .speech {
+          display: flex;
+          margin-right: px-to-rem(12);
+          width: px-to-rem(164);
+          height: px-to-rem(32);
+
+          .speechGif {
+            width: px-to-rem(120);
+            height: px-to-rem(32);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+          }
+
+          .speechBtn {
+            width: px-to-rem(42);
+            height: px-to-rem(40);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            cursor: pointer;
+            margin-left: px-to-rem(12);
+            margin-top: px-to-rem(-4);
+          }
+        }
+
+        .send {
+          width: px-to-rem(108);
+          height: px-to-rem(32);
+        }
+      }
+    }
+  }
+
+  &-dialogue {
+    .msg:last-child {
+      margin-bottom: px-to-rem(0);
+    }
+
+    .msg {
+      display: flex;
+      margin-bottom: px-to-rem(12);
+      height: fit-content;
+
+      &--right {
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .avator {
+        width: px-to-rem(40);
+        height: px-to-rem(40);
+        background: linear-gradient(
+            180deg,
+            rgb(15 68 123 / 60%) 0%,
+            rgb(1 81 160 / 38%) 100%
+          ),
+          radial-gradient(
+            195% 58% at 77% 112%,
+            rgb(79 159 255 / 67%) 0%,
+            rgb(47 110 186 / 0%) 100%
+          ),
+          linear-gradient(
+            180deg,
+            rgb(30 81 143 / 62%) 0%,
+            rgb(31 74 126 / 50%) 100%
+          );
+        background-size: 100% 100%;
+        border-radius: 4px;
+        box-shadow: inset 0 px-to-rem(1) px-to-rem(3) px-to-rem(1)
+          rgb(73 138 215 / 50%);
+        background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/avator.png');
+      }
+
+      .bubble {
+        position: relative;
+        padding: px-to-rem(6) px-to-rem(12);
+        max-width: calc(100% - px-to-rem(52));
+        max-width: px-to-rem(586);
+        border-radius: 4px;
+        color: #e8f3fe;
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, 'PingFang SC';
+        white-space: pre-line;
+        font-weight: 400;
+        line-height: px-to-rem(20);
+
+        &--left {
+          margin-left: px-to-rem(12);
+          background: rgb(79 159 255 / 40%);
+
+          .html-text {
+            word-break: break-all;
+
+            ::v-deep ol {
+              padding: px-to-rem(6) px-to-rem(24);
+              list-style: decimal;
+              display: flex;
+              flex-direction: column;
+
+              li {
+                list-style: decimal;
+                line-height: px-to-rem(16);
+              }
+            }
+
+            ::v-deep .html-text-content {
+              display: flex;
+              flex-direction: column;
+
+              strong {
+                font-weight: 800;
+              }
+            }
+
+            .messageItem {
+              height: px-to-rem(30);
+              background-repeat: no-repeat;
+              background-size: 100% 100%;
+              cursor: pointer;
+              margin-top: px-to-rem(12);
+              margin-bottom: px-to-rem(6);
+
+              &.play {
+                width: px-to-rem(120);
+                background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/speaking.gif');
+              }
+
+              &.noPlay {
+                width: px-to-rem(28);
+                background-image: url('~@component-gallery/assets/image/intelligent-assistant/wiseblue/messageIcon.png');
+              }
+            }
+          }
+
+          &::after {
+            position: absolute;
+            top: px-to-rem(14);
+            left: -5px;
+            width: 0;
+            height: 0;
+            content: '';
+            border-right: 5px solid rgb(79 159 255 / 40%);
+            border-top: px-to-rem(6) solid transparent;
+            border-bottom: px-to-rem(6) solid transparent;
+          }
+        }
+
+        &--right {
+          margin-right: px-to-rem(5);
+          background: rgb(79 159 255 / 20%);
+          word-break: break-all;
+
+          &::after {
+            position: absolute;
+            top: px-to-rem(10);
+            right: -5px;
+            width: 0;
+            height: 0;
+            content: '';
+            border-left: 5px solid rgb(79 159 255 / 20%);
+            border-top: px-to-rem(6) solid transparent;
+            border-bottom: px-to-rem(6) solid transparent;
+          }
+        }
+
+        .loadding-box {
+          display: flex;
+          align-items: center;
+          height: 100%;
+
+          .dot1,
+          .dot2,
+          .dot3 {
+            width: px-to-rem(6);
+            height: px-to-rem(6);
+            border-radius: 50%;
+          }
+
+          .dot2,
+          .dot3 {
+            margin-left: px-to-rem(4);
+          }
+
+          .dot1 {
+            animation: jump 1.2s -0.4s linear infinite;
+            background: #e8f3fe;
+          }
+
+          .dot2 {
+            animation: jump 1.2s -0.2s linear infinite;
+            background: #e8f3fe;
+          }
+
+          .dot3 {
+            animation: jump 1.2s linear infinite;
+            background: #e8f3fe;
+          }
+
+          @keyframes jump {
+            0%,
+            80%,
+            100% {
+              transform: scale(0.75);
+              opacity: 1;
+            }
+
+            40% {
+              transform: scale(1.2);
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 林业换肤
+[data-theme='theme-aquamarine'] .intelligent-assistant {
+  &-panel {
+    border-radius: 0;
+    color: #fff;
+  }
+
+  &-cards {
+    .card-list {
+      // 卡片
+      .card {
+        background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/card-bg.png');
+
+        .icon {
+          &1 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/icon1.png');
+          }
+
+          &2 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/icon2.png');
+          }
+
+          &3 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/icon3.png');
+          }
+
+          &4 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/icon4.png');
+          }
+        }
+
+        .label {
+          color: #fff;
+
+          .title {
+            text-shadow: 0 0 px-to-rem(18) rgb(0 245 193 / 70%);
+          }
+        }
+
+        &:hover {
+          background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/card-select.png');
+
+          .icon {
+            &1 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/icon1-select.png');
+            }
+
+            &2 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/icon2-select.png');
+            }
+
+            &3 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/icon3-select.png');
+            }
+
+            &4 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/icon4-select.png');
+            }
+          }
+
+          .label {
+            .title {
+              text-shadow: 0 0 px-to-rem(18) rgb(249 255 108 / 70%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-close {
+    background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/close.png');
+  }
+
+  &-sender {
+    .input-area {
+      background: rgb(2 137 109 / 20%);
+      border: px-to-rem(1) solid rgb(2 137 109 / 0%);
+      border-radius: 4px;
+
+      textarea {
+        color: #fff;
+      }
+
+      textarea::placeholder {
+        color: rgb(255 255 255 / 70%);
+      }
+    }
+
+    .btn-area {
+      .mode {
+        background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/mode-bg.png');
+
+        .mode-item {
+          color: #fff;
+        }
+
+        .active-item {
+          text-shadow: 0 px-to-rem(2) px-to-rem(4) #0dc985;
+          color: #f9ff6c;
+          background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/mode-item-bg.png');
+
+          &::before {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/mode-item-icon.png');
+          }
+        }
+      }
+    }
+  }
+
+  &-dialogue {
+    .msg {
+      .avator {
+        background-image: url('~@component-gallery/assets/image/intelligent-assistant/aquamarine/avator.png');
+      }
+
+      .bubble {
+        color: #fff;
+
+        &--left {
+          background: rgb(0 34 27 / 40%);
+
+          &::after {
+            border-right: 5px solid rgb(0 34 27 / 40%);
+          }
+        }
+
+        &--right {
+          margin-right: px-to-rem(5);
+          background: #00221b;
+          word-break: break-all;
+
+          &::after {
+            border-left: 5px solid #00221b;
+          }
+        }
+
+        .loadding-box {
+          .dot1 {
+            background: #fff;
+          }
+
+          .dot2 {
+            background: #fff;
+          }
+
+          .dot3 {
+            background: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 国土换肤
+[data-theme='theme-terracotta'] .intelligent-assistant {
+  &-panel {
+    color: #e4e7c1;
+  }
+
+  &-cards {
+    .card-list {
+      // 卡片
+      .card {
+        background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/card-bg.png');
+
+        .icon {
+          &1 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/icon1.png');
+          }
+
+          &2 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/icon2.png');
+          }
+
+          &3 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/icon3.png');
+          }
+
+          &4 {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/icon4.png');
+          }
+        }
+
+        .label {
+          color: #e4e7c1;
+
+          .title {
+            text-shadow: 0 px-to-rem(1) px-to-rem(4) #dcd277;
+          }
+        }
+
+        &:hover {
+          background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/card-select.png');
+
+          .icon {
+            &1 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/icon1-select.png');
+            }
+
+            &2 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/icon2-select.png');
+            }
+
+            &3 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/icon3-select.png');
+            }
+
+            &4 {
+              background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/icon4-select.png');
+            }
+          }
+
+          .label {
+            .title {
+              text-shadow: 0 px-to-rem(1) px-to-rem(4) #ff7f3c;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-close {
+    background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/close.png');
+  }
+
+  &-sender {
+    .input-area {
+      background: rgb(100 86 46 / 40%);
+      border: px-to-rem(1) solid rgb(255 238 177 / 0%);
+      border-radius: 4px;
+
+      textarea {
+        color: #e4e7c1;
+      }
+
+      textarea::placeholder {
+        color: rgb(228 231 193 / 70%);
+      }
+    }
+
+    .btn-area {
+      .mode {
+        background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/mode-bg.png');
+
+        .mode-item {
+          color: rgb(228 231 193 / 70%);
+        }
+
+        .active-item {
+          text-shadow: 0 px-to-rem(2) px-to-rem(4) #dcd277;
+          color: #fffa28;
+          background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/mode-item-bg.png');
+
+          &::before {
+            background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/mode-item-icon.png');
+          }
+        }
+      }
+    }
+  }
+
+  &-dialogue {
+    .msg {
+      .avator {
+        background-image: url('~@component-gallery/assets/image/intelligent-assistant/terracotta/avator.png');
+      }
+
+      .bubble {
+        color: #e4e7c1;
+
+        &--left {
+          background: rgb(22 18 9 / 40%);
+
+          &::after {
+            border-right: 5px solid rgb(22 18 9 / 40%);
+          }
+        }
+
+        &--right {
+          background: rgb(22 18 9 / 95%);
+
+          &::after {
+            border-left: 5px solid rgb(22 18 9 / 95%);
+          }
+        }
+
+        .loadding-box {
+          .dot1 {
+            background: #e4e7c1;
+          }
+
+          .dot2 {
+            background: #e4e7c1;
+          }
+
+          .dot3 {
+            background: #e4e7c1;
+          }
+        }
+      }
+    }
+  }
+}

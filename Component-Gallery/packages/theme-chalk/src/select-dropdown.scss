@@ -1,0 +1,125 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.custom-select-dropdown {
+  margin-top: px-to-rem(6) !important;
+  border-color: transparent;
+  @include themeify(false) {
+    .popper__arrow,
+    .popper__arrow::after {
+      display: none;
+      border-bottom-color: #0f1926 !important;
+    }
+
+    .el-popper[x-placement^='bottom'] {
+      border: 0;
+      margin-top: px-to-rem(6) !important;
+    }
+
+    .el-select-dropdown__list {
+      padding: 0 !important;
+    }
+
+    .el-select-dropdown__item {
+      font-weight: 400;
+      font-size: px-to-rem(14);
+      color: #e8f3fe;
+      &.selected{
+        color: rgb(79, 159, 255);
+      }
+    }
+
+    .el-scrollbar {
+      li {
+        font-size: px-to-rem(12);
+        &:hover {
+          // background-color: rgba(#7a713d, 0.9);
+          background: rgba(79, 159, 255, 0.4);
+        }
+
+        &:active {
+          // background-color: rgba(#7a713d, 0.9);
+          background: rgba(79, 159, 255, 0.4);
+        }
+
+        &:focus {
+          // background-color: rgba(#7a713d, 0.9);
+          background: rgba(79, 159, 255, 0.4);
+        }
+      }
+
+      .hover {
+        // background-color: rgba(#7a713d, 0.9);
+        background: rgba(79, 159, 255, 0.4);
+      }
+    }
+
+    background: rgb(23 37 55 / 90%);
+    border-radius: px-to-rem(4);
+  }
+}
+[data-theme='theme-terracotta'] {
+  .custom-select-dropdown {
+    .popper__arrow,
+    .popper__arrow::after {
+      display: none;
+      border-bottom-color: #36301b !important;
+    }
+
+    .el-select-dropdown__item {
+      color: #e4e7c1;
+      &.selected{
+        color: #FFFA28;
+      }
+    }
+    .el-scrollbar {
+      li {
+        font-size: px-to-rem(12);
+        &:hover {
+          background: rgb(100 86 46 / 40%);
+        }
+
+        &:active {
+          background: rgb(100 86 46 / 40%);
+        }
+
+        &:focus {
+          background: rgb(100 86 46 / 40%);
+        }
+      }
+      .hover {
+        background: rgb(100 86 46 / 40%);
+      }
+    }
+    background: linear-gradient(#000000 0%, #36301b 100%);
+  }
+}
+[data-theme='theme-aquamarine'] {
+  .custom-select-dropdown {
+    .popper__arrow,
+    .popper__arrow::after {
+      display: none;
+      border-bottom-color: #36301b !important;
+    }
+
+    .el-select-dropdown__item {
+      color: #fff;
+      &.selected{
+        color: #f9ff6c;
+      }
+    }
+    .el-scrollbar {
+      li {
+        font-size: px-to-rem(12);
+        &:hover, &:active, &:focus  {
+          background: rgba(2, 137, 109, 0.4)
+          
+        }
+      }
+      .hover {
+        background: rgba(2, 137, 109, 0.4)
+      }
+    }
+  }
+}

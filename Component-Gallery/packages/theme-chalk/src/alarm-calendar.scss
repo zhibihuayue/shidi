@@ -1,0 +1,497 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.alarm-calendar {
+  &-container {
+    width: px-to-rem(370);
+
+    ::v-deep .innercomp-sccontainer-header {
+      display: flex;
+    }
+
+    ::v-deep .innercomp-sccontainer-header__title {
+      padding-right: 0;
+      flex: 1;
+    }
+
+    ::v-deep .el-color-picker__color {
+      border: none;
+      border-radius: px-to-rem(4);
+    }
+
+    ::v-deep .el-color-picker__color-inner {
+      border-radius: px-to-rem(4);
+    }
+
+    .alarmDate {
+      width: px-to-rem(120);
+
+      ::v-deep .el-input {
+        width: 100% !important;
+
+        i.iconfont_tools.icon-tongyong-shaixuanriqi::before {
+          margin-left: px-to-rem(12);
+        }
+      }
+
+      ::v-deep .el-input__prefix {
+        left: px-to-rem(0) !important; // 处理国土集成侧覆盖;
+      }
+
+      ::v-deep .icon-tongyong-shaixuanriqi {
+        font-size: px-to-rem(20) !important;
+        line-height: px-to-rem(32) !important;
+      }
+
+      ::v-deep .el-input__inner {
+        padding-right: px-to-rem(20);
+        padding-right: 0 !important;
+        padding-left: px-to-rem(44) !important;
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+      }
+    }
+  }
+
+  &-body {
+    margin-top: px-to-rem(20);
+    width: px-to-rem(370);
+  }
+
+  &-week {
+    ul {
+      display: flex;
+
+      li {
+        margin-left: px-to-rem(1);
+        width: px-to-rem(52);
+        height: px-to-rem(30);
+        color: #fff;
+        font-size: px-to-rem(14);
+        font-family: 'Source Han Sans SC';
+        text-align: center;
+        line-height: px-to-rem(30);
+
+        &:nth-child(7n + 1) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &-day {
+    ul {
+      display: grid;
+      gap: px-to-rem(4);
+      grid-template-columns: repeat(7, px-to-rem(52));
+      grid-template-rows: repeat(5, px-to-rem(32));
+
+      li {
+        position: relative;
+        color: #fff;
+        font-size: px-to-rem(14);
+        font-family: 'Source Han Sans SC';
+        text-align: center;
+        line-height: 1;
+
+        .dayBg {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: px-to-rem(4);
+          opacity: 0.2;
+        }
+
+        .dayChar {
+          position: absolute;
+          z-index: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          color: var(--iw-text-color);
+        }
+      }
+
+      .noTop {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &-footer {
+    display: flex;
+    margin-top: px-to-rem(6);
+    height: px-to-rem(20);
+
+    &__info {
+      display: flex;
+      align-items: center;
+      flex: 1;
+
+      > div {
+        display: flex;
+        align-items: center;
+        margin-left: px-to-rem(24);
+
+        &:first-child {
+          margin-left: px-to-rem(0);
+        }
+      }
+
+      .colorBlock {
+        margin-right: px-to-rem(12);
+        width: px-to-rem(8);
+        height: px-to-rem(8);
+      }
+
+      .animateBox {
+        overflow: hidden;
+        max-width: px-to-rem(40);
+        height: px-to-rem(16);
+        white-space: nowrap;
+
+        .animateStyle {
+          display: block;
+
+          @keyframes marquee {
+            0% {
+              transform: translateX(10%);
+            }
+
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+
+          will-change: transform; /* 优化动画性能 */
+          animation: marquee var(--animation-duration) linear infinite;
+        }
+      }
+
+      span {
+        font-size: px-to-rem(14);
+      }
+    }
+  }
+
+  &-colorBody {
+    padding: px-to-rem(12);
+    font-size: px-to-rem(14);
+
+    &__colorTitle {
+      display: flex;
+      align-items: center;
+      height: px-to-rem(32);
+      border-bottom: px-to-rem(1) solid rgb(255 255 255 / 20%);
+      background: rgb(2 137 109 / 20%);
+    }
+
+    &__colorInput {
+      display: flex;
+      padding: px-to-rem(12) px-to-rem(12) px-to-rem(12) 0;
+      height: px-to-rem(56);
+      border-bottom: px-to-rem(1) solid rgb(255 255 255 / 20%);
+
+      ::v-deep .el-input {
+        width: px-to-rem(72);
+        height: px-to-rem(32);
+        &--mini {
+          width: px-to-rem(123) !important;
+        }
+      }
+
+      ::v-deep .el-select {
+        margin: 0 px-to-rem(12) 0 px-to-rem(12);
+        width: px-to-rem(72);
+        height: px-to-rem(32);
+      }
+
+      ::v-deep .el-input__inner {
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+      }
+
+      ::v-deep .el-color-picker {
+        height: px-to-rem(32);
+        background: rgb(2 137 109 / 20%);
+        border-radius: px-to-rem(4);
+      }
+
+      ::v-deep .el-color-picker__trigger {
+        padding: px-to-rem(2);
+        width: px-to-rem(62);
+        height: px-to-rem(32);
+        border: 0;
+      }
+
+      ::v-deep .el-color-picker__color {
+        width: px-to-rem(28);
+        height: px-to-rem(28);
+        border: none;
+      }
+
+      ::v-deep .el-color-picker__icon {
+        right: 0;
+        left: 0;
+        font-size: px-to-rem(20);
+        transform: translate3d(20%, -50%, 0);
+      }
+
+      ::v-deep .el-icon-arrow-down::before {
+        color: var(--iw-text-color);
+        font-size: 0.2rem;
+        font-family: 'iconfont_tools';
+        content: '\ec16';
+      }
+
+      span {
+        margin-right: 0;
+      }
+    }
+
+    ::v-deep .colorNum {
+      flex: 1;
+      padding-left: px-to-rem(12);
+
+      .input input::-webkit-outer-spin-button,
+      .input input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    .colorTitle {
+      padding-left: px-to-rem(12);
+      width: px-to-rem(86);
+    }
+
+    .colorSize {
+      font-size: px-to-rem(14);
+    }
+
+    .colorChooseInfo {
+      padding-left: px-to-rem(12);
+      width: px-to-rem(74);
+    }
+
+    &__colorBtn {
+      display: flex;
+      justify-content: center;
+      margin-top: px-to-rem(12);
+
+      ::v-deep .el-button--primary {
+        width: px-to-rem(108);
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+      }
+    }
+  }
+
+  .iconfont_tools {
+    padding-top: px-to-rem(2);
+    font-size: px-to-rem(16);
+  }
+}
+
+// 通用
+[data-theme='theme-wiseblue'] .alarm-calendar {
+  &-container {
+    .setbtn {
+      &.active {
+        color: rgb(79 159 255 / 100%);
+      }
+    }
+
+    .alarmDate {
+      color: #e8f3fe;
+
+      ::v-deep .el-input__prefix i {
+        color: #e8f3fe;
+      }
+    }
+  }
+
+  &-week {
+    ul {
+      li {
+        border-radius: px-to-rem(4);
+        color: #e8f3fe;
+      }
+    }
+  }
+
+  &-week {
+    margin: px-to-rem(6) 0;
+  }
+
+  &-day {
+    ul {
+      li {
+        .dayBg {
+          background: rgb(79 159 255 / 50%);
+        }
+
+        .dayChar {
+          color: rgb(232 243 254 / 70%);
+        }
+      }
+    }
+  }
+
+  &-footer {
+    &__info {
+      span {
+        color: #fff;
+      }
+    }
+  }
+
+  &-colorBody {
+    &__colorTitle {
+      background: rgb(79 159 255 / 20%);
+      border-bottom: px-to-rem(1) solid rgb(232 243 254 / 20%);
+    }
+
+    &__colorInput {
+      ::v-deep .el-color-picker {
+        background: rgb(79 159 255 / 20%);
+      }
+    }
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .alarm-calendar {
+  &-container {
+    .setbtn {
+      &.active {
+        color: rgb(249 255 108 / 100%);
+      }
+    }
+  }
+
+  &-week {
+    ul {
+      li {
+        border-radius: px-to-rem(4);
+        color: #fff;
+      }
+    }
+  }
+
+  &-week {
+    margin: px-to-rem(8) 0;
+  }
+
+  &-day {
+    ul {
+      li {
+        .dayBg {
+          background: rgb(2 137 109 / 35%);
+        }
+
+        .dayChar {
+          color: rgb(255 255 255 / 70%);
+        }
+      }
+    }
+  }
+
+  &-footer {
+    &__info {
+      span {
+        color: #c7fffa;
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .alarm-calendar {
+  &-container {
+    .setbtn {
+      color: #ffeeb1;
+
+      &.active {
+        color: rgb(255 250 40 / 100%);
+      }
+    }
+
+    .alarmDate {
+      ::v-deep i.iconfont_tools.icon-tongyong-shaixuanriqi {
+        color: #ffeeb1;
+      }
+    }
+
+    &.terracotta-classic {
+      .alarm-calendar-body {
+        margin-top: px-to-rem(12);
+        width: px-to-rem(370);
+
+        .alarm-calendar-day {
+          ul {
+            margin-bottom: px-to-rem(6);
+            height: px-to-rem(197);
+            gap: px-to-rem(1.5);
+            grid-template-columns: repeat(7, px-to-rem(52));
+            grid-template-rows: repeat(5, px-to-rem(32));
+
+            li {
+              border-radius: 0;
+
+              .dayBg {
+                border-radius: 0;
+              }
+            }
+          }
+        }
+
+        .alarm-calendar-footer {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  &-week {
+    margin-bottom: px-to-rem(5);
+
+    ul {
+      li {
+        height: auto;
+        line-height: px-to-rem(20);
+        color: #e4e7c1;
+      }
+    }
+  }
+
+  &-day {
+    ul {
+      li {
+        border-radius: 0;
+
+        .dayBg {
+          background: #64562e;
+        }
+      }
+    }
+  }
+
+  &-colorBody {
+    background: rgb(23 20 11 / 90%);
+    border-radius: 8px;
+
+    &__colorTitle {
+      background-color: rgb(100 86 46 / 40%);
+    }
+
+    &__colorInput {
+      ::v-deep .el-color-picker {
+        background: rgb(100 86 46 / 40%);
+      }
+    }
+  }
+}

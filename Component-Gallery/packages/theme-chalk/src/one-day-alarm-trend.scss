@@ -1,0 +1,33 @@
+@import "mixins/px-to-rem";
+
+.one-day-alarm-trend{
+    &-container{
+        width: px-to-rem(370);
+    }
+    &-echartsBox{
+        position: relative;
+        margin-bottom: px-to-rem(10);
+        height: px-to-rem(260);
+        #echartsContainer_one-day{
+         height: px-to-rem(260);
+         z-index: 1;
+        }
+        .bg_img {
+          pointer-events: none;
+          position: absolute;
+          bottom: px-to-rem(-1);
+          left: px-to-rem(20);
+          width: 93%;
+        }        
+    }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .one-day-alarm-trend{
+    
+}
+
+// 国土
+[data-theme="theme-terracotta"] .one-day-alarm-trend{
+    
+}

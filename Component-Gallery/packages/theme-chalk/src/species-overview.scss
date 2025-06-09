@@ -1,0 +1,194 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/theme-button-mixins';
+@import 'mixins/px-to-rem';
+.wuzhong_overview{
+  .box {
+    padding: 0 px-to-rem(12);
+  }
+}
+.species-overview {
+  &-container {
+    width: px-to-rem(370);
+    height: px-to-rem(354);
+
+    .box {
+      height: px-to-rem(306);
+    }
+
+    &__subtitle {
+      padding: px-to-rem(18) 0;
+      background-repeat: no-repeat;
+      background-size: contain;
+      color: transparent;
+      font-size: px-to-rem(14);
+      font-family: PingFangSC, "PingFang SC";
+      background-image: url('~@component-gallery/assets/image/wildlife-level-statistics/number.png');
+      background-position-x: px-to-rem(-13);
+      font-weight: 500;
+      line-height: px-to-rem(14);
+    }
+
+    &__totalline {
+      display: flex;
+      margin-bottom: px-to-rem(12);
+
+      .number {
+        display: flex;
+        justify-content: center;
+        width: px-to-rem(44);
+        height: px-to-rem(54);
+        background-repeat: no-repeat;
+        background-size: contain;
+        text-shadow: 0 0 px-to-rem(8) rgb(0 245 193 / 30%);
+        color: #FFF;
+        font-size: px-to-rem(18);
+        font-family: PingFangSC, "PingFang SC";
+        line-height: px-to-rem(43);
+        font-weight: 500;
+        background-image: url('~@component-gallery/assets/image/wildlife-level-statistics/speciesnum_bg@2x.png');
+        font-style: normal;
+
+        + .number {
+          margin-left: px-to-rem(1);
+        }
+      }
+
+      .dot {
+        margin-top: px-to-rem(38);
+        margin-right: px-to-rem(3);
+        margin-left: px-to-rem(3);
+        width: px-to-rem(3);
+        height: px-to-rem(6);
+        background: linear-gradient(180deg, rgb(2 137 109 / 0%) 0%, rgb(2 137 109 / 51%) 100%);
+        border: px-to-rem(1) solid;
+        border-radius: px-to-rem(2);
+        border-image: linear-gradient(360deg, rgb(67 200 143 / 0%), rgb(67 200 143 / 30%), rgb(67 200 143 / 0%)) 1 1;
+        backdrop-filter: blur(px-to-rem(32));
+      }
+    }
+
+    &__carouselpage {
+        .carouselpage {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: px-to-rem(6);
+        }
+
+        ::v-deep .el-carousel__item {
+          height: unset;
+        }
+
+        ::v-deep .el-carousel__indicators {
+          &--horizontal {
+            font-size: 0;
+
+            li.is-active {
+             .el-carousel__button {
+                background: #f9ff6c;
+              }
+            }
+          }
+        }
+
+        .pageunit {
+          position: relative;
+          height: px-to-rem(87);
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          text-align: right;
+          background-image: url('~@component-gallery/assets/image/wildlife-level-statistics/speciesper-bg.png');
+
+          .typeBg {
+            position: absolute;
+            bottom: px-to-rem(3);
+            left: px-to-rem(3);
+            width: px-to-rem(88);
+            height: px-to-rem(70);
+          }
+
+          .unitnum {
+            position: absolute;
+            top: px-to-rem(32);
+            left: px-to-rem(10);
+            width: 4em;
+            text-shadow: 0 0 px-to-rem(8) rgb(0 245 193 / 70%);
+            color: #FFF;
+            font-size: px-to-rem(18);
+            font-family: PingFangSC, "PingFang SC";
+            text-align: center;
+            font-weight: 500;
+            line-height: px-to-rem(24);
+          }
+
+          .unitper {
+            position: absolute;
+            top: px-to-rem(48);
+            left: px-to-rem(82);
+            color: #C7FFFA;
+            font-size: px-to-rem(12);
+            font-family: PingFangSC, "PingFang SC";
+            font-weight: 500;
+            line-height: px-to-rem(14);
+          }
+
+          .unittitle {
+            position: absolute;
+            right: 0;
+            display: inline-block;
+            padding: 0 px-to-rem(12);
+            margin-top: px-to-rem(8);
+            min-width: px-to-rem(86);
+            text-shadow: 0 px-to-rem(1) px-to-rem(7) #24AB83;
+            color: #FFF;
+            font-size: px-to-rem(14);
+            font-family: PingFangSC, "PingFang SC";
+            text-align: right;
+            font-weight: 500;
+            line-height: px-to-rem(16);
+
+            .titlebottom {
+              position: absolute;
+              top: px-to-rem(11);
+              right: 0;
+              width: 100%;
+              height: px-to-rem(17);
+              background-repeat: no-repeat;
+              background-size: 100% px-to-rem(17);
+              background-image: url('~@component-gallery/assets/image/wildlife-level-statistics/sptypelinebg2x.png');
+            }
+
+            .blurbg {
+              position: absolute;
+              right: 0;
+              bottom: px-to-rem(9);
+              width: 90%;
+              height: px-to-rem(14);
+              background: linear-gradient(0deg, #00725F 0%, rgb(60 255 156 / 0%) 100%);
+              border-radius: px-to-rem(7);
+              opacity: 0.56;
+              filter: blur(px-to-rem(7));
+            }
+        }
+      }
+    }
+
+    ::v-deep .el-pagination {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      margin-top: px-to-rem(6);
+      height: px-to-rem(22);
+    }
+
+    .custom-pagination-text {
+      color: #FFF;
+      font-size: px-to-rem(12);
+      font-family: PingFangSC, "PingFang SC";
+      text-align: right;
+      font-weight: 400;
+      font-style: normal;
+    }
+  }
+}

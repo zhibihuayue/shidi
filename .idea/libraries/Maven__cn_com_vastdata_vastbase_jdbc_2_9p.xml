@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cn.com.vastdata:vastbase-jdbc:2.9p">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/com/vastdata/vastbase-jdbc/2.9p/vastbase-jdbc-2.9p.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/com/vastdata/vastbase-jdbc/2.9p/vastbase-jdbc-2.9p-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/com/vastdata/vastbase-jdbc/2.9p/vastbase-jdbc-2.9p-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,319 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.forest-pest-statistics {
+  &-container {
+    position: absolute;
+    width: px-to-rem(370);
+
+    &__searchBox {
+      display: grid;
+      margin: px-to-rem(12) px-to-rem(12) px-to-rem(0);
+      width: px-to-rem(344);
+      height: px-to-rem(32);
+      line-height: px-to-rem(32);
+      grid-template-columns: px-to-rem(92) px-to-rem(272);
+      gap: px-to-rem(6);
+
+      ::v-deep .el-select {
+        .el-input__inner {
+          height: px-to-rem(32);
+        }
+      }
+
+      .timeTypeCollection {
+        display: flex;
+        width: px-to-rem(246);
+
+        ::v-deep .el-date-editor {
+          width: 100%;
+
+          .el-input {
+            &__inner {
+              padding-left: px-to-rem(47);
+              height: px-to-rem(32);
+              font-size: px-to-rem(14);
+            }
+
+            &__prefix {
+              color: #fff;
+
+              .el-input__icon {
+                line-height: px-to-rem(32);
+              }
+            }
+          }
+        }
+      }
+
+      ::v-deep .el-date-editor .el-range-separator {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .main {
+      // 留意，这里下边距是8，是因为轮播图的indicator位置导致的
+      padding: px-to-rem(12) px-to-rem(12) px-to-rem(6) px-to-rem(12);
+    }
+
+    &__echartsBox {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: px-to-rem(346);
+      height: px-to-rem(206);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+
+      .unit-view {
+        position: absolute;
+        top: px-to-rem(12);
+        left: px-to-rem(12);
+        width: px-to-rem(56);
+        height: px-to-rem(20);
+        font-size: px-to-rem(14);
+        font-weight: 400;
+        line-height: px-to-rem(20);
+      }
+
+      &::before {
+        position: absolute;
+        top: calc(50% - px-to-rem(46));
+        width: px-to-rem(68);
+        height: px-to-rem(68);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        pointer-events: none;
+        content: '';
+      }
+
+      .ring {
+        position: absolute;
+        top: px-to-rem(12);
+        width: px-to-rem(156);
+        height: px-to-rem(156);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        pointer-events: none;
+      }
+
+      .chartbottom {
+        position: absolute;
+        bottom: px-to-rem(14);
+        left: calc(50% - px-to-rem(72));
+        width: px-to-rem(146);
+        height: px-to-rem(50);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        border: none;
+      }
+
+      .circle {
+        position: absolute;
+        top: px-to-rem(34);
+        left: calc(50% - px-to-rem(78));
+        width: px-to-rem(156);
+        height: px-to-rem(156);
+        border-radius: 50%;
+      }
+
+      .chart-div {
+        top: px-to-rem(-14);
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__myCarousel {
+      margin-top: px-to-rem(12);
+
+      ::v-deep .el-carousel__container {
+        // margin-bottom: px-to-rem(6);
+      }
+
+      .carousel-page {
+        display: grid;
+        height: px-to-rem(60);
+        font-size: px-to-rem(14);
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: px-to-rem(19);
+        gap: px-to-rem(12) px-to-rem(22);
+        font-weight: 500;
+        line-height: px-to-rem(14);
+      }
+
+      .flex-item {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .type-title {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+
+        .type-bg {
+          position: absolute;
+          top: px-to-rem(4);
+          left: 0;
+          width: 100%;
+          height: px-to-rem(16);
+          pointer-events: none;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .name {
+          overflow: hidden;
+          max-width: px-to-rem(56);
+          font-size: px-to-rem(14);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: keep-all;
+          font-weight: 500;
+        }
+
+        .color-box {
+          display: inline-block;
+          margin-right: px-to-rem(6);
+          width: px-to-rem(10);
+          height: px-to-rem(10);
+          flex-shrink: 0;
+        }
+
+        .num-text {
+          max-width: px-to-rem(26);
+          overflow: hidden;
+          font-size: px-to-rem(14);
+          text-align: right;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: keep-all;
+          margin-left: auto;
+        }
+      }
+
+      .flex-view {
+        display: flex;
+        align-items: center;
+      }
+
+      &.noIndicator {
+        ::v-deep .el-carousel__indicators {
+          display: none;
+        }
+      }
+
+      ::v-deep .el-carousel__indicator--horizontal {
+        padding: px-to-rem(8) px-to-rem(4);
+      }
+    }
+
+    ::v-deep .el-carousel--horizontal {
+      overflow-y: hidden;
+      flex: 1;
+    }
+
+    ::v-deep .el-carousel__indicators--outside {
+      display: flex;
+      position: absolute;
+      bottom: px-to-rem(-7);
+      z-index: 99;
+      transform: translate(-50%);
+    }
+
+    ::v-deep .el-carousel__button {
+      height: px-to-rem(2);
+      background: rgb(255 255 255 / 20%);
+      border-radius: px-to-rem(3);
+      opacity: 1;
+    }
+  }
+}
+
+// 通用
+[data-theme='theme-wiseblue'] .forest-pest-statistics {
+  &-container {
+    &__echartsBox {
+      background-image: url('~@component-gallery/assets/image/forest-pest-statistics/speciesChart-bg-wiseblue.png');
+
+      &::before {
+        background-image: url('~@component-gallery/assets/image/forest-pest-statistics/pie-icon-wiseblue.png');
+      }
+
+      .ring {
+        background-image: url('~@component-gallery/assets/image/forest-pest-statistics/pie-bg-wiseblue.png');
+      }
+
+      .chartbottom {
+        background-image: url('~@component-gallery/assets/image/forest-pest-statistics/speciesChart-bottom-wiseblue.png');
+      }
+    }
+
+    ::v-deep .el-carousel__indicator.is-active button {
+      background-color: #f9ff6c;
+      border-radius: px-to-rem(3);
+      opacity: 1;
+    }
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .forest-pest-statistics {
+  &-container {
+    &__echartsBox {
+      background-image: url('~@component-gallery/assets/image/forest-pest-statistics/speciesChart-bg-aquamarine.png');
+
+      &::before {
+        background-image: url('~@component-gallery/assets/image/forest-pest-statistics/pie-icon-aquamarine.png');
+      }
+
+      .ring {
+        background-image: url('~@component-gallery/assets/image/forest-pest-statistics/pie-bg-aquamarine.png');
+      }
+
+      .chartbottom {
+        background-image: url('~@component-gallery/assets/image/forest-pest-statistics/speciesChart-bottom-aquamarine.png');
+      }
+    }
+
+    ::v-deep .el-carousel__indicator.is-active button {
+      background-color: #f8ff52;
+      border-radius: px-to-rem(3);
+      opacity: 1;
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .forest-pest-statistics {
+  &-container {
+    &__echartsBox {
+      background-image: url('~@component-gallery/assets/image/forest-pest-statistics/speciesChart-bg-terracotta.png');
+
+      &::before {
+        background-image: url('~@component-gallery/assets/image/forest-pest-statistics/pie-icon-terracotta.png');
+      }
+
+      .ring {
+        background-image: url('~@component-gallery/assets/image/forest-pest-statistics/pie-bg-terracotta.png');
+      }
+
+      .chartbottom {
+        background-image: url('~@component-gallery/assets/image/forest-pest-statistics/speciesChart-bottom-terracotta.png');
+      }
+    }
+
+    ::v-deep .el-carousel__indicator.is-active button {
+      background-color: #FFFA28;
+      border-radius: px-to-rem(3);
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/bem-mixins.scss';
+@import '../mixins/theme-checkbox-mixins';
+
+@include b('date-time-picker') {
+  display: flex;
+  align-items: center;
+  padding: px-to-rem(12);
+  gap: px-to-rem(6);
+  .c-select {
+    ::v-deep .el-input__inner {
+      padding-left: px-to-rem(12) !important;
+      padding-right: px-to-rem(26) !important;
+    }
+    .el-input__suffix {
+      right: 0.06rem;
+    }
+    ::v-deep .el-input__icon {
+      width: px-to-rem(20);
+    }
+  }
+  &-select {
+    width: px-to-rem(80);
+  }
+  &-picker {
+    flex: 1;
+    ::v-deep .c-date-editor {
+      padding: 0 !important;
+      .el-input__icon {
+        font-size: px-to-rem(20);
+      }
+      .el-input__inner {
+        padding-left: px-to-rem(30) !important;
+      }
+      .el-input__prefix {
+        left: px-to-rem(12) !important;
+      }
+      .icon-tongyong-shaixuanriqi::before {
+        margin-left: 0 !important;
+      }
+      &.el-range-editor .el-range-input {
+        text-align: center !important;
+      }
+    }
+  }
+}

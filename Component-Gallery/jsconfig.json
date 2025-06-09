@@ -1,0 +1,4 @@
+{
+  "include": ["./packages/**/*", "playground", "packages/components/common-comp-iot-tree/src/utils/echarts-theme.js"],
+  "exclude": ["node_modules", "dist", "@ct"]
+}

@@ -1,0 +1,340 @@
+@import 'mixins/px-to-rem';
+
+.tool-config-item {
+  &-container {
+    --tab-color: rgb(232 243 254 / 70%);
+    --tab-active-color: #e8f3fe;
+    --bottom-border-color: rgb(232 243 254 / 20%);
+    --item-select-color: #4f9fff;
+
+    padding-bottom: px-to-rem(12);
+    min-height: px-to-rem(401);
+
+    .el-switch {
+      width: px-to-rem(32) !important;
+      height: px-to-rem(16);
+      line-height: px-to-rem(16);
+
+      &.is-checked {
+        span.el-switch__core::after {
+          left: 110%;
+        }
+      }
+
+      span.el-switch__core {
+        height: px-to-rem(16);
+
+        &::after {
+          top: 0 !important;
+          left: px-to-rem(2);
+          width: px-to-rem(12);
+          height: 100% !important;
+          border-radius: 0;
+          clip-path: circle(37.5%);
+        }
+      }
+    }
+  }
+
+  &-tab {
+    display: flex;
+    align-items: center;
+    height: px-to-rem(48);
+    background: linear-gradient(
+        90deg,
+        rgb(176 212 255 / 0%),
+        rgb(176 212 255 / 100%),
+        rgb(176 212 255 / 0%)
+      )
+      no-repeat 0 100%/100% 1px;
+    color: var(--tab-color);
+    font-size: px-to-rem(16);
+    text-align: center;
+    line-height: px-to-rem(48);
+
+    li {
+      position: relative;
+      width: 50%;
+      flex: 1 0;
+      cursor: pointer;
+
+      &::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: px-to-rem(116);
+        height: px-to-rem(11);
+        content: '';
+        transform: translateX(-50%);
+      }
+
+      &.active {
+        text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+        color: var(--tab-active-color);
+        font-weight: 600;
+
+        &::after {
+          background: url('~@component-gallery/assets/image/tool-config-item/tab-active-bg.png')
+            no-repeat center/100% 100%;
+        }
+      }
+    }
+  }
+
+  &-configcontainer {
+    overflow: hidden;
+
+    .scrollBox {
+      display: flex;
+
+      > div {
+        flex: 1;
+      }
+    }
+  }
+
+  &-menu,
+  &-map {
+    padding: 0 px-to-rem(12) px-to-rem(12);
+    min-height: px-to-rem(311);
+
+    &-item {
+      display: flex;
+      align-items: center;
+      height: px-to-rem(33);
+      border-bottom: 1px solid var(--bottom-border-color);
+
+      .el-checkbox {
+        font-size: 0;
+      }
+
+      > span {
+        padding-left: px-to-rem(6);
+        font-size: px-to-rem(14);
+        flex-grow: 1;
+      }
+
+      .is-checked + span {
+        color: var(--item-select-color);
+      }
+
+      .handle {
+        font-size: px-to-rem(20);
+      }
+    }
+  }
+
+  &-map {
+    &-item {
+      height: px-to-rem(53);
+
+      .el-select {
+        width: px-to-rem(106);
+
+        .el-input__inner {
+          height: px-to-rem(28);
+          line-height: px-to-rem(28);
+        }
+
+        .el-input__suffix .el-select__caret {
+          line-height: px-to-rem(28);
+        }
+      }
+    }
+  }
+
+  &-btns {
+    display: flex;
+    justify-content: center;
+    font-size: 0;
+
+    .el-button {
+      width: px-to-rem(108);
+    }
+  }
+
+  &-title {
+    position: relative;
+    padding-left: px-to-rem(12);
+    margin-top: px-to-rem(12);
+    width: 100%;
+    height: px-to-rem(26);
+    color: #e8f2fe;
+    font-size: px-to-rem(14);
+    font-family: PingFangSC, 'PingFang SC';
+    text-align: left;
+    line-height: px-to-rem(26);
+    font-weight: 500;
+    font-style: normal;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        #82b5ff 0%,
+        rgb(130 181 255 / 35%) 100%
+      );
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    &::after {
+      position: absolute;
+      left: 0;
+      width: px-to-rem(2);
+      height: 100%;
+      background: #e8f2fe;
+      content: '';
+    }
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .tool-config-item {
+  &-container {
+    --tab-color: #0dc985;
+    --tab-active-color: #fff;
+    --bottom-border-color: rgb(255 255 255 / 20%);
+    --item-select-color: #f9ff6c;
+  }
+
+  &-tab {
+    background: linear-gradient(
+          90deg,
+          rgb(255 255 255 / 0%),
+          #fff 50%,
+          rgb(255 255 255 / 0%)
+        )
+        no-repeat 0 100%/100% 1px,
+      url('~@component-gallery/assets/image/common/aquamarine/popup-header-center.png')
+        no-repeat px-to-rem(20) 0 / auto 100%;
+
+    li {
+      text-shadow: 0 0 px-to-rem(24) rgb(0 92 245 / 35%);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: px-to-rem(38);
+        height: px-to-rem(8);
+        background: url('~@component-gallery/assets/image/tool-config-item/tab-btn-bg.png')
+          no-repeat center/100% 100%;
+      }
+
+      &::after {
+        width: px-to-rem(126);
+        height: px-to-rem(10);
+      }
+
+      &.active {
+        text-shadow: 0 0 px-to-rem(18) rgb(0 245 193 / 70%);
+        font-weight: 600;
+
+        &::after {
+          background: url('~@component-gallery/assets/image/tool-config-item/tab-active-bg_2.png')
+            no-repeat center/100% 100%;
+        }
+      }
+    }
+  }
+
+  &-title {
+    color: #fff;
+
+    &::before {
+      background: linear-gradient(90deg, #02896d 0%, rgb(2 137 109 / 21%) 100%);
+      opacity: 0.15;
+    }
+
+    &::after {
+      background: #fff;
+      box-shadow: 0 0 px-to-rem(6) 0 #02896d, inset 0 0 px-to-rem(2) 0 #02896d;
+    }
+  }
+
+  &-map > div:last-child {
+    .tool-config-item-map-item {
+      .el-select {
+        .el-input__inner {
+          padding-right: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .tool-config-item {
+  &-container {
+    --tab-color: #e4e7c1;
+    --tab-active-color: #dcd277;
+    --bottom-border-color: rgb(228 231 193 / 20%);
+    --item-select-color: #fffa28;
+  }
+
+  &-tab {
+    background: linear-gradient(
+        90deg,
+        rgb(255 222 76 / 0%),
+        rgb(255 222 76 / 100%),
+        rgb(255 222 76 / 0%)
+      )
+      no-repeat 0 100%/100% 1px;
+
+    li {
+      &::after {
+        width: 100%;
+        height: px-to-rem(16);
+      }
+
+      &.active {
+        color: #ffffff;
+        text-shadow: 1px 0px 4px #dcd277;
+        font-weight: 600;
+        &::after {
+          background: url('~@component-gallery/assets/image/common/terracotta/popup-title-guang.png')
+            no-repeat center/100% 100%;
+        }
+      }
+    }
+  }
+
+  &-title {
+    color: #fff;
+
+    &::before {
+      background: linear-gradient(
+        90deg,
+        #ffeeb1 0%,
+        rgb(255 238 177 / 10%) 100%
+      );
+      opacity: 0.1;
+    }
+
+    &::after {
+      background: #ffeeb1;
+      box-shadow: 0 0 px-to-rem(6) 0 #64562e, inset 0 0 px-to-rem(2) 0 #64562e;
+    }
+  }
+
+  &-popper {
+    &.el-select-dropdown {
+      background: linear-gradient(0deg, #000 0%, #36301b 100%);
+    }
+  }
+}
+
+// 用于规避select问题的补丁
+.common-iw-s {
+  .tool-config-item-map-item
+    .el-select
+    .el-input:not(.is-focus)
+    .el-input__inner:focus {
+    border-color: transparent;
+  }
+}

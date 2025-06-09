@@ -1,0 +1,60 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+.area-param-box {
+  @include themeify(false) {
+    position: relative;
+    display: flex;
+    margin: px-to-rem(12) px-to-rem(12) 0;
+    font-size: px-to-rem(14);
+    ::v-deep .el-input--small .el-input__inner {
+      border: none;
+      border-radius: px-to-rem(4);
+      color: themed('fire-warning-list-color-label');
+    }
+    ::v-deep .el-popover__reference-wrapper {
+      height: px-to-rem(32);
+      display: flex;
+      align-items: center;
+    }
+    .fire-sort-box {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      overflow: initial;
+      width: px-to-rem(24);
+      height: px-to-rem(14);
+      color: themed('fire-warning-list-color-label');
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+
+      .sort-caret.ascending {
+        border-bottom-color: themed('fire-warning-color-sort-caret');
+        border-left: px-to-rem(4) solid transparent;
+        border-right: px-to-rem(4) solid transparent;
+        border-bottom: px-to-rem(5) solid;
+        margin-bottom: px-to-rem(4);
+
+        &.choose {
+          border-bottom-color: themed('fire-warning-color-heatmap-choose');
+        }
+      }
+
+      .sort-caret.descending {
+        border-top-color: themed('fire-warning-color-sort-caret');
+        border-left: px-to-rem(4) solid transparent;
+        border-right: px-to-rem(4) solid transparent;
+        border-top: px-to-rem(5) solid;
+
+        &.choose {
+          border-top-color: themed('fire-warning-color-heatmap-choose');
+        }
+      }
+    }
+  }
+}

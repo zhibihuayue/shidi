@@ -1,0 +1,14 @@
+{
+  "name": "@component-gallery/base-components",
+  "version": "0.0.1",
+  "description": "内部全局通用组件",
+  "dependencies": {
+    "@component-gallery/assets": "workspace:^",
+    "@component-gallery/utils": "workspace:^",
+    "@component-gallery/build-event-bus-path": "workspace:^",
+    "@component-gallery/theme-chalk": "workspace:^",
+    "vue-virtual-scroller": "~1.0.10",
+    "vuedraggable": "^2.24.3",
+    "file-saver": "^2.0.2"
+  }
+}

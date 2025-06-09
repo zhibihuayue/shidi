@@ -1,0 +1,294 @@
+@import "../mixins/px-to-rem";
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/bem-mixins.scss';
+@import '../mixins/theme-button-mixins';
+
+.cruise-plan{
+  height: px-to-rem(948);
+  .ar-cruise-plan{
+    @include themeify(false) {
+      width: px-to-rem(370);
+      background: themed('ar-cruise-plan-info-background');
+      border: 1px solid;
+      border-color: themed('ar-cruise-plan-info-border-color');
+      border-image: themed('ar-cruise-plan-info-border-image');
+      height: px-to-rem(948);
+      padding: 0 0 px-to-rem(12) 0;
+      border-radius: themed('ar-cruise-plan-info-border-radius');
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      user-select: none;
+      transform-origin: 0 0;
+      &:before,
+      &:after{
+        position: absolute;
+        bottom: 0;
+        z-index: 10;
+        width: 21px;
+        height: 25px;
+        content: "";
+      }
+      &:before{
+        left: themed('ar-cruise-plan-info-before-left');
+        background: themed('ar-cruise-plan-info-before-background');
+      }
+      &:after{
+        right: themed('ar-cruise-plan-info-after-right');
+        background: themed('ar-cruise-plan-info-after-background')
+      }
+    }
+    &-search{
+      display: flex;
+      width: 100%;
+      padding: px-to-rem(12) px-to-rem(12) 0;
+      justify-content: space-between;
+      @include themeify(false) {
+        &:before,
+        &:after{
+          position: absolute;
+          top: 0;
+          width: px-to-rem(8);
+          height: 1px;
+          content: "";
+        }
+        &:before{
+          right: 0;
+          background: themed('ar-cruise-plan-info-search-background');
+        }
+        &:after{
+          left: 0;
+          background: themed('ar-cruise-plan-info-search-background')
+        }
+        .left-box {
+          height: px-to-rem(32);
+
+          ::v-deep .search-input {
+            width: px-to-rem(254);
+            display: flex;
+            align-items: center;
+            height: px-to-rem(32);
+            line-height: px-to-rem(32);
+            background: themed('ar-top-function-input-background');
+            border: 0;
+            border-radius: px-to-rem(4);
+            opacity: 1;
+
+            &:not(.readonly):not(.disabled):hover:before {
+              content: "";
+              width: 100%;
+              height: 100%;
+              border: themed('ar-top-function-input-hover-border');
+              border-radius: inherit;
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 2;
+              pointer-events: none;
+            }
+
+            &:not(.readonly):not(.disabled):focus-within:before, &.active:before {
+              content: "";
+              width: 100%;
+              height: 100%;
+              border: themed('ar-top-function-input-active-border');
+              border-radius: inherit;
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 2;
+              pointer-events: none;
+            }
+
+            .el-input__inner {
+              height: 100%;
+              line-height: inherit;
+              background: none;
+              border: 0;
+              border-radius: inherit;
+              color: themed('ar-top-function-input-color');
+              font-size: px-to-rem(14);
+              transition: border-color 0s;
+              padding: 0 px-to-rem(32) 0 px-to-rem(12);
+
+              &::placeholder {
+                color: themed('ar-top-function-input-placeholder-color');
+              }
+            }
+
+            .el-input__icon {
+              color: themed('ar-top-function-input-icon-color');
+              font-size: px-to-rem(18);
+              margin: 0;
+              padding: 0;
+              display: inline-block;
+              line-height: inherit;
+              float: right;
+              overflow: hidden;
+
+              &.el-icon-circle-close {
+                &:before {
+                  content: "\ec12";
+                  font-family: 'iconfont_tools';
+                  color: themed('ar-top-function-input-icon-close-color');
+                  font-size: px-to-rem(20);
+                }
+              }
+            }
+          }
+        }
+      }
+      button{
+        width: px-to-rem(80);
+        height: px-to-rem(32);
+        padding: 0  !important;
+      }
+      @include cg_button_styles();
+    }
+    &-list{
+      margin-top: px-to-rem(12);
+      overflow-y: scroll;
+      height: calc(100% - px-to-rem(94));
+      width: 100%;
+      >div{
+        line-height:px-to-rem(49);
+        width: px-to-rem(358);
+        .list-top-box {
+          @include themeify(false) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0 0 px-to-rem(12);
+          }
+          .list-text {
+            @include themeify(false) {
+              font-size: px-to-rem(14);
+              font-weight: 400;
+              color: themed('ar-cruise-plan-list-list-text-color');
+              white-space: nowrap; /*强制span不换行*/
+              display: inline-block; /*将span当做块级元素对待*/
+              max-width: calc(100% - px-to-rem(54)); /*限制宽度*/
+              overflow: hidden; /*超出宽度部分隐藏*/
+              text-overflow: ellipsis; /*超出部分以点号代替*/
+              vertical-align: bottom;
+              cursor: pointer;
+              pointer-events: auto;
+            }
+          }
+          button{
+            width: px-to-rem(54);
+            height: px-to-rem(24) !important;
+            line-height: px-to-rem(24) !important;
+            padding: 0 !important;
+          }
+          @include cg_button_styles();
+        }
+        .list-line {
+          @include themeify(false) {
+            border-bottom: themed('ar-cruise-plan-list-list-line-border-bottom');
+            opacity: themed('ar-cruise-plan-list-list-line-opacity');
+            width: calc(100% - px-to-rem(12));
+            margin-left: px-to-rem(12);
+          }
+        }
+      }
+      .no-datas{
+        @include themeify(false) {
+          font-size: px-to-rem(14);
+          width: 100%;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: themed('ar-cruise-plan-list-no-datas-color');
+          font-style: normal;
+          font-weight: 400;
+          margin: 0 auto;
+          overflow: hidden;
+          padding: px-to-rem(12);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          &:before {
+            content: "";
+            background: themed('ar-cruise-plan-list-no-datas-before-background');
+            background-size: 100% 100%;
+            width: px-to-rem(68);
+            height: px-to-rem(68);
+            display: block;
+            margin-bottom: px-to-rem(12);
+          }
+        }
+      }
+    }
+    &-pagination {
+      @include themeify(false) {
+        display: flex;
+        justify-content: end;
+        height: px-to-rem(22);
+        margin-top: px-to-rem(16);
+        align-items: center;
+        .pageTextClass {
+          font-size: px-to-rem(13);
+          font-weight: 400;
+          color: themed('ar-cruise-plan-pagination-pageTextClass-color');
+          line-height: px-to-rem(22);
+          opacity: themed('ar-cruise-plan-pagination-pageTextClass-opacity');
+          margin-right: 1px;
+        }
+        ::v-deep .cruise-pagination {
+          height: px-to-rem(22);
+          padding: 0 px-to-rem(5);
+          .btn-prev,
+          .btn-next{
+            width: px-to-rem(22);
+            margin: 0 px-to-rem(6) 0 0;
+            background: none;
+            min-width: unset;
+            color: themed('ar-cruise-plan-pagination-btn-prev-color');
+            border-radius: px-to-rem(4);
+            padding: px-to-rem(5);
+            &:disabled{
+              color: themed('ar-cruise-plan-pagination-btn-prev-disabled-color');
+            }
+          }
+          .el-pager{
+            .number{
+              margin: 0 px-to-rem(6) 0 0;
+              background: none;
+              color: themed('ar-cruise-plan-pagination-number-color');
+              border-radius: px-to-rem(4);
+              line-height: px-to-rem(22);
+              padding: 0 px-to-rem(4);
+              font-size: px-to-rem(12);
+              &.active{
+                background: themed('ar-cruise-plan-pagination-number-active-background');
+                color: themed('ar-cruise-plan-pagination-number-color');
+                box-shadow: themed('ar-cruise-plan-pagination-number-active-box-shadow');
+              }
+            }
+            .more{
+              margin: 0 px-to-rem(6) 0 0;
+              width: px-to-rem(22);
+              background: none;
+              min-width: unset !important;
+              color: themed('ar-cruise-plan-pagination-number-color');
+              border-radius: px-to-rem(4);
+              line-height: px-to-rem(22);
+              padding: 0;
+              font-size: px-to-rem(12);
+              &:not(.disabled):hover{
+                color: themed('ar-cruise-plan-pagination-number-color');
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

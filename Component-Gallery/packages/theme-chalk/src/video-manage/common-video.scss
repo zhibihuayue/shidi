@@ -1,0 +1,480 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/theme-date-picker-mixins';
+@import '../mixins/bem-mixins.scss';
+@import '../mixins/px-to-rem';
+
+// 摄像机树样式
+.video {
+  @include themeify(false) {
+  ::v-deep .right-menu {
+    overflow: hidden;
+    background: #0f1926;
+
+    ul {
+      padding: 0;
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 0 px-to-rem(12) 0 px-to-rem(6);
+        color: #e8f3fe;
+
+        &::before {
+          top: 0;
+          font-size: px-to-rem(20) !important;
+          line-height: 1;
+        }
+
+        &:hover {
+          background: rgb(79 159 255 / 40%);
+        }
+
+        &.bgcolor {
+          color: #4f9fff !important;
+        }
+      }
+    }
+  }
+
+  ::v-deep .el-tree-node__content:hover {
+    background-color: rgb(79 159 255 / 40%) !important;
+
+    .custom-tree-node.channel.checked.choosed::after {
+      background: transparent !important;
+    }
+  }
+
+  ::v-deep .el-tree-node:focus > .el-tree-node__content {
+    background: none;
+  }
+
+  ::v-deep .el-tree-node__content {
+    height: px-to-rem(32) !important;
+    color: #e8f3fe !important;
+  }
+
+  ::v-deep .el-tree-node__expand-icon {
+    color: #e8f3fe !important;
+  }
+
+  ::v-deep .el-tree-node__expand-icon.is-leaf {
+    color: transparent !important;
+  }
+
+  .icon-on,
+  ::v-deep .icon-on {
+    color: #4f9fff !important;
+  }
+
+  // 修改树边距
+  ::v-deep .video-body .real-camera-tree,
+  ::v-deep .video-body .history-camera-tree {
+    margin: 0 px-to-rem(-12);
+    width: calc(100% + px-to-rem(24));
+  }
+
+  ::v-deep .video-body .real-camera-tree .custom-tree-node,
+  ::v-deep .video-body .history-camera-tree .custom-tree-node {
+    width: calc(100% - px-to-rem(30));
+  }
+
+  ::v-deep .video-body .real-camera-tree .el-tree-node__expand-icon,
+  ::v-deep .video-body .history-camera-tree .el-tree-node__expand-icon {
+    margin-left: px-to-rem(6);
+    font-size: px-to-rem(12);
+  }
+
+  ::v-deep .video-body .camera-tree .custom-tree-node.channel.checked::after {
+    position: absolute;
+    top: 0;
+    left: px-to-rem(-12);
+    z-index: -1;
+    display: block;
+    width: calc(100% + px-to-rem(18));
+    height: 100%;
+    background-color: transparent;
+    content: '';
+    border-left: 0 !important;
+    background-image: none !important;
+  }
+
+  ::v-deep .video-body .camera-tree .custom-tree-node.channel.checked {
+    height: px-to-rem(32) !important;
+    color: #4f9fff !important;
+    font-size: px-to-rem(14);
+    font-weight: 400;
+
+    .channel-icon {
+      color: #4f9fff !important;
+    }
+
+    .channel-icon ~ .node-name {
+      color: #4f9fff !important;
+    }
+  }
+
+  ::v-deep .video-body .video-left .camera-tree .custom-tree-node {
+    height: px-to-rem(32) !important;
+    line-height: px-to-rem(32) !important;
+  }
+
+  ::v-deep
+    .video-body
+    .camera-tree
+    .custom-tree-node.channel
+    .channel-icon.on-line::after {
+    position: absolute;
+    top: px-to-rem(11);
+    bottom: px-to-rem(-2);
+    left: px-to-rem(-14);
+    z-index: 2;
+    display: block;
+    padding-top: px-to-rem(1);
+    padding-right: px-to-rem(2);
+    width: px-to-rem(28);
+    height: px-to-rem(28);
+    background: #13be88;
+    border-radius: 50%;
+    color: #fff;
+    font-size: px-to-rem(14);
+    font-family: iconfont !important;
+    text-align: center;
+    content: '\E8A5';
+    line-height: px-to-rem(28);
+    transform: scale(1);
+  }
+
+  ::v-deep
+    .video-body
+    .camera-tree
+    .custom-tree-node.channel.checked
+    .playing::before {
+    color: #4f9fff;
+  }
+
+  ::v-deep
+    .video-body
+    .camera-tree
+    .custom-tree-node.channel.checked
+    .playing::after {
+    position: absolute;
+    top: px-to-rem(11);
+    bottom: px-to-rem(-2);
+    left: px-to-rem(-14);
+    z-index: 2;
+    display: block;
+    padding-top: px-to-rem(1);
+    padding-left: px-to-rem(2);
+    width: px-to-rem(28);
+    height: px-to-rem(28);
+    background: #13be88;
+    border-radius: 50%;
+    color: #fff;
+    font-size: px-to-rem(12);
+    font-family: iconfont !important;
+    text-align: center;
+    content: '\e8a8';
+    line-height: px-to-rem(28);
+    transform: scale(1);
+  }
+
+  ::v-deep
+    .video-body
+    .camera-tree
+    .custom-tree-node.channel
+    .channel-icon.off-line {
+    color: rgb(232 243 254 / 50%) !important;
+  }
+
+  ::v-deep
+    .video-body
+    .camera-tree
+    .custom-tree-node.channel
+    .channel-icon.off-line
+    ~ .node-name {
+    color: rgb(232 243 254 / 50%);
+  }
+
+  ::v-deep
+    .video-body
+    .camera-tree
+    .custom-tree-node.channel
+    .channel-icon.off-line::after {
+    position: absolute;
+    top: px-to-rem(11);
+    bottom: px-to-rem(-2);
+    left: px-to-rem(-14);
+    z-index: 2;
+    display: block;
+    padding-top: px-to-rem(1);
+    padding-right: px-to-rem(2);
+    width: px-to-rem(28);
+    height: px-to-rem(28);
+    background: #ed5158;
+    border-radius: 50%;
+    color: #fff;
+    font-size: px-to-rem(14);
+    font-family: iconfont !important;
+    text-align: center;
+    content: '\e8a4';
+    line-height: px-to-rem(28);
+    transform: scale(1);
+  }
+
+  ::v-deep
+    .video-body
+    .camera-tree
+    .custom-tree-node.channel
+    .channel-icon.error::after {
+    position: absolute;
+    top: px-to-rem(11);
+    bottom: px-to-rem(-2);
+    left: px-to-rem(-14);
+    z-index: 2;
+    display: block;
+    padding-top: px-to-rem(1);
+    padding-right: px-to-rem(2);
+    width: px-to-rem(28);
+    height: px-to-rem(28);
+    background: #ed5158;
+    border-radius: 50%;
+    color: #fff;
+    font-size: px-to-rem(14);
+    font-family: iconfont !important;
+    text-align: center;
+    content: '\e8a4';
+    line-height: px-to-rem(28);
+    transform: scale(1);
+  }
+
+  ::v-deep
+    .video-body
+    .camera-tree
+    .custom-tree-node.channel
+    .channel-icon.pauseing::after {
+    position: absolute;
+    top: px-to-rem(11);
+    bottom: px-to-rem(-2);
+    left: px-to-rem(-14);
+    z-index: 2;
+    display: block;
+    padding-left: px-to-rem(2);
+    width: px-to-rem(28);
+    height: px-to-rem(28);
+    background: #13be88;
+    border-radius: 50%;
+    color: #fff;
+    font-size: px-to-rem(16);
+    font-family: iconfont !important;
+    text-align: center;
+    content: '\e8ac';
+    line-height: px-to-rem(28);
+    transform: scale(1);
+  }
+
+  ::v-deep .video-body .camera-tree .custom-tree-node.device .channel-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    font-size: px-to-rem(20) !important;
+  }
+
+  ::v-deep .video-body .camera-tree .custom-tree-node.channel .channel-icon {
+    position: absolute;
+    top: px-to-rem(-1);
+    left: px-to-rem(-6) !important;
+    color: #e8f3fe !important;
+    font-size: px-to-rem(20) !important;
+    transform: scale(0.4);
+  }
+
+  ::v-deep
+    .video-body
+    .camera-tree
+    .custom-tree-node.channel
+    .channel-icon
+    ~ .node-name,
+  ::v-deep
+    .video-body
+    .camera-tree
+    .custom-tree-node.device
+    .channel-icon
+    ~ .node-name {
+    margin-left: px-to-rem(4);
+  }
+
+  ::v-deep .video-body .camera-tree .custom-tree-node .fast-btn {
+    position: absolute;
+    top: 0 !important;
+    right: 0;
+    z-index: 8;
+    padding: 0 px-to-rem(6) 0 px-to-rem(30);
+    height: px-to-rem(32);
+    font-size: px-to-rem(20);
+    line-height: px-to-rem(32);
+    background-image: linear-gradient(
+      to left,
+      #2f5a8e 85%,
+      rgb(47 90 142 / 0%)
+    );
+  }
+
+  ::v-deep .video-body .video-left .camera-tree .custom-tree-node .fast-btn i {
+    display: block;
+    float: left;
+    margin-right: px-to-rem(6);
+    text-shadow: none !important;
+    color: #e8f3fe;
+    font-size: px-to-rem(20) !important;
+
+    &.icon-tongyong_icon_zanting {
+      color: #4f9fff;
+    }
+
+    &.icon-tongyong_icon_shoucang_20_s {
+      color: #4f9fff;
+
+      &:hover {
+        color: #4f9fff;
+      }
+    }
+  }
+
+  ::v-deep .video-body .video-left .camera-tree .custom-tree-node .fast-btn1 i,
+  ::v-deep .video-body .reserve-plan .custom-tree-node .fast-btn1 i,
+  ::v-deep .video-body .video-set .custom-tree-node .fast-btn1 i {
+    display: block;
+    float: left;
+    margin-right: px-to-rem(6);
+    text-shadow: none !important;
+    font-size: px-to-rem(20) !important;
+  }
+
+  ::v-deep
+    .video-body
+    .video-left
+    .camera-tree
+    .custom-tree-node
+    .fast-btn
+    i:hover {
+    text-shadow: none !important;
+    color: #e8f3fe;
+
+    &.icon-tongyong_icon_zanting {
+      color: #4f9fff;
+    }
+  }
+
+  ::v-deep
+    .video-body
+    .video-left
+    .camera-tree
+    .custom-tree-node
+    .fast-btn1
+    i:last-child,
+  ::v-deep .video-body .reserve-plan .custom-tree-node .fast-btn1 i:last-child,
+  ::v-deep .video-body .video-set .custom-tree-node .fast-btn1 i:last-child {
+    margin-right: 0;
+  }
+
+  ::v-deep
+    .video-body
+    .video-left
+    .camera-tree
+    .custom-tree-node
+    .fast-btn
+    i:last-child {
+    margin-right: 0;
+  }
+
+  ::v-deep .video-body .video-left .camera-tree .custom-tree-node:hover {
+    background-color: transparent;
+  }
+
+  ::v-deep
+    .video-body
+    .video-left
+    .camera-tree
+    .custom-tree-node:hover
+    > .custom-tree-node::after {
+    background-color: transparent;
+    background-image: none;
+  }
+
+  //当前播放选中
+  ::v-deep
+    .video-body
+    .video-left
+    .camera-tree
+    .custom-tree-node.channel.checked.choosed::after {
+    position: absolute;
+    top: 0 !important;
+    left: -100px;
+    z-index: -1;
+    display: block;
+    width: calc(100% + 130px);
+    height: 100%;
+    background: rgb(79 159 255 / 40%);
+    background-image: none !important;
+    content: '';
+    border-left: 0 !important;
+  }
+
+  ::v-deep
+    .video-body
+    .video-left
+    .camera-tree
+    .el-tree-node__content:hover
+    .fast-btn,
+  ::v-deep
+    .video-body
+    .video-left
+    .camera-tree
+    .el-tree-node__content:hover
+    .fast-btn1,
+  ::v-deep .video-body .reserve-plan .el-tree-node__content:hover .fast-btn1,
+  ::v-deep .video-body .video-set .el-tree-node__content:hover .fast-btn1 {
+    display: block;
+  }
+
+  ::v-deep
+    .video-body
+    .video-left
+    .camera-tree
+    .custom-tree-node
+    .fast-btn1
+    i:hover,
+  ::v-deep .video-body .reserve-plan .custom-tree-node .fast-btn1 i:hover,
+  ::v-deep .video-body .video-set .custom-tree-node .fast-btn1 i:hover {
+    color: rgb(232 243 254 / 100%);
+  }
+
+  ::v-deep .video-body .video-left .camera-tree .custom-tree-node .fast-btn1,
+  ::v-deep .video-body .reserve-plan .custom-tree-node .fast-btn1,
+  ::v-deep .video-body .video-set .custom-tree-node .fast-btn1 {
+    padding: 0 px-to-rem(6) 0 px-to-rem(30);
+    height: px-to-rem(32);
+    color: rgb(232 243 254 / 100%);
+    font-size: px-to-rem(20);
+    line-height: px-to-rem(32) !important;
+  }
+
+  ::v-deep .video-body .camera-tree .custom-tree-node .el-icon-caret-right {
+    margin-top: px-to-rem(5) !important;
+  }
+
+  ::v-deep .video-body .icon-shipinshu-bofang {
+    color: #4f9fff !important;
+  }
+
+  ::v-deep .video-body .icon-shipinshu-bofang:hover {
+    color: #4f9fff !important;
+  }
+
+  
+  }
+}

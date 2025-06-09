@@ -1,0 +1,65 @@
+{
+  "name": "remote-runtime",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --mode production"
+  },
+  "dependencies": {
+    "@ct/china-tower-tech-ui": "^1.0.13",
+    "@ct/china-tower-ui": "^1.0.8",
+    "@ct/component-gallery-theme-chalk": "^1.0.9",
+    "@ct/component-gallery-video-player-listener": "^1.7.25",
+    "@ct/ct_map_ol": "dev_comp",
+    "@ct/icons-v2": "^1.2.36",
+    "@ct/iframe-connect-sdk": "^1.0.19",
+    "@ct/remote-page-loader": "^1.0.11",
+    "@ct/remote-page-sync-loader": "^0.0.1",
+    "axios": "^1.6.5",
+    "classnames": "^2.5.1",
+    "core-js": "^3.6.5",
+    "echarts": "^5.5.0",
+    "element-ui": "2.15.14",
+    "immer": "^10.0.3",
+    "marked": "^15.0.11",
+    "moment": "^2.30.1",
+    "vue": "^2.6.11",
+    "vue-drag-resize": "^1.5.4",
+    "vue-router": "3.0.2",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@types/sass": "^1.45.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "postcss-pxtorem": "^5.1.1",
+    "sass": "^1.70.0",
+    "sass-loader": "^7.3.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

@@ -1,0 +1,90 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem.scss';
+
+.simple-pagination-container {
+  @include themeify(false) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: px-to-rem(12) 0;
+
+    ::v-deep .button {
+      border: none;
+
+      padding: 0 px-to-rem(5);
+      margin: 0;
+      background: none;
+      font-size: px-to-rem(12);
+      line-height: px-to-rem(22);
+      height: px-to-rem(22);
+      min-width: px-to-rem(22);
+      .el-icon-arrow-right,
+      .el-icon-arrow-left {
+        display: block;
+        font-size: px-to-rem(12);
+        font-weight: 700;
+      }
+    }
+
+    .pager {
+      margin: 0 px-to-rem(4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      .text {
+        border: none;
+        margin: 0 px-to-rem(2);
+        background: none;
+        font-size: px-to-rem(12);
+        line-height: px-to-rem(22);
+        height: px-to-rem(22);
+        min-width: px-to-rem(22);
+        &.active {
+          border-radius: px-to-rem(4);
+        }
+      }
+    }
+    @if $theme-name == 'theme-wiseblue' {
+      ::v-deep .button {
+        color: #e8f2fe;
+      }
+      .pager {
+        .text {
+          color: #e8f2fe;
+          &.active {
+            background: #4f9fff;
+          }
+        }
+      }
+    }
+    @if $theme-name == 'theme-aquamarine' {
+      ::v-deep .button {
+        color: #ffffff;
+      }
+      .pager {
+        .text {
+          color: #ffffff;
+          &.active {
+            background: #02896d;
+          }
+        }
+      }
+    }
+    @if $theme-name == 'theme-terracotta' {
+      ::v-deep .button {
+        color: #e4e7c1;
+      }
+      .pager {
+        .text {
+          color: #e4e7c1;
+          &.active {
+            background: #9f9853;
+          }
+        }
+      }
+    }
+  }
+}

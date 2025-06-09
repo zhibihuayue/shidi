@@ -1,0 +1,59 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.base-tag {
+    padding: 0 px-to-rem(14);
+    overflow: initial;
+    position: relative;
+    height: px-to-rem(24);
+    width: auto;
+    min-width: px-to-rem(70);
+    height: px-to-rem(24);
+    background: transparent;
+    border-radius: px-to-rem(6);
+    border: transparent;
+    font-size: px-to-rem(12);
+    font-weight: 400;
+    line-height: px-to-rem(24);
+    text-align: center;
+    @include themeify(false) {
+        @if $theme-name == 'theme-aquamarine' {
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: px-to-rem(14);
+                height: px-to-rem(24);
+                background: url('~@component-gallery/assets/image/base-tag/bg_bq-left.png') center no-repeat;
+                content: '';
+              }
+      
+              &::after {
+                position: absolute;
+                top: 0;
+                right: 1px;
+                display: block;
+                width: px-to-rem(14);
+                height: px-to-rem(24);
+                background: url('~@component-gallery/assets/image/base-tag/bg_bq-right.png') center no-repeat;
+                content: '';
+              }
+              .base-tag-content {
+                position: relative;
+                overflow: hidden;
+                max-width: px-to-rem(240);
+                height: px-to-rem(24);
+                background: url('~@component-gallery/assets/image/base-tag/bg_bq-center.png') left repeat-x;
+                color: #f9ff6c;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+          }
+          @if $theme-name == 'theme-terracotta' {
+          }
+          @if $theme-name == 'theme-wiseblue' {
+          }
+    }
+}

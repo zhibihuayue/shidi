@@ -1,0 +1,1026 @@
+@import "mixins/px-to-rem";
+
+$iw-popbg-color: rgb(23 37 55 / 90%);
+
+[data-theme="theme-wiseblue"] .common-iw-s {
+  .el-tag {
+    .el-tag__close.el-icon-close {
+      top: 0;
+      background-color: transparent;
+      color: var(--iw-text-color);
+      font-size: px-to-rem(16);
+      transform: none;
+
+      &:hover {
+        color: #ED5158;
+      }
+
+      &::before {
+        content: '\ec12';
+        font-family: "iconfont_tools";
+      }
+    }
+  }
+
+  // 工具提示覆写
+  &.el-tooltip__popper.is-dark {
+    background: rgb(23 37 55 / 90%);
+    color: var(--iw-text-color);
+
+      &[x-placement^="left"] .popper__arrow {
+        border-left-color: rgb(23 37 55 / 90%);
+
+        &::after {
+          border-left-color: rgb(23 37 55 / 90%);
+        }
+      }
+
+      &[x-placement^="top"] .popper__arrow {
+        border-top-color: rgb(23 37 55 / 90%);
+
+        &::after {
+          border-top-color: rgb(23 37 55 / 90%);
+        }
+        .popper__arrow:after {
+          border-bottom-color: rgb(23 37 55 / 90%);
+          /* 调整底部箭头颜色 */
+        }
+      }
+  }
+
+  // 颜色选择器覆写
+  &.el-color-picker__panel {
+    background: rgb(23 37 55 / 90%);
+    border: 1px solid rgb(23 37 55 / 90%);
+    border-radius: 8px;
+
+    // 把颜色选择器的改为主按钮
+    .el-color-dropdown__btn.el-button--default {
+      background: linear-gradient(90deg,  #4F9FFF 0%, #1373E6 100%);
+      color: var(--iw-text-color);
+    }
+  }
+
+  // 输入框覆写
+  .el-input {
+    .el-input__inner {
+      padding: 0 px-to-rem(15) 0 px-to-rem(12);
+    }
+
+    &.el-input--prefix {
+      .el-input__inner {
+        padding: 0 px-to-rem(15);
+      }
+    }
+
+    .el-input-group__prepend {
+      background-color: rgb(79 159 255 / 20%);
+    }
+
+    &.is-focus {
+      .el-input__inner {
+        border-color: rgb(79 159 255 / 40%);
+      }
+    }
+
+    &.is-disabled {
+      .el-input__inner {
+        background-color: rgb(79 159 255 / 20%);
+        border-color: transparent;
+      }
+    }
+  }
+
+  .el-textarea__inner {
+    background: rgb(79 159 255 / 20%);
+    border-color: transparent;
+    color: var(--iw-text-color);
+
+    &:hover {
+      border-color: rgb(79 159 255 / 60%);
+    }
+
+    &:focus {
+      border-color: rgb(79 159 255 / 100%);
+    }
+
+    &::placeholder {
+      color: rgb(232 243 254 / 70%);
+    }
+  }
+
+  .el-input__inner {
+    background: rgb(79 159 255 / 20%);
+    border-color: transparent;
+    color: var(--iw-text-color);
+
+    .el-input.is-disabled .el-input__inner
+    .el-icon-circle-close::before { // 统一覆写所有的el-icon-circle-close。注意，这会使得系统里失去原来那个空心版本
+      color: var(--iw-text-color);
+      font-size: px-to-rem(20);
+      font-family: "iconfont_tools";
+      content: "\ec12"; // FIXME 注意，这个是基于iconfont的值，应该是涂色版的关闭图标，如果图标库有变动会出问题
+    }
+
+    &::placeholder {
+      color: rgb(232 243 254 / 70%);
+    }
+
+    &:not([readonly], [disabled]) {
+      &:hover {
+        border-color: rgb(79 159 255 / 60%);
+      }
+
+      &:focus {
+        border-color: rgb(79 159 255 / 100%);
+      }
+    }
+
+    &.is-active {
+      border-color: rgb(79 159 255 / 100%);
+
+      &:hover {
+        border-color: rgb(79 159 255 / 100%);
+      }
+    }
+
+    &:disabled {
+      border-color: transparent;
+      color: var(--iw-text-color);
+    }
+
+    &[readonly] {
+      border-color: transparent;
+      color: var(--iw-text-color);
+
+      &:focus {
+        border-color: transparent;
+      }
+    }
+  }
+
+  // 分页器覆写
+  .el-pagination.is-background.el-pagination--small,
+  .el-pagination {
+    li.number {
+      &:not(.disabled):hover {
+        color: #1373E6;
+      }
+
+      &:not(.disabled).active {
+        background-color: #4F9FFF;
+      }
+    }
+  }
+
+  // 开关覆写
+  .el-switch {
+    height: px-to-rem(16);
+    line-height: px-to-rem(16);
+
+    span.el-switch__core {
+      height: px-to-rem(16);
+      background-color: #909399;
+      border-color: #909399;
+
+      &::after {
+        top: px-to-rem(1.5);
+        left: px-to-rem(2);
+        width: px-to-rem(12);
+        height: px-to-rem(12);
+      }
+    }
+
+    &.is-checked {
+      span.el-switch__core {
+        background-color: #1373E6;
+        border-color: #1373E6;
+
+        &::after {
+          left: 100%;
+          margin-left: px-to-rem(-14);
+        }
+      }
+    }
+  }
+
+  // 选择下拉框覆写
+  .el-select {
+    .el-select__input {
+      color: var(--iw-text-color);
+    }
+
+    .el-input{
+      &.is-disabled {
+        opacity: 0.4;
+
+        .el-input__inner:hover {
+          border-color: transparent;
+        }
+      }
+
+      &.is-focus {
+        .el-input__inner {
+          border-color: rgb(79 159 255 / 100%);
+        }
+      }
+    }
+
+    &:hover {
+      .el-input__inner {
+        border-color: rgb(79 159 255 / 60%);
+      }
+    }
+  }
+
+  .el-select__tags {
+    .el-tag {
+      max-width: calc(100% - 4.5em);
+      background-color: rgb(79 159 255 / 20%);
+      border: none;
+      color: var(--iw-text-color);
+
+      .el-tag__close.el-icon-close {
+        margin-right: px-to-rem(12);
+        margin-left: 0;
+        background-color: transparent;
+        color: var(--iw-text-color);
+        transform: none;
+
+        &:hover {
+          color: #4F9FFF;
+        }
+      }
+    }
+  }
+
+  &.el-select-dropdown {
+    background-color: #0F1926;
+    border: none;
+
+    .el-select-dropdown__wrap {
+      .el-select-dropdown__list {
+        overflow: hidden;
+        padding: 0;
+        border-radius: px-to-rem(4);
+      }
+    }
+
+    .el-select-dropdown__item {
+      padding: 0 px-to-rem(12);
+    }
+
+    // 多选时，下拉的选中项目不需要背景色
+    &.is-multiple {
+      .el-select-dropdown__item {
+        padding: 0 px-to-rem(12);
+
+        .el-checkbox {
+          &.is-checked .el-checkbox__label {
+            color: #409eff;
+          }
+
+          .el-checkbox__label {
+            padding-left: px-to-rem(6);
+            color: var(--iw-text-color);
+          }
+        }
+
+        &.selected {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .el-select-dropdown__item {
+      color: var(--iw-text-color);
+
+      // 按照设计师要求，覆写el-select原本的滞留hover属性，只有严格悬停才会hover
+      &.hover {
+        background-color: transparent;
+
+        &:hover {
+          background-color: rgb(79 159 255 / 40%);
+        }
+      }
+
+      &:hover {
+        background-color: rgb(79 159 255 / 40%);
+      }
+
+      &.selected,
+      &.selected.hover {
+        background-color: rgb(79 159 255 / 40%);
+        color: #4F9FFF;
+      }
+    }
+
+    .popper__arrow {
+      display: none;
+    }
+  }
+
+  // 按钮覆写
+  .el-button {
+    &.el-button--text.el-picker-panel__link-btn {
+      color: var(--iw-text-color)
+    }
+
+    &.el-button--default {
+      background: rgb(79 159 255 / 20%);
+      color: var(--iw-text-color);
+    }
+
+    &.el-button--primary {
+      background: linear-gradient(90deg,  #4F9FFF 0%, #1373E6 100%);
+      color: var(--iw-text-color);
+    }
+
+    &.el-button--danger {
+      background: rgb(237 83 90 / 20%);
+      color: #FF7F85;
+    }
+
+    &.el-button--text {
+      color: var(--iw-text-color);
+
+      &:hover,
+      &:focus {
+        color: var(--iw-text-color);
+      }
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+
+    &.is-disabled {
+      opacity: 0.4;
+    }
+  }
+
+  // 单选框覆写
+  .el-radio {
+    .el-radio__input {
+      .el-radio__inner {
+        background: transparent;
+        border-color: #1373E6;
+      }
+
+      &.is-checked {
+        .el-radio__inner::after {
+          width: px-to-rem(6);
+          height: px-to-rem(6);
+          background-color: #fff;
+        }
+
+        .el-radio__inner {
+          background: #1373E6;
+          border-color: #1373E6;
+        }
+      }
+    }
+
+    &.is-checked {
+      .el-radio__label {
+        color: #E8F2FE;
+      }
+    }
+
+    .el-radio__label {
+      color: #E8F2FE;
+    }
+  }
+
+
+  // 复选框覆写
+  .el-checkbox {
+    .el-checkbox__input {
+      .el-checkbox__inner {
+        background-color: transparent;
+        border: px-to-rem(1) solid rgb(19 115 230 / 100%);
+      }
+
+      &.is-checked {
+        .el-checkbox__inner {
+          background-color: #1373E6;
+          border-color: #1373E6;
+        }
+      }
+
+      &.is-indeterminate {
+        .el-checkbox__inner {
+          background-color: #1373E6;
+          border-color: #1373E6;
+        }
+      }
+    }
+
+    &.is-checked {
+      .el-checkbox__label {
+        color: #4F9FFF;
+      }
+    }
+  }
+
+  &.el-popper[x-placement^="top"] {
+    .popper__arrow {
+      border-top-color: $iw-popbg-color;
+
+      &::after {
+        border-top-color: $iw-popbg-color;
+      }
+    }
+  }
+
+  &.el-popper[x-placement^="left"] {
+    .popper__arrow {
+      border-left-color: $iw-popbg-color;
+
+      &::after {
+        border-left-color: $iw-popbg-color;
+      }
+    }
+  }
+
+  &.el-popper[x-placement^="right"] {
+    .popper__arrow {
+      border-right-color: $iw-popbg-color;
+
+      &::after {
+        border-right-color: $iw-popbg-color;
+      }
+    }
+  }
+
+  &.el-popper[x-placement^="bottom"] {
+    .popper__arrow {
+      border-bottom-color: $iw-popbg-color;
+
+      &::after {
+        border-bottom-color: $iw-popbg-color;
+      }
+    }
+  }
+
+  .el-time-panel,
+  &.el-time-panel {
+    background: rgb(23 37 55 / 100%);
+    border-color: rgb(23 37 55 / 100%);
+
+    .el-time-spinner__item {
+      color: #E8F2FE;
+
+      &.active {
+        color: var(--iw-text-color)
+      }
+
+      &:hover:not(.disabled, .active) {
+        background-color: #1A2839;
+      }
+    }
+
+    .el-time-panel__content::after, .el-time-panel__content::before {
+      border-color: rgb(255 255 255 / 20%);
+    }
+
+    .el-time-panel__content::before {
+      margin-right: px-to-rem(12);
+      margin-left: px-to-rem(12);
+    }
+
+    .el-time-spinner__wrapper {
+      + .el-time-spinner__wrapper {
+        border-left: px-to-rem(1) solid rgb(255 255 255 / 20%);
+      }
+    }
+
+    .el-time-panel__btn {
+      padding: 0;
+      width: px-to-rem(48);
+      height: px-to-rem(24);
+      border-radius: px-to-rem(4);
+      color: #E8F2FE;
+      line-height: normal;
+
+      &.cancel {
+        background: rgb(95 136 194 / 20%);
+        color: #E8F2FE;
+      }
+
+      &.confirm {
+        background: linear-gradient(90deg, #4D9AF7 0%, #0862CD 100%);
+        color: #E8F2FE;
+        font-weight: normal;
+      }
+    }
+
+    .el-time-panel__footer {
+      // 设计师要求按钮排布反向
+      display: flex;
+      padding: px-to-rem(12);
+      height: auto;
+      border-color: #3D4756;
+      flex-direction: row-reverse;
+    }
+  }
+
+  // 表格覆写
+  .el-table {
+    .el-table__header-wrapper {
+      background-color: rgb(79 159 255 / 20%);
+
+      th.is-leaf {
+        padding: px-to-rem(5) 0;
+      }
+    }
+
+    &.el-table--enable-row-hover {
+      .el-table__body tr:hover > td {
+        background-color: rgb(79 159 255 / 40%);
+      }
+    }
+
+    &.el-table--small {
+      .el-table__cell {
+        padding: px-to-rem(5) 0;
+      }
+    }
+
+    th.is-leaf,
+    td.el-table__cell {
+      border-bottom: px-to-rem(1) solid rgb(232 243 254 / 20%);
+    }
+
+    tr.current-row>td.el-table__cell {
+      background-color: rgb(79 159 255 / 40%);
+    }
+
+    th.el-table__cell>.cell,
+    tr.el-table__cell {
+      color: var(--iw-text-color);
+    }
+
+    tr.el-table__row {
+      color: var(--iw-text-color);
+    }
+
+    .el-table__empty-text {
+      color: var(--iw-text-color);
+    }
+  }
+
+  // 时间选择器覆写
+  .el-date-editor {
+    // 设计师好像要求的是这个图标，对使用这个图标的日期选择器做统一处理
+    i.iconfont.icon-tongyong_icon_riqi {
+      float: none;
+      margin-left: px-to-rem(5);
+      color: var(--iw-text-color);
+      font-size: px-to-rem(20);
+      line-height: px-to-rem(26);
+    }
+
+    .el-range-input {
+      background-color: transparent;
+      color: var(--iw-text-color);
+      font-size: px-to-rem(14);
+    }
+
+    .el-range-separator {
+      color: var(--iw-text-color);
+    }
+
+    .el-range-separator {
+      height: auto;
+      color: var(--iw-text-color);
+      line-height: normal !important; // 有其他样式污染了这个line-height，被迫important
+    }
+
+    .el-input__icon.el-range__close-icon.el-icon-circle-close::before { // 统一覆写所有的el-icon-circle-close。注意，这会使得系统里失去原来那个空心版本
+      color: var(--iw-text-color);
+      font-size: px-to-rem(20);
+      font-family: "iconfont_tools";
+      content: "\ec12"; // FIXME 注意，这个是基于iconfont的值，应该是涂色版的关闭图标，如果图标库有变动会出问题
+    }
+
+    .el-input__inner,
+    &.el-input__inner{
+      background-color: rgb(79 159 255 / 20%);
+    }
+
+    &:not(.is-disabled) {
+      .el-input__inner,
+      &.el-input__inner{
+        &:hover:not(.is-active) {
+          border-color: rgb(79 159 255 / 60%);
+        }
+
+        &.is-active,
+        &:focus,
+        &:active {
+          border-color: rgb(79 159 255 / 100%);
+
+          &:hover {
+            border-color: rgb(79 159 255 / 100%);
+          }
+        }
+      }
+    }
+  }
+
+  &.el-picker-panel {
+    background: rgb(23 37 55 / 100%);
+    border-color: rgb(23 37 55 / 100%);
+    color: var(--iw-text-color);
+
+    .el-month-table,
+    .el-year-table {
+      td .cell:hover {
+        background-color: rgb(79 159 255 / 40%);
+        border-radius: 0.15in; // 圆角半径是固定14px效果更好，但现在所有的px定义都会被转换成rem，因此用英寸单位等效绕过
+      }
+
+      td.current:not(.disabled) .cell {
+        background-color: #4F9FFF;
+        border-radius: 0.15in; // 圆角半径是固定14px效果更好，但现在所有的px定义都会被转换成rem，因此用英寸单位等效绕过
+      }
+
+      td.today .cell {
+        color: #4F9FFF;
+      }
+
+      td.disabled .cell {
+        background-color: transparent;
+        color: rgb(255 255 255 / 70%);
+      }
+    }
+
+    .el-date-table {
+      padding: 0 px-to-rem(12) px-to-rem(12);
+      font-size: px-to-rem(14);
+
+      tr {
+        th {
+          color: var(--iw-text-color);
+          text-align: center;
+          border-bottom: px-to-rem(1) solid rgb(255 255 255 / 20%);
+        }
+      }
+
+      th {
+        padding: 0;
+      }
+
+      td {
+        padding: 0;
+        height: px-to-rem(32);
+
+        &.prev-month,
+        &.next-month {
+          color: rgb(255 255 255 / 40%);
+        }
+
+        div {
+          height: px-to-rem(32);
+        }
+
+        span {
+          top: px-to-rem(2);
+          width: px-to-rem(28);
+          height: px-to-rem(28);
+          line-height: px-to-rem(28);
+        }
+
+        &.today {
+          span {
+            color: #4F9FFF;
+          }
+        }
+
+        &.today.in-range {
+          span {
+            color: #fff;
+          }
+        }
+
+        &.start-date {
+          div {
+            margin-left: 0;
+          }
+        }
+
+        &.end-date {
+          div {
+            margin-right: 0;
+          }
+        }
+      }
+
+      td.start-date span,
+      td.current:not(.disabled) span,
+      td.end-date span {
+        background: #4F9FFF;
+        color: var(--iw-text-color);
+        font-weight: normal;
+      }
+    }
+
+    .el-date-table td.available:hover {
+      color: var(--iw-text-color);
+
+      span {
+        background-color: rgb(79 159 255 / 40%);
+      }
+    }
+
+    .el-date-table td.disabled div {
+      background-color: transparent;
+      color: rgb(255 255 255 / 40%);
+    }
+
+    .el-date-table td.in-range div {
+      background-color: rgb(79 159 255 / 40%);
+    }
+
+    .el-picker-panel__footer {
+      // 设计师要求按钮排布反向
+      display: flex;
+      padding: px-to-rem(12);
+      background: transparent;
+      border-color: #3D4756;
+      border-bottom-left-radius: px-to-rem(4);
+      border-bottom-right-radius: px-to-rem(4);
+      flex-direction: row-reverse;
+
+      .el-button {
+        border: none;
+
+        &.el-button--text.el-picker-panel__link-btn {
+          background: rgb(95 136 194 / 20%);
+          border-radius: px-to-rem(3);
+          color: #CCE3FF;
+          font-size: px-to-rem(12);
+        }
+
+        &.el-button--default {
+          background: linear-gradient(90deg, #4D9AF7 0%, #0862CD 100%);
+          color: #CCE3FF;
+        }
+      }
+    }
+  }
+
+  &.el-date-range-picker.el-picker-panel {
+    .el-picker-panel__content.el-date-range-picker__content {
+      &.is-left {
+        border-right: px-to-rem(1) solid rgb(255 255 255 / 20%);
+      }
+    }
+
+    &.has-time {
+      .el-date-range-picker__header {
+        margin-top: 0;
+      }
+    }
+
+    .el-picker-panel *[slot="sidebar"], .el-picker-panel__sidebar {
+      width: px-to-rem(80);
+      border-right: px-to-rem(1) solid rgb(255 255 255 / 20%);
+
+      +.el-picker-panel__body {
+        margin-left: px-to-rem(80);
+      }
+    }
+
+    .popper__arrow {
+      display: none;
+    }
+
+    &.el-popper[x-placement^="bottom"] {
+      margin-top: px-to-rem(6);
+    }
+
+    .el-date-range-picker__time-header {
+      padding-bottom: px-to-rem(12);
+      border-color: #3D4756;
+
+      .el-icon-arrow-right {
+        color: var(--iw-text-color);
+      }
+
+      > .el-icon-arrow-right {
+        color: transparent;
+      }
+    }
+
+    .el-picker-panel__sidebar {
+      padding-top: 0;
+      background: transparent;
+
+      .el-picker-panel__shortcut {
+        color: var(--iw-text-color);
+
+        &:hover {
+          background: rgb(79 159 255 / 40%);
+          border-right: px-to-rem(1) solid rgb(255 255 255 / 20%)
+        }
+      }
+    }
+  }
+
+  // 表单覆写
+  .el-form {
+    .el-form-item .el-form-item__label {
+      color: var(--iw-text-color);
+    }
+  }
+
+  // 加载中覆写
+  .el-loading-spinner {
+    .el-loading-text {
+      color: #1373E6;
+    }
+
+    i {
+      color: #1373E6;
+    }
+  }
+
+  // 进度条覆写
+  .el-slider {
+    .el-slider__runway {
+      background-color: rgb(79 159 255 / 20%);
+
+      .el-slider__bar {
+        background: linear-gradient( 270deg, #1373E6 0%, #4F9FFF 100%);
+      }
+    }
+  }
+
+  // 滚动条覆写
+  // 使用element的叠加滚动条的组件，单独修改叠加滚动条的样式
+  .el-scrollbar {
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    .el-scrollbar__wrap {
+      margin-right: 0 !important;
+
+      // el-scrollbar的偏移量会导致尺寸异常，推测这是它用来规避原生滚动条尺寸的
+      // 强行覆盖它
+      margin-bottom: 0 !important;
+
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: transparent;
+      }
+
+      .el-scrollbar__view > div {
+        &::-webkit-scrollbar {
+          width: 0;
+          height: 0;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .el-scrollbar__bar {
+      right: 0;
+    }
+  }
+
+  .el-scrollbar__thumb {
+    background-color: rgb(79 159 255 / 40%);
+  }
+
+  // 滚动条覆写
+  ::-webkit-scrollbar,
+  &::-webkit-scrollbar {
+    width: 6px ;
+    height: 6px ;
+    border-radius: 3px ;
+  }
+
+  ::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(79 159 255 / 40%);
+    border: 0 ;
+    border-radius: 3px ;
+  }
+
+  ::-webkit-scrollbar-thumb:hover,
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(79 159 255 / 55%);
+  }
+
+  &.small-box-startTip {
+    display: flex;
+    align-items: center;
+    padding: px-to-rem(0) px-to-rem(12);
+    height: px-to-rem(24);
+    background-color: rgb(23 37 55 / 100%);
+    border-radius: 4px;
+    color: rgb(232 243 254 / 100%);
+    font-size: px-to-rem(12);
+  }
+
+  &.small-box-measureTip {
+    display: flex;
+    align-items: center;
+    padding: px-to-rem(0) px-to-rem(12);
+    background-color: rgb(23 37 55 / 100%);
+    border-radius: px-to-rem(4);
+    color: rgb(232 243 254 / 100%);
+    font-size: px-to-rem(12);
+
+    .iconfont_tools {
+      padding: 0;
+    }
+
+    .distance {
+      display: flex;
+      align-items: center;
+      margin-right: px-to-rem(6);
+
+      // padding: 0 px-to-rem(5);
+      height: 100%;
+    }
+
+    .area {
+      padding: 0 px-to-rem(5);
+      margin-right: px-to-rem(6);
+    }
+
+    .iconfont {
+      cursor: pointer;
+
+      &.trash {
+        margin-left: px-to-rem(6);
+      }
+    }
+  }
+}
+
+.small-box-startTip {
+  display: flex;
+  align-items: center;
+  padding: px-to-rem(6) px-to-rem(12);
+  background: var(--iw-theme-color);
+  border-radius: 4px;
+  color: var(--iw-text-color);
+  font-size: px-to-rem(12);
+}
+
+.small-box-measureTip {
+  display: flex;
+  align-items: center;
+  padding: px-to-rem(6) px-to-rem(12);
+  background: var(--iw-theme-color);
+  border-radius: 4px;
+  color: var(--iw-text-color);
+  font-size: px-to-rem(12);
+
+  .distance {
+    display: flex;
+    align-items: center;
+    margin-right: px-to-rem(6);
+
+    // padding: 0 px-to-rem(5);
+    height: 100%;
+  }
+
+  .area {
+    padding: 0 px-to-rem(5);
+    margin-right: px-to-rem(6);
+  }
+
+  .iconfont {
+    cursor: pointer;
+
+    &.trash {
+      margin-left: px-to-rem(6);
+    }
+  }
+}

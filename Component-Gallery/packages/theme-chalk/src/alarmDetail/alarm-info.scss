@@ -1,0 +1,429 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.alarm-info-content-box {
+  width: 100%;
+  height: 100%;
+  @include themeify(false) {
+    .alarm-info-tile-margin {
+      margin: 0 0 px-to-rem(12) !important;
+    }
+    .mt-9{
+      margin-top: px-to-rem(9);
+    }
+    .alarm-info-title-box {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+
+      margin: 0 0 px-to-rem(9);
+      width: 100%;
+      height: px-to-rem(26);
+      background: themed('alarm-info-title-box-bg');
+      color: themed('alarm-list-title-color');
+      font-size: px-to-rem(14);
+      i {
+        color: themed('alarm-list-bg-color-item-icon');
+      }
+      @if $theme-name != 'theme-terracotta' {
+        font-weight: 500;
+        line-height: px-to-rem(26);
+        padding: 0 px-to-rem(12);
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: px-to-rem(2);
+          height: 100%;
+          background: #e8f2fe;
+          @if $theme-name == 'theme-aquamarine' {
+            box-shadow: 0 0 px-to-rem(6) 0 #02896d,
+              inset 0 0 px-to-rem(2) 0 #02896d;
+          }
+          content: '';
+        }
+        &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: px-to-rem(72);
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            #b0d4ff 0%,
+            rgba(19, 115, 230, 0.18) 51%,
+            rgba(19, 115, 230, 0) 100%
+          );
+          content: '';
+          opacity: 0.24;
+        }
+        .alarm-info-title-icon {
+          display: none;
+        }
+      } @else {
+        padding: 0 px-to-rem(8) 0 px-to-rem(33);
+        text-shadow: 0px 1px 4px #dcd277;
+        div {
+          line-height: px-to-rem(26);
+        }
+        i {
+          padding: px-to-rem(2);
+          background: themed('alarm-info-video-icon-bg');
+        }
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: px-to-rem(95);
+          right: px-to-rem(25);
+          height: px-to-rem(2);
+          background: linear-gradient(
+            90deg,
+            #eee380 0%,
+            rgba(76, 66, 24, 0) 100%
+          );
+          content: '';
+          opacity: 0.92;
+          border-radius: 2px 0 0 0;
+        }
+
+        b {
+          &::before {
+            position: absolute;
+            top: calc(50% - px-to-rem(3));
+            left: px-to-rem(7);
+            width: px-to-rem(4);
+            height: px-to-rem(6);
+            transform: skew(-35deg);
+            background: linear-gradient(
+              180deg,
+              #fffb7f 0%,
+              rgba(176, 160, 99, 0.38) 100%
+            );
+            content: '';
+          }
+          &::after {
+            position: absolute;
+            top: calc(50% - px-to-rem(3));
+            left: px-to-rem(15);
+            width: px-to-rem(4);
+            height: px-to-rem(6);
+            transform: skew(-35deg);
+            background: linear-gradient(
+              180deg,
+              #fffb7f 0%,
+              rgba(176, 160, 99, 0.38) 100%
+            );
+            content: '';
+          }
+        }
+      }
+    }
+
+    .source-content-box {
+      width: 100%;
+      .row-describe-box {
+        display: flex;
+        flex-direction: row;
+      }
+      .infoDataTitle {
+        height: px-to-rem(26);
+        color: themed('alarm-info-data-title-color');
+        font-size: px-to-rem(14);
+        text-align: right;
+        font-weight: 400;
+        line-height: px-to-rem(26);
+      }
+      .infoDataTitle.el-col-9{
+        width: px-to-rem(118);
+      }
+      .infoDataTitle-video.el-col-9{
+        width: px-to-rem(118);
+      }
+
+      .infoDataTitleCenter {
+        line-height: px-to-rem(32) !important;
+        height: px-to-rem(32) !important;
+      }
+
+      .infoDataTitle-video {
+        display: flex;
+        justify-content: flex-end;
+        height: px-to-rem(26);
+        color: themed('alarm-info-data-title-color');
+        font-size: px-to-rem(14);
+        text-align: right;
+        font-weight: 400;
+        line-height: px-to-rem(26);
+        flex-wrap: nowrap;
+
+        .infoVideoBox {
+          margin-top: px-to-rem(3);
+          margin-right: px-to-rem(6);
+          width: px-to-rem(20);
+          height: px-to-rem(20);
+          text-align: center;
+          line-height: px-to-rem(20);
+          background: themed('alarm-info-video-icon-bg') !important;
+          opacity: 0.97 !important;
+          cursor: pointer;
+          @if $theme-name == 'theme-terracotta' {
+            color: #ffeeb1 !important;
+          } @else {
+            color: #fff !important;
+          }
+          border-radius: px-to-rem(2);
+          font-size: px-to-rem(20);
+        }
+        .shishishipin-position {
+          padding-top: px-to-rem(1);
+          margin-top: px-to-rem(2);
+        }
+      }
+
+      .infoDataContent {
+        padding-right: px-to-rem(5);
+        height: px-to-rem(26);
+        color: themed('alarm-info-data-content-color');
+        font-size: px-to-rem(14);
+        text-align: left;
+        font-weight: 400;
+        line-height: px-to-rem(26);
+      }
+      .infoDataContent.el-col-15{
+        width: calc(100% - px-to-rem(118));
+      }
+      .infoDataContentLong {
+        overflow: hidden;
+        color: themed('alarm-info-data-content-color');
+        font-size: px-to-rem(14);
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap; // 强制让文字不能换行；
+        font-weight: 400;
+        line-height: px-to-rem(26);
+
+        .infoAddressbox {
+          height: px-to-rem(32) !important;
+          line-height: px-to-rem(32) !important;
+        }
+        .no-wrap {
+          white-space: break-spaces;
+          word-break: break-all;
+        }
+      }
+      .flex{
+        display: flex;
+        align-items: center;
+      }
+      .infoDataContentLong.el-col-15{
+        width: calc(100% - px-to-rem(118));
+      }
+
+      .infoDataContentLong-img {
+        overflow: hidden;
+        @if $theme-name == 'theme-terracotta' {
+          color: #ffeeb1;
+        } @else {
+          color: #fff;
+        }
+        font-size: px-to-rem(14);
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap; // 强制让文字不能换行；
+        font-weight: 400;
+        line-height: px-to-rem(26);
+      }
+
+      .infoDataContentLong-img.el-col-15{
+        width: calc(100% - px-to-rem(118));
+      }
+
+      .addressChange {
+        display: flex;
+        flex-wrap: wrap;
+        place-content: center flex-end;
+        margin-left:px-to-rem(6);
+        .address-btn {
+          width: px-to-rem(60);
+          height: px-to-rem(32);
+          line-height: px-to-rem(16);
+        }
+      }
+
+      ::v-deep .y-select-dropdown-alarmSelect {
+        position: absolute !important;
+        left: 0 !important;
+        top: px-to-rem(32) !important;
+      }
+      .model-alarm-info {
+        margin-top: px-to-rem(20);
+      }
+    }
+  }
+
+  ::v-deep .y-select-alarmSelect {
+    .el-icon-arrow-up:before {
+      font-size: px-to-rem(20);
+      font-weight: 500;
+      font-family: 'iconfont_tools';
+      content: '\ec0c';
+    }
+  }
+}
+
+.text-source {
+  @include themeify(false) {
+    color: themed('alarm-tag-edit-check-item-text');
+    font-size: px-to-rem(20);
+    // margin-left: px-to-rem(3);
+    // width: px-to-rem(18);
+    // height: px-to-rem(18);
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
+    // background-image: url('~@component-gallery/assets/image/alarm-detail/hint-ly.png');
+  }
+}
+
+// 详情展示附件样式
+.fileBox {
+  display: flex;
+}
+
+.file-imageAll-main-box {
+  overflow: hidden;
+  width: px-to-rem(206);
+}
+
+.file-imageAll-box {
+  display: flex;
+  transition: all 0.5s;
+  flex-wrap: wrap;
+}
+
+.file-image-box {
+  margin: 0 px-to-rem(2);
+}
+
+.file-image {
+  width: px-to-rem(70);
+  height: px-to-rem(70);
+  border-radius: px-to-rem(5);
+}
+
+.file-video {
+  width: px-to-rem(70);
+  height: px-to-rem(70);
+  border-radius: px-to-rem(5);
+  object-fit: fill;
+}
+
+.fileLeft {
+  position: absolute;
+  float: left;
+  width: px-to-rem(20);
+  height: px-to-rem(38);
+  background: rgb(0 0 0 / 50%);
+  border-radius: px-to-rem(5) 0 0 px-to-rem(5);
+  color: #fff;
+  font-size: px-to-rem(25);
+  text-align: center;
+  line-height: px-to-rem(35);
+}
+
+.fileRight {
+  position: absolute;
+  left: px-to-rem(286);
+  float: right;
+  width: px-to-rem(20);
+  height: px-to-rem(38);
+  background: rgb(0 0 0 / 50%);
+  border-radius: 0 px-to-rem(5) px-to-rem(5) 0;
+  color: #fff;
+  font-size: px-to-rem(25);
+  text-align: center;
+  line-height: px-to-rem(35);
+}
+
+.btn-active-class {
+  margin-left: px-to-rem(8);
+  @include themeify(false) {
+    @if $theme-name == 'theme-wiseblue' {
+      color: #4f9fff !important;
+    } @else {
+      color: #f9ff6c !important;
+    }
+  }
+
+  // 文字颜色变黄
+  font-size: px-to-rem(20);
+}
+
+.btn-no-active-class {
+  margin-left: px-to-rem(8);
+  font-size: px-to-rem(20);
+}
+.parameter-box {
+  white-space: normal;
+  word-wrap: break-word;
+}
+.time-box {
+  white-space: normal;
+  word-wrap: break-word;
+}
+.flow-box {
+  width: px-to-rem(226);
+  margin-right: px-to-rem(-12);
+  @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+      background: rgba(2, 137, 109, 0.2) !important;
+    }
+    @if $theme-name == 'theme-wiseblue' {
+      background: #172537 !important;
+    }
+    @if $theme-name == 'theme-terracotta' {
+      background: rgba(100, 86, 46, 0.2) !important;
+    }
+  }
+  border-radius: px-to-rem(4);
+  max-height: px-to-rem(336);
+  padding: px-to-rem(12);
+  overflow-y: auto !important;
+}
+.info-title {
+  height: px-to-rem(26);
+  line-height: px-to-rem(26);
+  display: block;
+  font-size: px-to-rem(14);
+  font-family: PingFangSC, PingFang SC !important;
+  font-weight: 600;
+  @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+      color: #ffffff !important;
+    }
+    @if $theme-name == 'theme-wiseblue' {
+      color: #e8f3fe !important;
+    }
+    @if $theme-name == 'terracotta' {
+      color: #e4e7c1 !important;
+    }
+  }
+}
+.algorithm-params {
+  display: block;
+  font-size: px-to-rem(14);
+  font-weight: 600;
+  font-family: PingFangSC, PingFang SC !important;
+  @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+      color: #ffffff !important;
+    }
+    @if $theme-name == 'theme-wiseblue' {
+      color: #e8f3fe !important;
+    }
+    @if $theme-name == 'terracotta' {
+      color: #e4e7c1 !important;
+    }
+  }
+  margin-top: px-to-rem(6);
+}

@@ -1,0 +1,42 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+// 通用
+[data-theme='theme-wiseblue'] .tooltips_pest {
+  &.el-tooltip__popper.is-dark {
+    &[x-placement^='top'] .popper__arrow {
+      border-top-color: rgba(23, 37, 55, 0.9) !important;
+
+      &::after {
+        border-top-color: rgba(23, 37, 55, 0.9) !important;
+      }
+    }
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .tooltips_pest {
+  &.el-tooltip__popper.is-dark {
+    &[x-placement^='top'] .popper__arrow {
+      border-top-color: rgb(0, 34, 27) !important;
+
+      &::after {
+        border-top-color: rgb(0, 34, 27) !important;
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .tooltips_pest {
+  &.el-tooltip__popper.is-dark {
+    &[x-placement^='top'] .popper__arrow {
+      border-top-color: #15130c !important;
+
+      &::after {
+        border-top-color: #15130c !important;
+      }
+    }
+  }
+}

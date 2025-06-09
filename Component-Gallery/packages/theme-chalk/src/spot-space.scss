@@ -1,0 +1,53 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+[data-theme='theme-wiseblue'] .SpotSpace {
+  z-index: 200;
+  .innercomp-abcontainer-close {
+    z-index: 0 !important;
+  }
+}
+.layer-tree-wrapper {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  max-height: px-to-rem(300);
+  overflow: hidden auto;
+
+  background: #0f1926;
+  border-radius: px-to-rem(4);
+  ::v-deep .el-tree {
+    background: transparent;
+    border: none !important;
+    .el-tree-node__content {
+      &:hover {
+        background: rgba(79, 159, 255, 0.4);
+      }
+      .layer-tree-node {
+        font-weight: 400;
+        font-size: px-to-rem(14);
+        color: #e8f3fe;
+      }
+    }
+    .el-tree-node {
+      // &.is-checked {
+      //   background: rgba(79, 159, 255, 0.4)
+      // }
+    }
+  }
+  &:-webkit-scrollbar {
+      width: px-to-rem(6);
+      height: px-to-rem(6);
+      border-radius: px-to-rem(3)
+  }
+
+  &:-webkit-scrollbar-thumb {
+      border: 0;
+      border-radius: px-to-rem(3)
+  }
+
+  &:-webkit-scrollbar-thumb,&:-webkit-scrollbar-thumb:hover {
+      background-color: rgb(79 159 255 / 40%);
+  }
+}

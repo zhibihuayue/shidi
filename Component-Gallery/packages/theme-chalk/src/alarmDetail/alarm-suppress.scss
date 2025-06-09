@@ -1,0 +1,70 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.alarm-repeat-row .alarm-suppress-box ::v-deep .el-radio {
+  &:nth-of-type(3) {
+    padding-right: px-to-rem(30) !important;
+  }
+}
+.alarm-suppress-box {
+    @include themeify(false) {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    ::v-deep .el-radio-group {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    ::v-deep .el-radio {
+      padding: px-to-rem(7) px-to-rem(24) px-to-rem(7) 0;
+      margin: 0 0 px-to-rem(4);
+      height: px-to-rem(32);
+      &:nth-of-type(3) {
+        padding: px-to-rem(7) px-to-rem(0) px-to-rem(7) 0;
+      }
+
+      .el-radio__input {
+        .el-radio__inner {
+          width: px-to-rem(16);
+          height: px-to-rem(16);
+          background: themed('alarm-radio-inner-bg');
+          border: 0;
+          box-shadow: themed('alarm-radio-box-shadow');
+        }
+
+        .is-checked {
+          &::after {
+            transform: translate(-50%, -50%) scale(1.3);
+          }
+        }
+
+        &.is-checked {
+          .el-radio__inner {
+            background: themed('alarm-radio-inner-checked-bg');
+
+            &::after {
+              width: px-to-rem(6);
+              height: px-to-rem(6);
+            }
+          }
+        }
+      }
+
+      .el-radio__label {
+        padding-left: px-to-rem(6);
+        color: themed('alarm-info-data-content-color');
+        font-size: px-to-rem(14);
+        font-weight: 400;
+      }
+    }
+
+    .sup-day-box {
+      margin: 0 px-to-rem(3);
+      width: px-to-rem(78);
+      height: px-to-rem(32);
+    }
+  }
+}

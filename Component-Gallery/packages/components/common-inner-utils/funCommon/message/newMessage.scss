@@ -1,0 +1,41 @@
+@import '@component-gallery/theme-chalk/src/mixins/mixins';
+@import '@component-gallery/theme-chalk/src/mixins/theme-mixins';
+@import '@component-gallery/theme-chalk/src/mixins/bem-mixins';
+
+.newMessageClass {
+  padding: px-to-rem(10) px-to-rem(15) !important;
+
+  &.el-message {
+    &.el-message--success,
+    &.el-message--info,
+    &.el-message--warning,
+    &.el-message--error {
+      display: flex;
+      align-items: center;
+      background-color: #1b2436 !important;
+      border-color: #1b2436 !important;
+
+      .el-message__icon {
+        color: #fb913c !important;
+        font-size: px-to-rem(16) !important;
+      }
+
+      .el-message__content {
+        color: #eaf2fd !important;
+      }
+
+      .el-message__closeBtn {
+        margin-left: px-to-rem(20);
+        color: #fff !important;
+      }
+    }
+
+    &.el-message--info .el-icon-info {
+      color: #4f9fff !important;
+    }
+  }
+
+  &.is-closable .el-message__content {
+    padding-right: px-to-rem(26);
+  }
+}

@@ -1,0 +1,29 @@
+@import "../mixins/mixins";
+@import "../mixins/theme-mixins";
+@import '../mixins/bem-mixins.scss';
+
+.algorithm-dialog-dropdown {
+  .el-select-dropdown__list {
+    max-height: px-to-rem(200);
+    .el-select-dropdown__item {
+      padding: 0 px-to-rem(6) !important;
+      .el-checkbox {
+        .el-checkbox__input {
+          top: px-to-rem(-2);
+          width: px-to-rem(16);
+          height: px-to-rem(16);
+          overflow: hidden;
+          .el-checkbox__inner {
+            width: px-to-rem(16);
+            height: px-to-rem(16);
+            &:after {
+              font-size: px-to-rem(16) !important;
+            }
+          }
+        }
+      }
+
+
+    }
+  }
+}

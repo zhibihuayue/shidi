@@ -1,0 +1,16 @@
+@import '../common/var';
+
+@mixin button-size(
+  $padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $border-radius
+) {
+  padding: $padding-vertical $padding-horizontal;
+  border-radius: $border-radius;
+  font-size: $font-size;
+
+  &.is-round {
+    padding: $padding-vertical $padding-horizontal;
+  }
+}

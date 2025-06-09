@@ -1,0 +1,186 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+@mixin ar-label-zj-index-main-box-class() {
+  .ar-label-zj-index-main-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 25, 38, 0.3);
+    //pointer-events: none;
+
+    .draw-canvas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 8;
+      pointer-events: none;
+
+      &.drawing {
+        pointer-events: auto;
+      }
+    }
+
+    .label-type-choose-box {
+      width: px-to-rem(160);
+      height: px-to-rem(64);
+      position: absolute;
+      z-index: 999;
+      background: rgba(23, 37, 55, 0.9);
+      border-radius: 8px;
+      .popup-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 12;
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        background: url('~@component-gallery/assets/image/ar-label/close.png') no-repeat center / 100%
+        100%;
+        transform: translate(50%, -50%);
+        cursor: pointer;
+      }
+
+      .label-type-choose-item {
+        width: 100%;
+        height: 50%;
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(32);
+        color: #E8F3FE;
+        border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+        display: flex;
+        cursor: pointer;
+        &:hover {
+          background: rgba(79, 159, 255, 0.4);
+          color: #4F9FFF;
+        }
+        ::v-deep .ct-icon__inline-block {
+          .ct-icon {
+            margin: 0 px-to-rem(6) 0 px-to-rem(6);
+            .icon-ctw {
+              color: #E8F3FE !important;
+              font-size: 0.14rem !important;
+            }
+          }
+        }
+      }
+      .label-type-choose-item:first-child {
+        border-radius: 8px 8px 0 0; /* 上左圆角 */
+      }
+
+      .label-type-choose-item:last-child {
+        border-radius: 0 0 8px 8px; /* 下右圆角 */
+      }
+    }
+
+    .scope-label-tip {
+      width: px-to-rem(360);
+      height: px-to-rem(24);
+      background: #172537;
+      border-radius: px-to-rem(4);
+      font-size: px-to-rem(12);
+      color: #E8F3FE;
+      line-height: px-to-rem(24);
+      text-align: left;
+      position: absolute;
+      z-index: 1801;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+    }
+  }
+}
+
+[data-theme='theme-wiseblue'] {
+  // 睿智蓝
+  @include ar-label-zj-index-main-box-class;
+}
+
+[data-theme='theme-terracotta'] {
+  // 赤土黄
+  @include ar-label-zj-index-main-box-class;
+  .ar-label-zj-index-main-box {
+    .label-type-choose-box {
+      .popup-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        background: url('~@component-gallery/assets/image/ar-label/close-g.png') no-repeat center / 100%
+        100%;
+        transform: translate(50%, -50%);
+        cursor: pointer;
+      }
+      background: linear-gradient( 180deg, #423B1D 0%, #28210E 11%, #000000 100%);
+      border: 1px solid #6E674E;
+      .label-type-choose-item {
+        color: #E4E7C1;
+        &:hover {
+          background: rgba(100, 86, 46, 0.4);
+          color: #FFFA28;
+        }
+        ::v-deep .ct-icon__inline-block {
+          .ct-icon {
+            margin: 0 px-to-rem(6) 0 px-to-rem(6);
+            .icon-ctw {
+              color: #E4E7C1 !important;
+              font-size: 0.14rem !important;
+            }
+          }
+        }
+      }
+    }
+    .scope-label-tip {
+      background: rgba(54, 48, 27, 1);
+      color: #FFEEB1;
+    }
+  }
+}
+
+[data-theme='theme-aquamarine'] {
+  // 碧山绿
+  @include ar-label-zj-index-main-box-class;
+  .ar-label-zj-index-main-box {
+    .label-type-choose-box {
+      .popup-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        background: url('~@component-gallery/assets/image/ar-label/close-ly.png') no-repeat center / 100%
+        100%;
+        transform: translate(50%, -50%);
+        cursor: pointer;
+      }
+      background: linear-gradient( 180deg, rgba(0,67,63,0.85) 0%, rgba(0,19,30,0.74) 21%, #00131E 100%);
+      border: 1px solid #075B4A;
+      .label-type-choose-item {
+        color: #FFFFFF;
+        &:hover {
+          background: rgba(2,137,109,0.4);
+          color: #F9FF6C;
+        }
+        ::v-deep .ct-icon__inline-block {
+          .ct-icon {
+            margin: 0 px-to-rem(6) 0 px-to-rem(6);
+            .icon-ctw {
+              color: #FFFFFF !important;
+              font-size: 0.14rem !important;
+            }
+          }
+        }
+      }
+    }
+    .scope-label-tip {
+      background: rgba(0, 34, 27, 1);
+      color: #FFFFFF;
+    }
+  }
+}

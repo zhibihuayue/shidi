@@ -1,0 +1,90 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.show-imgs-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 60%);
+  @include themeify(false) {
+    .close-btn {
+      position: absolute;
+      top: px-to-rem(30);
+      right: px-to-rem(30);
+      z-index: 2;
+
+      // 关闭按钮
+      width: px-to-rem(22);
+      height: px-to-rem(22);
+      background: themed('base-card-close-bg');
+      background-size: 150% 150%;
+      background-position: 50% 50%;
+      cursor: pointer;
+    }
+
+    .video-main {
+      // overflow-y: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      // width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .prevLeft {
+      position: absolute;
+      top: 45%;
+      left: 7%;
+      width: px-to-rem(50);
+      height: px-to-rem(50);
+      background: themed('alarm-detail-compare-arrow-bg-color');
+      border-radius: 50%;
+      color: themed('alarm-info-data-content-color');
+      text-align: center;
+      line-height: px-to-rem(50);
+      cursor: pointer;
+    }
+
+    .nextRigth {
+      position: absolute;
+      top: 45%;
+      left: 90%;
+      display: flex;
+      place-content: center center;
+      width: px-to-rem(50);
+      height: px-to-rem(50);
+      background: themed('alarm-detail-compare-arrow-bg-color');
+      border-radius: 50%;
+      color: themed('alarm-info-data-content-color');
+      flex-wrap: wrap;
+      cursor: pointer;
+    }
+
+    .rightIcon {
+      font-size: px-to-rem(36);
+      transform: rotate(270deg);
+    }
+
+    .leftIcon {
+      font-size: px-to-rem(36);
+      transform: rotate(90deg);
+    }
+
+    .video-player {
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-player ::v-deep .video-js.vjs-fluid {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

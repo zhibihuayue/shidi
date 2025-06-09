@@ -1,0 +1,236 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.common-comp-options-left__left_func_area {
+  position: fixed;
+  top: px-to-rem(30);
+  right: px-to-rem(20);
+  z-index: 10;
+  @include themeify(false) {
+    // .opt_btn_off_on {
+    //   position: absolute;
+    //   bottom: 0;
+    //   left: 50%;
+    //   display: inline-block;
+    //   width: px-to-rem(42);
+    //   height: px-to-rem(48);
+    //   transform: translate(-50%, 0);
+    //   cursor: pointer;
+    //   pointer-events: auto;
+
+    //   img {
+    //     position: absolute;
+    //     top: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //   }
+    // }
+
+    // .to_close_btn {
+    //   top: 0;
+    //   z-index: 1;
+    // }
+
+    // .footer_close {
+    //   position: absolute;
+    //   bottom: 0;
+    //   left: 50%;
+    //   width: 100%;
+    //   height: px-to-rem(110);
+    //   background: themed('footer-bg-closed-line');
+    //   background-size: 100% 100%;
+    //   pointer-events: none;
+    //   background-position-y: px-to-rem(60);
+    // }
+
+    // .close_line {
+    //   position: absolute;
+    //   bottom: px-to-rem(23);
+    //   z-index: -1;
+    //   width: 100%;
+    //   height: px-to-rem(1);
+    //   border: px-to-rem(1) solid;
+    //   border-bottom-width: 0;
+    //   border-image: themed('footer-close_line');
+    // }
+
+    .footer_open {
+      // position: absolute;
+      // bottom: 0;
+      // left: 50%;
+      width: px-to-rem(56);
+      // height: px-to-rem(110);
+      // padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // background: themed('footer-bg-open-line');
+      // background-size: 100% 100%;
+      // transform-origin: 50% 100%;
+      // pointer-events: none;
+
+      // TODO: 空列表时展示内容
+      // .footer_empty_tips {
+      //   position: absolute;
+      //   bottom: px-to-rem(30);
+      //   left: 50%;
+      //   display: inline-block;
+      //   user-select: none;
+      //   transform: translate(-50%, 0%);
+      //   pointer-events: auto;
+
+      //   .tips_img {
+      //     display: inline-block;
+      //     width: px-to-rem(18);
+      //     height: px-to-rem(18);
+      //     vertical-align: sub;
+      //   }
+
+      //   .des {
+      //     text-shadow: themed('footer-des-text-shadow');
+      //     color: #fff;
+      //     font-size: px-to-rem(14);
+      //     font-weight: 400;
+      //     line-height: px-to-rem(14);
+
+      //     .to_tools {
+      //       color: themed('footer-to-tools-color');
+      //       cursor: pointer;
+      //     }
+      //   }
+      // }
+    }
+
+    .cont {
+      // position: absolute;
+      // left: 50%;
+      // bottom: px-to-rem(12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // transform: translateX(-50%);
+      pointer-events: auto;
+
+      .func_item {
+        position: relative;
+        margin-bottom: px-to-rem(9);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        cursor: pointer;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .icon-ctx {
+          width: px-to-rem(50);
+          height: px-to-rem(50);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-size: cover;
+          margin-bottom: px-to-rem(3);
+        }
+
+        .icon-in {
+          width: px-to-rem(40);
+          height: px-to-rem(40);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: px-to-rem(6);
+          background-image: themed('options-left-icon-default-background-image');
+          background-size: 100% 100%;
+        }
+
+        .top_iocn {
+          // position: absolute;
+          // top: px-to-rem(-12);
+          // left: px-to-rem(20);
+          background-clip: text; // 背景被裁减为文字的前景色
+          color: #fff; // 兜底颜色，防止文字裁剪不生效
+          font-size: px-to-rem(26);
+          background-image: themed('options-left-icon-fill-background-image');
+          -webkit-text-fill-color: transparent;
+        }
+
+        // .mid_bg_img {
+        //   display: block;
+        //   width: px-to-rem(64);
+        //   height: px-to-rem(35);
+        // }
+        // .act_item_icon {
+        //   background: themed('footer-bg-act-item-icon');
+        //   background-size: 100% 100%;
+        // }
+        // .def_item_icon {
+        //   background: themed('footer-bg-def-item-icon');
+        //   background-size: 100% 100%;
+        // }
+
+        .des {
+          color: themed('options-left-icon-title-default-color');
+          font-size: px-to-rem(14);
+          font-family: PingFangSC, 'PingFang SC';
+          font-weight: 400;
+          line-height: px-to-rem(14);
+          white-space: nowrap;
+        }
+      }
+
+      .func_item.active {
+        .icon-ctx {
+          background-image: themed('options-left-icon-active-out-border-background-image');
+          .icon-in {
+            width: themed('options-left-icon-active-in-size');
+            height: themed('options-left-icon-active-in-size');
+            background-image: themed('options-left-icon-active-background-image');
+          }
+        }
+
+        .des {
+          color: themed('options-left-icon-title-active-color');
+        }
+
+        .top_iocn {
+          background-image: themed('options-left-icon-active-fill-background-image');
+        }
+      }
+    }
+  }
+}
+.isShowRightBox{
+  right:px-to-rem(412);
+}
+::v-deep.el-select__caret.el-input__icon.el-icon-arrow-up {
+  margin-top: 0;
+  color: #fff;
+  font-size: px-to-rem(20);
+  transform: rotate(0deg);
+
+  &::before {
+    content: '\EA83';
+    font-family: 'iconfont_tools';
+  }
+}
+
+.common-comp-footer__bottom_background {
+  position: absolute;
+  right: px-to-rem(24);
+  bottom: px-to-rem(6);
+  z-index: -1;
+
+  // width: 100px;
+  // height: 50px;
+  color: #fff;
+  font-size: px-to-rem(12);
+
+  .item {
+    color: #fff;
+    font-size: px-to-rem(12); // 原字号 px-to-rem(12)
+    font-weight: 400;
+  }
+}

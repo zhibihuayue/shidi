@@ -1,0 +1,49 @@
+@import "mixins/px-to-rem";
+
+.iwmiTreeSelect {
+  .el-select__tags .el-tag {
+    max-width: 70%;
+
+    // 设计要求标签要与上面的title对齐
+    &:first-of-type{
+      margin-left: 0;
+    }
+  }
+
+  &.el-popper[x-placement^="bottom"] {
+    margin-top: px-to-rem(4);
+  }
+}
+
+::v-deep .el-input__inner {
+  height: px-to-rem(32);
+  line-height: px-to-rem(32);
+}
+
+.iwmiTreeSelect.popperClass.el-select-dropdown {
+  max-width: px-to-rem(320);
+  transition: none; // 因为el-tree里有元素对transform动画会产生撕裂，这里为了偷懒直接把动画关闭来规避这个问题
+  .el-select-dropdown__item {
+    padding-right: 0;
+    padding-left: 0;
+    height: auto;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &.is-multiple {
+    .el-select-dropdown__item.selected.hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.tree-select__tree {
+  ::v-deep .el-tree-node__label {
+    overflow: hidden;
+    min-width: 0;
+    text-overflow: ellipsis;
+  }
+}

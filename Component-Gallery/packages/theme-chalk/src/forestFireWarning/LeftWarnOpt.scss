@@ -1,0 +1,255 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+@import '../mixins/theme-button-mixins';
+// @import '../csscp/index';
+.common-comp-fire-warning_func_area {
+  @include themeify(false) {
+    .forest-warning-dialog {
+      position: fixed;
+      top: px-to-rem(376);
+      right: px-to-rem(415);
+      z-index: 38;
+      width: px-to-rem(360);
+      background: themed('fire-warning-bg-forest-warning-dialog');
+      @if $theme-name != 'theme-aquamarine' {
+        border-radius: px-to-rem(8);
+      }
+      transform: translate(0, -50%);
+      @if $theme-name == 'theme-aquamarine' {
+        &::before {
+          position: absolute;
+          top: px-to-rem(0);
+          left: px-to-rem(-1);
+          z-index: 10;
+          width: px-to-rem(8);
+          height: px-to-rem(1);
+          background: themed('fire-warning-bg-forest-warning-dialog-before');
+          content: '';
+        }
+      }
+    }
+    .forest-warning-dialog .close-btn {
+      // 关闭按钮
+      position: absolute;
+      top: px-to-rem(-19);
+      right: px-to-rem(-19);
+      width: px-to-rem(38);
+      height: px-to-rem(38);
+      background: themed('base-card-close-bg');
+      background-size: 100% 100%;
+      cursor: pointer;
+      z-index: 8;
+    }
+
+    .forest-warning-dialog .dialog-til {
+      position: relative;
+      width: 100%;
+      height: px-to-rem(48);
+      border-radius: px-to-rem(8) 0 0 0;
+      text-shadow: themed('fire-warning-text-shadow');
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(16);
+      text-align: center;
+      line-height: px-to-rem(48);
+      font-weight: bold;
+      background: themed('fire-warning-bg-dialog-til');
+
+      &::before {
+        position: absolute;
+        top: px-to-rem(-1);
+        bottom: auto;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: themed('fire-warning-bg-dialog-til-before1'),
+          themed('fire-warning-bg-dialog-til-before2'),
+          themed('fire-warning-bg-dialog-til-before3');
+        opacity: 0.96;
+        content: '';
+        pointer-events: none;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: px-to-rem(1);
+        left: 50%;
+        width: 100%;
+        height: px-to-rem(1);
+        background: themed('fire-warning-bg-dialog-til-after');
+        content: '';
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+
+      .name {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        color: themed('fire-warning-bg-dialog-til-name');
+        line-height: px-to-rem(48);
+        text-shadow: themed('fire-warning-shadow-dialog-til-name');
+      }
+    }
+
+    .forest-warning-dialog .dialog-con {
+      padding: px-to-rem(12) px-to-rem(26);
+
+      &::before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        width: px-to-rem(21);
+        height: px-to-rem(25);
+        background: themed('fire-warning-bg-dialog-con-before');
+        content: '';
+      }
+
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        width: px-to-rem(21);
+        height: px-to-rem(25);
+        background: themed('fire-warning-bg-dialog-con-after');
+        content: '';
+      }
+    }
+
+    .forest-warning-dialog .dialog-con .text {
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(14);
+      text-align: center;
+      line-height: px-to-rem(20);
+      .area-color,
+      ::v-deep .area-color {
+        color: themed('fire-warning-area-color');
+      }
+    }
+    .forest-warning-dialog .dialog-con .checkboxs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin: px-to-rem(13) auto;
+      height: px-to-rem(22);
+      font-size: px-to-rem(16);
+    }
+    // .forest-warning-dialog
+    //   .dialog-con
+    //   .checkboxs
+    //   ::v-deep
+    //   .el-checkbox__inner::after {
+    //   // opacity: 0 !important;
+    // }
+    // .forest-warning-dialog
+    //   .dialog-con
+    //   .checkboxs
+    //   .el-checkbox
+    //   ::v-deep
+    //   .el-checkbox__inner::after {
+    //   opacity: 0 !important;
+    // }
+    .forest-warning-dialog
+      .dialog-con
+      .checkboxs
+      .el-checkbox.is-checked
+      ::v-deep
+      .el-checkbox__inner::after {
+      opacity: 1 !important;
+      top: -0.01rem;
+      left: -0.01rem;
+    }
+    .forest-warning-dialog .dialog-con .checkboxs ::v-deep .el-checkbox__inner {
+      @if $theme-name == 'theme-aquamarine' {
+        border: px-to-rem(1) solid #fff0 !important;
+      }
+    }
+    .forest-warning-dialog .dialog-con .checkboxs ::v-deep .el-checkbox__label {
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(14);
+      padding-left: px-to-rem(6);
+    }
+
+    .forest-warning-dialog .dialog-con .checkboxs .el-checkbox-all {
+      margin-right: px-to-rem(12);
+      color: themed('fire-warning-list-color-label');
+      font-size: px-to-rem(14);
+    }
+    .forest-warning-dialog .dialog-con .checkboxs ::v-deep .el-checkbox {
+      margin-right: px-to-rem(24);
+    }
+
+    .warn-btns {
+      padding: 0 px-to-rem(12);
+      width: 100%;
+      display: flex;
+      gap: px-to-rem(6);
+      justify-content: center;
+
+      ::v-deep .cg-button {
+        border-radius: px-to-rem(4);
+        width: px-to-rem(108);
+        height: px-to-rem(32);
+      }
+      ::v-deep .cg-button > span {
+        color: themed('global-text-color');
+      }
+      button {
+        width: px-to-rem(108);
+        height: px-to-rem(32);
+      }
+    }
+
+    .loading {
+      display: flex;
+      justify-content: center;
+      height: px-to-rem(60);
+      color: rgb(255 255 255 / 50%);
+      font-size: px-to-rem(12);
+      text-align: center;
+      line-height: 1.5;
+      flex-direction: column;
+      cursor: default;
+    }
+
+    .loading i {
+      display: block;
+    }
+
+    ::v-deep .el-loading-spinner .path {
+      stroke: rgb(255 255 255 / 50%) !important;
+    }
+
+    ::v-deep .el-loading-spinner .el-loading-text {
+      color: rgb(255 255 255 / 50%) !important;
+    }
+
+    ::v-deep .el-loading-mask {
+      background: none !important;
+    }
+  }
+  @include cg_button_styles();
+}
+
+.default,
+::v-deep .default {
+  color: #31cbff;
+}
+
+.yellow,
+::v-deep .yellow {
+  color: #f9ff6c;
+}
+
+.orange,
+::v-deep .orange {
+  color: #fe981e;
+}
+
+.red,
+::v-deep .red {
+  color: #ff5858;
+}

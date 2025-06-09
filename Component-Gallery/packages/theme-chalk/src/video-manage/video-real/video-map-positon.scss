@@ -1,0 +1,41 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+@import '../../mixins/bem-mixins.scss';
+.video-map-position-box {
+  width: 100%;
+  height: px-to-rem(190);
+  border-radius: px-to-rem(4);
+  overflow: hidden;
+  position: relative;
+  .r-btn {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: px-to-rem(6);
+    bottom: px-to-rem(6);
+    z-index: 9;
+
+    .mapIconClass {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: px-to-rem(30);
+      height: px-to-rem(30);
+      background: #ffffff;
+      box-shadow: px-to-rem(0) px-to-rem(2) px-to-rem(5) px-to-rem(0)
+        rgba(168, 175, 184, 0.54);
+      border-radius: px-to-rem(4);
+      font-size: px-to-rem(20);
+      color: #172537;
+      cursor: pointer;
+      line-height: 1;
+      margin-top: px-to-rem(6);
+    }
+  }
+}
+.horn-shout {
+  position: fixed;
+  left: 0;
+  top: 0;
+}

@@ -1,0 +1,226 @@
+@import "mixins/mixins";
+@import "mixins/theme-mixins";
+@import "mixins/px-to-rem";
+
+.weather-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  // 内部相对定位的盒子
+  .relative-box {
+    position: relative;
+    height: 100%;
+    width: 100%
+  }
+  // 鼠标手指状态
+  .pointer {
+    cursor: pointer;
+  }
+  // 按钮面板
+  &-panel {
+    pointer-events: all;
+    position: absolute;
+    top: px-to-rem(172);
+    left: px-to-rem(24);
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      width: px-to-rem(138);
+      height: px-to-rem(36);
+      border-radius: 8px;
+      margin-bottom: px-to-rem(12);
+      padding: 2px; // 模拟边框
+
+      .content {
+        border-radius: 8px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .icon {
+          width: px-to-rem(49);
+          height: 100%;
+          margin-right: 5px;
+          position: relative;
+
+          &_bg {
+            position: absolute;
+            left: px-to-rem(2);
+            bottom: px-to-rem(-2);
+            height: px-to-rem(28);
+            width: 100%;
+            background-size: 100% 100%;
+          }
+        }
+        .label {
+          font-family: PingFangSC, PingFang SC;
+          font-weight: 400;
+          font-size: px-to-rem(14);
+          text-align: left;
+          font-style: normal;
+        }
+
+        .switch {
+          margin: 0 px-to-rem(12) 0 px-to-rem(10);
+        }
+
+        ::v-deep .el-switch__core {
+          height: px-to-rem(16);
+          width: px-to-rem(32) !important;
+
+          &:after {
+            width: px-to-rem(12);
+            height: px-to-rem(12);
+            top: px-to-rem(2);
+          }
+        }
+        ::v-deep .el-switch.is-checked .el-switch__core::after {
+          margin-left: px-to-rem(-14);
+        }
+      }
+    }
+  }
+  // 进度条
+  &-progress {
+    pointer-events: all;
+    position: absolute;
+    bottom: px-to-rem(30);
+    left: 0;
+    right: 0;
+    height: px-to-rem(56);
+    width: px-to-rem(1004);
+    margin: auto;
+    border-radius: 8px;
+    padding: px-to-rem(12);
+
+    .content {
+      height: 100%;
+      border-radius: 4px;
+    }
+  }
+}
+
+// 通用换肤
+[data-theme="theme-wiseblue"] .weather-layer {
+  &-panel {
+    &-item {
+      background: linear-gradient(180deg, rgba(176, 212, 255, 0.35), rgba(176, 212, 255, 1));
+      .content {
+        background: linear-gradient(180deg, rgba($color: #172537, $alpha: 0.7) 0%, rgba($color: #3679DA, $alpha: 0.7) 100%);
+        .label {
+          color: #E8F3FE;
+          text-shadow: 0 0 px-to-rem(12) #478EF6;
+        }
+      }
+
+      ::v-deep .el-switch.is-checked .el-switch__core {
+        border-color: #1373E6;
+        background-color: #1373E6;
+      }
+    }
+    .active {
+      background: linear-gradient(180deg, rgba(255, 216, 177, 1), rgba(255, 216, 177, 0.7));
+      .content {
+        background: radial-gradient( 109% 65% at 4% 7%, rgba($color: #FF9251, $alpha: 0.7) 0%, rgba(255,163,107,0) 100%), rgba($color: #2C1102, $alpha: 0.7);
+        .label {
+          color: #FFFFFF;
+          text-shadow: 0px 0px px-to-rem(12) #FFA77B;
+        }
+      }
+    }
+  }
+
+  &-progress {
+    background: rgba(23,37,55,0.9);
+
+    .content {
+      background: rgba(79,159,255,0.2);
+      border: px-to-rem(1) solid rgba(79,159,255,0);
+    }
+  }
+}
+
+// 林业换肤
+[data-theme="theme-aquamarine"] .weather-layer {
+  &-panel {
+    &-item {
+      background: linear-gradient(180deg, rgba(176, 255, 228, 0.25), rgba(176, 255, 243, 1));
+      .content {
+        background: linear-gradient( 139deg, rgba(0,62,63,0.8) 0%, rgba(0,43,46,0.85) 28%, rgba(0,62,62,0.87) 69%, #00706B 100%), radial-gradient( 468% 45% at 96% 100%, #009779 0%, rgba(0,119,95,0) 100%);
+        .label {
+          color: #FFFFFF;
+          text-shadow: 0px 0px px-to-rem(12) #0DC985;
+        }
+
+        ::v-deep .el-switch.is-checked .el-switch__core {
+          border-color: #02896D;
+          background-color: #02896D;
+        }
+      }
+    }
+    .active {
+      background: linear-gradient(180deg, rgba(255, 250, 177, 1), rgba(255, 250, 177, 0.7));
+      .content {
+        background: linear-gradient( 180deg, #322C02 0%, rgba($color: #B5BA0D, $alpha: 0.7) 100%), radial-gradient( 154% 92% at 4% 7%, rgba(249,255,108,0.9* 0.7) 0%, rgba(249,255,108,0.23*0.7) 50%, rgba(249,255,108,0) 100%);
+        .label {
+          color: #FFFFFF;
+          text-shadow: 0px 0px px-to-rem(12) #F9FF6C;
+        }
+      }
+    }
+  }
+
+  &-progress {
+    background: linear-gradient( 180deg, rgba(0,67,63,0.85) 0%, rgba(0,19,30,0.74) 21%, #00131E 100%);
+    border: px-to-rem(1) solid #075B4A;
+
+    .content {
+      background: rgba(2,137,109,0.2);
+      border: px-to-rem(1) solid rgba(2,137,109,0);
+    }
+  }
+}
+
+// 国土换肤
+[data-theme="theme-terracotta"] .weather-layer {
+  &-panel {
+    &-item {
+      background: linear-gradient(180deg, rgba(213, 193, 116, 0.4*0.8), rgba(202, 184, 113, 1*0.8));
+      .content {
+        background: linear-gradient( 180deg, #1E1A0C 0%, #76652D 55%, #ECCC64 100%), linear-gradient( 74deg, rgba(55,43,3,0.9) 0%, rgba(76,66,11,0) 100%), linear-gradient( 291deg, rgba(45,38,5,0.8) 0%, rgba(53,45,11,0.6) 33%, rgba(19,16,4,0.58) 100%), radial-gradient( 16% 65% at 96% 90%, rgba(172,145,27,0.62) 0%, rgba(84,72,36,0) 100%);
+        .label {
+          color: #E4E7C1;
+          text-shadow: 0 0 px-to-rem(12) #FFEEB1;
+        }
+
+        ::v-deep .el-switch.is-checked .el-switch__core {
+          border-color: #9F9853;
+          background-color: #9F9853;
+        }
+      }
+    }
+    .active {
+      background: linear-gradient(158deg, rgba(255, 255, 255, 0.72*0.8), rgba(255, 177, 109, 0.71*0.8));
+      .content {
+        background: linear-gradient( 180deg, rgba(255,127,60,0.68*0.8) 0%, rgba(193,89,43,0.1*0.8) 100%), radial-gradient( 109% 65% at 4% 7%, #B76338 0%, rgba(183,99,56,0) 100%), rgba(0,0,0,0.7*0.8);
+        .label {
+          color: #FFEADE;
+          text-shadow: 0px 0px 12px #FF7F3C;
+        }
+      }
+    }
+  }
+
+  &-progress {
+    background: linear-gradient( 180deg, #423B1D 0%, #28210E 11%, #000000 100%);
+    border: 1px solid #6E674E;
+
+    .content {
+      background: rgba(100,86,46,0.4);
+      border: px-to-rem(1) solid rgba(255,238,177,0);
+    }
+  }
+}

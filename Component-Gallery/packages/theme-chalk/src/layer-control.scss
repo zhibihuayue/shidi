@@ -1,0 +1,326 @@
+// 林业样式
+[data-theme="theme-aquamarine"] {
+  .layer-control-warpper {
+    position: absolute;
+    top: 190px;
+    right: 45px;
+    z-index: 1001;
+    overflow: auto;
+    width: 170px;
+    height: 320px;
+    background: linear-gradient(
+        180deg,
+        rgb(0 67 63 / 85%) 0%,
+        rgb(0 19 30 / 74%) 21%,
+        #00131e 100%
+    );
+    border: 1px solid #075b4a;
+    border-radius: 8px;
+
+    // 树相关的样式
+    .layer-tree {
+      background: rgb(23 37 55 / 10%);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .tree-node {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    :deep(.el-checkbox .el-checkbox__inner) {
+      background: rgb(2 137 109 / 30%);
+      border: none;
+      border-radius: 3px;
+      width: 16px;
+      height: 16px;
+      //text-align: center;
+    }
+
+    :deep(.el-checkbox .el-checkbox__inner::after) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2px 0 0 2px;
+    }
+
+    :deep(.el-tree-node__expand-icon.is-leaf) {
+      color: transparent;
+    }
+
+    :deep(.el-tree-node__content) {
+      height: 32px;
+    }
+
+    :deep(.el-tree-node__content:hover) {
+      background: rgb(2 137 109 / 40%)
+    }
+
+    :deep(.el-tree-node:focus .el-tree-node__content) {
+      background-color: transparent;
+    }
+
+    :deep(.el-tree-node.is-current  .el-tree-node__content) {
+      background: rgb(23 37 55 / 10%);
+    }
+
+    :deep(.el-tree-node__expand-icon) {
+      color: #ffffff;
+    }
+
+    :deep(.el-tree--highlight-current
+        .el-tree-node.is-current
+         .el-tree-node__content) {
+      background-color: transparent;
+    }
+  }
+}
+
+// 通用样式
+[data-theme="theme-wiseblue"] {
+  .layer-control-warpper {
+    position: absolute;
+    top: 190px;
+    right: 45px;
+    z-index: 1001;
+    overflow: auto;
+    width: 170px;
+    height: 320px;
+    background: rgba(23, 37, 55, .9);
+    border-radius: 8px;
+    padding: 6px 0;
+    max-height: 400px;
+
+    // 树相关的样式
+    .layer-tree {
+      background: rgba(23, 37, 55, 0.1);
+      color: #E8F2FE;
+      margin-left: -2px;
+    }
+
+    .tree-node {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    :deep(.el-checkbox .el-checkbox__inner) {
+      background: transparent;
+      border: 1px solid #1373e6;
+      border-radius: 3px;
+      width: 16px;
+      height: 16px;
+      //text-align: center;
+    }
+
+    :deep(.el-checkbox__input.is-checked .el-checkbox__inner) {
+      background-color: #1373e6 !important;
+    }
+
+    :deep(.el-checkbox .el-checkbox__inner::after) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      left: 5px;
+      margin-top: 1px;
+    }
+
+    :deep(.el-tree-node__expand-icon.is-leaf) {
+      color: transparent;
+    }
+
+    :deep(.el-tree-node__content) {
+      height: 32px;
+    }
+
+    :deep(.el-tree-node__content:hover) {
+      background: rgba(23, 37, 55, 0.1);
+    }
+
+    :deep(.el-tree-node:focus .el-tree-node__content) {
+      background-color: transparent;
+    }
+
+    :deep(.el-tree-node.is-current  .el-tree-node__content) {
+      background: rgba(23, 37, 55, 0.1);
+    }
+
+    :deep(.el-tree-node__expand-icon) {
+      color: #ffffff;
+    }
+
+    :deep(.el-tree--highlight-current
+        .el-tree-node.is-current
+         .el-tree-node__content) {
+      background-color: transparent;
+    }
+  }
+}
+
+// 国土样式
+[data-theme="theme-terracotta"] {
+  .layer-control-comp {
+    position: relative;
+    top: -160px;
+    right: 214px;
+
+    // 关闭按钮
+    .close-box {
+      position: absolute;
+      right: -178px;
+      top: -8px;
+      width: 18px;
+      height: 18px;
+      z-index: 1202;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url("~@component-gallery/assets/image/tool-box/close-btn.png");
+
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    b:nth-child(1) {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+
+      &::after {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border: 4px solid #c5b57d;
+        position: absolute;
+        left: -4px;
+        top: -4px;
+        border-bottom: 0;
+        border-right: 0;
+      }
+
+      &::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border: 4px solid #c5b57d;
+        position: absolute;
+        right: -174px;
+        bottom: -12px;
+        border-left: 0;
+        border-bottom: 0;
+      }
+    }
+
+    b:nth-child(2) {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 320px;
+      pointer-events: none;
+
+      &::after {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border: 4px solid #c5b57d;
+        position: absolute;
+        left: -4px;
+        bottom: -4px;
+        border-top: 0;
+        border-right: 0;
+      }
+
+      &::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border: 4px solid #c5b57d;
+        position: absolute;
+        right: -174px;
+        bottom: -4px;
+        border-left: 0;
+        border-top: 0;
+      }
+    }
+
+    .layer-control-warpper {
+      position: absolute;
+      z-index: 1001;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 170px;
+      height: 320px;
+      background: linear-gradient(180deg, rgba(#857B3F, 0.9) 0%, rgba(#3D3615, 0.9) 12%, rgba(#1A1507, 0.9) 21%, rgba(#140F05, 0.9) 27%, rgba(#000000, 0.9) 100%);
+
+
+      // 树相关的样式
+      .layer-tree {
+        background: rgb(23 37 55 / 10%);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .tree-node {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      :deep(.el-checkbox__input.is-checked .el-checkbox__inner) {
+        background-color: #9F9853 !important;
+      }
+
+      :deep(.el-checkbox .el-checkbox__inner) {
+        background: transparent;
+        border: 1px solid #9F9853;
+        border-radius: 3px;
+        width: 16px;
+        height: 16px;
+      }
+
+      :deep(.el-checkbox .el-checkbox__inner::after) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 2px 0 0;
+      }
+
+      :deep(.el-tree-node__expand-icon.is-leaf) {
+        color: transparent;
+      }
+
+      :deep(.el-tree-node__content) {
+        height: 32px;
+      }
+
+      :deep(.el-tree-node__content:hover) {
+        background: rgba(#64562E, .4);
+      }
+
+      :deep(.el-tree-node:focus .el-tree-node__content) {
+        background-color: transparent;
+      }
+
+      :deep(.el-tree-node.is-current  .el-tree-node__content) {
+        background: rgba(#64562E, .4);
+      }
+
+      :deep(.el-tree-node__expand-icon) {
+        color: #ffffff;
+      }
+
+      :deep(.el-tree--highlight-current
+        .el-tree-node.is-current
+         .el-tree-node__content) {
+        background-color: transparent;
+      }
+    }
+  }
+}

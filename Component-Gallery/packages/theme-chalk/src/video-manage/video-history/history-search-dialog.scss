@@ -1,0 +1,84 @@
+@import '../../mixins/mixins';
+@import "../../mixins/theme-mixins";
+@import '../../mixins/px-to-rem';
+
+.history-search-dialog {
+  @include themeify() {
+    .popup-body {
+      width: px-to-rem(800);
+      height: px-to-rem(404);
+    }
+
+    .content-view {
+      padding: 0 px-to-rem(12);
+      margin-top: px-to-rem(12);
+    }
+
+    ::v-deep .list {
+      height: px-to-rem(288) !important;
+    }
+
+    ::v-deep .list .cell {
+      padding: 0 px-to-rem(12);
+      height: px-to-rem(32);
+      color: #e8f2fe !important;
+      line-height: px-to-rem(32);
+    }
+
+    ::v-deep .list .el-table {
+      background: none;
+      color: #e8f2fe;
+    }
+
+    ::v-deep .list .el-table::before {
+      background: none;
+    }
+
+    ::v-deep .list .el-table__row {
+      background: none;
+    }
+
+    ::v-deep .list .el-table__header-wrapper tr {
+      height: px-to-rem(32) !important;
+    }
+
+    ::v-deep .list .el-table tr {
+      height: px-to-rem(32);
+      background: none !important;
+    }
+
+    ::v-deep .list .el-table__header .cell {
+      height: px-to-rem(32) !important;
+      background: rgb(79 159 255 / 20%) !important;
+      color: #e8f2fe;
+      font-size: px-to-rem(14);
+      font-weight: 400;
+      line-height: px-to-rem(32);
+    }
+
+    ::v-deep .list .el-table th.el-table__cell.is-leaf,
+    ::v-deep .list .el-table td.el-table__cell {
+      border-bottom: px-to-rem(1) solid rgb(232 243 254 / 20%) !important;
+    }
+
+    ::v-deep .list tbody tr:nth-child(2n) .cell {
+      background: transparent !important;
+    }
+
+    .btns {
+      display: flex;
+      justify-content: center;
+      margin-top: px-to-rem(0) !important;
+
+      .btn-item {
+        float: left;
+        width: px-to-rem(108);
+        height: px-to-rem(32);
+      }
+
+      .submit {
+        margin-right: px-to-rem(12);
+      }
+    }
+  }
+}

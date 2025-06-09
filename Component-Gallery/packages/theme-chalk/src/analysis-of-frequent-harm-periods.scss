@@ -1,0 +1,159 @@
+@import "mixins/px-to-rem";
+
+.analysis-of-frequent-harm-periods{
+  &-container {
+    width: px-to-rem(370);
+
+    &__searchBox {
+      display: grid;
+      margin: px-to-rem(12) 0;
+      width: 100%;
+      height: px-to-rem(32);
+      line-height: px-to-rem(32);
+      grid-template-columns: px-to-rem(92) px-to-rem(272);
+      gap: px-to-rem(6);
+
+      ::v-deep .el-input--suffix {
+        .el-input__inner {
+          height: px-to-rem(32);
+        }
+      }
+
+      ::v-deep .el-input__suffix {
+        i {
+          &.el-select__caret.el-input__icon.el-icon-arrow-up {
+            line-height: px-to-rem(32);
+          }
+        }
+      }
+
+      .timeTypeCollection {
+        display: flex;
+
+        ::v-deep .el-date-editor {
+          width: 100%;
+
+          .el-input {
+            &__inner {
+              padding-left: px-to-rem(47);
+              height: px-to-rem(32);
+              font-size: px-to-rem(14);
+            }
+
+            &__prefix {
+              color:#FFF;
+
+              i.iconfont_tools.icon-tongyong-shaixuanriqi {
+                line-height: px-to-rem(32);
+              }
+            }
+          }
+
+          &.el-range-editor {
+              i.iconfont_tools.icon-tongyong-shaixuanriqi{
+                line-height: px-to-rem(25);
+              }
+          }
+        }
+      }
+
+      ::v-deep .el-date-editor .el-range-separator {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__echartsBox {
+      position: relative;
+      width: 100%;
+      height: px-to-rem(158);
+
+      #echartsContainer_ana {
+        z-index: 1;
+        height: px-to-rem(158);
+      }
+
+      .bg_img {
+        pointer-events: none;
+        position: absolute;
+        bottom: 5%; // 跟grid有关
+        left: px-to-rem(20);
+        width: 91%;
+      }
+    }
+
+    &__carouselpage {
+        display: grid;
+        margin: px-to-rem(12) px-to-rem(12) 0;
+        // margin: px-to-rem(12) px-to-rem(30);
+        height: px-to-rem(34);
+        color: #C7FFFA;
+        font-size: px-to-rem(12);
+        font-family: PingFangSC, "PingFang SC" Microsoft YaHei;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: px-to-rem(14) px-to-rem(14);
+        gap: px-to-rem(8);
+        font-weight: 500;
+        line-height: px-to-rem(14);
+
+        .colorbox {
+          display: inline-block;
+          width: px-to-rem(10);
+          height: px-to-rem(10);
+          background: linear-gradient(180deg, rgb(0 145 255) 0%, rgb(0 144 255 / 34%) 100%);
+          flex-shrink: 0;
+        }
+
+        .unittitle {
+          position: relative;
+          display: grid;
+          max-width: calc(5em + px-to-rem(40));
+          font-size: px-to-rem(14);
+          cursor: pointer;
+          grid-auto-flow: column;
+          gap: px-to-rem(12);
+          grid-template-columns: px-to-rem(10) 1fr;
+
+          .name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: keep-all;
+            white-space: nowrap;
+          }
+
+          span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+    }
+  }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .analysis-of-frequent-harm-periods{
+
+}
+
+// 国土
+[data-theme="theme-terracotta"] .analysis-of-frequent-harm-periods{
+  &-container {
+    &__treeBox {
+      grid-template-columns: px-to-rem(28) px-to-rem(303);
+      span {
+        color: #E4E7C1;
+      }
+    }
+    &__searchBox {
+      grid-template-columns: px-to-rem(92) px-to-rem(268);
+    }
+    &__cardBox {
+      grid-template-columns: repeat(3, px-to-rem(106));
+
+    }
+    &__echartsBox {
+      width: calc(100% - px-to-rem(12));
+    }
+  }
+}

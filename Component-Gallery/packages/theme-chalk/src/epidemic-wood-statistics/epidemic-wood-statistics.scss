@@ -1,0 +1,1147 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.epidemic-wood-statistics-box {
+  ::v-deep.el-select__caret el-input__icon el-icon-arrow-up {
+    font-size: 5px;
+  }
+
+  @include themeify(false) {
+    border-radius: themed('border-radius-8');
+    position: relative;
+    z-index: 2;
+    display: flex;
+    background: themed('epidemic-wood-elimination-bg-module');
+    flex-direction: column;
+
+    &.open {
+      width: px-to-rem(370);
+      height: px-to-rem(468);
+      overflow: hidden;
+    }
+
+    &.close {
+      width: px-to-rem(370);
+      height: px-to-rem(132);
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      content: '';
+      pointer-events: none;
+
+      @if $theme-name =='theme-aquamarine' {
+        border: px-to-rem(1) solid;
+        border-image: linear-gradient(
+            360deg,
+            rgb(7 91 74 / 75%),
+            rgb(7 91 74 / 30%)
+          )
+          1
+          1;
+      }
+
+      @if $theme-name =='theme-terracotta' {
+        border: px-to-rem(1) solid #6E674E;
+        border-radius: themed('border-radius-8');
+      }
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 3;
+      width: 100%;
+      height: px-to-rem(25);
+      background: themed('alarm-list-bg-after-left'),
+        themed('alarm-list-bg-after-right');
+      content: '';
+      pointer-events: none;
+    }
+
+    .epidemic-wood-statistic-head {
+      position: relative;
+      z-index: 6;
+      width: 100%;
+      height: px-to-rem(48);
+      background: themed('alarm-list-bg-m-head');
+      line-height: px-to-rem(48);
+      @if $theme-name != 'theme-aquamarine' {
+        border-bottom: px-to-rem(1) solid;
+        border-image: linear-gradient(
+            90deg,
+            rgba(255, 222, 76, 0) px-to-rem(50),
+            themed('alarm-list-title-line') px-to-rem(50) px-to-rem(200),
+            rgba(255, 222, 76, 0)
+          )
+          1
+          1;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 0;
+        width: px-to-rem(8);
+        height: px-to-rem(1);
+        background: themed('alarm-list-bg-m-head-beforeAfter');
+        content: '';
+      }
+
+      &::before {
+        left: 0;
+      }
+
+      &::after {
+        right: 0;
+      }
+
+      >span {
+        display: flex;
+        align-items: center;
+        padding-left: px-to-rem(12);
+        width: auto;
+        height: 100%;
+        background: themed('alarm-list-popup-title-bg');
+        text-shadow: themed('alarm-list-popup-title-text-shadow');
+        color: #fff;
+        font-size: px-to-rem(16);
+        font-weight: 600;
+
+        &::before {
+          display: block;
+
+          @if $theme-name =='theme-aquamarine' {
+            width: px-to-rem(8);
+            height: px-to-rem(8);
+            margin-right: px-to-rem(6);
+          }
+
+          @else {
+            width: px-to-rem(18);
+            height: px-to-rem(18);
+            margin-right: px-to-rem(12);
+          }
+
+          background: themed('alarm-list-popup-title-bg-before');
+          content: '';
+        }
+
+        &::after {
+          position: absolute;
+          top: px-to-rem(0);
+          left: px-to-rem(40);
+          width: px-to-rem(38);
+          height: px-to-rem(8);
+          background: themed('alarm-list-popup-title-bg-after-new');
+          content: '';
+        }
+      }
+
+      >i {
+        position: absolute;
+        top: 50%;
+        right: px-to-rem(12);
+        z-index: 8;
+        display: block;
+        width: px-to-rem(20);
+        height: px-to-rem(20);
+        font-size: px-to-rem(20);
+        color: themed('alarm-list-input-search-icon');
+        text-align: center;
+        line-height: px-to-rem(20);
+        transform: translateY(-50%) rotate(180deg);
+        cursor: pointer;
+      }
+
+      >b {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        @if $theme-name =='theme-aquamarine' {
+          width: px-to-rem(168);
+        }
+
+        @else {
+          width: px-to-rem(140);
+        }
+
+        height: px-to-rem(10);
+        background: themed('alarm-list-popup-title-guang');
+      }
+    }
+
+    .epidemic-wood-statistic-con {
+      width: 100%;
+      position: relative;
+      z-index: 7;
+      flex:1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid transparent;
+      border-top: 0;
+      border-bottom: 0;
+    }
+
+    &.up {
+      height: auto !important;
+      flex: none !important;
+
+      .epidemic-wood-statistic-head {
+        >i {
+          transform: translateY(-50%) rotate(0);
+        }
+      }
+
+      .epidemic-wood-statistic-con {
+        display: none !important;
+      }
+    }
+
+    .epidemic-wood-statistics-tag {
+      width:  px-to-rem(346);
+      height: px-to-rem(60);
+      margin: px-to-rem(12) auto px-to-rem(12);
+      padding: 0 ;
+      display: flex;
+      justify-content: space-between;
+
+      .epidemic-wood-statistics-tag__item {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        z-index: 2;
+        text-align: center;
+        background: url('~@component-gallery/assets/image/epidemic-wood-statistics/assets/wood-head-bg.png') no-repeat center / 100% 100%;
+
+        @if $theme-name =='theme-terracotta' {
+          background: url('~@component-gallery/assets/image/epidemic-wood-statistics/assets/wood-head-bg-gt.png') no-repeat center / 100% 100%;
+        }
+
+        @if $theme-name =='theme-wiseblue' {
+          background: url('~@component-gallery/assets/image/epidemic-wood-statistics/assets/wood-head-bg-ty.png') no-repeat center / 100% 100%;
+        }
+
+        .epidemic-wood-statistics-tag__text {
+          display: block;
+          width: px-to-rem(80);
+          height: 100%;
+          line-height: px-to-rem(65);
+          font-weight: 500;
+          font-size: px-to-rem(16);
+          color: #ffffff;
+          text-shadow: 0px 0px px-to-rem(7) #24ab83;
+
+          @if $theme-name =='theme-terracotta' {
+            text-shadow: 0px 0px px-to-rem(7) #7E5F00;
+          }
+
+          @if $theme-name =='theme-wiseblue' {
+            text-shadow: 0px 0px px-to-rem(7) #1373e6;
+          }
+
+          text-align: center;
+          font-style: normal;
+          margin-left: px-to-rem(132);
+          margin-right: px-to-rem(56);
+        }
+
+        .epidemic-wood-statistics-tag__num {
+          display: block;
+          height: 100%;
+          line-height: px-to-rem(65);
+          font-weight: 500;
+          font-size: px-to-rem(16);
+          color: #ffffff;
+          text-shadow: 0px 0px px-to-rem(7) #24ab83;
+
+          @if $theme-name =='theme-terracotta' {
+            text-shadow: 0px 0px px-to-rem(7) #7E5F00;
+          }
+
+          @if $theme-name =='theme-wiseblue' {
+            text-shadow: 0px 0px px-to-rem(7) #1373e6;
+          }
+
+          text-align: center;
+          font-style: normal;
+        }
+
+        &.on {
+          background: url('~@component-gallery/assets/image/epidemic-wood-statistics/assets/wood-head-bg-choose.png') no-repeat center / 100% 100%;
+
+          @if $theme-name =='theme-terracotta' {
+            background: url('~@component-gallery/assets/image/epidemic-wood-statistics/assets/wood-head-bg-choose-gt.png') no-repeat center / 100% 100%;
+          }
+
+          @if $theme-name =='theme-wiseblue' {
+            background: url('~@component-gallery/assets/image/epidemic-wood-statistics/assets/wood-head-bg-choose-ty.png') no-repeat center / 100% 100%;
+          }
+
+          .epidemic-wood-statistics-tag__text {
+            text-shadow: 0px 0px px-to-rem(7) #7e5f00;
+          }
+
+          .epidemic-wood-statistics-tag__num {
+            text-shadow: 0px 0px px-to-rem(7) #7e5f00;
+          }
+        }
+
+        &.pointer {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .epidemic-wood-statistic-wrapper {
+      width: 100%;
+      padding: px-to-rem(12) 0 px-to-rem(12);
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      &:before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg,
+            rgba(0, 176, 140, 0),
+            rgba(0, 176, 140, 1),
+            rgba(0, 176, 140, 0));
+        opacity: 0.7;
+
+        @if $theme-name =='theme-terracotta' {
+          background: linear-gradient(270deg,
+              rgba(255, 222, 76, 0) 0%,
+              #ffffff 69%,
+              rgba(255, 222, 76, 0.24) 86%,
+              rgba(255, 222, 76, 0) 100%);
+        }
+
+        @if $theme-name =='theme-wiseblue' {
+          background: linear-gradient(270deg,
+              rgba(176, 212, 255, 0) 0%,
+              #b0d4ff 52%,
+              rgba(176, 212, 255, 0) 100%);
+        }
+
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .search {
+        padding: 0 px-to-rem(88) 0 px-to-rem(12);
+        position: relative;
+        z-index: 3;
+      }
+
+      .wood-list {
+        width: 100%;
+        flex:1;
+        margin-top: px-to-rem(12);
+        overflow: hidden;
+
+        .wood-list-tree {
+          background: none;
+          color: #fff;
+          height: 100%;
+          overflow: hidden;
+          font-size: px-to-rem(14);
+        }
+
+        .wood-list-view {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          overflow: hidden;
+
+          .c-scroll {
+            flex: 1;
+            min-height: 0;
+            margin-top: px-to-rem(12);
+          }
+
+          .listContainer {
+            overflow: auto;
+            flex:1;
+
+            .long-list {
+              padding: 0 px-to-rem(6) 0 px-to-rem(12) !important;
+            }
+
+            .c-no-datas-wood {
+              height: px-to-rem(180);
+              color: #fff;
+              font-size: px-to-rem(14);
+              display: flex;
+              flex-direction: column;
+              align-content: center;
+              align-items: center;
+              justify-content: center;
+
+              &:before {
+                margin: 0;
+                width: px-to-rem(68);
+                margin: 0 auto px-to-rem(10);
+                height: px-to-rem(68);
+                background: themed('no-data-img') no-repeat;
+                background-size: 100% 100%;
+                display: block;
+                content: '';
+              }
+            }
+          }
+
+        }
+
+        //tree 列表收藏无数据样式
+        ::v-deep .el-tree {
+          .el-tree__empty-block {
+            .el-tree__empty-text {
+              text-align: center;
+              color: #fff;
+              font-size: px-to-rem(14);
+
+              &:before {
+                margin: 0;
+                width: px-to-rem(68);
+                height: px-to-rem(68);
+                display: block;
+                margin: 0 auto px-to-rem(10);
+                background: themed('no-data-img') no-repeat;
+                background-size: 100% 100%;
+                content: '';
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.more:not(.up) {
+      .epidemic-wood-statistic-con {
+        .epidemic-wood-statistic-wrapper {
+          .wood-list {
+            height: px-to-rem(649);
+          }
+        }
+      }
+    }
+
+    //修复因popup.css 导致input select 清楚icon显示错误的问题
+    .y-select-wood-statistics {
+      ::v-deep .el-input {
+        .el-input__suffix {
+          .el-input__suffix-inner {
+            .el-icon-arrow-up {
+              &:before {
+                font-size: .2rem;
+                font-family: 'iconfont_tools';
+                content: "\ec0c"; //需要替换正确的icon编码
+              }
+            }
+
+            i:nth-last-child(2) {
+              display: none !important;
+            }
+
+            .el-icon-circle-close {
+              &:before {
+                font-family: 'iconfont_tools';
+              }
+            }
+          }
+        }
+      }
+      ::v-deep  .el-scrollbar__bar  .el-scrollbar__thumb {
+        pointer-events: auto;
+        background: themed('alarm-list-item-bg-hover');
+        // background: rgb(2 137 109 / 40%);
+
+        &:hover {
+          background: themed('alarm-list-input-border');
+        }
+      }
+
+    }
+
+
+    ::-webkit-scrollbar {
+      width: px-to-rem(6);
+      height: px-to-rem(6);
+      border-radius: px-to-rem(3);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: themed('alarm-list-item-bg-hover');
+      border: 0;
+      border-radius: px-to-rem(3);
+
+      &:hover {
+        background-color: themed('alarm-list-input-border');
+      }
+    }
+
+    ::-webkit-scrollbar-track {
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
+
+.epidemic-wood-statistics-filter {
+  @include themeify(false) {
+    height: px-to-rem(32);
+    display: flex;
+    align-items: center;
+    padding: 0 px-to-rem(12);
+    margin-bottom: px-to-rem(12);
+
+    .time-view {
+      height: px-to-rem(32);
+      margin-top: px-to-rem(10);
+    }
+
+    .special-icon-transform {
+      display: block;
+      width: px-to-rem(20);
+      height: px-to-rem(20);
+      text-align: center;
+      line-height: px-to-rem(20);
+      right: px-to-rem(12);
+      transform: translateY(0) rotate(180deg);
+      z-index: 8;
+      cursor: pointer;
+      font-size: px-to-rem(20);
+      margin-left: px-to-rem(4);
+    }
+
+    .special-icon {
+      display: block;
+      width: px-to-rem(20);
+      height: px-to-rem(20);
+      text-align: center;
+      line-height: px-to-rem(20);
+      right: px-to-rem(12);
+      z-index: 8;
+      cursor: pointer;
+      font-size: px-to-rem(20);
+      margin-left: px-to-rem(4);
+    }
+
+    .sort {
+      width: px-to-rem(20);
+      height: px-to-rem(20);
+      margin-left: px-to-rem(2);
+      overflow: hidden;
+
+      i {
+        display: block;
+        height: px-to-rem(10);
+        line-height: px-to-rem(10);
+        text-align: center;
+        cursor: pointer;
+        font-size: px-to-rem(18);
+
+        &.on {
+          color: #f9ff6c;
+        }
+      }
+    }
+
+    .c-select {
+      flex: 1;
+      margin-left: px-to-rem(6);
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      ::v-deep .el-select-dropdown__list {
+        max-height: px-to-rem(196);
+      }
+    }
+
+    .sort {
+      width: px-to-rem(20);
+      height: px-to-rem(20);
+      margin-left: px-to-rem(4);
+      margin-right: px-to-rem(4);
+      overflow: hidden;
+
+      i {
+        display: block;
+        height: px-to-rem(10);
+        line-height: px-to-rem(10);
+        text-align: center;
+        cursor: pointer;
+        font-size: px-to-rem(18);
+        color: #fff;
+
+        &.on {
+          color: #f9ff6c;
+        }
+
+        @if $theme-name =='theme-terracotta' {
+          color: #ffeeb1;
+
+          &.on {
+            color: #e4e7c1;
+          }
+        }
+
+        @if $theme-name =='theme-wiseblue' {
+          color: #fff;
+
+          &.on {
+            color: #4f9fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.epidemic-wood-statistics-search {
+
+  @include themeify(false) {
+    .epidemic-wood-statistics-search__input {
+      width: calc(100% - px-to-rem(0));
+      .el-input{
+        &:after {
+          display: none;
+        }
+      }
+      ::v-deep .el-input__suffix {
+        right: 0;
+      }
+    }
+
+    .epidemic-wood-statistics-search__view {
+      position: absolute;
+      top: 0;
+      right: px-to-rem(12);
+      display: flex;
+      .icon-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: px-to-rem(32);
+        height: px-to-rem(32);
+
+        &.active-ct-icon {
+          @if $theme-name == 'theme-aquamarine' {
+            background: url('~@component-gallery/assets/image/menu-bg.png')
+              no-repeat;
+            background-size: 100% 100%;
+          }
+
+          @if $theme-name == 'theme-wiseblue' {
+            background: #4f9fff;
+            border-radius: px-to-rem(6);
+          }
+
+          @if $theme-name == 'theme-terracotta' {
+            background: url('~@component-gallery/assets/image/funcicon-bg-gt.png')
+              no-repeat;
+            background-size: 100% 100%;
+          }
+
+          ::v-deep .ct-icon-style i {
+            @if $theme-name == 'theme-wiseblue' {
+              color: themed('global-text-color') !important;
+            } @else {
+              color: themed('global-icon-active-color') !important;
+            }
+          }
+        }
+
+        ::v-deep .ct-icon-style {
+          width: fit-content !important;
+          height: 100% !important;
+
+          .ct-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: fit-content !important;
+            height: 100% !important;
+          }
+
+          i {
+            color: themed('global-text-color') !important;
+            font-size: px-to-rem(20) !important;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .clear-icon {
+      cursor: pointer;
+      color: themed('alarm-list-input-search-icon');
+      font-size: px-to-rem(14);
+      position: relative;
+      padding: 0 0 0 px-to-rem(6.1)!important;
+      cursor: pointer;
+      line-height: px-to-rem(32) !important;
+      &:before {
+        content: "\e6db";
+      }
+    }
+
+    .searchTypeIcon {
+      position: relative;
+      padding: 0;
+      cursor: pointer;
+      color: themed('alarm-list-input-search-icon');
+      font-size: px-to-rem(20);
+      margin: 0 px-to-rem(6.1);
+      &:after {
+        display: none;
+      }
+    }
+    .split-line {
+        width: 1px;
+        height: px-to-rem(10);
+        background: rgba(232, 243, 254, 0.20);
+
+        @if $theme-name =='theme-aquamarine' {
+          background: rgba(255, 255, 255, 0.2);
+        }
+
+        @if $theme-name =='theme-terracotta' {
+          background: rgba(228, 231, 193, 0.2);
+        }
+    }
+    .collect-icon {
+      font-size: px-to-rem(20);
+      margin: 0 px-to-rem(6.1) 0 px-to-rem(6.1);
+      &.is-collect{
+        color: themed('tree-primary-font_active_color')
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .y-input-wood-statistics {
+    ::v-deep .el-input__suffix {
+      .el-input__suffix-inner {
+        .el-icon-circle-close {
+          &:before {
+            font-family: 'iconfont_tools';
+          }
+        }
+
+        .el-select__caret {
+          font-size: 5px;
+        }
+
+        .el-input__icon .el-icon-arrow-up {}
+      }
+    }
+  }
+}
+
+
+.epidemic-wood-statistics-tree {
+  @include themeify(false) {
+    ::v-deep>.el-tree-node {
+      display: flex;
+      flex-direction: column;
+      max-height: 100%;
+
+      >.el-tree-node__children {
+        flex: 1 !important;
+        overflow: auto !important;
+      }
+    }
+
+    ::v-deep .el-tree-node {
+      &.is-current {
+        .el-tree-node__content {
+          background: rgba(2, 137, 109, 0.4) !important;
+          @if $theme-name =='theme-terracotta' {
+            background: rgba(100, 86, 46, 0.4) !important;
+          }
+
+          @if $theme-name =='theme-wiseblue' {
+            background: rgba(79, 159, 255, 0.4) !important;
+          }
+
+          .icons {
+            display: block !important;
+          }
+        }
+      }
+
+      .el-tree-node__content {
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+        background: none !important;
+
+        &:hover {
+          background: rgba(2, 137, 109, 0.4) !important;
+          @if $theme-name =='theme-terracotta' {
+            background: rgba(100, 86, 46, 0.4) !important;
+          }
+
+          @if $theme-name =='theme-wiseblue' {
+            background: rgba(79, 159, 255, 0.4) !important;
+          }
+
+          .icons {
+            display: block !important;
+          }
+        }
+
+        .el-tree-node__expand-icon {
+          margin-left: px-to-rem(3);
+        }
+
+        .custom-tree-node {
+          height: inherit;
+          flex: 1;
+          display: flex;
+          align-items: center;
+          line-height: 1;
+          overflow: hidden;
+          padding-right: px-to-rem(90);
+          position: relative;
+          color: themed('epidemic-wood-statistics-tree-color') !important;
+
+          .ct-icon {
+            width: px-to-rem(16) !important;
+            margin-right: px-to-rem(6);
+            margin-left: px-to-rem(6);
+            position: relative;
+
+            .icon-ctw {
+              color: themed('epidemic-wood-statistics-tree-color') !important;
+              font-size: px-to-rem(18) !important;
+            }
+          }
+
+          .label {
+            overflow: hidden;
+            word-break: keep-all;
+            white-space: nowrap;
+            color: themed('epidemic-wood-statistics-tree-color') !important;
+            text-overflow: ellipsis;
+            font {
+              color: themed('epidemic-wood-statistics-tree-active-color') !important;
+            }
+
+            &.data-label {
+              flex: 1;
+              height: px-to-rem(32);
+              line-height: px-to-rem(32);
+              margin-right: px-to-rem(6);
+            }
+          }
+
+          .count {
+            // margin-left: px-to-rem(10);
+          }
+
+          .status {
+            font-size: px-to-rem(12);
+            font-weight: 400;
+            position: absolute;
+            right: px-to-rem(26);
+            color: #FB913C;
+            width: px-to-rem(60);
+            height: px-to-rem(24);
+            background: rgba(251, 145, 60, 0.2);
+            border-radius: px-to-rem(12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            &.one {
+              background: rgba(249, 255, 108, 0.20);
+              color: #F9FF6C
+            }
+
+            &.two {
+              background: rgba(13, 201, 133, 0.20);
+              color: #0DC985;
+            }
+
+            &.thr {
+              background: rgba(19, 115, 230, 0.20);
+              color: #4F9FFF;
+            }
+          }
+          .icons {
+            display: none;
+            position: absolute;
+            right: px-to-rem(8);
+
+            i {
+              display: inline-block;
+              width: px-to-rem(20);
+              height: px-to-rem(20);
+              line-height: px-to-rem(20);
+              text-align: center;
+              margin-left: 4px;
+              font-size: px-to-rem(20);
+              color: themed('epidemic-wood-statistics-tree-color') !important;
+            }
+
+            &.fixed {
+              display: block !important;
+
+              i {
+                line-height: px-to-rem(20);
+              }
+            }
+          }
+
+          &.checked {
+
+            .label {
+              color: themed('epidemic-wood-statistics-tree-active-color') !important;
+            }
+          }
+        }
+
+        .el-tree-node__expand-icon {
+          margin-left: px-to-rem(6);
+          color: themed('global-text-color');
+        }
+
+        .el-tree-node__expand-icon.is-leaf {
+          margin-left: px-to-rem(0);
+          color: transparent;
+        }
+      }
+    }
+
+    .is-collect {
+      margin: 0;
+
+      &:before {
+        margin: 0 px-to-rem(9);
+        color: #f9ff6c;
+
+        @if $theme-name =='theme-terracotta' {
+          color: #fffa28;
+        }
+
+        @if $theme-name =='theme-wiseblue' {
+          color: #4f9fff;
+        }
+      }
+    }
+
+    .no-collect {
+      margin: 0;
+
+      &:before {
+        margin: 0 px-to-rem(9);
+        color: #ffffff;
+
+        @if $theme-name =='theme-terracotta' {
+          color: #ffeeb1;
+        }
+      }
+    }
+    ::-webkit-scrollbar {
+      width: px-to-rem(6) !important;
+      height: px-to-rem(6) !important;
+      border-radius: px-to-rem(3)  !important;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: themed('alarm-list-item-bg-hover');
+      border: 0;
+      border-radius: px-to-rem(3) !important;
+
+      &:hover {
+        background-color: themed('alarm-list-input-border');
+      }
+    }
+
+    ::-webkit-scrollbar-track {
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
+}
+
+.epidemic-wood-statistics-list {
+  overflow: auto;
+  padding: 0 px-to-rem(12);
+  position: relative;
+  height: 100%;
+
+  @include themeify(false) {
+    .epidemic-wood-statistics-list__item {
+      width: 100%;
+      height: px-to-rem(32);
+      // line-height: px-to-rem(32);
+      border-radius: px-to-rem(4);
+      margin-top: px-to-rem(6);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      font-size: px-to-rem(14);
+      position: relative;
+      z-index: 3;
+      ::v-deep .epidemic-wood-statistics-match-text {
+        color: themed('epidemic-wood-statistics-tree-active-color') !important;
+      }
+      @if $theme-name =='theme-terracotta' {
+        color: #e4e7c1;
+      }
+
+      @if $theme-name =='theme-wiseblue' {
+        color: #e8f3fe;
+      }
+
+      &:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -2;
+        pointer-events: none;
+        border-radius: inherit;
+        background: linear-gradient(90deg, rgba(2, 137, 109, 0.26) 0%, rgba(0, 0, 0, 0) 100%), rgba(6, 21, 20, 0.2);
+        box-shadow: inset 0px 0px px-to-rem(6) 0px rgba(2, 137, 109, 0.4);
+        border-radius: px-to-rem(4);
+        border: 1px solid rgba(2, 137, 109, 0.39);
+        @if $theme-name =='theme-terracotta' {
+          background: linear-gradient(90deg, rgba(255, 238, 177, 0.2) 0%, rgba(0, 0, 0, 0) 100%), rgba(6, 21, 20, 0.2);
+          box-shadow: inset 0px 0px px-to-rem(6) 0px rgba(255, 238, 177, 0.4);
+          border-radius: px-to-rem(6);
+          border: 1px solid rgba(255, 238, 177, 0.39);
+        }
+
+        @if $theme-name =='theme-wiseblue' {
+          background: linear-gradient(90deg, rgba(19, 115, 230, 0.4) 0%, rgba(0, 0, 0, 0) 100%), rgba(4, 18, 35, 0.2);
+          box-shadow: inset 0px 0px px-to-rem(6) 0px rgba(134, 189, 255, 0.4);
+          border-radius: px-to-rem(4);
+          border: px-to-rem(1) solid rgba(19, 115, 230, 0.39);
+        }
+      }
+
+      .epidemic-wood-statistics-list__item-label {
+        flex: 1;
+        margin: 0 px-to-rem(12);
+        overflow: hidden;
+        word-break: keep-all;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+      }
+
+      .epidemic-wood-statistics-list__item-status {
+        font-size: px-to-rem(12);
+        font-weight: 400;
+        position: relative;
+        margin-right: px-to-rem(12);
+        color: #FB913C;
+        width: px-to-rem(60);
+        height: px-to-rem(24);
+        background: rgba(251, 145, 60, 0.2);
+        border-radius: px-to-rem(12);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.one {
+          background: rgba(249, 255, 108, 0.20);
+          color: #F9FF6C
+        }
+
+        &.two {
+          background: rgba(13, 201, 133, 0.20);
+          color: #0DC985;
+        }
+
+        &.thr {
+          background: rgba(19, 115, 230, 0.20);
+          color: #4F9FFF;
+        }
+      }
+
+      &:nth-child(1) {
+        margin-top: 0;
+      }
+
+      &:hover {
+        &:before {
+          background: rgba(2, 137, 109, 0.4) !important;
+          @if $theme-name =='theme-terracotta' {
+            background: rgba(100, 86, 46, 0.4) !important;
+          }
+
+          @if $theme-name =='theme-wiseblue' {
+            background: rgba(79, 159, 255, 0.4) !important;
+          }
+        }
+      }
+
+      &.checked {
+        background: rgba(2,137,109,0.4);
+
+        @if $theme-name =='theme-terracotta' {
+          background:rgba(100, 86, 46, 0.4)
+        }
+
+        @if $theme-name =='theme-wiseblue' {
+          background: rgba(79,159,255,0.4);
+        }
+        .epidemic-wood-statistics-list__item-label {
+          color: themed('epidemic-wood-statistics-tree-active-color') !important;
+        }
+
+      }
+    }
+    ::v-deep .ct-icon {
+      width: px-to-rem(16) !important;
+      margin-left: px-to-rem(12);
+      // display: none;
+      margin-right: px-to-rem(-4);
+      position: relative;
+
+      .icon-ctw {
+        color: themed('epidemic-wood-statistics-tree-color') !important;
+        font-size: px-to-rem(18) !important;
+      }
+    }
+
+    .checked {
+      ::v-deep .ct-icon {
+        .icon-ctw {
+          // color: themed('epidemic-wood-statistics-tree-active-color') !important;
+        }
+      }
+    }
+  }
+}
+
+}
+

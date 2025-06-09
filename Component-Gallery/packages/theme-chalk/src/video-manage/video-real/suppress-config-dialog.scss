@@ -1,0 +1,131 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.suppress-dialog {
+  @include themeify() {
+    z-index: 2001 !important;
+
+    .popup-body {
+      width: px-to-rem(360);
+
+      .popup-content {
+        padding: px-to-rem(12);
+
+        .suppress-row {
+          font-size: px-to-rem(14);
+          line-height: px-to-rem(32);
+          display: flex;
+          justify-content: center;
+
+          .c-input-number {
+            width: px-to-rem(80);
+            height: px-to-rem(32);
+            line-height: px-to-rem(32);
+            margin-right: px-to-rem(12);
+            border-radius: px-to-rem(4);
+
+            &:hover:before {
+              content: '';
+              width: 100%;
+              height: 100%;
+              border: px-to-rem(1) solid rgba(79, 159, 255, 0.6);
+              border-radius: inherit;
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 2;
+              pointer-events: none;
+            }
+
+            &:focus-within:before {
+              content: '';
+              width: 100%;
+              height: 100%;
+              border: px-to-rem(1) solid rgba(79, 159, 255, 1) !important;
+              border-radius: inherit;
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 2;
+              pointer-events: none;
+            }
+
+            ::v-deep .el-input__inner {
+              height: px-to-rem(32);
+              line-height: px-to-rem(32);
+              padding: 0 px-to-rem(36) 0 px-to-rem(12) !important;
+              background: rgba(79, 159, 255, 0.2);
+              border-radius: px-to-rem(4);
+              border: 0;
+              color: #e8f3fe;
+              text-align: left;
+            }
+
+            ::v-deep .el-input-number__decrease,
+            ::v-deep .el-input-number__increase {
+              overflow: hidden;
+
+              i {
+                color: #e8f3fe !important;
+                font-size: px-to-rem(14);
+
+                &.el-icon-arrow-up {
+                  transform: translateY(px-to-rem(4));
+                }
+
+                &.el-icon-arrow-down {
+                  transform: translateY(px-to-rem(-2));
+                }
+              }
+
+              &:hover {
+                opacity: 0.6;
+              }
+
+              &:active {
+                opacity: 0.8;
+              }
+
+              &.is-disabled {
+                opacity: 0.4;
+              }
+            }
+          }
+
+          .c-select {
+            width: px-to-rem(80);
+          }
+
+          .c-button {
+            width: px-to-rem(108);
+          }
+        }
+
+        .suppress-count {
+          height: px-to-rem(32);
+          line-height: px-to-rem(32);
+          background: rgba(79, 159, 255, 0.2);
+          border-radius: px-to-rem(4);
+          color: #e8f3fe;
+
+          .ll {
+            margin: 0 px-to-rem(60) 0 px-to-rem(12);
+          }
+
+          .tt {
+            flex: 1;
+          }
+        }
+
+        .suppress-ts {
+          font-size: px-to-rem(14);
+          color: #e8f3fe;
+          text-align: center;
+          margin: px-to-rem(12) 0;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}

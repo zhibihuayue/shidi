@@ -1,0 +1,450 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/theme-button-mixins';
+@import 'mixins/px-to-rem';
+
+.multiple-device-search {
+  &-container {
+    position: absolute;
+    top: px-to-rem(40);
+    left: px-to-rem(400);
+
+    ::v-deep .el-loading-spinner {
+      top: px-to-rem(30);
+    }
+
+    .dialog-content {
+      overflow: hidden;
+      border-radius: px-to-rem(8);
+    }
+
+    ::v-deep .el-input {
+      width: px-to-rem(252);
+      height: px-to-rem(36);
+      background: url('~@component-gallery/assets/image/multiple-device-search/input_bg.png') no-repeat center/100% 100%;
+    }
+
+    ::v-deep .el-scrollbar {
+      height: 100%;
+    }
+
+    ::v-deep input::placeholder{
+      text-shadow: 0 0 px-to-rem(24) rgb(0 92 245 / 35%);
+      color: rgb(232 243 254 / 70%);
+      font-size: px-to-rem(14);
+      font-family: PingFangSC, "PingFang SC";
+      text-align: left;
+      font-weight: 400;
+      line-height: px-to-rem(14);
+      font-style: normal;
+    }
+
+    ::v-deep .el-input__inner  {
+      overflow: hidden;
+      width: 80%;
+      height: px-to-rem(36);
+      background: transparent;
+      border: none;
+      color: #E8F3FE;
+      font-size: px-to-rem(14);
+      font-family: PingFangSC-Regular, 'PingFang SC';
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: px-to-rem(36);
+
+    }
+
+    ::v-deep .el-tabs__header {
+      margin-bottom: 0;
+    }
+
+    .inner-search-input {
+      display: flex;
+      align-items: center;
+
+      .searchIcon {
+        position: absolute;
+        right: px-to-rem(15);
+        color: #fff;
+        font-size: px-to-rem(20);
+      }
+
+      .clearIcon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: px-to-rem(31);
+      }
+    }
+
+    .dialog-content {
+      width: px-to-rem(252);
+      height: px-to-rem(208);
+
+      .topBox {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: px-to-rem(48);
+        border-bottom: px-to-rem(1) solid;
+        border-image: linear-gradient(90deg, rgb(176 212 255 / 0%), rgb(176 212 255 / 35%), rgb(176 212 255 / 0%)) 1 1;
+
+        ::v-deep .el-button.el-button--default {
+          background: transparent;
+        }
+
+        .pl_5 {
+          padding-left: px-to-rem(5);
+        }
+      }
+
+      .tabs {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:  0 px-to-rem(12);
+        width: 80%;
+        height: px-to-rem(48);
+
+      .tabs_item {
+          padding: 0 px-to-rem(12);
+          height: px-to-rem(14);
+          color: rgb(232 243 254 / 70%);
+          font-size: px-to-rem(14);
+          font-family: PingFangSC, "PingFang SC";
+          text-align: right;
+          cursor: pointer;
+          text-wrap: nowrap;
+          font-weight: 400;
+          line-height: px-to-rem(14);
+          font-style: normal;
+
+          &.active {
+            position: relative;
+            text-shadow: 0 0 10px rgb(74 141 254 / 70%);
+            color: #E8F3FE;
+            font-weight: 500;
+
+            &::before {
+              position: absolute;
+              bottom: px-to-rem(-17);
+              left: 50%;
+              transform: translateX(-50%);
+              width: px-to-rem(66);
+              height: px-to-rem(10);
+              background: url("~@component-gallery/assets/image/common/wiseblue/wiseblue-popup-guang.png") no-repeat center / 100% 100%;
+              content:''
+            }
+          }
+      }
+
+      .tabs_item:nth-child(1),:nth-child(4){
+        margin-left: px-to-rem(-12)
+      }
+
+        .tabs_item:nth-child(6){
+          margin-right: px-to-rem(45);
+      }
+      }
+
+      .history-result {
+        overflow: scroll;
+        // padding-top: px-to-rem(6);
+        margin: auto;
+        width: calc(100% + px-to-rem(6));
+        height: calc(100% - px-to-rem(40));
+
+        .clear-button {
+          position: absolute;
+          bottom: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: px-to-rem(6) 0;
+          margin: 0 px-to-rem(12);
+          width: calc(100% - px-to-rem(24));
+          height: px-to-rem(36);
+          color: #E8F3FE;
+          font-size: px-to-rem(14);
+          font-family: PingFangSC, "PingFang SC";
+          text-align: center;
+          cursor: pointer;
+          border-top: px-to-rem(1) solid rgb(232 243 254 / 20%);
+          font-weight: 400;
+          font-style: normal;
+        }
+      }
+
+      .area,.result-row {
+        overflow: hidden;
+        padding: 0 px-to-rem(24) 0 px-to-rem(12);
+        width: 100%;
+        height: px-to-rem(32);
+        color: #E8F3FE;
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, "PingFang SC";
+        text-align: left;
+        font-weight: 400;
+        line-height: px-to-rem(32);
+        font-style: normal;
+        cursor: pointer;
+      }
+
+      .result-row:hover {
+        background: rgb(79 159 255 / 40%);
+      }
+
+      .area.history {
+        overflow: hidden;
+        padding: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .result-row.history {
+        padding: 0 px-to-rem(12);
+        width: 100%;
+      }
+
+      .result {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .no-data {
+        display: flex;
+        justify-content: center;
+        margin: px-to-rem(37) auto;
+        width: px-to-rem(68);
+        height: px-to-rem(94);
+        flex-wrap: wrap;
+
+        &-img{
+          margin: px-to-rem(-4) 0;
+          width: px-to-rem(68);
+          height: px-to-rem(68);
+          background: url('~@component-gallery/assets/image/common/wiseblue/noData.png') no-repeat center/100% 100%;
+        }
+
+        .text {
+          margin-top: px-to-rem(12);
+          color: #E8F3FE;
+          font-size: px-to-rem(14);
+          font-family: PingFangSC, "PingFang SC";
+          text-align: right;
+          font-weight: 400;
+          line-height: px-to-rem(14);
+          font-style: normal;
+        }
+      }
+
+      .search-result {
+        height: calc(100% - px-to-rem(48))
+
+      }
+
+      ::v-deep .el-tabs__header {
+        margin-bottom: 0;
+      }
+
+      .inner-search-input {
+        display: flex;
+        align-items: center;
+
+        .searchIcon {
+          position: absolute;
+          right: px-to-rem(15);
+          color: #fff;
+          font-size: px-to-rem(20);
+        }
+
+        .clearIcon {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: px-to-rem(31);
+          font-size: px-to-rem(20);
+        }
+      }
+
+      .dialog-content {
+        width: px-to-rem(252);
+        height: px-to-rem(192);
+
+        .topBox {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: px-to-rem(48);
+          border-bottom: px-to-rem(1) solid;
+          border-image: linear-gradient(90deg, rgb(176 212 255 / 0%), rgb(176 212 255 / 35%), rgb(176 212 255 / 0%)) 1 1;
+
+          ::v-deep .el-button.el-button--default {
+            background: transparent;
+          }
+        }
+
+        .tabs {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 px-to-rem(12);
+          width: 80%;
+          height: px-to-rem(48);
+
+          .tabs_item {
+            padding: 0 px-to-rem(14);
+            height: px-to-rem(14);
+            color: rgb(232 243 254 / 70%);
+            font-size: px-to-rem(14);
+            font-family: PingFangSC, "PingFang SC";
+            text-align: right;
+            cursor: pointer;
+            text-wrap: nowrap;
+            font-weight: 400;
+            line-height: px-to-rem(14);
+            font-style: normal;
+
+            &.active {
+              position: relative;
+              text-shadow: 0 0 10px rgb(74 141 254 / 70%);
+              color: #E8F3FE;
+              font-weight: 500;
+
+              &::before {
+                position: absolute;
+                bottom: px-to-rem(-10);
+                background: url('~@component-gallery/assets/image/multiple-device-search/input_bg.png') no-repeat center/100% 100%;
+                content: ''
+              }
+            }
+          }
+
+          .tabs_item:nth-child(1), :nth-child(4) {
+            padding-left: 0;
+          }
+
+          .tabs_item:nth-child(6) {
+            margin-right: px-to-rem(45);
+          }
+        }
+
+        .area, .result-row {
+          overflow: hidden;
+          padding-left: px-to-rem(12);
+          width: calc(100% - px-to-rem(24));
+          height: px-to-rem(32);
+          color: #E8F3FE;
+          font-size: px-to-rem(14);
+          font-family: PingFangSC, "PingFang SC";
+          text-align: left;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-weight: 400;
+          line-height: px-to-rem(32);
+          font-style: normal;
+          cursor: pointer;
+        }
+
+        .search-result {
+          height: 100%;
+        }
+
+
+
+      }
+
+      .tabs-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .tabs-scroll {
+        overflow-x: auto;
+        width: calc(100% - 50px); /* 减去箭头按钮的宽度 */
+        white-space: nowrap; /* 防止标签换行 */
+        scroll-snap-type: x mandatory; /* 启用滚动捕捉 */
+        scroll-padding: 50px; /* 留出空间给箭头按钮 */
+        scroll-behavior: smooth; /* 平滑滚动 */
+      }
+    }
+
+    .highlight {
+      color: #4F9FFF;
+    }
+  }
+}
+
+// 通用蓝
+[data-theme="theme-wiseblue"] .multiple-device-search-container {
+      .highlight {
+        color: #4F9FFF;
+      }
+}
+
+// 林业绿
+[data-theme="theme-aquamarine"] .multiple-device-search-container {
+    .highlight {
+      color: rgb(249 255 108 / 100%);
+    }
+
+    .no-data {
+      &-img{
+        background: url('~@component-gallery/assets/image/common/aquamarine/noData.png') no-repeat center/100% 100%;
+      }
+
+      .text {
+        color: #E8F3FE;
+      }
+    }
+
+    .tabs {
+      .tabs_item {
+        color: rgb(232 243 254 / 70%);
+
+        &.active {
+          text-shadow: 0 0 10px rgb(74 141 254 / 70%);
+          color: #E8F3FE;
+
+          &::before {
+            background: url("~@component-gallery/assets/image/common/aquamarine/popup-title-guang.png") no-repeat center / 100% 100%;
+          }
+        }
+      }
+    }
+}
+
+// 国土黄
+[data-theme="theme-terracotta"] .multiple-device-search-container {
+    .highlight {
+      color: #FFFA28;
+    }
+
+    .no-data {
+      &-img{
+        background: url('~@component-gallery/assets/image/common/terracotta/noData.png') no-repeat center/100% 100%;
+      }
+
+      .text {
+        color: #E8F3FE;
+      }
+    }
+
+    .tabs {
+      .tabs_item {
+        color: rgb(232 243 254 / 70%);
+
+        &.active {
+          text-shadow: 0 0 10px rgb(74 141 254 / 70%);
+          color: #E8F3FE;
+
+          &::before {
+            height: px-to-rem(20);
+            background: url("~@component-gallery/assets/image/common/terracotta/popup-title-guang.png") no-repeat center / 100% 100%;
+          }
+        }
+      }
+    }
+}

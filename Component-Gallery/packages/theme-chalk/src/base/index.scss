@@ -1,0 +1,7 @@
+@import 'popup';
+
+.el-tooltip__popper[x-placement^=bottom] .popper__arrow {
+  // top: 100rem;
+  top: -0.04rem;
+
+}

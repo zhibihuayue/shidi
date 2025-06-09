@@ -1,0 +1,863 @@
+@import "mixins/px-to-rem";
+
+.tool-camera-filte {
+  &-container {
+    --tab-color: #E8F2FE;
+    --tab-active-color: #4f9fff;
+    --tab-border-color: rgba(232,243,254,0.2);
+
+    display: flex;
+    padding: px-to-rem(6) 0;
+    height: px-to-rem(502);
+
+    .check-type-pointer {
+      pointer-events: none;
+    }
+
+    .check-type-cursor {
+      cursor: not-allowed !important;
+    }
+    .el-scrollbar{
+      position: relative;
+      flex-grow: 1;
+      ::v-deep{
+        .el-scrollbar__wrap{
+          margin: 0 !important;
+          overflow: hidden scroll;
+        }
+      }
+    }
+
+    ::v-deep {
+      .el-checkbox .el-checkbox__input.is-checked .el-checkbox__inner{
+        width: px-to-rem(16);
+        height: px-to-rem(16);
+      }
+    }
+
+    .tabBox {
+      padding: px-to-rem(6) 0;
+      display: flex;
+      width: px-to-rem(75);
+      background: linear-gradient(180deg, rgb(176 212 255 / 0%), rgb(176 212 255 / 35%), rgb(176 212 255 / 0%)) no-repeat 100% 0/1px 100%;
+      flex-shrink: 0;
+      flex-direction: column;
+
+      .common-icon, ::v-deep .icon-ctw {
+        font-size: px-to-rem(26) !important;
+        line-height: px-to-rem(26);
+      }
+      ::v-deep .ct-icon{
+        display: inline;
+      }
+
+      >div {
+        position: relative;
+        color: var(--tab-color);
+        font-size: px-to-rem(14);
+        flex: 1 0;
+
+        &.select {
+          background: linear-gradient(90deg, rgba($color: #B0D4FF, $alpha: 24%) 0%, rgb(19 115 230 / 18%) 51%, rgb(19 115 230 / 0%) 100%);
+          color: var(--tab-active-color);
+
+          &::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: px-to-rem(2);
+            background-color: var(--tab-color);
+            content: '';
+          }
+        }
+        .TabBgBox{
+          padding: px-to-rem(6) 0;
+        }
+
+        .tabBoxBtn{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          cursor: pointer;
+        }
+
+        span {
+          margin-top: px-to-rem(6);
+          line-height: 1;
+        }
+
+        .num {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 0 px-to-rem(4);
+          line-height: px-to-rem(16);
+          background: rgb(79 159 255 / 35%);
+          border-radius: 3px;
+          color: #fff;
+          font-weight: 500;
+          font-size: px-to-rem(12);
+        }
+
+        +div {
+          margin-top: px-to-rem(11);
+        }
+      }
+
+      .tabCheck {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: .16rem;
+        line-height: .16rem;
+        font-size: 0;
+      }
+    }
+
+    .rightBox {
+      padding: px-to-rem(6) 0;
+      height: 100%;
+      color: var(--tab-color);
+      font-size: px-to-rem(14);
+      flex-grow: 1;
+
+      .rightBoxContainer{
+        overflow: auto;
+        height: 100%;
+
+        &.style2 {
+          padding: 0 0 0 px-to-rem(12);
+        }
+
+        >div {
+          display: flex;
+          width: px-to-rem(271);
+          height: 100%;
+          flex-direction: column;
+        }
+
+        .treeBox {
+          width: 100%;
+        }
+      }
+
+      .inputBox {
+        display: flex;
+        align-items: center;
+        margin: 0 px-to-rem(12) px-to-rem(12);
+        background-color: rgb(79 159 255 / 20%);
+        border-radius: px-to-rem(4);
+
+        // margin-bottom: 16px;
+        // margin-right: 15px;
+        flex-shrink: 0;
+
+        i {
+          position: relative;
+          cursor: pointer;
+          font-size: px-to-rem(20);
+
+          &.clickCol {
+            color: var(--tab-active-color);
+          }
+        }
+
+        i + i{
+          margin-left: px-to-rem(6);
+        }
+
+        ::v-deep .el-input__suffix {
+          right: px-to-rem(6);
+          display: flex;
+          align-items: center;
+
+          .el-input__suffix-inner {
+            .iconfont {
+              color: var(--tab-color);
+            }
+          }
+        }
+      }
+
+      .tree-fixed-first-level {
+        overflow: auto !important;
+        background-color: transparent;
+        color: var(--tab-color);
+        font-size: px-to-rem(14);
+        flex: 1 0;
+      }
+
+      .typeBtn {
+        overflow: hidden;
+        padding: 0 px-to-rem(5);
+        margin-bottom: px-to-rem(6);
+        width: 100%;
+        height: px-to-rem(32);
+        border: solid 1px var(--tab-border-color);
+        border-radius: 4px;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex-shrink: 0;
+        line-height: px-to-rem(30);
+        vertical-align: middle;
+        cursor: pointer;
+
+        &.choosed {
+          border: 1px solid currentcolor;
+          color: var(--tab-active-color);
+        }
+      }
+
+      .algorithmBox {
+        // padding-left: 4px;
+
+        .scrollBox {
+          display: flex;
+          flex-flow: row wrap;
+          align-content: baseline;
+
+          // width: 265px;
+        }
+
+        .typeBtn {
+          // width: 128px;
+          width: calc((100% - px-to-rem(6)) / 2);
+
+          &:nth-child(2n) {
+            margin-left: px-to-rem(6);
+          }
+        }
+      }
+
+      ::v-deep .el-input__inner {
+        padding-right: px-to-rem(56);
+        height: px-to-rem(32);
+        line-height: px-to-rem(30);
+        border-width: px-to-rem(1);
+        background: none;
+        color: var(--tab-color);
+        font-size: px-to-rem(14);
+      }
+
+      ::v-deep .el-tree-node__content {
+        padding-right: px-to-rem(6);
+        height: px-to-rem(32);
+        flex-shrink: 0;
+      }
+
+      ::v-deep .el-tree__empty-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: var(--tab-color);
+        font-size: px-to-rem(14);
+        transform: translate(-50%, -50%);
+
+        &::before {
+          display: block;
+          margin-bottom: px-to-rem(10);
+          width: px-to-rem(68);
+          height: px-to-rem(68);
+          background: url('~@component-gallery/assets/image/noData.png') no-repeat center/100% 100%;
+          content: "";
+        }
+      }
+
+      // ::v-deep .el-tree-node__content {
+      //   padding: 2px 0;
+      //   align-items: flex-start;
+      //   min-height: 26px;
+      //   height: auto;
+      // }
+
+      ::v-deep .el-tree-node__label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: break-spaces;
+        white-space: nowrap;
+      }
+
+      ::v-deep .el-tree-node__expand-icon {
+        margin-left: px-to-rem(6);
+      }
+
+      ::v-deep .el-checkbox__inner::after {
+        border-color: #fff;
+      }
+
+      ::v-deep{
+        // .el-tree-node{
+        //   display: flex;
+        //   flex-direction: column;
+        //   max-height: 100%;
+        // }
+
+        // .el-tree-node>.el-tree-node__children{
+        //   flex: 1 !important;
+        //   overflow: hidden auto !important;
+        // }
+        .el-tree-node.is-current > .el-tree-node__content{
+          background-color: transparent;
+        }
+        .el-tree-node.is-current > .el-tree-node__content:hover{
+          background-color: var(--iw-theme-color-40);
+        }
+
+        .el-tree-node__content>label.el-checkbox{
+          margin-right: px-to-rem(6);
+          font-size: 0;
+        }
+      }
+    }
+
+    .custom-tree-node {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 0;
+      flex-grow: 1;
+
+      .tree-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        ::v-deep .key-word{
+          color: var(--tab-active-color);
+        }
+      }
+    }
+    .loading-datas,::v-deep .el-tree__empty-block{
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .loading-datas {
+      color: var(--tab-active-color);
+      font-size: px-to-rem(14);
+      text-align: center;
+      flex-direction: column;
+      line-height: px-to-rem(30);
+      transform: none;
+
+      i {
+        font-size: px-to-rem(30);
+      }
+
+      span {
+        display: block;
+      }
+    }
+
+    .fast-btn1 {
+      display: flex;
+      align-items: center;
+      i{
+        font-size: px-to-rem(20);
+        &.menu-wh{
+          font-size: px-to-rem(16);
+        }
+        &.disable{
+          opacity: .4;
+          cursor: no-drop;
+        }
+      }
+
+      i + i {
+        margin-left: px-to-rem(6);
+      }
+    }
+
+    // 伪造的“全部组织”节点
+    .top-organ.el-tree-node__content {
+      display: flex;
+      align-items: center;
+
+      .el-checkbox {
+        margin-right: px-to-rem(6);
+        font-size: 0;
+      }
+
+      .el-tree-node__expand-icon {
+        padding: 0;
+        margin-right: px-to-rem(6);
+        color: var(--iw-text-color);
+        transform: rotate(-90deg);
+
+        &.is-leaf {
+          color: transparent;
+        }
+
+        &.expanded {
+          transform: rotate(0deg);
+        }
+
+        &.hidden {
+          transform: rotate(-90deg);
+        }
+
+        &.el-icon-caret-right {
+          // 强制覆盖箭头尺寸
+          &::before {
+            font-size: px-to-rem(20);
+            font-family: "iconfont_tools";
+            content: "\eb8d";
+          }
+        }
+      }
+
+      &:hover {
+        background-color: var(--iw-theme-color-40);
+      }
+    }
+  }
+
+
+  // 大字版样式
+  &-abcontainer {
+    &.isLargeWord.innercomp-abcontainer {
+      background: none;
+      border: none;
+
+      ::v-deep .innercomp-abcontainer-body{
+        height: 100%;
+      }
+
+      &.close{
+        .tool-camera-filte-containerLargeWord{
+          transform: translateX(px-to-rem(-190));
+          background: url('~@component-gallery/assets/image/camera-filte/bg_close.png') no-repeat 100% 0/auto 100%;
+
+          .tabBox{
+            pointer-events: none;
+
+            .open{
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .ctree {
+      position: static;
+      flex: 1;
+      overflow: visible;
+      max-height: 100%;
+      transition: max-height .5s;
+
+      ::v-deep .el-tree-node__content {
+        .el-tree-node__expand-icon {
+          margin-left: px-to-rem(12);
+        }
+      }
+
+      ::v-deep .el-checkbox {
+        margin-right: px-to-rem(6);
+
+        .el-checkbox__input {
+          font-size: 0;
+        }
+      }
+
+      &.hidden {
+        max-height: 0;
+      }
+      &.noScroll{
+        overflow: hidden;
+      }
+    }
+  }
+
+  &-containerLargeWord{
+    height: 100%;
+    background: url('~@component-gallery/assets/image/camera-filte/bg_open.png') no-repeat px-to-rem(-10) 0 / 100% 100%;
+    transition: none !important;
+
+    .tabBox{
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background: none;
+
+      > div {
+        width: px-to-rem(244);
+        height: px-to-rem(60);
+        color: #E8F3FE;
+        flex: none;
+
+        + div{
+          margin: 0;
+        }
+        .TabBgBox{
+          position: relative;
+          padding: 0 px-to-rem(40) 0 0;
+          height: 100%;
+          background: url('~@component-gallery/assets/image/camera-filte/tab_btn_bg.png') no-repeat center/cover;
+          // 防止背景超出容器
+          background-clip: content-box;
+          z-index: 1;
+        }
+
+        .tabBoxBtn{
+          padding-left: px-to-rem(40);
+          flex-direction: row;
+          align-items: center;
+        }
+
+        // 数字角标
+        .num{
+          top: px-to-rem(12);
+          left: px-to-rem(40);
+          bottom: px-to-rem(12);
+          padding: 0 px-to-rem(16) 0  px-to-rem(144);
+          width: min-content;
+          white-space: nowrap;
+          pointer-events: none;
+          background: url('~@component-gallery/assets/image/camera-filte/tab_num_bg.png') no-repeat 100% 50%/auto 100%;
+        }
+
+        &:nth-of-type(1),&:nth-of-type(7){
+          transform: translateX(px-to-rem(-36));
+        }
+        &:nth-of-type(2),&:nth-of-type(6){
+          transform: translateX(px-to-rem(-24));
+        }
+        &:nth-of-type(3),&:nth-of-type(5){
+          transform: translateX(px-to-rem(-12));
+        }
+
+        .tabCheck{
+          position: static;
+          margin: 0 px-to-rem(5);
+
+          ::v-deep{
+            .el-checkbox__input {
+              &:not(.is-checked) {
+                .el-checkbox__inner{
+                  &::before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: inline-block;
+                    width: px-to-rem(16);
+                    height: px-to-rem(16);
+                    border: px-to-rem(1) solid #1373E6;
+                    border-radius: px-to-rem(3);
+                    content: "";
+                  }
+                }
+              }
+
+              &.is-checked {
+                .el-checkbox__inner {
+                  background: rgb(255 255 255 / 20%);
+                }
+              }
+
+              .el-checkbox__inner{
+                background: none;
+                border-color: transparent;
+                box-shadow: none;
+                transition: background-color .25s cubic-bezier(.71,-.46,.29,1.46);
+              }
+            }
+          }
+        }
+
+        span{
+          font-weight: 600;
+          margin: 0;
+        }
+
+        .common-icon, ::v-deep .icon-ctw{
+          width: px-to-rem(52);
+          height: px-to-rem(30);
+          background: url('~@component-gallery/assets/image/camera-filte/tab_icon_bg.png') no-repeat center/100% 100%;
+          font-size: px-to-rem(20) !important;
+          text-align: center;
+          line-height: 1;
+
+          &::before{
+            background: linear-gradient( 180deg, #FFF 0%, #B0D4FF 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+        ::v-deep {
+          .ct-icon{
+            width: px-to-rem(52);
+            height: px-to-rem(30);
+          }
+        }
+
+        &.select {
+          color: #fff;
+          .TabBgBox{
+            background-image: url('~@component-gallery/assets/image/camera-filte/tab_btn_bg_s.png');
+          }
+          &::before {
+            display: none;
+          }
+
+          // 数字角标
+          .num{
+            background-image: url('~@component-gallery/assets/image/camera-filte/tab_num_bg_s.png');
+            background-color: transparent;
+          }
+
+          .tabCheck{
+            ::v-deep{
+              .el-checkbox__input .el-checkbox__inner{
+                background-color: rgb(255 255 255 / 20%);
+                border-color: transparent;
+
+                &::before {
+                content: "";
+                border-color: transparent;
+                }
+
+              }
+            }
+          }
+
+          .common-icon, ::v-deep .icon-ctw{
+            background-image: url('~@component-gallery/assets/image/camera-filte/tab_icon_bg_s.png');
+
+            &::before{
+              background: linear-gradient( 180deg, #FFF 0%, #FFB081 100%);
+              background-clip: text;
+            }
+          }
+        }
+
+        &.numStyle {          
+          // 数字角标
+          .num{
+            background-image: url('~@component-gallery/assets/image/camera-filte/tab_num_bg_s.png');
+          }
+        }
+      }
+
+      .open{
+        position: absolute;
+        top: 50%;
+        right: px-to-rem(15);
+        width: px-to-rem(30);
+        height: px-to-rem(100);
+        transform: translateY(-50%);
+        pointer-events: auto;
+        z-index: 10;
+      }
+    }
+
+    .rightBox{
+      position: absolute;
+      top: 50%;
+      left: px-to-rem(230);
+      padding-top: px-to-rem(12);
+      width: px-to-rem(294);
+      height: px-to-rem(432);
+      background: rgb(23 37 55 / 90%);
+      border-radius: px-to-rem(8);
+      transform: translateY(-50%);
+
+      &.style2{
+        padding-top: px-to-rem(12);
+      }
+
+      .close{
+        position: absolute;
+        top: px-to-rem(-18);
+        right: px-to-rem(-18);
+        z-index: 1;
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        background: url("~@component-gallery/assets/image/common/wiseblue/icon_close@2x.png");
+        background-size: 100% 100%;
+        cursor: pointer;
+      }
+
+      .rightBoxContainer {
+        &.style2 > div{
+         display: flex;
+         flex-flow: row wrap;
+         align-content: baseline;
+        }
+
+        .typeBtn {
+          margin-bottom: px-to-rem(6);
+
+          // width: 128px;
+          width: calc((100% - px-to-rem(6)) / 2);
+
+          &:nth-child(2n) {
+            margin-left: px-to-rem(6);
+          }
+        }
+      }
+    }
+  }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .tool-camera-filte {
+  &-container {
+    --tab-color: #fff;
+    --tab-active-color: #f9ff6c;
+    --tab-border-color: rgba(2, 137, 109, 0.5);
+
+    .tabBox{
+      background-image: linear-gradient( 180deg, rgba(7,91,74,0) 0%, #075B4A 51%, rgba(7,91,74,0) 100%);
+      >div.select{
+        background: linear-gradient(90deg,rgb(249 255 108 / 25%),rgb(249 255 108 / 0%));
+
+        &::before {
+          background-color: #F9FF6C;
+        }
+      }
+      .num{
+        background-color: rgba(2,137,109,0.4);
+      }
+    }
+
+    .rightBox{
+      .inputBox{
+        background-color: rgba(2,137,109,0.2);
+      }
+      .typeBtn{
+        background: rgba(2,137,109,0.1);
+      }
+      ::v-deep .el-tree__empty-text::before{
+        background: url('~@component-gallery/assets/image/noData-ly.png') no-repeat center/100% 100%;
+      }
+      ::v-deep{
+        .el-tree-node > .el-tree-node__content:hover{
+          background-color: rgba(2,137,109,.4);
+        }
+      }
+    }
+  }
+
+  // 大字版样式
+  &-abcontainerLargeWord{
+    background: none;
+  }
+
+  &-containerLargeWord{
+    height: 100%;
+    background: url('~@component-gallery/assets/image/camera-filte/bg_open.png') no-repeat px-to-rem(-10) 0/100% 100%;
+
+    .tabBox{
+      background: none;
+      >div{
+        &.select {
+          color: var(--tab-active-color);
+
+          .TabBgBox{
+            background-image: url('~@component-gallery/assets/image/camera-filte/tab_btn_bg_s.png');
+          }
+          &::before {
+            display: none;
+          }
+          .num{
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme="theme-terracotta"] .tool-camera-filte {
+  &-abcontainer{
+    background: linear-gradient( 180deg, rgba(66, 59, 29, 0.9) 0%, rgba(40, 33, 14, 0.9) 11%, rgb(0, 0, 0, 0.9) 100%);
+    border-radius: px-to-rem(8);
+    border: px-to-rem(1) solid #6E674E;
+    ::v-deep{
+      .previous-vacancies{
+        display: none;
+      }
+    }
+    &::after{
+      display: none;
+    }
+  }
+  &-container {
+    --tab-color: #E4E7C1;
+    --tab-active-color: #FFFA28;
+    --tab-border-color: #9F9853;
+
+    .tabBox{
+      background-image: linear-gradient(206deg, rgba(255, 222, 76, 0), rgba(255, 222, 76, 0.35), rgba(0, 0, 0, 0.35));
+      >div.select{
+        background: none;
+        &::before {
+          // 需要与边框重合
+          inset: 0 0 0 px-to-rem(-1);
+          width: auto;
+          background: url('~@component-gallery/assets/image/camera-filte/select_bg_gt.png') no-repeat 0 50%/100% 100%;
+          pointer-events: none;
+        }
+      }
+      .num{
+        color: #E4E7C1;
+        background-color: rgba(159,152,83,0.4);
+      }
+    }
+
+    .rightBox{
+      .inputBox{
+        background-color: rgba(100,86,46,.4);
+      }
+      .typeBtn{
+        &.choosed{
+          background: linear-gradient( 180deg, rgba(255,241,126,0.1) 0%, rgba(255,224,72,0.34) 100%);
+        }
+      }
+      ::v-deep .el-tree__empty-text::before{
+        background: url('~@component-gallery/assets/image/noDate-terracotta.png') no-repeat center/100% 100%;
+      }
+    }
+  }
+
+
+  // 大字版样式
+  &-abcontainerLargeWord.innercomp-abcontainer{
+    background: none;
+  }
+
+  &-containerLargeWord{
+    height: 100%;
+    background: url('~@component-gallery/assets/image/camera-filte/bg_open.png') no-repeat px-to-rem(-10) 0 / 100% 100%;
+
+    .tabBox{
+      background: none;
+      >div{
+        &.select {
+          color: var(--tab-active-color);
+          .TabBgBox{
+            background-image: url('~@component-gallery/assets/image/camera-filte/tab_btn_bg_s.png');
+          }
+          &::before {
+            display: none;
+          }
+          .num{
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+

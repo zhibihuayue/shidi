@@ -1,0 +1,59 @@
+@import "mixins/px-to-rem";
+
+.viewshed-analysis{
+    &-container{
+        padding: px-to-rem(40) 0;
+        font-size: 0;
+        text-align: center;
+        button {
+          width: px-to-rem(108);
+        }
+    }
+}
+// 林业
+[data-theme=theme-aquamarine] .viewshed-analysis{
+    &-form{
+        &__num{
+            background-color: rgba(2, 137, 109, .2);
+            color: #fff;
+        }
+    }
+}
+// 国土
+[data-theme=theme-terracotta] .viewshed-analysis{
+    &-form{
+        &__num{
+            background-color: rgba(122, 113, 61, .36);
+            color: #e4e7c1;
+        }
+    }
+}
+
+.viewshed-analysis-infoWindows{
+    &-container{
+        padding: px-to-rem(12);
+        font-size: 0;
+    }
+    &__form{
+        display: flex;
+        align-items: center;
+        line-height: px-to-rem(32);
+        font-size: px-to-rem(16);
+        > div{
+            display: flex;
+            align-items: center;
+            & + &{
+                margin-left: 12px;
+            }
+        }
+        label{
+            width: px-to-rem(84);
+            text-align: right;
+            flex-shrink: 0;
+            color: rgba(255,255,255,.7);
+        }
+        span{
+            color: #fff;
+        }
+    }
+}

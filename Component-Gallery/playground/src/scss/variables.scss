@@ -1,0 +1,5 @@
+$primary: orange;
+
+@function pm-auto-size($size) {
+  @return $size * 1rem / 100;
+}

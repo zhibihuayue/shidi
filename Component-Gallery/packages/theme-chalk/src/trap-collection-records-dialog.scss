@@ -1,0 +1,523 @@
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.trap-collection-records-dialog {
+  
+  &-body {
+    width: px-to-rem(368);
+
+    .h193 {
+      height: px-to-rem(193);
+    }
+
+    .h245 {
+      height: px-to-rem(245);
+    }
+
+    .tong-count{
+      overflow: hidden;
+      padding: 0 0 0 px-to-rem(12);
+      margin: px-to-rem(9) 0;
+      width: 100%;
+    }
+
+    .count-wrap{
+      overflow-y: auto;
+      width: 100%;
+      min-height: px-to-rem(52);
+      max-height: px-to-rem(104);
+    }
+  }
+
+  &-info {
+    margin: 0 px-to-rem(12);
+    box-sizing: border-box;
+
+    & + & {
+      border-top: px-to-rem(1) solid rgb(255 255 255 / 20%);
+    }
+  }
+
+  &-top {
+    padding: px-to-rem(12) 0 px-to-rem(12) 0;
+    margin: 0 px-to-rem(12);
+    box-sizing: border-box;
+    border-bottom: px-to-rem(1) solid rgb(232 243 254 / 20%);
+  }
+
+  &-channelInfo &-item__label {
+    &::before {
+      position: relative;
+      top: px-to-rem(-2);
+      display: inline-block;
+      margin-right: px-to-rem(8);
+      width: px-to-rem(6);
+      height: px-to-rem(6);
+      border-radius: 50%;
+      content: '';
+    }
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    height: px-to-rem(26);
+    font-size: px-to-rem(14);
+    font-weight: 400;
+    line-height: px-to-rem(26);
+
+    &__label {
+      min-width: px-to-rem(70);
+      max-width: px-to-rem(120);
+      color: rgb(232 243 254 / 70%);
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .channel-online-box {
+      &::before {
+        background: #19e0af;
+      }
+    }
+
+    .channel-offline-box {
+      &::before {
+        background: #ed5158;
+      }
+    }
+
+    &__keeperLabel {
+      width: px-to-rem(42);
+      color: rgb(232 243 254 / 70%);
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    &__value {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+
+      > span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .iconfont_tools {
+        margin-left: px-to-rem(6);
+        font-size: px-to-rem(20);
+      }
+
+      .desc {
+        display: inline-block;
+        overflow: hidden auto;
+        max-height: px-to-rem(60);
+      }
+    }
+  }
+
+  &-ul-list {
+    overflow: auto;
+    width: px-to-rem(230);
+    max-height: px-to-rem(172);
+    border-radius: 8px;
+
+    .outline {
+      color: rgb(232 243 254 / 50%);
+
+      span {
+        color: rgb(232 243 254 / 50%);
+      }
+    }
+
+    > li {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: px-to-rem(6) px-to-rem(10);
+      height: px-to-rem(32);
+      color: #e8f3fe;
+      font-size: px-to-rem(14);
+      cursor: pointer;
+
+      p {
+        overflow: hidden;
+        margin: 0 px-to-rem(13) 0 px-to-rem(4);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+      }
+
+      span {
+        color: #ffeeb1;
+      }
+
+      &:hover {
+        background-color: rgb(134 176 227 / 10%);
+      }
+    }
+  }
+
+  &-footer {
+    display: flex;
+    padding: px-to-rem(12) 0;
+    margin: 0 px-to-rem(12);
+    color: #fff;
+    gap: px-to-rem(6);
+    border-top: px-to-rem(1) solid rgb(232 243 254 / 20%);
+
+    .active {
+      color: var(--iw-theme-color);
+    }
+
+    .iconfont_tools {
+      font-size: px-to-rem(30);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-tab{
+    position: relative;
+    height: px-to-rem(48);
+
+    &__wrap{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__tabItem{
+      height: 100%;
+      color: rgb(232 243 254 / 70%);
+      font-size: px-to-rem(16);
+      text-align: center;
+      flex: 1;
+      cursor: pointer;
+      line-height: px-to-rem(48);
+    }
+
+    &__tabLine{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: px-to-rem(1);
+      background: linear-gradient(
+        270deg,
+        rgb(176 212 255 / 0%) 0%,
+        #b0d4ff 52%,
+        rgb(176 212 255 / 0%) 100%
+      );
+      opacity: 0.35;
+    }
+
+    .tab_active {
+      position: relative;
+      text-shadow: 0 0 px-to-rem(10) rgb(74 141 254 / 70%);
+      color: #e8f3fe;
+      font-weight: 600;
+
+      &::after {
+        position: absolute;
+        bottom: px-to-rem(-4);
+        left: px-to-rem(34);
+        display: inline-block;
+        width: px-to-rem(116);
+        height: px-to-rem(11);
+        background: url('~@component-gallery/assets/image/common/wiseblue/popup-title-guang.png')
+          no-repeat;
+        background-size: contain;
+        content: '';
+      }
+    }
+  }
+
+  &-imgData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 px-to-rem(12);
+
+    &.cont_tab_right_short {
+      height: px-to-rem(193);
+    }
+
+    &.cont_tab_right_height {
+      height: px-to-rem(245);
+    }
+
+    @include themeify(false) {
+      .no-data {
+        color: #fff;
+        font-size: px-to-rem(14);
+        text-align: center;
+
+        &::before {
+          display: block;
+          margin: 0;
+          content: themed('no-data-img');
+        }
+      }
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      ::v-deep .el-carousel {
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+
+        .el-carousel__container {
+          height: 100%;
+
+          i {
+            line-height: px-to-rem(30);
+            font-size: px-to-rem(14);
+            font-weight: bold;
+            text-align: center;
+          }
+        }
+
+        .el-carousel--horizontal {
+          height: 100%;
+        }
+      }
+    }
+
+    .fullscreen {
+      position: absolute;
+      right: px-to-rem(6);
+      bottom: px-to-rem(6);
+      z-index: 2;
+      width: px-to-rem(30);
+      height: px-to-rem(30);
+      background: rgb(23 37 55 / 90%);
+      border-radius: px-to-rem(4);
+      color: #e8f3fe;
+      font-size: px-to-rem(16);
+      text-align: center;
+      line-height: px-to-rem(30);
+
+      .iconfont {
+        font-size: px-to-rem(16);
+      }
+    }
+
+    .el-carousel__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+
+    .fit-height {
+      width: 100%;
+      height: 100%;
+    }
+
+    ::v-deep .el-carousel__arrow {
+      width: px-to-rem(30);
+      height: px-to-rem(30);
+      background: rgb(23 37 55 / 80%);
+      border-radius: 50%;
+      color: #e8f3fe;
+      font-size: px-to-rem(16);
+    }
+
+    ::v-deep .el-carousel__indicators {
+      display: none;
+    }
+
+    video::-webkit-media-controls-fullscreen-button {
+      display: none;
+    }
+
+    video::-webkit-media-controls-mute-button {
+      display: none;
+    }
+
+    video::-webkit-media-controls-toggle-closed-captions-button {
+      display: none;
+    }
+
+    video::-webkit-media-controls-volume-slider {
+      display: none;
+    }
+
+    video::-webkit-media-controls
+      input[pseudo='-internal-media-controls-overflow-button' i] {
+      display: none;
+    }
+
+    video::-internal-media-controls-overflow-button {
+      display: none !important;
+    }
+
+    video::-webkit-media-controls-volume-control-container {
+      display: none;
+    }
+
+    video::-webkit-media-controls-volume-control-container.closed {
+      display: none;
+    }
+  }
+}
+
+[data-theme="theme-wiseblue"] .trap-collection-records-dialog {
+  &-title {
+    h4 {
+      color: #e8f3fe;
+    }
+  }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .trap-collection-records-dialog {
+  &-body {
+    &__label {
+      color: rgb(255 255 255 / 70%);
+    }
+
+    &_bottom {
+      border-top: px-to-rem(1) solid rgb(255 255 255 / 20%);
+    }
+  }
+
+  &-title {
+    .leftIcon {
+      display: none;
+    }
+
+    h4 {
+      margin-left: px-to-rem(14);
+    }
+  }
+
+  &-ul-list {
+    > li {
+      color: #fff;
+
+      i,
+      span {
+        color: #fff;
+      }
+    }
+
+    .outline {
+      color: rgb(255 255 255 / 40%);
+
+      i,
+      span {
+        color: rgb(255 255 255 / 40%);
+      }
+    }
+  }
+
+  &-tab{
+    .tab_active {
+      position: relative;
+      text-shadow: 0 0 18px rgb(0 245 193 / 70%);
+      color: #FFF;
+      font-weight: 600;
+
+      &::after{
+          bottom: 0;
+          left: 0;
+          width: px-to-rem(180);
+          background-position: left top;
+          background-repeat: no-repeat;
+          background-size: px-to-rem(180) px-to-rem(10);
+          background-image: url('~@component-gallery/assets/image/common/aquamarine/popup-title-guang-center2x.png');
+      }
+    }
+
+    &__tabItem{
+      height: 100%;
+      text-shadow: 0 0 24px rgb(0 92 245 / 35%);
+      color: #0DC985;
+      font-size: px-to-rem(16);
+      text-align: center;
+      flex: 1;
+      cursor: pointer;
+      line-height: px-to-rem(48);
+    }
+  }
+}
+
+// 国土
+[data-theme="theme-terracotta"] .trap-collection-records-dialog {
+  &-body {
+    &__label {
+      color: rgb(228 231 193 / 70%);
+    }
+
+    &_bottom {
+      border-top: px-to-rem(1) solid rgb(228 231 193 / 20%);
+    }
+  }
+
+  &-title {
+    &::after {
+      height: 0 !important;
+    }
+  }
+
+  &-ul-list {
+    > li {
+      color: #e4e7c1;
+
+      i,
+      span {
+        color: #ffeeb1;
+      }
+    }
+
+    .outline {
+      color: rgb(228 231 193 / 40%);
+
+      i,
+      span {
+        color: rgb(255 238 177 / 40%);
+      }
+    }
+  }
+
+  &-tab{
+    .tab_active {
+      position: relative;
+      text-shadow: 1px 0 4px #DCD277;
+      color: #FFF;
+      font-weight: 600;
+
+      &::after{
+        bottom: 0;
+        left: px-to-rem(10);
+        background: url('~@component-gallery/assets/image/common/terracotta/popup-title-guang-new.png')
+          no-repeat;
+      }
+    }
+
+    &__tabItem{
+      height: 100%;
+      text-shadow: 0 0 24px rgb(0 92 245 / 35%);
+      color: #E4E7C1;
+      font-size: px-to-rem(16);
+      text-align: center;
+      flex: 1;
+      cursor: pointer;
+      line-height: px-to-rem(48);
+    }
+  }
+}

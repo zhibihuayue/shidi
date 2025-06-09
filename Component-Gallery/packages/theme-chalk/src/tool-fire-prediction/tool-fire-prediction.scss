@@ -1,0 +1,414 @@
+@import '../mixins/px-to-rem';
+@import '../mixins/theme-mixins';
+
+.fire-prediction {
+  @include themeify(false) {
+
+    // 着火点信息
+    .fire-prediction-form {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-top: px-to-rem(8);
+      margin-bottom: px-to-rem(14);
+
+      .firePoint__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: px-to-rem(12);
+        margin-left: px-to-rem(12);
+        margin-bottom: px-to-rem(8);
+
+        .firePoint__title {
+          font-family: PingFangSC, PingFang SC, sans-serif;
+          font-size: px-to-rem(16);
+          font-style: normal;
+          font-weight: 400;
+          line-height: 1;
+          text-shadow: themed('tool-fire-prediction__title-text-shadow');
+          color: #fff;
+        }
+
+        ::v-deep .base-button {
+          width: px-to-rem(56);
+
+          // 不为通用
+          @if $theme-name != 'theme-wiseblue' {
+            margin: px-to-rem(-1) 0;
+          }
+        }
+      }
+
+      // 着火点
+      .fire-chapter {
+        margin: 0 px-to-rem(12) px-to-rem(12);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .chapter-title {
+          position: relative;
+          display: flex;
+          align-items: center;
+          height: px-to-rem(26);
+          background: themed('tool-fire-prediction__chapter-title-bg');
+          margin-bottom: px-to-rem(12);
+          border-left: px-to-rem(2) solid themed('tool-fire-prediction__chapter-title-border');
+
+
+          &::before {
+            position: absolute;
+            content: '';
+            height: 100%;
+            width: px-to-rem(70);
+            background: themed('tool-fire-prediction__chapter-title-bg-before');
+            opacity: 0.24;
+          }
+
+          .chapterStart {
+            flex: 1;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 px-to-rem(12);
+
+            .chapterSpan {
+              display: inline-block;
+              color: themed('tool-fire-prediction__color');
+              font-size: px-to-rem(14);
+              text-align: center;
+              font-weight: 500;
+              line-height: 1;
+
+              // 国土
+              @if $theme-name == 'theme-terracotta' {
+                text-shadow: themed('tool-fire-prediction__title-text-shadow');
+              }
+
+            }
+
+            &__action {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: px-to-rem(8);
+            }
+          }
+
+          i {
+            cursor: pointer;
+            margin: 0 px-to-rem(6);
+          }
+
+          .el-icon-delete {
+            color: #fff;
+            font-size: px-to-rem(14);
+          }
+
+          .el-icon-arrow-up {
+            color: #fff;
+            font-size: px-to-rem(20);
+          }
+
+          .el-icon-arrow-up::before {
+            font-size: px-to-rem(20) !important;
+          }
+
+          .el-icon-arrow-up.is-reverse {
+            transform: rotate(180deg);
+          }
+        }
+
+        .chapter-content {
+          display: flex;
+          flex-direction: column;
+          gap: px-to-rem(23);
+
+          .card-title {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: themed('tool-fire-prediction__color');
+            // 不为林业
+            @if $theme-name != 'theme-aquamarine' {
+              margin-left: px-to-rem(-10);
+            }
+
+
+            .h4 {
+              display: flex;
+              align-items: center;
+              text-shadow: themed('tool-fire-prediction__chapter-card-text-shadow');
+              font-size: px-to-rem(14);
+              font-weight: 400;
+              line-height: px-to-rem(14);
+
+              &::before {
+                display: block;
+                margin-right: px-to-rem(8);
+                width: px-to-rem(18);
+                height: px-to-rem(14);
+                content: '';
+              }
+
+              // 通用
+              @if $theme-name == 'theme-wiseblue' {
+                &::before {
+                  background: url('~@component-gallery/assets/image/tool-fire-prediction/ty/cardheader-star.png') no-repeat center/100% 100%;
+                }
+              }
+
+              // 林业
+              @if $theme-name == 'theme-aquamarine' {
+                &::before {
+                  width: px-to-rem(8);
+                  height: px-to-rem(8);
+                  background: url('~@component-gallery/assets/image/tool-fire-prediction/ly/cardheader-star.png') no-repeat center/100% 100%;
+                }
+              }
+
+              // 国土
+              @if $theme-name == 'theme-terracotta' {
+                &::before {
+                  background: url('~@component-gallery/assets/image/tool-fire-prediction/gt/cardheader-star.png') no-repeat center/100% 100%;
+                }
+              }
+
+            }
+          }
+        }
+      }
+
+      .time-info {
+        margin: 0 px-to-rem(12);
+
+        .divider {
+          margin: px-to-rem(12) 0;
+          border-top: 1px solid rgb(255 255 255 / 20%);
+        }
+
+        .slope-direction-field {
+
+          ::v-deep .el-input__suffix {
+            display: flex;
+            align-items: center;
+            right: px-to-rem(60);
+          }
+
+          &::after {
+            content: '小时'; /* 后缀文本 */
+            position: absolute; /* 绝对定位 */
+            right: px-to-rem(12); /* 距离右侧的距离 */
+            top: 50%;
+            transform: translateY(-50%); /* 垂直居中 */
+            color: themed('tool-fire-prediction__color'); /* 文本颜色 */
+            font-size: px-to-rem(14); /* 字体大小 */
+            line-height: px-to-rem(10);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: px-to-rem(14);
+          }
+        }
+      }
+
+      .control-buttons {
+        display: flex;
+        justify-content: center; /* 水平居中按钮 */
+        align-items: center;
+        margin-top: px-to-rem(14);
+        gap: px-to-rem(12);
+
+
+        &__btn {
+          width: px-to-rem(108);
+
+          // 不为通用
+          @if $theme-name != 'theme-wiseblue' {
+            margin: px-to-rem(-1) 0;
+          }
+        }
+      }
+    }
+
+    ::v-deep {
+      .warn-progress-play + .scrollable-content {
+        margin-top: px-to-rem(-4);
+      }
+    }
+
+    .required {
+      width: px-to-rem(8);
+      height: px-to-rem(14);
+      color: #ed5158;
+      font-size: px-to-rem(14);
+      text-align: left;
+
+      // font-family: PingFangSC, PingFang SC;
+      font-weight: 400;
+      line-height: px-to-rem(14);
+      font-style: normal;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column; /* 改为列布局，以适应多行 */
+      align-items: flex-start; /* 左对齐 */
+    }
+
+    // 表单相关
+    .form-row {
+      width: 100%;
+      display: flex;
+
+      & + .form-row {
+        margin-top: px-to-rem(12);
+      }
+    }
+
+    .form-row.sm {
+      gap: px-to-rem(12);
+
+      .form-item:first-child {
+        flex: 0 0 px-to-rem(185)
+      }
+
+      .form-item {
+        flex: 1;
+
+        .form-control {
+          flex: 1 0 px-to-rem(95)
+        }
+      }
+    }
+
+    .form-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: px-to-rem(12);
+
+      .form-label {
+        flex: 0 0 px-to-rem(79);
+        font-size: px-to-rem(14);
+        text-align: right;
+        color: themed('tool-fire-prediction__color');
+
+        &.sm {
+          flex: 0 0 px-to-rem(50);
+        }
+      }
+
+      .form-control {
+        flex: 1;
+
+        ::v-deep {
+          .el-input__inner {
+            font-size: px-to-rem(14);
+            height: px-to-rem(32);
+            line-height: 1;
+            padding: 0 px-to-rem(6) !important;
+
+            &::placeholder {
+              color: themed('tool-fire-prediction__placeholder-color');
+            }
+          }
+        }
+      }
+    }
+
+    // icon
+    .form-icon {
+      display: flex;
+      flex: 0 0 px-to-rem(20);
+      font-size: px-to-rem(20);
+
+      // 下拉 icon
+      &.arrow-icon {
+        ::v-deep {
+          .ct-icon {
+            width: px-to-rem(16) !important;
+            display: flex;
+            align-items: center;
+          }
+
+          i {
+            font-size: px-to-rem(16) !important;
+            color: themed('tool-fire-prediction__color') !important;
+          }
+        }
+      }
+
+      // 定位 icon
+      &.location-icon {
+        align-self: center;
+
+        ::v-deep {
+
+          .ct-icon {
+            width: px-to-rem(20) !important;
+
+            i {
+              font-size: px-to-rem(20) !important;
+            }
+          }
+
+          .icon-ctw-location {
+            color: themed('tool-fire-prediction__location-icon-color') !important;
+          }
+
+          .icon-ctw-location-active {
+            color: themed('tool-fire-prediction__location-icon-active-color') !important;
+          }
+        }
+
+      }
+
+      //删除按钮
+      &.delete-icon {
+        ::v-deep {
+          .ct-icon {
+            display: flex;
+            align-items: center;
+            width: px-to-rem(16) !important;
+          }
+
+          i {
+            color: themed('tool-fire-prediction__color') !important;
+            font-size: px-to-rem(16) !important;
+          }
+        }
+
+        &.disabled {
+          cursor: not-allowed;
+          pointer-events: none;
+          opacity: 0.4;
+        }
+      }
+    }
+
+    ::v-deep .icon-ctw {
+      font-size: px-to-rem(20) !important;
+    }
+
+
+    .fire-spread-prediction ::v-deep .el-input .el-input__inner {
+      padding-right: 3px !important;
+      padding-left: 3px !important;
+      background: transparent !important;
+    }
+
+    ::v-deep .c-scroll {
+      height: px-to-rem(346);
+
+      //.el-scrollbar__view {
+      //  height: px-to-rem(370);
+      //}
+    }
+  }
+}
+

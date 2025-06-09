@@ -1,0 +1,310 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.c-popup {
+  @include themeify() {
+    // 通用
+    .capture-box {
+      width: px-to-rem(1120);
+      height: px-to-rem(634);
+      // background-color: rgba(24, 37, 55, 0.8);
+      border-radius: px-to-rem(8);
+      z-index: 10;
+      pointer-events: auto;
+      margin: auto;
+      position: relative;
+    }
+    .capture-content {
+      display: flex;
+    }
+    .capture-content-l {
+      width: px-to-rem(202);
+      height: px-to-rem(586);
+      background-color: #0f1926;
+      border-right: 1px solid rgba(232, 243, 254, 0.2);
+      li {
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+        padding: 0 px-to-rem(12);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #e8f3fe;
+        font-size: px-to-rem(14);
+      }
+      .capture-selected {
+        background-color: rgba(79, 159, 255, 0.4);
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+        color: #4f9fff;
+      }
+    }
+    .capture-content-r {
+      padding: px-to-rem(12);
+      font-size: px-to-rem(14);
+      color: #e8f3fe;
+      flex: 1;
+      position: relative;
+      .capture-content-r-title-box {
+        display: flex;
+      }
+      .capture-content-r-title {
+        margin-right: px-to-rem(12);
+        margin-top: px-to-rem(9);
+        height: px-to-rem(14);
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(14);
+        i {
+          color: #ed5158;
+          margin-right: px-to-rem(4);
+        }
+      }
+
+      .time {
+        margin-top: px-to-rem(15);
+      }
+      .capture-row {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: px-to-rem(6);
+        flex: 1;
+        margin-left: px-to-rem(-12);
+        &.scroll {
+          height: px-to-rem(135);
+          overflow-y: scroll;
+        }
+        .capture-time {
+          width: px-to-rem(104);
+          height: px-to-rem(32);
+          background: rgba(79, 159, 255, 0.2);
+          border-radius: px-to-rem(4) px-to-rem(4) px-to-rem(4) px-to-rem(4);
+          display: flex;
+          margin: 0 0 px-to-rem(12) px-to-rem(12);
+          align-items: center;
+          position: relative;
+          &:hover {
+            .icon-dantuo {
+              display: block;
+            }
+          }
+          .icon-tongyong_icon_shijian {
+            font-size: px-to-rem(20);
+            color: #e8f3fe;
+            margin: 0 px-to-rem(12);
+          }
+          .icon-dantuo {
+            width: px-to-rem(38);
+            height: px-to-rem(38);
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 12;
+            background: url('~@component-gallery/assets/image/video/videoTy/close.png') no-repeat
+              center / 100% 100%;
+            transform: translate(50%, -50%);
+            cursor: pointer;
+            &:before {
+              display: none;
+            }
+          }
+          ::v-deep .capture-time-text {
+            width: px-to-rem(20);
+            height: px-to-rem(20);
+            border-radius: px-to-rem(4) px-to-rem(4) px-to-rem(4) px-to-rem(4);
+            cursor: pointer;
+            line-height: px-to-rem(18);
+            text-align: center;
+            font-size: px-to-rem(14);
+            color: #e8f3fe;
+            background: rgba(79, 159, 255, 0.2);
+            border: 1px solid #4f9fff;
+            z-index: 2;
+            &.on {
+              color: #4f9fff;
+            }
+          }
+          .colon {
+            height: px-to-rem(20);
+            cursor: pointer;
+            line-height: px-to-rem(20);
+            font-size: px-to-rem(14);
+            color: #e8f3fe;
+            margin: 0 px-to-rem(2);
+          }
+          .capture-time-select {
+            visibility: hidden;
+            width: px-to-rem(104);
+            height: px-to-rem(32);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+        }
+        .capture-time-add {
+          width: px-to-rem(104);
+          height: px-to-rem(32);
+          background: rgba(79, 159, 255, 0.2);
+          border-radius: px-to-rem(4) px-to-rem(4) px-to-rem(4) px-to-rem(4);
+          border: none;
+          color: #e8f3fe;
+          padding: 0;
+          font-size: px-to-rem(20);
+          margin: 0 0 px-to-rem(12) px-to-rem(12);
+          &:hover {
+            color: #e8f3fe;
+          }
+        }
+      }
+
+      ::v-deep .el-radio-group {
+        flex: 1;
+      }
+      .el-radio-box {
+        background-color: rgba(79, 159, 255, 0.2);
+        border-radius: px-to-rem(4);
+        display: flex;
+        margin-bottom: px-to-rem(6);
+        padding: 0 px-to-rem(12);
+      }
+      ::v-deep .el-radio {
+        height: px-to-rem(32);
+        margin-right: 0;
+        display: flex;
+        align-items: center;
+        .el-radio__label {
+          font-weight: 400;
+          font-size: px-to-rem(14);
+          color: #e8f2fe;
+          line-height: px-to-rem(32);
+          padding-left: px-to-rem(6);
+          display: block;
+        }
+        .el-radio__input {
+          height: px-to-rem(16);
+          display: block;
+          .el-radio__inner {
+            width: px-to-rem(16);
+            height: px-to-rem(16);
+            background: transparent !important;
+            border: 1px solid #1373e6 !important;
+            line-height: px-to-rem(32);
+          }
+        }
+      }
+      ::v-deep .el-radio .is-checked .el-radio__inner {
+        border-color: #1373e6 !important;
+        width: px-to-rem(16);
+        height: px-to-rem(16);
+        text-align: center;
+        border-radius: 50%;
+        background: #1373e6 !important;
+      }
+      ::v-deep .el-radio__inner::after {
+        width: px-to-rem(6);
+        height: px-to-rem(6);
+        background: #ffffff;
+        border-radius: 50%;
+      }
+      ::v-deep .el-checkbox {
+        margin-right: 0;
+        margin-left: px-to-rem(20);
+        width: px-to-rem(64);
+        color: unset;
+      }
+      ::v-deep .el-checkbox {
+        .el-checkbox__input {
+          height: px-to-rem(16);
+          .el-checkbox__inner {
+            background: transparent !important;
+            border: 1px solid #1373e6 !important;
+            width: px-to-rem(16);
+            height: px-to-rem(16);
+            bottom: px-to-rem(2);
+            transition: none;
+          }
+        }
+        .el-checkbox__label {
+          padding-left: px-to-rem(6);
+          color: #e8f2fe;
+          height: px-to-rem(14);
+          line-height: px-to-rem(14);
+          span {
+            height: px-to-rem(14);
+            font-weight: 400;
+            font-size: px-to-rem(14);
+            line-height: px-to-rem(14);
+            display: inline-block;
+          }
+        }
+        &.is-disabled {
+          .el-checkbox__label {
+            color: rgba(232, 242, 254, 0.4);
+          }
+        }
+      }
+
+      ::v-deep .el-checkbox .is-checked .el-checkbox__inner {
+        background: #1373e6 !important;
+        border: none !important;
+      }
+
+      ::v-deep .el-checkbox .is-indeterminate .el-checkbox__inner {
+        background: #2172e4 !important;
+        border: none !important;
+      }
+      ::v-deep .el-checkbox__inner::after {
+        left: px-to-rem(6) !important;
+        top: px-to-rem(3) !important;
+        border: px-to-rem(2) solid #fff;
+        border-left: 0;
+        border-top: 0;
+      }
+      ::v-deep
+        .el-checkbox__input.is-indeterminate
+        .el-checkbox__inner::before {
+        top: px-to-rem(6) !important;
+      }
+
+      ::v-deep .el-date-editor {
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+        background: rgba(132, 180, 254, 0.2);
+        border-radius: px-to-rem(4);
+        margin-left: px-to-rem(11);
+        width: px-to-rem(87) !important;
+      }
+      ::v-deep .el-date-editor .el-input__inner {
+        background: none;
+        border: 0;
+        border-radius: px-to-rem(4);
+        color: #e8f2fe !important;
+        font-size: px-to-rem(14);
+        transition: border-color 0s;
+        padding: 0 px-to-rem(25) !important;
+      }
+      ::v-deep .el-date-editor .el-input__icon {
+        color: #e8f2fe !important;
+        display: none;
+      }
+      ::v-deep .el-date-editor .el-input__inner::-webkit-input-placeholder {
+        color: #e8f2fe !important;
+      }
+    }
+    .capture-content-r-btn {
+      text-align: center;
+      margin-top: px-to-rem(12);
+      position: absolute;
+      bottom: px-to-rem(12);
+      left: calc(50% - px-to-rem(124));
+      display: flex;
+      .btn-cancel {
+        width: px-to-rem(108);
+        margin-left: px-to-rem(12);
+      }
+      .btn-confirm {
+        width: px-to-rem(108);
+      }
+    }
+  }
+}

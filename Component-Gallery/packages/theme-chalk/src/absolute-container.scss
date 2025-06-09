@@ -1,0 +1,580 @@
+@import "mixins/px-to-rem";
+
+.innercomp-abcontainer {
+  position: absolute;
+
+  &-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: px-to-rem(48);
+    color: var(--iw-text-color);
+    font-size: px-to-rem(16);
+    text-align: center;
+    font-weight: 500;
+
+    &__title {
+      position: relative;
+      overflow: hidden;
+      padding: 0 px-to-rem(12);
+      width: 100%;
+      height: px-to-rem(48);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: px-to-rem(49);
+    }
+
+    &.left-title {
+      justify-content: start;
+      padding-left: px-to-rem(12);
+      text-align: left;
+
+      .innercomp-abcontainer-header__title {
+        padding-left: 0 ;
+      }
+    }
+  }
+
+  &-body {
+    color: var(--iw-text-color);
+  }
+
+  // 关闭所有角装饰
+  &.noCorner {
+      border-radius: 8px;
+
+      .previous-vacancies,.subsequent-vacancies {
+        &::before,&::after {
+          content: none!important;
+        }
+      }
+
+      &::before,&::after {
+        content: none!important;
+      }
+  }
+
+  // 前导占位, 用于左上/右上角装饰
+  .previous-vacancies {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  // 后导占位, 暂时预留
+   .subsequent-vacancies {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+
+[data-theme="theme-wiseblue"] .innercomp-abcontainer {
+  background: rgb(23 37 55 / 90%);
+  border-radius: 8px;
+
+  &-header {
+    background: linear-gradient(180deg,rgb(132 180 250 / 70%),rgb(132 180 250 / 24%));
+
+
+    &.highlight-title {
+      background: linear-gradient(180deg, rgb(132 180 250 / 70%) 0%, rgb(132 180 250 / 24.5%) 100%);
+      border-radius: 8px 8px 0 0;
+
+      span {
+        text-shadow: none;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      &.left-title {
+        border: 1px solid;
+        border-image: linear-gradient(90deg, rgb(255 222 76 / 0%) 0.5rem, rgb(255 255 255 / 24%) 0.5rem 2rem, rgb(255 222 76 / 0%)) 1 1;
+
+        &::before {
+          display: block;
+          margin-right: px-to-rem(12);
+          width: px-to-rem(18);
+          height: px-to-rem(18);
+          background: url("~@component-gallery/assets/image/common/wiseblue/popup-title-icon.png") no-repeat center / 100% 100%;
+          content: "";
+        }
+
+      span {
+        text-shadow: 0 0 0.12rem rgb(48 126 255 / 90%);
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: px-to-rem(140);
+          height: px-to-rem(10);
+          background: url("~@component-gallery/assets/image/common/wiseblue/popup-title-guang.png") no-repeat center / 100% 100%;
+          content: "";
+        }
+      }
+      }
+    }
+
+    // 左标题模式下，没有浅蓝底色
+    &.highlight-title.left-title {
+      background: none;
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: px-to-rem(-18);
+    right: px-to-rem(-18);
+    z-index: 1;
+    width: px-to-rem(38);
+    height: px-to-rem(38);
+    background: url("~@component-gallery/assets/image/common/wiseblue/icon_close@2x.png");
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
+
+  // 条纹标题风格
+  &.wiseblue-striped {
+    .innercomp-abcontainer-header {
+      background: url('~@component-gallery/assets/image/head_img.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      border: none;
+      background-position-x: -2px;
+      background-position-y: center;
+
+      span::after {
+        display: none;
+      }
+    }
+  }
+}
+
+[data-theme="theme-aquamarine"] .innercomp-abcontainer {
+  background: linear-gradient(180deg,rgb(0 19 30 / 70%),#00131e);
+
+  &.noCorner {
+    .previous-vacancies {
+      border-radius: 8px;
+    }
+  }
+
+  .previous-vacancies {
+    pointer-events: none;
+    height: 100%;
+    border: 1px solid;
+    border-image: linear-gradient(1turn,rgb(7 91 74 / 75%),rgb(7 91 74 / 30%)) 1 1;
+
+    &::before,&::after {
+      position: absolute;
+      top: 0;
+      width: px-to-rem(8);
+      height: px-to-rem(1);
+      background: #00fff8;
+      content: "";
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: px-to-rem(1) solid;
+    content: '';
+    pointer-events: none;
+    border-image: linear-gradient(360deg, rgb(7 91 74 / 75%), rgb(7 91 74 / 30%)) 1 1;
+  }
+
+   &::after {
+      position: absolute;
+      bottom: px-to-rem(-1);
+      left: px-to-rem(-1);
+      z-index: 3;
+      width: calc(100% + px-to-rem(2));
+      height: px-to-rem(25);
+      background: url("~@component-gallery/assets/image/common/aquamarine/box-bottom-left.png")
+      no-repeat left center/px-to-rem(21) px-to-rem(25),
+      url("~@component-gallery/assets/image/common/aquamarine/box-bottom-right.png")
+      no-repeat right center/px-to-rem(21) px-to-rem(25);
+      content: '';
+      pointer-events: none;
+  }
+
+  &.no-aquamarine-corner {
+    border-radius: 8px;
+    border-image:none;
+
+    .previous-vacancies {
+       &::before,&::after {
+        content: none;
+       }
+    }
+
+    &::before,&::after {
+      content: none;
+    }
+  }
+
+  &-header {
+    background: linear-gradient( 90deg, rgb(2 137 109 / 0%) 0%, rgb(2 137 109 / 20%) 51%, rgb(2 137 109 / 0%) 100%);
+
+    &::before {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: px-to-rem(180);
+      height: 100%;
+      background: url('~@component-gallery/assets/image/common/aquamarine/popup-title-bg.png') no-repeat
+      left center / auto 100%;
+      content: "";
+    }
+
+    &::after {
+      pointer-events: none;
+      position: absolute;
+      top: px-to-rem(-6.5);
+      left: calc(50% - px-to-rem(18));;
+      width: px-to-rem(36);
+      height: px-to-rem(14);
+      background: url("~@component-gallery/assets/image/common/aquamarine/popup-header-k.png") no-repeat center / 100% 100%;
+      content: "";
+    }
+
+    &.highlight-title {
+      border-bottom: 1px solid;
+      border-image: linear-gradient(90deg, rgb(255 255 255 / 0%), rgb(255 255 255), rgb(255 255 255 / 0%));
+
+      span {
+        text-shadow: 0 0 18px rgb(0 245 193 / 90%) !important;
+        color: #fff;
+        font-size: px-to-rem(16);
+        font-weight: 600;
+
+        &::before {
+          content: "";
+        }
+
+        // highlight-title title底部线条高光
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: px-to-rem(10);
+          background: url("~@component-gallery/assets/image/common/aquamarine/popup-title-guang-center.png") no-repeat center / px-to-rem(120) px-to-rem(10);
+          content: "";
+        }
+      }
+
+      .innercomp-abcontainer-header__title {
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: linear-gradient(90deg, rgb(255 255 255 / 0%) 0%, #FFF 50%, rgb(255 255 255 / 0%) 100%);
+          content: '';
+        }
+      }
+
+      &.left-title {
+        background: linear-gradient(91deg, rgb(2 137 109 / 20%) 0%, rgb(2 137 109 / 15%) 23%, rgb(2 137 109 / 0%) 100%);
+
+        .innercomp-abcontainer-header__title {
+          &::after {
+            background: linear-gradient(90deg, rgb(255 255 255 / 0%) 0%, #FFF 15%, rgb(255 255 255 / 0%) 45%, rgb(255 255 255 / 0%) 100%);
+          }
+        }
+
+        span {
+          padding-left: px-to-rem(15);
+          text-shadow: 0 0 18px rgb(0 245 193 / 90%);
+
+          &::before {
+            position: absolute;
+            top: calc(50% - px-to-rem(4));
+            display: block;
+            width: px-to-rem(8);
+            height: px-to-rem(8);
+            background: url("~@component-gallery/assets/image/common/aquamarine/popup-title-icon.png") no-repeat center / 100% 100%;
+            content: "";
+          }
+
+          // highlight-title title底部线条高光
+          &::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: px-to-rem(168);
+            height: px-to-rem(10);
+            background: url("~@component-gallery/assets/image/common/aquamarine/popup-title-guang.png") no-repeat center / 100% 100%;
+            content: "";
+          }
+        }
+
+        &::before {
+          left: 0;
+          transform: translateX(0);
+          background: url('~@component-gallery/assets/image/common/aquamarine/popup-title-bg-new.png') no-repeat
+          left center / auto 100%;
+        }
+
+        &::after {
+          left: px-to-rem(40);
+        }
+      }
+    }
+  }
+
+  &-close {
+      position: absolute;
+      top: px-to-rem(-18);
+      right: px-to-rem(-18);
+      z-index: 1;
+      width: px-to-rem(38);
+      height: px-to-rem(38);
+      background: url("~@component-gallery/assets/image/common/aquamarine/icon_close@2x.png");
+      background-size: 100% 100%;
+      cursor: pointer;
+  }
+}
+
+[data-theme="theme-terracotta"] .innercomp-abcontainer {
+  // background: linear-gradient(180deg, rgb(163 144 69 / 48%), rgb(105 95 42 / 16%) 35px, rgb(98 88 38 / 0%) 100px) rgb(0 0 0 / 81%);
+  background: rgb(23 20 11 / 90%); // 国土主题替换成了此背景色
+  border: 1px solid #6e674e;
+
+  .previous-vacancies {
+    &::before {
+      position: absolute;
+      top: px-to-rem(-5);
+      left: px-to-rem(-5);
+      width: calc(100% + px-to-rem(10));
+      height: px-to-rem(16);
+      background: url("~@component-gallery/assets/image/common/terracotta/corner-1.png")
+      no-repeat left   top/px-to-rem(16) px-to-rem(16),
+      url("~@component-gallery/assets/image/common/terracotta/corner-4.png")
+      no-repeat right  top/px-to-rem(16) px-to-rem(16);
+      content: "";
+      pointer-events: none;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    bottom: px-to-rem(-5);
+    left: px-to-rem(-5);
+    width: calc(100% + px-to-rem(10));
+    height: px-to-rem(16);
+    background: url("~@component-gallery/assets/image/common/terracotta/corner-3.png")
+    no-repeat left  bottom/px-to-rem(16) px-to-rem(16),
+    url("~@component-gallery/assets/image/common/terracotta/corner-2.png")
+    no-repeat right bottom/px-to-rem(16) px-to-rem(16);
+    content: '';
+    pointer-events: none;
+  }
+
+  &.no-terracotta-corner {
+    border-radius: 8px;
+
+    .previous-vacancies {
+       &::before,&::after {
+        content: none;
+       }
+    }
+
+    &::before,&::after {
+      content: none;
+    }
+  }
+
+  &-header {
+    &.highlight-title {
+      // border-bottom: 1px solid;
+      border-image: linear-gradient(90deg, rgb(228 231 193 / 0%), rgb(228 231 193 / 100%), rgb(228 231 193 / 0%)) 1 1;
+
+      .innercomp-abcontainer-header__title {
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: linear-gradient(90deg, rgb(228 231 193 / 0%), rgb(228 231 193 / 35%), rgb(228 231 193 / 0%));
+          content: '';
+        }
+      }
+
+      span {
+        text-shadow: none;
+        text-shadow: px-to-rem(1) 0 px-to-rem(4) #DCD277;
+        color: #fff;
+        font-weight: 600;
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: px-to-rem(14);
+          background: url("~@component-gallery/assets/image/common/terracotta/popup-title-guang.png") no-repeat center / px-to-rem(177) px-to-rem(14);
+          content: "";
+        }
+      }
+
+      &.left-title {
+        border: 1px solid;
+        border-image: linear-gradient(90deg, rgb(228 231 193 / 0%), rgb(228 231 193 / 35%) 0.7rem, rgb(228 231 193 / 0%)) 1 1;
+
+        .innercomp-abcontainer-header__title {
+          &::after {
+            display: none;
+          }
+        }
+
+        &::before {
+        display: block;
+        margin-right: px-to-rem(12);
+        width: px-to-rem(18);
+        height: px-to-rem(18);
+        background: url("~@component-gallery/assets/image/common/terracotta/popup-title-icon.png") no-repeat center / 100% 100%;
+        content: "";
+        }
+
+        &::after {
+        left: px-to-rem(40);
+        }
+
+        span {
+        text-shadow: 0 0 0.12rem #DCD277;
+
+        &::after {
+          width:  px-to-rem(140);
+        }
+        }
+      }
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: px-to-rem(-18);
+    right: px-to-rem(-18);
+    z-index: 1;
+    width: px-to-rem(38);
+    height: px-to-rem(38);
+    background: url("~@component-gallery/assets/image/common/terracotta/icon_close@2x.png");
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
+}
+
+[data-theme="theme-wiseblue"] .iotEquipment {
+  .highlight-title.left-title {
+    background: url("~@component-gallery/assets/image/head_img.png") no-repeat -2px / 100% 100%;
+    border: 0;
+
+    &::before {
+      width: 0;
+      height: 0;
+    }
+
+    span {
+      text-shadow: none;
+      color: var(--iw-text-color);
+
+      &::after {
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+
+  .left-title {
+    padding-left: 0;
+  }
+}
+
+[data-theme="theme-terracotta"] .iotEquipment {
+  .highlight-title.left-title {
+    // background: linear-gradient( 180deg, rgb(238 227 128 / 20%) 0%, rgb(105 95 42 / 18%) 97%, rgb(76 66 24 / 0%) 100%);
+    border: 0;
+
+    &::before {
+      width: 0;
+      height: 0;
+    }
+
+    span {
+      text-shadow: 0 1px 4px #DCD277;
+      color: var(--iw-text-color);
+    }
+  }
+
+  .left-title {
+    padding-left: 0;
+  }
+}
+
+[data-theme="theme-wiseblue"] .recorder-dialog,
+[data-theme="theme-wiseblue"] .mining-legend,
+[data-theme="theme-wiseblue"] .uav-tree-dialog {
+  .highlight-title.left-title {
+    background: url("~@component-gallery/assets/image/head_img.png") no-repeat -2px / 100% 100%;
+    border: 0;
+
+    &::before {
+      width: 0;
+      height: 0;
+    }
+
+    span {
+      text-shadow: none;
+      color: var(--iw-text-color);
+
+      &::after {
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+
+  .left-title {
+    padding-left: 0;
+  }
+}
+
+[data-theme="theme-terracotta"] .recorder-dialog,
+[data-theme="theme-terracotta"] .mining-legend,
+[data-theme="theme-terracotta"] .uav-tree-dialog {
+  .highlight-title.left-title {
+    // background: linear-gradient( 180deg, rgb(238 227 128 / 20%) 0%, rgb(105 95 42 / 18%) 97%, rgb(76 66 24 / 0%) 100%);
+    border: 0;
+
+    &::before {
+      width: 0;
+      height: 0;
+    }
+
+    span {
+      text-shadow: 0 1px 4px #DCD277;
+      color: var(--iw-text-color);
+    }
+  }
+
+  .left-title {
+    padding-left: 0;
+  }
+}

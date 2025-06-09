@@ -1,0 +1,151 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+.alas-card-box {
+  width: px-to-rem(346);
+  height: px-to-rem(210);
+  padding: px-to-rem(12);
+  margin: 0 px-to-rem(12) px-to-rem(12);
+  border-radius: px-to-rem(8);
+  cursor: pointer;
+  .card-body {
+    margin-top: px-to-rem(6);
+  }
+  @include themeify(false) {
+    background-image: themed('alarm-atlas-card-bg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    .statistics-row {
+      display: flex;
+      justify-content: space-between;
+      .statistics-card {
+        background-size: cover !important;
+        width: px-to-rem(158);
+        height: px-to-rem(102);
+        border-radius: px-to-rem(16) px-to-rem(8) px-to-rem(8) px-to-rem(8);
+        opacity: 0.96;
+        .foodstuff-head {
+          background-image: themed('alarm-atlas-card-foodstuff-head');
+        }
+        .farmer-head {
+          background-image: themed('alarm-atlas-card-farmer-head');
+        }
+        .no-warning-head {
+          background-image: themed('alarm-atlas-card-no-warning-head');
+        }
+      }
+      .farmer-card {
+        background: themed('alarm-atlas-card-farmer-bg');
+      }
+      .foodstuff-card {
+        background: themed('alarm-atlas-card-foodstuff-bg');
+      }
+      .no-warning-card {
+        background: themed('alarm-atlas-card-no-warning-bg');
+      }
+    }
+    .only-one-card {
+      width: 100% !important
+    }
+
+    .statistics-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 px-to-rem(12);
+      margin-bottom: px-to-rem(12);
+      width: px-to-rem(160);
+      height: px-to-rem(34);
+      background-size: cover !important;
+      background-size: auto;
+    }
+
+    .statistics-card-txt {
+      color: #fff;
+      font-size: px-to-rem(14);
+      font-weight: 500;
+      line-height: px-to-rem(14);
+    }
+
+    .statistics-card-num {
+      margin-top: px-to-rem(-2);
+      color: #fff;
+      font-size: px-to-rem(20);
+      white-space: nowrap;
+      font-weight: 600;
+      line-height: px-to-rem(20);
+    }
+
+    .txt-scroll {
+      animation: txtscroll 10s linear infinite;
+    }
+
+    .scroll-box {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      overflow: hidden;
+      width: px-to-rem(50);
+      height: px-to-rem(34);
+      flex-wrap: nowrap;
+    }
+
+    .num-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 px-to-rem(12);
+      margin-bottom: px-to-rem(12);
+
+      .img-row {
+        display: flex;
+        align-items: center;
+
+        img {
+          position: relative;
+          top: px-to-rem(-2);
+          width: px-to-rem(16);
+          height: px-to-rem(16);
+        }
+
+        span {
+          margin-left: px-to-rem(6);
+          color: themed('alarm-atlas-info-content-color');
+          font-size: px-to-rem(14);
+          line-height: px-to-rem(14);
+        }
+      }
+      .num-txt-box {
+        display: flex;
+        justify-content: flex-end;
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(14);
+        overflow: hidden;
+        width: px-to-rem(40);
+        flex-wrap: nowrap;
+        
+      }
+
+      .num-txt {
+        color: themed('alarm-atlas-info-content-color');
+        font-size: px-to-rem(14);
+        font-weight: 600;
+        line-height: px-to-rem(14);
+        white-space: nowrap;
+      }
+    }
+
+    .dis-num {
+      color: themed('alarm-atlas-card-zero-color') !important;
+    }
+  }
+}
+.selected-card {
+  @include themeify(false) {
+    background-image: themed('alarm-atlas-card-bg-select');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
+

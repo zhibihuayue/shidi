@@ -1,0 +1,157 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/bem-mixins.scss';
+@import '../mixins/theme-checkbox-mixins';
+
+@include b('task-filtering') {
+  //确定--取消
+  .judgeBtnDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: px-to-rem(12);
+    margin-top: px-to-rem(12);
+    @include cg_button_styles();
+    button {
+      width: px-to-rem(108);
+    }
+  }
+
+  @include themeify(false) {
+    width: px-to-rem(342);
+    position: absolute;
+    z-index: 13;
+    top: px-to-rem(38);
+    left: px-to-rem(12);
+    padding: px-to-rem(12) 0;
+    border-radius: px-to-rem(8);
+    background: themed('inspection-task-filter-bg-color');
+    outline: themed('inspection-task-filter-border-color');
+
+    //搜索
+    .input-bg {
+      display: flex;
+      padding: 0 px-to-rem(12);
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      .title {
+        height: px-to-rem(14);
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, PingFang SC;
+        color: themed('global-text-color');
+        line-height: px-to-rem(14);
+      }
+    }
+
+    .more-tag {
+      margin-left: px-to-rem(4);
+    }
+
+    //搜索清除
+    .input-bg .search-input ::v-deep .el-input__clear {
+      line-height: px-to-rem(24);
+      color: themed('global-text-color');
+    }
+
+    //搜索
+    .input-bg .search-input ::v-deep .el-input__inner {
+      color: themed('global-text-color');
+      text-align: left;
+      border-radius: px-to-rem(4);
+      font-size: px-to-rem(14);
+      padding: 0 px-to-rem(10) 0 px-to-rem(6) !important;
+      border: none;
+      background: transparent;
+    }
+
+    ::v-deep .spdateeditor {
+      .el-range-input {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .el-range-separator {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    .el-select {
+      margin: px-to-rem(12) 0;
+    }
+
+    ::v-deep.el-input__icon {
+      width: px-to-rem(35);
+    }
+
+    ::v-deep .c-select {
+      .el-input {
+        display: flex;
+        align-items: center;
+        height: 0.32rem;
+        line-height: 0.32rem;
+      }
+      .el-input__icon {
+        transform: rotateZ(0deg);
+        &.is-reverse {
+          transform: rotateZ(180deg);
+        }
+        &:before {
+          font-family: 'iconfont_tools';
+          font-size: px-to-rem(20);
+          content: '\ec16';
+        }
+      }
+      .el-icon-circle-close {
+        &:before {
+          font-family: 'iconfont_tools';
+          content: '\eacc';
+          font-size: px-to-rem(20);
+        }
+      }
+    }
+    ::v-deep .c-select-dropdown {
+      &.el-select-dropdown {
+        @if $theme-name == 'theme-terracotta' {
+          background: rgba(23, 20, 11, 0.9) !important;
+        }
+      }
+    }
+    .selectTree {
+      width: 100%;
+      height: auto;
+      ::v-deep .el-select .el-select__tags > span {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
+      ::v-deep .el-select .el-select__tags .el-tag.el-tag--info {
+        max-width: unset !important;
+      }
+      ::v-deep .el-select__tags-text {
+        display: inline-block;
+        max-width: px-to-rem(180);
+      }
+
+      .c-select-dropdown.el-select-dropdown
+        .el-select-dropdown__list
+        .el-select-dropdown__item {
+        width: px-to-rem(317);
+        padding: 0;
+        height: px-to-rem(192) !important;
+        overflow-x: hidden !important;
+        overflow-y: scroll;
+        @if $theme-name == 'theme-terracotta' {
+          background: rgba(23, 20, 11, 0.9) !important;
+        }
+      }
+
+      .c-select-dropdown.el-select-dropdown
+        .el-select-dropdown__list
+        .el-select-dropdown__item.hover:hover {
+        background-color: transparent !important;
+      }
+    }
+  }
+}

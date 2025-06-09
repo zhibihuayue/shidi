@@ -1,0 +1,47 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.no-ellip .cell {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: inherit;
+}
+.video-set {
+  .el-table__body-wrapper {
+    height: 100%;
+    .el-table__empty-block {
+      // padding: px-to-rem(200) 0;
+      // position: relative;
+      height: 100% !important;
+      .el-table__empty-text {
+        color: #e8f3fe;
+        text-align: center;
+        padding-bottom: px-to-rem(8);
+        flex-direction: column;
+        position: unset !important;
+        &:before {
+          position: unset !important;
+          // content: url('~@component-gallery/assets/image/video/noData.png');
+          display: block;
+          // background: none !important;
+          background: url('~@component-gallery/assets/image/video/noData.png')
+            no-repeat !important;
+          content: '' !important;
+          background-repeat: no-repeat !important;
+          background-position: center center !important;
+          background-size: contain !important;
+        }
+      }
+    }
+  }
+}
+
+.video {
+  @include themeify(false) {
+    @if $theme-name == 'theme-terracotta' {
+    }
+    @if $theme-name == 'theme-aquamarine' {
+    }
+  }
+}

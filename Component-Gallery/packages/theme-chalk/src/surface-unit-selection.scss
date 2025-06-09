@@ -1,0 +1,54 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.surface-unit-selection {
+  &-container {
+    width: px-to-rem(368);
+    height: px-to-rem(160);
+    color: #e8f3fe;
+
+    .main {
+      display: flex;
+      align-items: center;
+      padding: 0 px-to-rem(12);
+      width: px-to-rem(368);
+      height: px-to-rem(112);
+      font-size: px-to-rem(14);
+
+      .spTitle {
+        margin-right: px-to-rem(12);
+      }
+    }
+
+    ::v-deep .el-select {
+      height: px-to-rem(32);
+      font-size: px-to-rem(14);
+      flex: 1;
+    }
+
+    ::v-deep .el-select > .el-input {
+      height: 100%;
+    }
+
+    ::v-deep .el-input--suffix .el-input__inner {
+      height: 100%;
+    }
+
+    ::v-deep .el-input__suffix {
+      margin-top: px-to-rem(1);
+    }
+  }
+}
+
+// 通用
+[data-theme='theme-wiseblue'] .surface-unit-selection {
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .surface-unit-selection {
+}
+
+// 国土
+[data-theme='theme-terracotta'] .surface-unit-selection {
+}

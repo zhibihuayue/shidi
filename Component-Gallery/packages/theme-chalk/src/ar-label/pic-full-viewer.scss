@@ -1,0 +1,98 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.preImg {
+  overflow: hidden;
+
+  ::v-deep .el-image-viewer__btn {
+    .el-image-viewer__actions__inner {
+      i {
+        cursor: pointer;
+
+        &:hover {
+          color: #c0c0c0;
+        }
+
+        &.disabled {
+          cursor: not-allowed;
+          color: #848484;
+        }
+      }
+    }
+  }
+
+  ::v-deep .vjs-error-display.vjs-modal-dialog {
+    pointer-events: none;
+  }
+}
+
+.preImg ::v-deep .el-dialog {
+  margin: 0 !important;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  background: rgb(0 0 0 / 50%);
+  border: none;
+  box-shadow: none;
+}
+
+.preImg ::v-deep .el-dialog .el-dialog__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+  padding: 0;
+  height: 100%;
+}
+
+.preImg ::v-deep .el-dialog .el-dialog__header {
+  display: none;
+}
+
+.prevLeft {
+  @include themeify(false) {
+    position: fixed;
+    left: px-to-rem(24);
+    width: px-to-rem(61);
+    height: px-to-rem(61);
+    background: themed('alarm-water-detail-arrow');
+    border-radius: 50%;
+    color: themed('alarm-water-detail-font-color');
+    font-size: px-to-rem(32);
+    text-align: center;
+    line-height: px-to-rem(64);
+    cursor: pointer;
+  }
+}
+
+.nextRight {
+  @include themeify(false) {
+    position: fixed;
+    right: px-to-rem(24);
+    width: px-to-rem(61);
+    height: px-to-rem(61);
+    background: themed('alarm-water-detail-arrow');
+    border-radius: 50%;
+    color: themed('alarm-water-detail-font-color');
+    font-size: px-to-rem(32);
+    text-align: center;
+    line-height: px-to-rem(64);
+    cursor: pointer;
+  }
+}
+
+.fileName {
+  position: absolute;
+  top: px-to-rem(30);
+  left: 50%;
+  z-index: 1;
+  overflow: hidden;
+  width: 75%;
+  color: #fff;
+  font-size: px-to-rem(22);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}

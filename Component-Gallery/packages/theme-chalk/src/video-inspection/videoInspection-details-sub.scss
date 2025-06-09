@@ -1,0 +1,87 @@
+@import '~@component-gallery/theme-chalk/src/mixins/px-to-rem';
+
+.videoInspectionDetailsDeviceTreeBox {
+    overflow: hidden;
+    padding: 0;
+    margin-top: px-to-rem(6) !important;
+    width: px-to-rem(198);
+    height: px-to-rem(268);
+    background-color: #0f1926;
+    border: none;
+    border-radius: 4px;
+
+    .popper__arrow {
+        display: none;
+    }
+
+    // 伪造的“第一层”节点
+    .top-fake-node.el-tree-node__content {
+        display: flex;
+        align-items: center;
+        padding-left: px-to-rem(6);
+        height: px-to-rem(32);
+        color: var(--iw-text-color);
+
+        .custom-tree-node {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            padding-right: px-to-rem(6);
+        }
+
+        .el-checkbox {
+            margin-right: px-to-rem(6);
+            font-size: 0;
+        }
+
+        .el-tree-node__expand-icon {
+            padding: 0;
+            margin-right: px-to-rem(6);
+            color: var(--iw-text-color);
+            transform: rotate(-90deg);
+
+            &.is-leaf {
+                color: transparent;
+            }
+
+            &.expanded {
+                transform: rotate(0deg);
+            }
+
+            &.el-icon-caret-right {
+
+                // 强制覆盖箭头尺寸
+                &::before {
+                    font-size: px-to-rem(20);
+                    font-family: 'iconfont_tools';
+                    content: '\eb8d';
+                }
+            }
+        }
+
+        &:hover {
+            background-color: var(--iw-theme-color-40);
+        }
+
+        .fast-btn1 {
+            i {
+                font-size: px-to-rem(20);
+            }
+
+            i+i {
+                margin-left: px-to-rem(6);
+            }
+        }
+    }
+}
+
+
+
+// 国土
+[data-theme="theme-terracotta"] .videoInspectionDetailsDeviceTreeBox {
+    background: linear-gradient(0deg, #1e1c0f 0%, #3d3811 100%);
+    background-color: transparent;
+    .deviceTree {
+        background-color: transparent;
+    }
+}

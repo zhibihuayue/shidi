@@ -1,0 +1,7 @@
+packages:
+  - 'internal/**'
+  - 'playground'
+  - 'docs'
+  - 'docs-render/**' # 存放我们组件库文档的地方
+  - 'packages/**'
+  - 'graph'

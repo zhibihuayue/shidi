@@ -1,0 +1,24 @@
+@import './mixins/px-to-rem';
+@import './mixins/mixins';
+@import './mixins/theme-mixins';
+
+.c-tip {
+  @include themeify(false) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    display: none;
+    padding: px-to-rem(4) px-to-rem(8);
+    max-width: px-to-rem(400);
+    background: themed('alarm-detail-tooltip-bg');
+    border-radius: px-to-rem(4);
+    color: themed('alarm-info-data-content-color');
+    font-size: px-to-rem(14);
+    font-style: normal;
+    font-weight: normal;
+    pointer-events: none;
+    word-break: break-all;
+    line-height: normal;
+  }
+}

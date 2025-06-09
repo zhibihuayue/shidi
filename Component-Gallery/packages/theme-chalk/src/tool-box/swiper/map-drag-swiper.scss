@@ -1,0 +1,91 @@
+@import '../../mixins/px-to-rem';
+.map-drag-swiper {
+  position: absolute;
+  z-index: 20;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+
+  .map-swiper {
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+
+    .swiper-line {
+      background-color: var(--iw-theme-color);
+    }
+
+    &__row {
+      top: 0;
+      left: calc(50vw - px-to-rem(13));
+      width: px-to-rem(26);
+      height: 100vh;
+
+      .swiper-line {
+        width: 2px;
+        height: 100vh;
+      }
+
+      .swiper-icon {
+        top: calc(50vh - 18px);
+      }
+    }
+
+    &__column {
+      top: calc(50vh - px-to-rem(13));
+      left: 0;
+      width: 100vw;
+      height: px-to-rem(26);
+
+      .swiper-line {
+        width: 100vw;
+        height: 2px;
+      }
+
+      .swiper-icon {
+        left: calc(50vw - px-to-rem(18));
+      }
+    }
+
+    .swiper-icon {
+      position: absolute;
+      width: px-to-rem(36);
+      height: px-to-rem(36);
+      background-size: 100% 100%;
+      pointer-events: none;
+    }
+  }
+}
+
+[data-theme='theme-wiseblue'] .map-drag-swiper {
+  .swiper-line {
+    background-color: #88beff;
+  }
+
+  .swiper-icon {
+    background-image: url('~@component-gallery/assets/image/tool-box/wiseBlue/icon_drag.png');
+  }
+}
+
+[data-theme='theme-terracotta'] .map-drag-swiper {
+  .swiper-line {
+    background-color: #ffeeb1;
+  }
+
+  .swiper-icon {
+    background-image: url('~@component-gallery/assets/image/tool-box/terracotta/icon_drag.png');
+  }
+}
+
+[data-theme='theme-aquamarine'] .map-drag-swiper {
+  .swiper-line {
+    background-color: #02896d;
+  }
+
+  .swiper-icon {
+    background-image: url('~@component-gallery/assets/image/tool-box/aquamarine/icon_drag.png');
+  }
+}

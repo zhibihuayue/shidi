@@ -1,0 +1,211 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins.scss';
+@import "mixins/px-to-rem";
+
+.c-socket-message {
+  @include themeify(false) {
+    //right: px-to-rem(30);
+    //width: px-to-rem(360);
+    right: px-to-rem(24);
+    width: px-to-rem(320);
+    border: none;
+
+    @if $theme-name == 'theme-aquamarine' {
+      // 绿
+      background: url("~@component-gallery/assets/image/message-remind/alarm_msg_bg-G.png") no-repeat no-repeat center/100% 100%;
+    }
+    @if $theme-name == 'theme-terracotta' {
+      // 黄
+      background: #36301B;
+    }
+    @if $theme-name == 'theme-wiseblue' {
+      // 蓝
+      background: url("~@component-gallery/assets/image/message-remind/alarm_msg_bg.png") no-repeat no-repeat center/100% 100%;
+    }
+    overflow: visible;
+    padding: px-to-rem(12) !important;
+    @if $theme-name == 'theme-aquamarine' {
+      // 绿
+      border-radius: px-to-rem(0);
+    }
+    @if $theme-name == 'theme-terracotta' {
+      // 黄
+      border-radius: px-to-rem(4);
+    }
+    @if $theme-name == 'theme-wiseblue' {
+      // 蓝
+      border-radius: px-to-rem(0);
+    }
+    .el-notification__group {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    .el-notification__group .el-notification__content {
+      padding: 0px;
+      max-height: px-to-rem(200);
+      overflow: visible;
+      margin: 0;
+    }
+    .el-notification__group .el-notification__title {
+      margin: 0;
+    }
+    .c-notify {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      //width: px-to-rem(328);
+      width: px-to-rem(296);
+      .c-message-lingdang {
+        width: px-to-rem(40);
+        height: px-to-rem(40);
+        flex-grow: 0;
+        @if $theme-name == 'theme-aquamarine' {
+          // 绿
+          background: url("~@component-gallery/assets/image/message-remind/alarm_msg_lingdang-g.png") no-repeat center/100% 100%;
+        }
+        @if $theme-name == 'theme-terracotta' {
+          // 黄
+          background: url("~@component-gallery/assets/image/message-remind/alarm_msg_lingdang-y.png") no-repeat center/100% 100%;
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          // 蓝
+          background: url("~@component-gallery/assets/image/message-remind/alarm_msg_lingdang.png") no-repeat center/100% 100%;
+        }
+        margin-right: px-to-rem(12);
+      }
+      .el-icon-close {
+        position: absolute;
+        //top: px-to-rem(-30);
+        //right: px-to-rem(-37);
+        top: px-to-rem(-27);
+        right: px-to-rem(-29);
+        height: px-to-rem(36);
+        line-height: px-to-rem(36);
+        width: px-to-rem(36);
+        @if $theme-name == 'theme-aquamarine' {
+          // 绿
+          background: url("~@component-gallery/assets/image/message-remind/closeIconG.png");
+        }
+        @if $theme-name == 'theme-terracotta' {
+          // 黄
+          background: url("~@component-gallery/assets/image/message-remind/closeIconY.png");
+        }
+        @if $theme-name == 'theme-wiseblue' {
+          // 蓝
+          background: url("~@component-gallery/assets/image/message-remind/closeIconB.png");
+        }
+        background-size: 100% 100%;
+        cursor: pointer;
+        &::before {
+          content: none;
+        }
+      }
+      > div {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+    }
+    .c-notify i {
+      display: block;
+      width: px-to-rem(34);
+      height: px-to-rem(44);
+      flex-shrink: 0;
+      margin-right: px-to-rem(12);
+      &::after,
+      &::before {
+        content: none;
+      }
+    }
+    .c-notify .c-notify-til {
+      //max-width: px-to-rem(220);
+      max-width: px-to-rem(184);
+      font-size: px-to-rem(14);
+      font-weight: 600;
+
+      @if $theme-name == 'theme-aquamarine' {
+        // 绿
+        color: #e8f3fe;
+      }
+      @if $theme-name == 'theme-terracotta' {
+        // 黄
+        color: #E4E7C1;
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        // 蓝
+        color: #e8f3fe;
+      }
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-bottom: px-to-rem(4);
+    }
+    .c-notify .c-notify-code {
+      //width: px-to-rem(200);
+      width: px-to-rem(184);
+      display: block;
+      font-size: px-to-rem(12);
+      font-weight: 400;
+      height: px-to-rem(18);
+      @if $theme-name == 'theme-aquamarine' {
+        // 绿
+        color: rgba(232, 243, 254, 0.7);
+      }
+      @if $theme-name == 'theme-terracotta' {
+        // 黄
+        color: rgba(228,231,193,0.7);
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        // 蓝
+        color: rgba(232, 243, 254, 0.7);
+      }
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .c-notify .c-notify-status {
+      flex-shrink: 0;
+      width: px-to-rem(48);
+      height: px-to-rem(24);
+      padding: 0 px-to-rem(6);
+      line-height: px-to-rem(24);
+      text-align: center;
+      font-size: px-to-rem(12);
+      font-weight: 400;
+      @if $theme-name == 'theme-aquamarine' {
+        // 绿
+        color: #e8f3fe;
+        position: relative;
+        left: 0;
+        top: 0;
+        &::after {
+          position: absolute;
+          z-index: 1;
+          content: '';
+          top: 0;
+          left: 0;
+          background: rgba(2, 137, 109, 0.1);
+          box-shadow: inset 0 0 3px 0 rgba(2, 137, 109, 0.6);
+          //width: 60px;
+          width: px-to-rem(48);
+          height: px-to-rem(24);
+        }
+      }
+      @if $theme-name == 'theme-terracotta' {
+        // 黄
+        color: #E4E7C1;
+        background: linear-gradient( 180deg, rgba(255,224,72,0.34) 0%, rgba(255,241,126,0.1) 100%), radial-gradient( 313% 79% at 50% 0%, rgba(255,219,117,0.81) 0%, rgba(0,0,0,0) 100%);
+        border-radius: px-to-rem(4);
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        // 蓝
+        color: #e8f2fe;
+        background: linear-gradient(90deg, #4f9fff 0%, #1373e6 100%);
+        border-radius: px-to-rem(4);
+      }
+
+    }
+  }
+}

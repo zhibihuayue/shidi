@@ -1,0 +1,410 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.common-comp-alarm-detail {
+  @include themeify(false) {
+    width: 100%;
+    color: themed('alarm-detail-compare-arrow-color');
+    ::-webkit-scrollbar {
+      width: px-to-rem(6);
+      height: px-to-rem(10);
+    }
+
+    // 滚动条的滑块
+    ::-webkit-scrollbar-thumb {
+      background-color: themed('alarm-list-item-bg-hover') !important;
+      border-radius: px-to-rem(10);
+    }
+    .btn-active-class {
+      // 文字颜色变黄
+      @if $theme-name != 'theme-wiseblue' {
+        color: #f9ff6c !important;
+      } @else {
+        color: #4f9fff;
+      }
+    }
+
+    .fun-btn-active-class {
+      background: themed('alarm-detail-func-active-bg') !important;
+      opacity: 0.97 !important;
+      @if $theme-name != 'theme-wiseblue' {
+        color: #f9ff6c !important;
+      }
+      @if $theme-name != 'theme-aquamarine' {
+        border-radius: px-to-rem(4);
+      }
+      // 按钮点击后效果 文字变黄 背景增加
+      font-size: px-to-rem(18);
+    }
+
+    // 详情盒子
+    .alarm-info-box {
+      position: fixed;
+      top: px-to-rem(34);
+      left: px-to-rem(24);
+      z-index: 90;
+      width: px-to-rem(370);
+      height: calc(100% - px-to-rem(65));
+      background: themed('alarm-list-bg-module');
+      @if $theme-name == 'theme-terracotta' {
+        border: px-to-rem(1) solid #6E674E;
+        width: px-to-rem(370);
+      }
+      .close-btn {
+        position: absolute;
+        top: px-to-rem(-18);
+        right: px-to-rem(-18);
+        z-index: 7;
+
+        // 关闭按钮
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        background: themed('base-card-close-bg');
+        background-size: 100% 100%;
+        background-position: 50% 50%;
+        cursor: pointer;
+      }
+    }
+
+    .alarm-info-top-box {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: px-to-rem(48);
+
+      .left-alarm-top-title {
+        display: flex;
+        min-width: px-to-rem(128);
+        max-width: px-to-rem(300);
+        height: px-to-rem(48);
+        color: themed('alarm-detail-compare-arrow-color');
+        font-size: px-to-rem(16);
+        font-weight: 600;
+        line-height: px-to-rem(48);
+
+        .left-alarm-top-alarm {
+          margin-right: px-to-rem(6);
+          height: 100%;
+          font-weight: 500;
+        }
+
+        .left-alarm-top-Rel {
+          margin: px-to-rem(13) px-to-rem(3);
+          width: px-to-rem(24);
+          height: px-to-rem(24);
+          background: themed('fire-warning-bg-el-checkbox__inner');
+          border-radius: 50%;
+          box-shadow: inset 0 0 px-to-rem(3) 0 themed('fire-warning-shadow-el-checkbox__inner');
+          color: themed('alarm-detail-compare-arrow-color');
+          font-size: px-to-rem(12);
+          text-align: center;
+          font-weight: 500;
+          line-height: px-to-rem(24);
+          cursor: pointer;
+        }
+
+        .rel-click {
+          background: themed('tag-base-background');
+          box-shadow: inset 0 0 px-to-rem(2) 0 rgb(249 255 108 / 60%);
+          color: #f9ff6c;
+        }
+      }
+
+      .right-alarm-top-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: row-reverse;
+        margin-right: px-to-rem(12);
+        height: px-to-rem(48);
+
+        // font-weight: 600;
+        color:  themed('alarm-detail-compare-arrow-color');
+        font-size: px-to-rem(16);
+        line-height: px-to-rem(48);
+        cursor: pointer;
+
+        .iconfont_tools {
+          margin-left: px-to-rem(6);
+          font-size: px-to-rem(21);
+        }
+
+        .btn-disabled {
+          opacity: .5;
+          cursor: not-allowed;
+        }
+
+        img {
+          margin: auto;
+          width: px-to-rem(24);
+          height: px-to-rem(24);
+        }
+
+        @keyframes sfadeInOut {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.6;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        .flashing {
+          animation: sfadeInOut 2s ease-in-out infinite;
+        }
+      }
+    }
+    .down-btn-class {
+      position: absolute;
+      top: px-to-rem(2);
+      left: px-to-rem(243);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: px-to-rem(40);
+      height: px-to-rem(40);
+      // background: themed('alarm-detail-compare-full-bg') !important;
+      @if $theme-name == 'theme-terracotta' {
+        color: #ffeeb1;
+      } @else {
+        color: #fff;
+      }
+      @if $theme-name != 'theme-aquamarine' {
+        border-radius: px-to-rem(8);
+      }
+      flex-flow: row wrap;
+      cursor: pointer;
+      .el-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: px-to-rem(4);
+        width: px-to-rem(40);
+        height: px-to-rem(40);
+        background: none;
+        border: none;
+        // @if $theme-name == 'theme-aquamarine' {
+        //   background: linear-gradient(180deg, #132c2c 0%, #070e0d 100%);
+        //   border: 1px solid #075b4a;
+        // }
+        // @if $theme-name == 'theme-terracotta' {
+        //   background: rgba(21,19,12,0.7);
+        //   border: 0;
+        // }
+        // @if $theme-name == 'theme-wiseblue' {
+        //   background: rgba(23,37,55,0.9);
+        //   border: 0;
+        // }
+
+        // border-radius: px-to-rem(8);
+        // opacity: 0.9;
+        // color: #fff;
+
+        .iconfont_tools {
+          font-size: px-to-rem(22);
+        }
+      }
+      .el-button.is-disabled{
+        opacity: .4;
+        .iconfont_tools{
+          cursor: not-allowed;
+        }
+      }
+      ::v-deep .el-card .waring-btn-tip {
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        // background: rgb(12 31 46 / 40%);
+        // border-color: #fff;
+        // border-radius: px-to-rem(4);
+      }
+    }
+
+    // 视频图片轮播盒子
+    .video-img-carousel-box {
+      padding: 0 px-to-rem(12);
+      margin-top: px-to-rem(12);
+      width: 100%;
+      height: px-to-rem(238);
+    }
+
+    // 分割线
+    .alarm-info-line {
+      margin: px-to-rem(12) 0 0 px-to-rem(12);
+      width: calc(100% - px-to-rem(24));
+      height: 1px;
+      border-bottom: 1px solid themed('alarm-list-item-line');
+    }
+
+    // 功能按钮组
+    .alarm-info-fun-btn {
+      display: flex;
+      padding: px-to-rem(12) px-to-rem(12) px-to-rem(6) px-to-rem(12);
+      width: 100%;
+      height: auto;
+      flex-wrap: wrap;
+      font-size: px-to-rem(14);
+      .fun-btn-class {
+        margin-right: px-to-rem(6);
+        margin-bottom: px-to-rem(6);
+        width: px-to-rem(30);
+        height: px-to-rem(30);
+        color: themed('alarm-detail-compare-arrow-color');
+        font-size: px-to-rem(26);
+        text-align: center;
+        line-height: px-to-rem(30);
+        cursor: pointer;
+
+      }
+      .fun-btn-class.fs-20{
+        font-size: px-to-rem(20);
+      }
+      .fun-btn-class.fs-23{
+        font-size: px-to-rem(23);
+      }
+      ::v-deep .ct-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: px-to-rem(30) !important;
+        height: px-to-rem(30);
+        cursor: pointer;
+      }
+
+      .supervision_icon_a {
+        ::v-deep i {
+          font-size: px-to-rem(23) !important;
+          @if $theme-name != 'theme-wiseblue' {
+            color: #f9ff6c !important;
+          } @else {
+            color: #fff !important;
+          }
+        }
+      }
+
+      .supervision_icon_n {
+        ::v-deep i {
+          font-size: px-to-rem(23) !important;
+          color: themed('alarm-detail-compare-arrow-color') !important;
+        }
+      }
+    }
+
+    // 告警内容盒子
+    .alarm-info-content-box {
+      overflow-x: hidden;
+      width: 100%;
+
+      // 告警详情标签
+      .alarm-info-tag-box {
+        padding: 0 px-to-rem(12) px-to-rem(6);
+        width: 100%;
+        height: auto;
+
+        .alarm-info-tag {
+          display: flex;
+          flex-wrap: wrap;
+
+          .alarm-info-tag-item {
+            position: relative;
+            overflow: initial;
+            padding: 0 px-to-rem(14);
+            @if $theme-name == 'theme-aquamarine' {
+                margin: 0 px-to-rem(-6) px-to-rem(6) 0;
+              } @else {
+                margin: 0 px-to-rem(6) px-to-rem(6) 0;
+              }
+            height: px-to-rem(24);
+            background: none;
+            // color: #f9ff6c;
+            font-size: px-to-rem(12);
+            font-weight: 400;
+            line-height: px-to-rem(24);
+
+            &::before {
+              position: absolute;
+              top: 0;
+              left: 0;
+              display: block;
+              width: px-to-rem(14);
+              height: px-to-rem(24);
+              background: themed('alarm-list-bg-label-item-box');
+              background-size: 100% 100%;
+              content: '';
+              @if $theme-name != 'theme-aquamarine' {
+                border-radius: px-to-rem(4) 0 0 px-to-rem(4);
+               }
+            }
+
+            &::after {
+              position: absolute;
+              top: 0;
+              right: 0;
+              display: block;
+              width: px-to-rem(14);
+              height: px-to-rem(24);
+              background: themed('alarm-list-bg-label-item-box-after');
+              background-size: 100% 100%;
+              content: '';
+              @if $theme-name != 'theme-aquamarine' {
+                border-radius: 0 px-to-rem(4) px-to-rem(4) 0;
+            }
+            }
+
+            > div {
+              position: relative;
+              overflow: hidden;
+              max-width: px-to-rem(240);
+              background:themed('alarm-list-bg-label-item-box-div');
+              color: themed('alarm-list-color-label-item-box-div');
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              line-height: px-to-rem(24);
+            }
+          }
+        }
+      }
+
+      // 告警详情信息
+      .alarm-info-content {
+        padding: 0 px-to-rem(12);
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    // 底部按钮盒子
+    .alarm-bottom-btn-box {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      padding: px-to-rem(8) px-to-rem(9);
+      width: 100%;
+      flex-wrap: wrap;
+
+      .alarm-bottom-btn-div {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        // 底部按钮通用样式
+        .bottom-public-btn-class {
+          margin: px-to-rem(4) px-to-rem(3);
+          width: calc(100% / 3 - px-to-rem(6));
+          // line-height: px-to-rem(20);
+        }
+      }
+    }
+
+    .alarm-share-box {
+      width: px-to-rem(500);
+      height: px-to-rem(183);
+    }
+
+    .alarm-supervision-box {
+      width: px-to-rem(500);
+      height: auto;
+    }
+  }
+}

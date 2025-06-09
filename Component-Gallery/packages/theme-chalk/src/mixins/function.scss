@@ -1,0 +1,9 @@
+@import 'config';
+
+@function themed($key) {
+  @if $theme-map {
+    @return map-get($theme-map, $key);
+  }
+
+  @return ''
+}

@@ -1,0 +1,161 @@
+@import "../mixins/px-to-rem";
+.detail_window_pop_vuecomp{
+  user-select: none;
+  .content {
+    padding: px-to-rem(12) 0 px-to-rem(0) px-to-rem(12);
+    color: #fff;
+    font-size: px-to-rem(14);
+
+    .line_item {
+      display: flex;
+      align-items: center;
+      height: px-to-rem(26);
+      font-size: px-to-rem(14);
+      line-height: px-to-rem(26);
+      .item_name {
+        min-width: px-to-rem(77);
+        color: rgb(255 255 255 / 70%);
+        text-align: right;
+        flex-shrink: 0;
+      }
+
+      .item_value {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        margin-right: px-to-rem(12);
+        max-width: 100%;
+        color: #fff;
+
+        .item_value_inner {
+          overflow: hidden;
+          width: 100%;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  .footer {
+    margin-top: px-to-rem(12);
+    margin-right: px-to-rem(12);
+    height: px-to-rem(54);
+
+    .f_cont {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      color: #fff;
+      border-top: px-to-rem(1) solid rgb(255 255 255 / 20%);
+
+      i {
+        font-size: px-to-rem(30);
+      }
+
+      .active {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        color: #f9ff6c;
+        background-image: url('~@component-gallery/assets/image/tool-box/aquamarine/funcicon-bg.png');
+      }
+
+      i + i {
+        margin-left: px-to-rem(6);
+      }
+    }
+  }
+  .tab-header {
+    display: flex;
+    height: px-to-rem(48);
+    width: 100%;
+    font-size: px-to-rem(16);
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 600;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient( 270deg, rgba(234,244,255,0) 0%, #EAF4FF 53%, rgba(234,244,255,0) 100%);
+      opacity: 0.2;
+    }
+    .tab-item {
+      flex: 1;
+      text-align: center;
+      color: #0FC182;
+      line-height: px-to-rem(48);
+      cursor: pointer;
+      .tab-item-title-text {
+        text-shadow: 0px 0px 18px rgba(0,245,193,0.35);
+      }
+
+    }
+    .tab-item-title {
+      &.tab_active{
+        color: #fff;
+        position: relative;
+        .tab-item-title-text {
+          text-shadow: 0px 0px 18px rgba(0,245,193,0.7);
+          font-weight: 600;
+        }
+        &::after {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: px-to-rem(10);
+          content: '';
+          width: 100%;
+          background: url("~@component-gallery/assets/image/tab-bg.png");
+          background-size: 100% 100%;
+        }
+      }
+    }
+
+  }
+  .tab-content {
+    padding-bottom: px-to-rem(12);
+  }
+}
+.detail_window_pop_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &::before {
+    left: px-to-rem(12);
+  }
+  .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0px 0px 18px rgba(0,245,193,0.9);
+    color: #fff;
+  }
+  .right {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    .tips {
+      padding: 0 px-to-rem(8);
+      height: px-to-rem(20);
+      font-size: px-to-rem(12);
+      line-height: px-to-rem(20);
+      margin-right: px-to-rem(6);
+      text-align: center;
+      border-radius: px-to-rem(4);
+      background: linear-gradient( 90deg, #8FA7CF 0%, #6F85AA 100%);
+      &.active {
+        background: linear-gradient( 90deg, #15BD94 0%, #00A179 100%);
+      }
+    }
+    .icon {
+      font-size: px-to-rem(20);
+      &.active {
+        color: #F9FF6C;
+      }
+    }
+
+  }
+}

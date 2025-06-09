@@ -1,0 +1,43 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+/inspection_logs/
+/alarm-sysmanage-logs/
+/alarm_marketing_logs/
+/market_manage_logs/error/2023-10-17/error.2023-10-17.log
+/market_manage_logs/error.log
+/market_manage_logs/marketing-2023-10-17.0.log
+/market_manage_logs/marketing-2023-10-18.0.log
+/market_manage_logs/marketing-2023-10-19.0.log
+/market_manage_logs/marketing_log.log
+

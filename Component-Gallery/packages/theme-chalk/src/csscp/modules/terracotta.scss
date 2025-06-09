@@ -1,0 +1,821 @@
+@import "mixins/px-to-rem";
+
+// 国土黄
+$iw-popbg-color: rgb(23 20 11 / 90%);
+
+[data-theme="theme-terracotta"] .common-iw-s {
+  .el-tag,
+  .el-select__tags .el-tag.el-tag--info {
+    background-color: rgb(159 152 83 / 20%);
+    border-color: transparent;
+    color: #e4e7c1;
+
+    .el-tag__close.el-icon-close {
+      color: #e4e7c1;
+    }
+  }
+
+  // 工具提示覆写
+  &.el-tooltip__popper.is-dark {
+    background: #15130C;
+    color: var(--iw-text-color);
+
+    &[x-placement^="left"] .popper__arrow {
+      border-left-color: #15130C;
+
+      &::after {
+        border-left-color: #15130C;
+      }
+    }
+
+    &[x-placement^="top"] .popper__arrow {
+      border-top-color: #15130C;
+
+      &::after {
+        border-top-color: #15130C;
+      }
+      .popper__arrow:after {
+        border-bottom-color: #15130C;
+        /* 调整底部箭头颜色 */
+      }
+    }
+  }
+
+  // 输入框覆写
+  .el-input {
+    .el-input-group__prepend {
+      background-color: rgb(100 86 46 / 40%);
+    }
+
+    .el-input__inner {
+      background-color: rgb(100 86 46 / 40%);
+      color: #e4e7c1;
+
+      &:not([readonly], [disabled]) {
+        &:hover {
+          border-color: rgb(100 86 46 / 60%);
+        }
+
+        &:focus {
+          border-color: #FFEEB1;
+        }
+      }
+
+      &::placeholder {
+        color: rgb(228 231 193 / 60%);
+      }
+    }
+
+    &.is-focus {
+      .el-input__inner {
+        border-color: #FFEEB1;
+      }
+    }
+
+    &.is-disabled {
+      .el-input__inner {
+        background-color: rgb(100 86 46 / 40%);
+        border-color: transparent;
+      }
+    }
+  }
+
+  .el-input__inner {
+    background-color: rgb(100 86 46 / 40%);
+    color: #e4e7c1;
+
+    &:not([readonly], [disabled]) {
+      &:hover {
+        border-color: rgb(100 86 46 / 60%);
+      }
+
+      &:focus {
+        border-color: rgb(100 86 46 / 100%);
+      }
+    }
+
+    &::placeholder {
+      color: rgb(228 231 193 / 60%);
+    }
+  }
+
+  .el-textarea__inner {
+    background: rgb(100 86 46 / 40%);
+    border-color: transparent;
+    color: #e4e7c1;
+
+    &::placeholder {
+      color: rgb(228 231 193 / 60%);
+    }
+
+    &:not([readonly], [disabled]) {
+      &:hover {
+        border-color: rgb(100 86 46 / 60%);
+      }
+
+      &:focus {
+        border-color: rgb(100 86 46 / 100%);
+      }
+    }
+  }
+
+  // 按钮覆写
+  .el-button {
+    border: none;
+
+    &.el-button--default {
+      background: rgb(100 86 46 / 71%);
+      border: px-to-rem(1) solid rgb(100 86 46 / 100%);
+      color: #E4E7C1;
+    }
+
+    &.el-button--primary {
+      position: relative;
+      background: #64562E url("~@component-gallery/assets/image/common/terracotta/btn_primarybg.png") no-repeat 0 0 / 100% 100%;
+      border: none;
+      color: #E4E7C1;
+
+      &::before{
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: url("~@component-gallery/assets/image/common/terracotta/btn_l_t.png") no-repeat 0 0,
+          url("~@component-gallery/assets/image/common/terracotta/btn_l_b.png") no-repeat 0 100%,
+          url("~@component-gallery/assets/image/common/terracotta/btn_r_t.png") no-repeat 100% 0,
+          url("~@component-gallery/assets/image/common/terracotta/btn_r_b.png") no-repeat 100% 100%;
+        background-size: px-to-rem(8) px-to-rem(9);
+      }
+    }
+
+    &.el-button--danger {
+      background: url('~@component-gallery/assets/image/common/terracotta/btn-dangerbg.png');
+      background-size: 100% 100%;
+      border: none;
+      color: #FFEEB1;
+    }
+
+    &.el-button--text {
+      color: #FFEEB1;
+
+      &:hover,
+      &:focus {
+        color: #FFEEB1;
+      }
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+
+    &.is-disabled {
+      opacity: 0.4;
+    }
+  }
+
+  // 下拉框覆写
+  .el-select {
+    .el-input{
+      .el-select__caret.el-input__icon.el-icon-arrow-up::before {
+        color: #FFEEB1;
+      }
+
+      &.is-focus {
+        .el-input__inner {
+          border-color: #FFEEB1;
+        }
+      }
+    }
+
+    .el-input__inner,
+    .el-input__inner[readonly] {
+      color: var(--iw-text-color);
+
+      &::placeholder {
+        color: rgb(228 231 193 / 60%);
+      }
+    }
+
+    .el-input__inner {
+      &:focus {
+        border-color: rgb(122 113 61 / 100%);
+      }
+    }
+
+    &:hover {
+      .el-input__inner {
+        border-color: rgb(122 113 61 / 60%);
+      }
+    }
+  }
+
+  &.el-select-dropdown {
+    background: linear-gradient(0deg, #000 0%, #36301B 100%);
+    border: 1px solid #6E674E;
+
+    // 多选时，下拉的选中项目不需要背景色
+    &.is-multiple {
+      .el-select-dropdown__item {
+        .el-checkbox {
+          &.is-checked .el-checkbox__label {
+            color: #fffa28;
+          }
+
+          .el-checkbox__label {
+            color: #e4e7c1;
+          }
+        }
+      }
+    }
+
+    .el-select-dropdown__list {
+      padding: 0;
+    }
+
+    .el-select-dropdown__empty {
+      color: #e4e7c1;
+    }
+
+    .el-select-dropdown__item {
+      color: #e4e7c1;
+      font-weight: 400;
+
+      // 按照设计师要求，覆写el-select原本的滞留hover属性，只有严格悬停才会hover
+      &.hover {
+        background-color: transparent;
+
+        &:hover {
+          background-color: rgb(100 86 46 / 40%);
+        }
+      }
+
+      &:hover {
+        background-color: rgb(100 86 46 / 40%);
+      }
+
+      &.selected,
+      &.selected.hover {
+        background-color: rgb(100 86 46 / 40%);
+        color: #fffa28;
+
+        &.hover {
+          color: #fffa28;
+        }
+      }
+    }
+  }
+
+  // 单选框覆写
+  // 单选框覆写
+  .el-radio {
+    .el-radio__input {
+      .el-radio__inner {
+        background: transparent;
+        border-color: rgb(159 152 83 / 100%);
+      }
+
+      &.is-checked {
+        .el-radio__inner::after {
+          width: px-to-rem(6);
+          height: px-to-rem(6);
+          background-color: #fff;
+        }
+
+        .el-radio__inner {
+          background: rgb(159 152 83 / 100%);
+          border-color: rgb(159 152 83 / 100%);
+        }
+      }
+    }
+
+    &.is-checked {
+      .el-radio__label {
+        color: #E4E7C1;
+      }
+    }
+
+    .el-radio__label {
+      color: #E4E7C1;
+    }
+  }
+
+
+  // 复选框覆写
+  .el-checkbox {
+    .el-checkbox__label {
+      color: #e4e7c1;
+      font-weight: 400;
+    }
+
+    .el-checkbox__input {
+      .el-checkbox__inner {
+        background-color: transparent;
+        border: px-to-rem(1) solid #9f9853;
+      }
+
+      &.is-checked {
+        .el-checkbox__inner {
+          background-color: #9f9853;
+          border-color: #9f9853;
+        }
+
+        .el-checkbox__label {
+          color: #fffa28;
+        }
+      }
+
+      &.is-indeterminate {
+        .el-checkbox__inner {
+          background-color: #9f9853;
+          border-color: #9f9853;
+
+          &::before {
+            top: px-to-rem(6);
+            height: px-to-rem(4);
+          }
+        }
+      }
+    }
+  }
+
+  // 开关覆写
+  .el-switch {
+    span.el-switch__core {
+      background: rgb(100 86 46 / 71%);
+      border-color: rgb(100 86 46 / 71%);
+    }
+
+    &.is-checked {
+      span.el-switch__core {
+        background: rgb(159 152 83);
+        border-color: rgb(159 152 83);
+      }
+    }
+  }
+
+  // 颜色选择器覆写
+  &.el-color-picker__panel {
+    background: $iw-popbg-color;
+    border-color: rgb(100 86 46 / 100%);
+    border-radius: px-to-rem(8);
+
+    // 把颜色选择器的改为主按钮
+    .el-color-dropdown__btn.el-button--default {
+      position: relative;
+      background: radial-gradient(circle at 50% -250%, rgb(255 219 117 / 81%) 0, transparent 89%), linear-gradient(180deg, rgb(255 224 72 / 34%), rgb(255 241 126 / 10%));
+      border: none;
+      color: #FFEEB1;
+    }
+  }
+
+  // 时间选择器覆写
+  .el-date-editor {
+    i.iconfont_tools.icon-tongyong-shaixuanriqi {
+      color: #FFEEB1;
+    }
+
+    .el-range-input {
+      background: transparent;
+      color: var(--iw-text-color);
+      font-size: px-to-rem(14);
+    }
+
+    .el-range-separator {
+      width: px-to-rem(20);
+      color: var(--iw-text-color);
+      font-size: px-to-rem(14);
+    }
+
+    &.el-input__inner {
+      align-items: center;
+      background: rgb(100 86 46 / 40%);
+      border-color: transparent;
+    }
+
+    &:not(.is-disabled) {
+      .el-input__inner,
+      &.el-input__inner{
+        &:hover:not(.is-active) {
+          border-color: rgb(228 231 193 / 60%);
+        }
+
+        &.is-active,
+        &:focus,
+        &:active {
+          border-color: rgb(228 231 193 / 100%);
+
+          &:hover {
+            border-color: rgb(228 231 193 / 100%);
+          }
+        }
+      }
+    }
+  }
+
+  // 时间弹出面板覆写
+  &.el-date-picker.el-picker-panel,
+  &.el-date-range-picker.el-picker-panel {
+    background: $iw-popbg-color;
+    border-color: rgb(100 86 46 / 100%);
+
+    .el-date-picker__header,
+    .el-date-range-picker__header {
+      .el-picker-panel__icon-btn {
+        color: #FFEEB1;
+      }
+    }
+
+    .el-month-table,
+    .el-year-table {
+      td {
+        padding: px-to-rem(6) px-to-rem(3);
+      }
+
+      td .cell:hover {
+        background-color: rgb(159 152 83 / 100%);
+        border-radius: 0.15in; // 圆角半径是固定14px效果更好，但现在所有的px定义都会被转换成rem，因此用英寸单位等效绕过
+        color: rgb(228 231 193 / 100%);
+      }
+
+      td.current:not(.disabled) .cell {
+        background-color: #9F9853;
+        border-radius: 0.15in; // 圆角半径是固定14px效果更好，但现在所有的px定义都会被转换成rem，因此用英寸单位等效绕过
+        color: rgb(228 231 193 / 100%);
+      }
+
+      td.today .cell {
+        color: #FFFA28;
+      }
+
+      td.disabled .cell {
+        background-color: transparent;
+        color: rgb(255 255 255 / 70%);
+      }
+    }
+
+
+    .el-date-table {
+      padding: 0 px-to-rem(12) px-to-rem(12);
+      font-size: px-to-rem(14);
+
+      tr {
+        th {
+          text-align: center;
+          border-bottom: px-to-rem(1) solid rgb(228 231 193 / 20%);
+        }
+      }
+
+      th {
+        padding: 0;
+      }
+
+      td {
+        padding: 0;
+        height: px-to-rem(32);
+
+        &.prev-month,
+        &.next-month {
+          color: rgb(255 255 255 / 40%);
+        }
+
+        div {
+          height: px-to-rem(32);
+        }
+
+        span {
+          top: px-to-rem(2);
+          width: px-to-rem(28);
+          height: px-to-rem(28);
+          line-height: px-to-rem(28);
+        }
+
+        &.today {
+          span {
+            color: #FFFA28;
+          }
+        }
+
+        &.available {
+          color: #e4e7c1;
+        }
+
+        &.today.in-range {
+          span {
+            color: var(--iw-text-color);
+          }
+        }
+
+        &.start-date {
+          div {
+            margin-left: 0;
+          }
+        }
+
+        &.end-date {
+          div {
+            margin-right: 0;
+          }
+        }
+
+        &.disabled {
+          span {
+            color: rgb(228 231 193 / 40%);
+          }
+        }
+      }
+    }
+
+    .el-date-table td.available:hover {
+      color: #e4e7c1;
+
+      span {
+        background-color: #9F9853;
+      }
+    }
+
+    .el-date-table td.disabled div {
+      background-color: transparent;
+      color: #E4E7C1;
+    }
+
+    .el-date-table td.in-range div {
+      background-color: rgb(122 113 61 / 36%);
+    }
+
+    .el-date-table td.start-date span,
+    td.current:not(.disabled) span,
+    .el-date-table td.end-date span {
+      background: #9F9853;
+      color: #E4E7C1;
+      font-weight: normal;
+    }
+
+    .el-picker-panel__footer {
+      border-color: rgb(228 231 193 / 20%);
+
+      .el-button {
+        border: none;
+
+        &.el-button--text.el-picker-panel__link-btn {
+          background: rgb(100 86 46 / 71%);
+          border: px-to-rem(1) solid rgb(100 86 46 / 100%);
+          color: #FFEEB1;
+        }
+
+        &.el-button--default {
+          position: relative;
+          background: radial-gradient(circle at 50% -250%, rgb(255 219 117 / 81%) 0, transparent 89%), linear-gradient(180deg, rgb(255 224 72 / 34%), rgb(255 241 126 / 10%));
+          border: px-to-rem(1) solid;
+          color: #FFEEB1;
+          border-image: linear-gradient(180deg, rgb(255 238 177 / 39%), rgb(255 248 217 / 0%)) 1 1;
+        }
+      }
+    }
+  }
+
+  &.el-date-range-picker.el-picker-panel {
+    .el-picker-panel__content.el-date-range-picker__content {
+      &.is-left {
+        border-right: px-to-rem(1) solid rgb(228 231 193 / 20%);
+      }
+    }
+
+    .el-picker-panel *[slot="sidebar"], .el-picker-panel__sidebar {
+      width: px-to-rem(80);
+      border-right: px-to-rem(1) solid rgb(228 231 193 / 20%);
+
+      +.el-picker-panel__body {
+        margin-left: px-to-rem(80);
+      }
+    }
+
+    .popper__arrow {
+      display: none;
+    }
+
+    .el-date-range-picker__time-header {
+      border-color: #3D4756;
+
+      .el-icon-arrow-right {
+        color: #E8F3FE;
+      }
+    }
+
+    .el-picker-panel__sidebar {
+      padding-top: 0;
+      background: transparent;
+
+      .el-picker-panel__shortcut {
+        color: var(--iw-text-color);
+
+        &:hover {
+          background: rgb(122 113 61 / 40%);
+          border-right: px-to-rem(1) solid rgb(228 231 193 / 20%);
+        }
+      }
+    }
+  }
+
+  .el-time-panel,
+  &.el-time-panel {
+    background: rgb(23 20 11 / 90%);
+    border-color: rgb(110 103 78 / 100%);
+    border-radius: px-to-rem(8);
+
+    .el-time-spinner__item {
+      color: var(--iw-text-color);
+
+      &.active {
+        color: #fffa28;
+      }
+
+      &:hover:not(.disabled, .active) {
+        background-color: rgb(122 113 61 / 40%);
+      }
+    }
+
+    .el-time-panel__content::after, .el-time-panel__content::before {
+      border-color: rgb(228 231 193 / 20%);
+    }
+
+    .el-time-spinner__wrapper {
+      + .el-time-spinner__wrapper {
+        border-left: px-to-rem(1) solid rgb(228 231 193 / 20%);
+      }
+    }
+
+    .el-time-panel__btn {
+      color: var(--iw-text-color);
+
+      &.cancel {
+        background: rgb(100 86 46 / 71%);
+        border: px-to-rem(1) solid rgb(100 86 46 / 100%);
+        color: #FFEEB1;
+      }
+
+      &.confirm {
+        position: relative;
+        background: radial-gradient(circle at 50% -250%, rgb(255 219 117 / 81%) 0, transparent 89%), linear-gradient(180deg, rgb(255 224 72 / 34%), rgb(255 241 126 / 10%));
+        border: px-to-rem(1) solid;
+        color: #FFEEB1;
+        border-image: linear-gradient(180deg, rgb(255 238 177 / 39%), rgb(255 248 217 / 0%)) 1 1;
+      }
+    }
+
+    .el-time-panel__footer {
+      border-color: #3D4756;
+    }
+  }
+
+  // 表格覆写
+  .el-table{
+    // FIXME 看起来写在wrapper是通用应用原本就值得商榷的行为，待确认
+    .el-table__header-wrapper {
+      background: rgb(122 113 61 / 36%);
+      color: rgb(255 238 177);
+
+      th {
+        background: none;
+      }
+    }
+
+    &.el-table--enable-row-hover {
+      .el-table__body tr {
+        &:hover {
+          td {
+            background: rgb(122 113 61 / 36%);
+            color: #fffa28;
+          }
+        }
+      }
+    }
+  }
+
+  // 分页组件
+  .el-pagination.is-background.el-pagination--small,
+  .el-pagination {
+    .btn-prev, .btn-next {
+      background: none;
+      color: #e4e7c1;
+    }
+
+    li.number {
+      background-color: transparent;
+      border-radius: px-to-rem(4);
+      color: #e4e7c1;
+
+      &:not(.disabled):hover {
+        color: #fffa28;
+      }
+
+      &:not(.disabled).active {
+        background-color: #9e9755;
+
+        &:hover {
+          color: #e4e7c1;
+        }
+      }
+    }
+  }
+
+  // 表单覆写
+  // 对于国土来讲主要是整个换色
+  .el-form {
+    .el-form-item .el-form-item__label {
+      color: #e4e7c1;
+    }
+  }
+
+  // 加载中覆写
+  .el-loading-spinner {
+    .el-loading-text {
+      color: #e4e7c1;
+    }
+
+    i {
+      color: #e4e7c1;
+    }
+  }
+
+  // 进度条覆写
+  .el-slider {
+    .el-slider__runway {
+      background: rgb(228 231 193 / 20%);
+
+      .el-slider__bar {
+        background: linear-gradient( 270deg, #FFFA28 0%, rgb(255 250 40 / 0%) 100%);
+      }
+    }
+  }
+
+  .el-scrollbar__thumb {
+    background-color: rgb(255 238 177 / 40%);
+  }
+
+  // 其他普通滚动条使用保底的覆盖样式
+  ::-webkit-scrollbar,
+  &::-webkit-scrollbar {
+    width: 6px ;
+    height: 6px ;
+    border-radius: 3px ;
+  }
+
+  ::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(255 238 177 / 40%);
+    border: 0 ;
+    border-radius: 3px ;
+  }
+
+  ::-webkit-scrollbar-thumb:hover,
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(255 238 177 / 50%);
+  }
+
+  &.small-box-startTip {
+    display: flex;
+    align-items: center;
+    padding: px-to-rem(0) px-to-rem(12);
+    height: px-to-rem(24);
+    background-color: rgb(54 48 27 / 100%);
+    border-radius: 4px;
+    color: rgb(255 238 177 / 100%);
+    font-size: px-to-rem(12);
+  }
+
+  &.small-box-measureTip {
+    display: flex;
+    align-items: center;
+    padding: px-to-rem(0) px-to-rem(12);
+    background-color: rgb(54 48 27 / 100%);
+    border-radius: 4px;
+    color: rgb(255 238 177 / 100%);
+    font-size: px-to-rem(12);
+
+    .iconfont_tools {
+      padding: 0;
+    }
+
+    .distance {
+      display: flex;
+      align-items: center;
+      margin-right: px-to-rem(6);
+
+      // padding: 0 px-to-rem(5);
+      height: 100%;
+    }
+
+    .area {
+      padding: 0 px-to-rem(5);
+      margin-right: px-to-rem(6);
+    }
+
+    .iconfont {
+      cursor: pointer;
+    }
+  }
+}

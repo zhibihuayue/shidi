@@ -1,0 +1,12 @@
+{
+  "name": "@component-gallery/build-archive-upload",
+  "version": "1.0.0",
+  "description": "copy comp to a directory",
+  "main": "index.js",
+  "scripts": {
+    "archive": "node ./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

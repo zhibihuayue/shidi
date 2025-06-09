@@ -1,0 +1,19 @@
+{
+  "name": "@component-gallery/tinify-images",
+  "version": "0.0.1",
+  "description": "熊猫压缩工具,cli化化压缩图片",
+  "main": "entry/index.js",
+  "bin": {
+    "tinify-image": "bin/tinify.js"
+  },
+  "scripts": {
+    "tinify": "node ./install/index.js"
+  },
+  "author": "miyaliunian",
+  "license": "MIT",
+  "devDependencies": {
+    "progress": "^2.0.3",
+    "spinner": "^0.3.4",
+    "tinify": "1.7.1"
+  }
+}

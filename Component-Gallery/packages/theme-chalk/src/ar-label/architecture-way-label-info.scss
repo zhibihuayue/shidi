@@ -1,0 +1,208 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+@mixin architecture-way-label-info-class() {
+  .architecture-way-label {
+    width: 100%;
+    height: 100%;
+    .architecture-way-label-info {
+      //padding: px-to-rem(9) px-to-rem(12) 0;
+      &.info-padding {
+        padding: px-to-rem(9) px-to-rem(12) 0 px-to-rem(12);
+      }
+      .shopping-mall-label,.park-label{
+        .it-label {
+          width: px-to-rem(84);
+        }
+      }
+      .scenic-area-label{
+        .it-label {
+          width: px-to-rem(70);
+        }
+      }
+      .building-label, .school-label, .hospital-label, .bus-station, .tunnel-label, .bridge-label{
+        .it-label {
+          width: px-to-rem(98);
+        }
+      }
+      .toll-stationl-label{
+        .it-label {
+          width: px-to-rem(112);
+        }
+      }
+      .item {
+        font-size: px-to-rem(14);
+        display: flex;
+        line-height: px-to-rem(26);
+        padding: px-to-rem(0);
+        .it-label {
+          color: rgba(232, 243, 254, 0.70);
+          text-align: right;
+        }
+        .it-text {
+          color: #e8f2fe;
+          flex: 1;
+          word-break: keep-all;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          span {
+            display: block;
+            float: left;
+            word-break: keep-all;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+        .it-text-twoLine {
+          color: #e8f2fe;
+          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          /* 设置行数 */
+          -webkit-line-clamp: 2;
+        }
+      }
+      .device-imgs {
+        width: px-to-rem(344);
+        height: 100%;
+        position: relative;
+        padding: px-to-rem(9) 0 0;
+        .imgs {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+          border-radius: px-to-rem(8);
+          position: relative;
+          .img-lunbo {
+            height: 100%;
+            width: calc(px-to-rem(1000) * 100);
+            display: flex;
+            transform: translateX(0);
+            transition: transform 0.5s;
+            .item {
+              display: block;
+              height: 100%;
+              aspect-ratio: 16 / 9;
+              object-fit: cover;
+              border-radius: px-to-rem(8);
+              margin-right: px-to-rem(12);
+              overflow: hidden;
+              float: left;
+            }
+            img,
+            video {
+              display: block;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              -webkit-user-drag: none;
+            }
+          }
+          .turn-btn {
+            display: block;
+            width: px-to-rem(30);
+            height: px-to-rem(30);
+            text-align: center;
+            line-height: px-to-rem(30);
+            border-radius: 50%;
+            background: rgba(23, 37, 55, 0.80);
+            color: #e6f1fc;
+            font-size: px-to-rem(18);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 3;
+            &.prev {
+              left: px-to-rem(6);
+            }
+            &.next {
+              right: px-to-rem(6);
+            }
+            &.disabled {
+              cursor: not-allowed;
+              opacity: 0.5;
+            }
+          }
+          .big-btn {
+            display: block;
+            width: px-to-rem(30);
+            height: px-to-rem(30);
+            text-align: center;
+            line-height: px-to-rem(30);
+            border-radius: px-to-rem(4);
+            background: rgba(23, 37, 55, 0.90);
+            color: #e6f1fc;
+            font-size: px-to-rem(20);
+            position: absolute;
+            bottom: px-to-rem(6);
+            right: px-to-rem(6);
+            cursor: pointer;
+            z-index: 3;
+          }
+        }
+      }
+    }
+  }
+}
+[data-theme='theme-wiseblue'] {
+  // 睿智蓝
+  @include architecture-way-label-info-class;
+}
+
+[data-theme='theme-terracotta'] {
+  // 赤土黄
+  @include architecture-way-label-info-class;
+
+  .it-label {
+    color: rgba(228, 231, 193, 0.70) !important;
+  }
+  .it-text {
+    color: rgba(228, 231, 193, 1) !important;
+  }
+  .it-text-twoLine {
+    color: rgba(228, 231, 193, 1) !important;
+  }
+  .turn-btn {
+    background: rgba(21, 19, 12, 0.70) !important;
+    color: rgba(255, 238, 177, 1) !important;
+  }
+  .big-btn{
+    background: rgba(21, 19, 12, 0.70) !important;
+    color: rgba(255, 238, 177, 1) !important;
+  }
+
+}
+
+[data-theme='theme-aquamarine'] {
+  // 碧山绿
+  @include architecture-way-label-info-class;
+  .it-label {
+    color: rgba(255, 255, 255, 0.70) !important;
+  }
+  .it-text {
+    color: rgba(255, 255, 255, 1) !important;
+  }
+  .it-text-twoLine {
+    color: rgba(255, 255, 255, 1) !important;
+  }
+  .turn-btn {
+    background: rgba(2, 50, 32, 0.7) !important;
+    color: rgba(255, 255, 255, 1) !important;
+  }
+  .big-btn{
+    background-image: url('~@component-gallery/assets/image/ar-label/big-btn.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background: rgba(0,0,0,0);
+    color: rgba(255, 255, 255, 1) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

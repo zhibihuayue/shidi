@@ -1,0 +1,587 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.accuracy-today-alarms {
+  &-container {
+    width: px-to-rem(370);
+
+    &__mainBox {
+      display: flex;
+      margin-top: px-to-rem(12);
+      width: px-to-rem(370);
+
+      .leftBox {
+        width: px-to-rem(218);
+        height: px-to-rem(168);
+
+        .lineBar {
+          position: absolute;
+          bottom: px-to-rem(6);
+          left: px-to-rem(12);
+          display: flex;
+          width: px-to-rem(194);
+          height: px-to-rem(10);
+
+          div {
+            margin-top: px-to-rem(3);
+            height: px-to-rem(4);
+          }
+
+          span {
+            position: absolute;
+            top: px-to-rem(-3);
+            right: px-to-rem(0);
+            width: px-to-rem(5);
+            height: px-to-rem(10);
+            background: #fff;
+            transform: skewX(-20deg) translateX(50%);
+          }
+
+          .leftLine {
+            position: relative;
+          }
+
+          .rightLine {
+            flex: 1;
+            opacity: 0.4;
+          }
+
+          &.colorReal {
+            span {
+              background: #fff;
+            }
+
+            .leftLine {
+            }
+
+            .rightLine {
+            }
+          }
+
+          &.colorRepeat {
+            span {
+              background: #fff;
+            }
+
+            .leftLine {
+            }
+
+            .rightLine {
+            }
+          }
+
+          &.colorFalse {
+            span {
+              background: #fff;
+            }
+
+            .leftLine {
+            }
+
+            .rightLine {
+            }
+          }
+        }
+
+        .alarm {
+          position: relative;
+          width: px-to-rem(218);
+          height: px-to-rem(52);
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+
+          &.realAlarm {
+          }
+
+          &.repeatAlarm {
+            margin-top: px-to-rem(6);
+          }
+
+          &.falseAlarm {
+            margin-top: px-to-rem(6);
+          }
+        }
+
+        .title {
+          position: absolute;
+          top: px-to-rem(12);
+          left: px-to-rem(46);
+          font-size: px-to-rem(14);
+        }
+
+        .num {
+          position: absolute;
+          top: px-to-rem(6);
+          right: px-to-rem(12);
+          overflow: hidden;
+          width: px-to-rem(50);
+          height: px-to-rem(24);
+          font-size: px-to-rem(20);
+          text-align: center;
+          white-space: nowrap;
+          font-family: PingFangSC, PingFang SC;
+          font-weight: 600;
+
+          @keyframes marquee {
+            0% {
+              transform: translateX(10%);
+            }
+
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+
+          span {
+            position: absolute;
+            right: 0;
+            will-change: transform; /* 优化动画性能 */
+          }
+
+          .realAlarmCount {
+            animation: marquee var(--animation-duration1) linear infinite;
+          }
+
+          .repeatAlarmCount {
+            animation: marquee var(--animation-duration2) linear infinite;
+          }
+
+          .falseAlarmCount {
+            animation: marquee var(--animation-duration3) linear infinite;
+          }
+        }
+      }
+
+      .rightBox {
+        position: relative;
+        margin-left: px-to-rem(6);
+        width: px-to-rem(146);
+        height: px-to-rem(168);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        .topSp1 {
+          position: absolute;
+          top: px-to-rem(16);
+          left: px-to-rem(52);
+          font-size: px-to-rem(14);
+        }
+
+        .topSp2 {
+          position: absolute;
+          top: px-to-rem(16);
+          left: px-to-rem(96);
+          width: px-to-rem(20);
+          height: px-to-rem(20);
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          cursor: pointer;
+          background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/iconAsk.png');
+        }
+
+        .bottomSp1 {
+          position: absolute;
+          top: px-to-rem(42);
+          right: px-to-rem(56);
+          font-size: px-to-rem(30);
+          font-weight: px-to-rem(500);
+        }
+
+        .bottomSp2 {
+          position: absolute;
+          top: px-to-rem(58);
+          left: px-to-rem(100);
+          font-size: px-to-rem(14);
+        }
+      }
+    }
+  }
+}
+
+// 通用
+[data-theme='theme-wiseblue'] .accuracy-today-alarms {
+  &-container {
+    &__mainBox {
+      .leftBox {
+        .lineBar {
+          &.colorReal {
+            span {
+              box-shadow: 0 0 7px 0 rgb(118 206 255 / 70%);
+            }
+
+            .leftLine {
+              background: linear-gradient(
+                270deg,
+                #2c8cff 0%,
+                rgb(19 115 230 / 3%) 100%
+              );
+            }
+
+            .rightLine {
+              background: linear-gradient(
+                270deg,
+                #4e85d1 0%,
+                rgb(78 133 209 / 3%) 100%
+              );
+            }
+          }
+
+          &.colorRepeat {
+            span {
+              box-shadow: 0 0 7px 0 rgb(118 255 233 / 70%);
+            }
+
+            .leftLine {
+              background: linear-gradient(
+                270deg,
+                #41c48d 0%,
+                rgb(46 255 245 / 10%) 100%
+              );
+            }
+
+            .rightLine {
+              background: linear-gradient(
+                270deg,
+                #02896d 0%,
+                rgb(2 137 109 / 24%) 100%
+              );
+            }
+          }
+
+          &.colorFalse {
+            span {
+              box-shadow: 0 0 7px 0 rgb(255 176 112 / 70%);
+            }
+
+            .leftLine {
+              background: linear-gradient(
+                270deg,
+                #fb9d3c 0%,
+                rgb(251 157 60 / 3%) 100%
+              );
+            }
+
+            .rightLine {
+              background: linear-gradient(
+                270deg,
+                #fb913c 0%,
+                rgb(222 138 70 / 3%) 100%
+              );
+            }
+          }
+        }
+
+        .alarm {
+          &.realAlarm {
+            background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/wiseblue/realAlarm.png');
+          }
+
+          &.repeatAlarm {
+            background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/wiseblue/repeatAlarm.png');
+          }
+
+          &.falseAlarm {
+            background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/wiseblue/falseAlarm.png');
+          }
+        }
+
+        .title {
+          color: #e8f3fe;
+        }
+
+        .num {
+          color: #fff;
+
+          .realAlarmCount {
+            text-shadow: 0 1px 4px #4e85d1;
+          }
+
+          .repeatAlarmCount {
+            text-shadow: 0 1px 4px #4adcd4;
+          }
+
+          .falseAlarmCount {
+            text-shadow: 0 1px 4px #fb913c;
+          }
+        }
+      }
+
+      .rightBox {
+        background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/wiseblue/accuracy.png');
+
+        .topSp1 {
+          color: #fff;
+        }
+
+        .bottomSp1 {
+          text-shadow: px-to-rem(0) px-to-rem(0) px-to-rem(13) #4ffff4;
+          color: #fff;
+        }
+
+        .bottomSp2 {
+          color: rgb(232 243 254 / 70%);
+        }
+      }
+    }
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .accuracy-today-alarms {
+  &-container {
+    &__mainBox {
+      .leftBox {
+        .lineBar {
+          &.colorReal {
+            span {
+              box-shadow: 0 0 7px 0 #2efff5;
+            }
+
+            .leftLine {
+              background: linear-gradient(
+                270deg,
+                #34ffaa 0%,
+                rgb(78 209 200 / 3%) 100%
+              );
+              opacity: 0.97;
+            }
+
+            .rightLine {
+              background: linear-gradient(
+                270deg,
+                #0dc985 0%,
+                rgb(13 201 133 / 3%) 100%
+              );
+              opacity: 0.3;
+            }
+          }
+
+          &.colorRepeat {
+            span {
+              box-shadow: 0 0 7px 0 rgb(49 169 255 / 70%);
+            }
+
+            .leftLine {
+              background: linear-gradient(
+                270deg,
+                #31a9ff 0%,
+                rgb(49 169 255 / 10%) 100%
+              );
+            }
+
+            .rightLine {
+              background: linear-gradient(
+                270deg,
+                #0065ad 0%,
+                rgb(0 81 140 / 24%) 100%
+              );
+              opacity: 0.4;
+            }
+          }
+
+          &.colorFalse {
+            span {
+              box-shadow: 0 0 7px 0 rgb(255 176 112 / 70%);
+            }
+
+            .leftLine {
+              background: linear-gradient(
+                270deg,
+                #f9ff6c 0%,
+                rgb(249 255 108 / 3%) 100%
+              );
+            }
+
+            .rightLine {
+              background: linear-gradient(
+                270deg,
+                #f9ff6c 0%,
+                rgb(249 255 108 / 3%) 100%
+              );
+              opacity: 0.3;
+            }
+          }
+        }
+
+        .alarm {
+          &.realAlarm {
+            background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/aquamarine/realAlarm.png');
+          }
+
+          &.repeatAlarm {
+            background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/aquamarine/repeatAlarm.png');
+          }
+
+          &.falseAlarm {
+            background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/aquamarine/falseAlarm.png');
+          }
+        }
+
+        .title {
+          color: #fff;
+        }
+
+        .num {
+          color: #fff;
+
+          .realAlarmCount {
+            text-shadow: 0 1px 4px #0dc985;
+          }
+
+          .repeatAlarmCount {
+            text-shadow: 0 1px 4px #31a9ff;
+          }
+
+          .falseAlarmCount {
+            text-shadow: 0 1px 4px #f9ff6c;
+          }
+        }
+      }
+
+      .rightBox {
+        background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/aquamarine/accuracy.png');
+
+        .topSp1 {
+          color: #fff;
+        }
+
+        .bottomSp1 {
+          text-shadow: 0 0 13px #0dc985;
+          color: #fff;
+        }
+
+        .bottomSp2 {
+          color: rgb(255 255 255 / 70%);
+        }
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .accuracy-today-alarms {
+  &-container {
+    &__mainBox {
+      .leftBox {
+        .lineBar {
+          &.colorReal {
+            span {
+              box-shadow: 0 0 7px 0 rgb(118 206 255 / 70%);
+            }
+
+            .leftLine {
+              background: linear-gradient(
+                270deg,
+                #ddc52c 0%,
+                rgb(221 197 44 / 3%) 100%
+              );
+            }
+
+            .rightLine {
+              background: #ffe048;
+              opacity: 0.24;
+            }
+          }
+
+          &.colorRepeat {
+            span {
+              box-shadow: 0 0 7px 0 rgb(118 255 233 / 70%);
+            }
+
+            .leftLine {
+              background: linear-gradient(
+                270deg,
+                #b6ff58 0%,
+                rgb(182 255 88 / 10%) 100%
+              );
+            }
+
+            .rightLine {
+              background: linear-gradient(
+                270deg,
+                #02896d 0%,
+                rgb(2 137 109 / 24%) 100%
+              );
+              opacity: 0.4;
+            }
+          }
+
+          &.colorFalse {
+            span {
+              box-shadow: 0 0 7px 0 rgb(255 176 112 / 70%);
+            }
+
+            .leftLine {
+              background: linear-gradient(
+                270deg,
+                #fb9d3c 0%,
+                rgb(251 157 60 / 3%) 100%
+              );
+            }
+
+            .rightLine {
+              background: linear-gradient(
+                270deg,
+                #fb913c 0%,
+                rgb(222 138 70 / 3%) 100%
+              );
+              opacity: 0.4;
+            }
+          }
+        }
+
+        .alarm {
+          &.realAlarm {
+            background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/terracotta/realAlarm.png');
+          }
+
+          &.repeatAlarm {
+            background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/terracotta/repeatAlarm.png');
+          }
+
+          &.falseAlarm {
+            background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/terracotta/falseAlarm.png');
+          }
+        }
+
+        .title {
+          color: #e4e7c1;
+        }
+
+        .num {
+          color: #fff;
+
+          .realAlarmCount {
+            text-shadow: 0 1px 4px #caae5d;
+          }
+
+          .repeatAlarmCount {
+            text-shadow: 0 1px 4px #b6ff58;
+          }
+
+          .falseAlarmCount {
+            text-shadow: 0 1px 4px #fb913c;
+          }
+        }
+      }
+
+      .rightBox {
+        background-image: url('~@component-gallery/assets/image/accuracy-today-alarms/terracotta/accuracy.png');
+
+        .topSp1 {
+          color: #e4e7c1;
+        }
+
+        .bottomSp1 {
+          text-shadow: 0 0 13px #dcd277;
+          color: #fff;
+        }
+
+        .bottomSp2 {
+          color: rgb(228 231 193 / 70%);
+        }
+      }
+    }
+  }
+}

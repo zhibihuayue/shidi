@@ -1,0 +1,55 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.simple-pagination-container {
+  @include themeify() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: px-to-rem(12) 0;
+
+    ::v-deep .button {
+      border: none;
+      color: #e8f2fe;
+      padding: 0 px-to-rem(5);
+      margin: 0;
+      background: none;
+      font-size: px-to-rem(12);
+      line-height: px-to-rem(22);
+      height: px-to-rem(22);
+      min-width: px-to-rem(22);
+
+      .el-icon-arrow-right,
+      .el-icon-arrow-left {
+        display: block;
+        font-size: px-to-rem(12);
+        font-weight: 700;
+      }
+    }
+
+    .pager {
+      margin: 0 px-to-rem(4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      .text {
+        color: #e8f2fe;
+        border: none;
+        margin: 0 px-to-rem(2);
+        background: none;
+        font-size: px-to-rem(12);
+        line-height: px-to-rem(22);
+        height: px-to-rem(22);
+        min-width: px-to-rem(22);
+
+        &.active {
+          background: #4f9fff;
+          border-radius: px-to-rem(4);
+        }
+      }
+    }
+  }
+}

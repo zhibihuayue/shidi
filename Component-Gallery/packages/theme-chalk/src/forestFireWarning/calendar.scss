@@ -1,0 +1,466 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.common-comp-fire-warning_func_area {
+  @include themeify(false) {
+    .warn-calendar {
+      position: fixed;
+      top: px-to-rem(278);
+      right: px-to-rem(415);
+      width: px-to-rem(338);
+      height: px-to-rem(398);
+      @if $theme-name != 'theme-aquamarine' {
+        border-radius: px-to-rem(8);
+      }
+
+      ::v-deep .el-calendar-table {
+        border-collapse: collapse;
+      }
+
+      .title-box {
+        height: px-to-rem(48);
+        line-height: px-to-rem(48);
+        color: none;
+        font-size: px-to-rem(16);
+
+        .name {
+          overflow: hidden;
+          width: px-to-rem(338);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-weight: 600;
+        }
+
+        .el-icon-arrow-up {
+          float: right;
+          margin-left: px-to-rem(13);
+          cursor: pointer;
+        }
+        .fullName {
+          margin-left: px-to-rem(-5);
+          padding-left: px-to-rem(5);
+          width: 100%;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          text-shadow: themed('alarm-list-popup-title-text-shadow');
+          font-weight: 600;
+        }
+      }
+
+      .close-btn {
+        // 关闭按钮
+        position: absolute;
+        top: px-to-rem(-19);
+        right: px-to-rem(-19);
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        background: themed('base-card-close-bg');
+        background-size: 100% 100%;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .calendar_header {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+        font-size: px-to-rem(20);
+        .el-input {
+          width: px-to-rem(178);
+          text-align: center;
+
+          ::v-deep .el-input__inner {
+            padding-left: px-to-rem(17);
+            width: px-to-rem(122);
+            background: none;
+            border: none;
+            color: themed('fire-warning-list-color-label');
+            cursor: pointer;
+            caret-color: transparent;
+            font-weight: 500;
+          }
+
+          ::v-deep .el-input__prefix {
+            display: none;
+          }
+        }
+
+        .icon-box-left {
+          margin-left: px-to-rem(12);
+          color: themed('track-popup-attribute-attrLabel');
+          display: flex;
+          align-self: center;
+          .el-icon-d-arrow-left {
+            font-family: 'iconfont_tools' !important;
+            color: themed('fire-warning-list-color-label');
+            &::before {
+              content: '\ea80';
+            }
+          }
+          .el-icon-arrow-left {
+            font-family: 'iconfont_tools' !important;
+            color: themed('fire-warning-list-color-label');
+            &::before {
+              content: '\ea49';
+            }
+          }
+        }
+
+        .icon-box-right {
+          margin-right: px-to-rem(12);
+          display: flex;
+          align-self: center;
+          .el-icon-d-arrow-right {
+            font-family: 'iconfont_tools' !important;
+            color: themed('fire-warning-list-color-label');
+            &::before {
+              content: '\ea47';
+            }
+          }
+          .el-icon-arrow-right {
+            font-family: 'iconfont_tools' !important;
+            color: themed('fire-warning-list-color-label');
+            &::before {
+              content: '\ea7e';
+            }
+          }
+        }
+
+        .icon-zuojiantou1,
+        .icon-youjiantou1,
+        .icon-shuangjiantou,
+        .icon-shouqi {
+          width: px-to-rem(15);
+          color: themed('fire-warning-list-color-label');
+          font-size: px-to-rem(12);
+          cursor: pointer;
+          font-weight: bold;
+        }
+
+        .head-month {
+          margin: 0 px-to-rem(5);
+          color: themed('fire-warning-list-color-label');
+          font-size: px-to-rem(14);
+          display: flex;
+          align-self: center;
+        }
+      }
+
+      .my-calendar-table-title {
+        display: flex;
+        padding: 0 px-to-rem(12);
+        height: px-to-rem(32);
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(32);
+
+        div {
+          padding: 0;
+          margin: 0 px-to-rem(1) 0 0;
+          width: 100%;
+          background: none;
+          color: themed('fire-warning-list-color-label');
+          text-align: center;
+          font-weight: 500;
+        }
+
+        div:first-child {
+          margin-left: px-to-rem(1);
+        }
+      }
+      .calendar-border {
+        width: px-to-rem(314);
+        height: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        margin: 0 auto;
+        margin-bottom: px-to-rem(2);
+      }
+    }
+
+    .calendar {
+      padding: 0 px-to-rem(12);
+      margin-top: 0;
+
+      ::v-deep .el-calendar__header {
+        display: none;
+      }
+
+      ::v-deep .el-calendar__body {
+        padding: 0;
+      }
+
+      ::v-deep .el-calendar-table {
+        & tr:first-child td {
+          border-top: px-to-rem(1) solid rgb(255 255 255 / 0%);
+        }
+
+        & tr td:first-child {
+          border-left: px-to-rem(1) solid rgb(255 255 255 / 0%);
+        }
+
+        & td {
+          border-right: px-to-rem(1) solid rgb(255 255 255 / 0%);
+          border-bottom: px-to-rem(1) solid rgb(255 255 255 / 0%);
+          // color: themed('fire-warning-list-color-label') !important;
+        }
+
+        thead {
+          display: none;
+          padding: 0 px-to-rem(1);
+          height: px-to-rem(24);
+          font-size: px-to-rem(14);
+
+          th {
+            padding: 0;
+            background: rgb(255 255 255 / 30%);
+            color: themed('fire-warning-list-color-label');
+            text-align: center;
+            font-weight: 500;
+            border-right: px-to-rem(1) solid rgb(1 20 13 / 100%);
+            border-bottom: px-to-rem(1) solid rgb(1 20 13 / 100%);
+          }
+        }
+
+        .el-calendar-day {
+          position: relative;
+          padding: 0;
+          text-align: center;
+
+          .dateCellClass {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            border-radius: px-to-rem(4);
+            flex-direction: column;
+            color: themed('fire-warning-list-color-label');
+
+            .border {
+              position: absolute;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+
+            &.is-not-this-month {
+              color: themed('fire-warning-calendar-not-month');
+            }
+
+            &.orange,
+            .levelFlag.orange {
+              background: rgb(254 152 30 / 10%);
+              color: rgb(254 152 30 / 100%);
+              font-weight: 400;
+            }
+
+            &.red,
+            .levelFlag.red {
+              background: rgb(255 67 67 / 10%);
+              color: rgb(255 67 67 / 100%);
+              font-weight: 400;
+            }
+
+            &.yellow,
+            .levelFlag.yellow {
+              background: rgb(249 255 108 / 10%);
+              color: rgb(249 255 108 / 100%);
+              font-weight: 400;
+            }
+
+            &.blue,
+            .levelFlag.blue {
+              background: rgb(49 203 255 / 10%);
+              color: rgb(49 203 255 / 100%);
+              font-weight: 400;
+            }
+
+            &.flag .level {
+              width: 100%;
+            }
+          }
+
+          .dateCellContent {
+            position: absolute;
+            top: px-to-rem(2);
+            left: 50%;
+            font-size: px-to-rem(14);
+            font-weight: 500;
+            transform: translateX(-50%);
+          }
+        }
+
+        .is-selected {
+          background-color: transparent;
+        }
+
+        .is-today {
+          .dateCellClass {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            border-radius: px-to-rem(4);
+            flex-direction: column;
+
+            .border {
+              position: absolute;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+
+            &.orange,
+            .levelFlag.orange {
+              background: rgb(254 152 30 / 20%);
+              box-shadow: inset 0 0 px-to-rem(4) 0 rgb(254 152 30 / 100%);
+            }
+
+            &.red,
+            .levelFlag.red {
+              background: rgb(255 67 67 / 20%);
+              box-shadow: inset 0 0 px-to-rem(4) 0 rgb(255 67 67 / 100%);
+            }
+
+            &.yellow,
+            .levelFlag.yellow {
+              background: rgb(249 255 108 / 20%);
+              box-shadow: inset 0 0 px-to-rem(4) 0 rgb(249 255 108 / 100%);
+            }
+
+            &.blue,
+            .levelFlag.blue {
+              background: rgb(49 203 255 / 20%);
+              box-shadow: inset 0 0 px-to-rem(4) 0 rgb(49 203 255 / 100%);
+            }
+          }
+        }
+      }
+
+      .flag {
+        position: absolute;
+        bottom: px-to-rem(2);
+        left: 50%;
+        display: flex;
+        padding: 0 px-to-rem(2);
+        width: 100%;
+        height: px-to-rem(20);
+        color: themed('fire-warning-list-color-label');
+        font-size: px-to-rem(12);
+        white-space: nowrap;
+        transform: translateX(-50%);
+
+        &::after {
+          display: inline-block;
+          clear: both;
+          content: '';
+        }
+
+        .circle {
+          display: inline-block;
+          margin-bottom: px-to-rem(3);
+          width: px-to-rem(2);
+          height: px-to-rem(2);
+          background: #ff6a6c;
+          border-radius: 50%;
+        }
+
+        .level {
+          display: inline-block;
+          width: 100%;
+          height: px-to-rem(20);
+          line-height: px-to-rem(20);
+        }
+      }
+
+      .levelFlag {
+        position: absolute;
+        bottom: 0;
+
+        // width: px-to-rem(37);
+        width: 100%;
+        height: px-to-rem(20);
+        color: themed('fire-warning-list-color-label');
+        font-size: px-to-rem(12);
+        text-align: center;
+        white-space: nowrap;
+
+        .level {
+          display: inline-block;
+          height: px-to-rem(12);
+          line-height: px-to-rem(20);
+          font-size: px-to-rem(12);
+        }
+      }
+    }
+
+    ::v-deep .el-calendar-table td.current .dateCellClass {
+      color: themed('fire-warning-list-color-label') !important;
+    }
+
+    ::v-deep .el-calendar-table td.prev .dateCellClass,
+    ::v-deep .el-calendar-table td.next .dateCellClass {
+      color: themed('fire-warning-list-color-label') !important;
+    }
+
+    .showDetail {
+      padding-top: px-to-rem(37);
+      padding-bottom: px-to-rem(40);
+      padding-left: px-to-rem(33);
+      margin-bottom: px-to-rem(80);
+      background: #ecf6ff;
+
+      .row {
+        display: flex;
+
+        &:not(:last-child) {
+          margin-bottom: px-to-rem(15);
+        }
+
+        .left,
+        .right {
+          display: flex;
+        }
+
+        .left {
+          margin-right: px-to-rem(50);
+
+          .cLabel {
+            width: px-to-rem(220);
+          }
+
+          .value {
+            width: px-to-rem(64);
+          }
+        }
+      }
+
+      .el-col {
+        display: flex;
+      }
+
+      .label {
+        display: inline-block;
+        min-width: px-to-rem(112);
+        color: rgb(0 0 0 / 65%);
+        text-align: right;
+      }
+
+      .cLabel {
+        color: rgb(0 0 0 / 65%);
+      }
+    }
+
+    .warn-calendar .el-calendar {
+      background: none !important;
+    }
+
+    .warn-calendar ::v-deep .el-calendar-table .el-calendar-day {
+      height: px-to-rem(44);
+      background: none;
+    }
+  }
+}

@@ -1,0 +1,286 @@
+@import "mixins/px-to-rem";
+
+// 通用
+.resource-statistics {
+  &-container{
+    --area-title-shadow-color: #4F9FFF;
+    --area-value-shadow-color: rgb(79 159 255 / 30%);
+    --small-title-shadow-color: #6CFFF5;
+    --small-value-shadow-color: rgb(108 255 245 / 30%);
+    --level-Tips-shadow-color: #4F9FFF;
+    --data-value-color: #E8F3FE;
+    --data-value-shadow-color: #4E85D1;
+
+    width: px-to-rem(370);
+    height: px-to-rem(288);
+  }
+
+  &-count{
+    display: flex;
+    margin-top: px-to-rem(12);
+    font-size: px-to-rem(14);
+
+    &__area{
+      padding-top: px-to-rem(15);
+      padding-left: px-to-rem(74);
+      width: px-to-rem(182);
+      height: px-to-rem(69);
+      background: url('~@component-gallery/assets/image/resource-statistics/ty/area-img.png') no-repeat center/contain;
+    }
+
+    &__areaTitle{
+      margin-bottom: px-to-rem(14);
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) var(--area-title-shadow-color);
+      font-weight: 500;
+      line-height: px-to-rem(14);
+    }
+
+    .area{
+      overflow: hidden;
+      max-width: .8rem;
+      text-shadow: 0 0 px-to-rem(8) var(--area-value-shadow-color);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .smallNum {
+      overflow: hidden;
+      max-width: .8rem;
+      text-shadow: 0 0 px-to-rem(8) var(--area-small-shadow-color);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    &__areaValue{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: px-to-rem(24);
+
+      span{
+        margin-left: px-to-rem(2);
+        opacity: 0.7;
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(14);
+        font-weight: 500;
+      }
+    }
+
+    &__small{
+      padding-top: px-to-rem(15);
+      padding-left: px-to-rem(74);
+      margin-left: px-to-rem(6);
+      width: px-to-rem(182);
+      height: px-to-rem(70);
+      background: url('~@component-gallery/assets/image/resource-statistics/ty/number-img.png') no-repeat center/contain;
+    }
+
+    &__smallTitle{
+      margin-bottom: px-to-rem(14);
+      text-shadow: 0 px-to-rem(1) px-to-rem(4) var(--small-title-shadow-color);
+      font-weight: 500;
+      line-height: px-to-rem(14);
+    }
+  }
+
+  &-body{
+    position: relative;
+    display: flex;
+    padding: px-to-rem(6) px-to-rem(12) 0;
+    margin-top: px-to-rem(6);
+    width: px-to-rem(370);
+    height: px-to-rem(140);
+    background: url('~@component-gallery/assets/image/resource-statistics/ty/bottom-bg.png') no-repeat no-repeat center/100%;
+    font-size: px-to-rem(12);
+    line-height: px-to-rem(12);
+
+    &__levelTips{
+      padding-top: px-to-rem(68);
+      margin-top: px-to-rem(17);
+      margin-right: px-to-rem(24);
+      width: px-to-rem(86);
+      height: px-to-rem(93);
+      background: url('~@component-gallery/assets/image/resource-statistics/ty/left-img.png') no-repeat center/100%;
+
+      div {
+        display: flex;
+        align-items: center;
+        background-size: contain;
+        text-shadow: 0 px-to-rem(1) px-to-rem(4) var(--level-Tips-shadow-color);
+        color: #fff;
+        font-size: px-to-rem(14);
+        font-weight: 500;
+        line-height: px-to-rem(14);
+      }
+    }
+
+    &__data{
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      padding-left: px-to-rem(32);
+      width: px-to-rem(235);
+      height: px-to-rem(20);
+      opacity: 0.96;
+      font-size: px-to-rem(14);
+
+      &+& {
+        margin-top: px-to-rem(12);
+      }
+    }
+
+    &__group{
+      display: flex;
+      justify-content: center;
+      padding: px-to-rem(11) 0;
+      flex-direction: column;
+    }
+
+    &__dataBg{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: px-to-rem(235);
+      height: px-to-rem(20);
+      background: url('~@component-gallery/assets/image/resource-statistics/ty/list-bg-1.png') no-repeat 0 0/auto 100%;
+
+      &.index_2{
+        background-image: url('~@component-gallery/assets/image/resource-statistics/ty/list-bg-2.png');
+      }
+
+      &.index_3{
+        background-image: url('~@component-gallery/assets/image/resource-statistics/ty/list-bg-3.png');
+      }
+
+      &.index_4{
+        background-image: url('~@component-gallery/assets/image/resource-statistics/ty/list-bg-4.png');
+      }
+    }
+
+    &__level{
+      display: flex;
+
+      > div {
+        font-weight: 500;
+      }
+
+      img {
+        margin-right: px-to-rem(9);
+        width: px-to-rem(14);
+        height: px-to-rem(14);
+      }
+    }
+
+    &__levelInfo{
+      display: flex;
+
+      .levelValue{
+        text-shadow: 0 0 px-to-rem(8) var(--data-value-shadow-color);
+        color: var(--data-value-color);
+        font-weight: 500;
+      }
+
+      .levelUnit {
+        width: px-to-rem(36);
+        opacity: 0.7;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// 林业
+[data-theme="theme-aquamarine"] .resource-statistics{
+  &-container{
+    --area-title-shadow-color: #24AB83;
+    --area-value-shadow-color: rgb(0 245 193 / 30%);
+    --small-title-shadow-color: #F9FF6C;
+    --small-value-shadow-color: rgb(249 255 108 / 30%);
+    --level-Tips-shadow-color: #24AB83;
+    --data-value-color: #fff;
+    --data-value-shadow-color: #0DC985;
+  }
+
+  &-count{
+    &__area{
+      background-image: url('~@component-gallery/assets/image/resource-statistics/ly/area-img.png');
+    }
+
+    &__small{
+      background-image: url('~@component-gallery/assets/image/resource-statistics/ly/number-img.png');
+    }
+  }
+
+  &-body{
+    background-image: url('~@component-gallery/assets/image/resource-statistics/ly/bottom-bg.png');
+
+    &__levelTips{
+      background-image: url('~@component-gallery/assets/image/resource-statistics/ly/left-img.png');
+    }
+
+    &__dataBg{
+      background: url('~@component-gallery/assets/image/resource-statistics/ly/list-bg-1.png') no-repeat 0 0/auto 100%;
+
+      &.index_2{
+        background-image: url('~@component-gallery/assets/image/resource-statistics/ly/list-bg-2.png');
+      }
+
+      &.index_3{
+        background-image: url('~@component-gallery/assets/image/resource-statistics/ly/list-bg-3.png');
+      }
+
+      &.index_4{
+        background-image: url('~@component-gallery/assets/image/resource-statistics/ly/list-bg-4.png');
+      }
+    }
+  }
+}
+
+
+// 国土
+[data-theme="theme-terracotta"] .resource-statistics{
+  &-container{
+    --area-title-shadow-color: #A3F500;
+    --area-value-shadow-color: rgb(163 245 0 / 30%);
+    --small-title-shadow-color: #FFFA28;
+    --small-value-shadow-color: rgb(255 250 40 / 30%);
+    --level-Tips-shadow-color: #FFFA28;
+    --data-value-color: #FFFA28;
+    --data-value-shadow-color: #DCD277;
+  }
+
+  &-count{
+    &__area{
+      background-image: url('~@component-gallery/assets/image/resource-statistics/gt/area-img.png');
+    }
+
+    &__small{
+      background-image: url('~@component-gallery/assets/image/resource-statistics/gt/number-img.png');
+    }
+  }
+
+  &-body{
+    background-image: url('~@component-gallery/assets/image/resource-statistics/gt/bottom-bg.png');
+
+    &__levelTips{
+      background-image: url('~@component-gallery/assets/image/resource-statistics/gt/left-img.png');
+    }
+
+    &__dataBg{
+      background: url('~@component-gallery/assets/image/resource-statistics/gt/list-bg-1.png') no-repeat 0 0/auto 100%;
+
+      &.index_2{
+        background-image: url('~@component-gallery/assets/image/resource-statistics/gt/list-bg-2.png');
+      }
+
+      &.index_3{
+        background-image: url('~@component-gallery/assets/image/resource-statistics/gt/list-bg-3.png');
+      }
+
+      &.index_4{
+        background-image: url('~@component-gallery/assets/image/resource-statistics/gt/list-bg-4.png');
+      }
+    }
+  }
+}

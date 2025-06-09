@@ -1,0 +1,14 @@
+@import '../common/themes';
+@import 'theme-mixins';
+
+@mixin el_date_range_picker_active() {
+  @include themeify(false) {
+    .el-date-range-picker.picker-popper {
+      overflow: hidden;
+      .el-picker-panel__shortcut.picker_active {
+        background: themed('inspection-task-list-item-checked-bg-color') !important;
+        color: themed('search-select-dropdown-selected-text-color') !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.alarm-source-statistic-pie {
+  width: px-to-rem(370);
+
+  &-pie {
+    margin-top: px-to-rem(12);
+    height: px-to-rem(248);
+    position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    .chart {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+
+    &::before {
+      content: '';
+      width: px-to-rem(138);
+      height: px-to-rem(138);
+      position: absolute;
+      top: px-to-rem(50);
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      margin-top: px-to-rem(2);
+    }
+  }
+}
+
+// 通用
+[data-theme='theme-wiseblue'] .alarm-source-statistic-pie {
+  &-pie {
+    background-image: url('~@component-gallery/assets/image/alarm-source-statistic-pie/box_bg_blue.png');
+
+    &::before {
+      background-image: url('~@component-gallery/assets/image/alarm-source-statistic-pie/pie_bg_blue.png');
+    }
+  }
+}
+
+// 林业换肤
+[data-theme='theme-aquamarine'] .alarm-source-statistic-pie {
+  &-pie {
+    background-image: url('~@component-gallery/assets/image/alarm-source-statistic-pie/aquamarine/box-bg.png');
+
+    &::before {
+      background-image: url('~@component-gallery/assets/image/alarm-source-statistic-pie/aquamarine/pie-bg.png');
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .alarm-source-statistic-pie {
+  &-pie {
+    background-image: url('~@component-gallery/assets/image/alarm-source-statistic-pie/terracotta/box_bg_yellow.png');
+
+    &::before {
+      background-image: url('~@component-gallery/assets/image/alarm-source-statistic-pie/terracotta/pie_bg_yellow.png');
+    }
+  }
+  ::v-deep .innercomp-sccontainer-body {
+  }
+}

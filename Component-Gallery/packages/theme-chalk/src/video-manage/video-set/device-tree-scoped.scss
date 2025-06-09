@@ -1,0 +1,197 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.popup-box {
+  .search-box {
+    margin: px-to-rem(12);
+  }
+  .popup-body {
+    width: px-to-rem(500);
+  }
+  .tree-box {
+    height: px-to-rem(442);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .button-d-box {
+    display: flex;
+    justify-content: center;
+    margin: px-to-rem(12) px-to-rem(0);
+
+    .d-btns {
+      width: px-to-rem(108);
+      height: px-to-rem(32);
+      margin-left: px-to-rem(16);
+    }
+  }
+
+  .iot-tree {
+    height: 100%;
+    background: transparent;
+
+    ::v-deep .el-tree-node__expand-icon {
+      color: #e8f3fe !important;
+      margin-left: px-to-rem(6) !important;
+      margin-right: px-to-rem(6) !important;
+      padding: px-to-rem(4) !important;
+    }
+    ::v-deep .el-tree-node__expand-icon.is-leaf {
+      color: transparent !important;
+    }
+    .tree-icon {
+      font-size: px-to-rem(20);
+      margin-right: px-to-rem(6);
+      color: #e8f3fe;
+    }
+
+    .fixed {
+      display: block !important;
+      height: px-to-rem(32);
+      line-height: px-to-rem(32);
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 8;
+    }
+
+    .tree-label {
+      color: #e8f3fe;
+      padding-right: px-to-rem(12);
+    }
+
+    ::v-deep .el-tree__empty-text {
+      text-align: center;
+      padding-bottom: px-to-rem(8);
+      color: #e8f3fe;
+
+      &:before {
+        content: url('~@component-gallery/assets/image/video/noData.png');
+        display: block;
+        margin-bottom: px-to-rem(12);
+      }
+    }
+  }
+
+  ::v-deep .el-tree-node__content:hover {
+    height: px-to-rem(32) !important;
+    background: rgba(255, 0, 0, 0.4) !important;
+
+    .checked:after {
+      background: none !important;
+    }
+  }
+
+  ::v-deep .el-tree-node__expand-icon.is-leaf {
+    margin-left: px-to-rem(-18) !important;
+  }
+
+  .is-tree {
+    height: px-to-rem(32);
+    line-height: px-to-rem(32);
+    position: relative;
+    display: flex;
+  }
+
+  .checked {
+    z-index: 2;
+
+    .tree-label {
+      color: #4f9fff;
+    }
+
+    &:after {
+      content: '';
+      background: rgba(79, 159, 255, 0.4);
+      width: px-to-rem(600);
+      display: block;
+      height: px-to-rem(32);
+      position: absolute;
+      top: px-to-rem(0);
+      left: px-to-rem(-100);
+      border-left: px-to-rem(0);
+      z-index: -1;
+    }
+  }
+
+  ::v-deep .el-input.is-disabled .el-input__inner {
+    opacity: 0.4;
+  }
+}
+.popup-box {
+  @include themeify(false) {
+    @if $theme-name == 'theme-terracotta' {
+      ::v-deep .el-tree-node__content:hover {
+        background-color: rgba(100, 86, 46, 0.4) !important;
+      }
+
+      .tree-label {
+        color: #e4e7c1;
+        padding-right: px-to-rem(12);
+      }
+      .tree-icon {
+        color: #ffeeb1;
+      }
+
+      ::v-deep .el-tree__empty-text {
+        color: #e4e7c1;
+
+        &::before {
+          content: url('~@component-gallery/assets/image/video/noData-gt.png');
+        }
+      }
+      ::v-deep .el-tree-node__expand-icon {
+        color: #ffeeb1 !important;
+      }
+      .checked {
+        .tree-label {
+          color: #fffa28;
+        }
+
+        &:after {
+          background: rgba(100, 86, 46, 0.4);
+        }
+        ::v-deep .el-tree-node__expand-icon {
+          color: #ffeeb1 !important;
+        }
+        ::v-deep .el-tree-node__expand-icon.is-leaf {
+          color: transparent !important;
+        }
+        .tree-icon {
+          color: #ffeeb1;
+        }
+      }
+    }
+    @if $theme-name == 'theme-aquamarine' {
+      ::v-deep .el-tree-node__content:hover {
+        background-color: rgba(2, 137, 109, 0.4) !important;
+      }
+      ::v-deep .el-tree__empty-text {
+        color: #fff;
+
+        &::before {
+          content: url('~@component-gallery/assets/image/video/noData-ly.png');
+        }
+      }
+      .checked {
+        .tree-label {
+          color: #f9ff6c;
+        }
+
+        &:after {
+          background: rgba(2, 137, 109, 0.4);
+        }
+      }
+      ::v-deep .el-tree-node__expand-icon {
+        color: #ffffff !important;
+      }
+      ::v-deep .el-tree-node__expand-icon.is-leaf {
+        color: transparent !important;
+      }
+      .tree-icon {
+        color: #ffffff;
+      }
+    }
+  }
+}

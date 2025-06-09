@@ -1,0 +1,425 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/theme-date-picker-mixins';
+@import '../mixins/bem-mixins.scss';
+@import "../mixins/theme-tooltip-mixins";
+@import "../mixins/theme-dialog-header-mixins";
+@import '../mixins/theme-date-picker-mixins';
+
+.cruise-plan{
+  height: 100%;
+  @include b('ar-cruise-plan-shield') {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1099;
+    pointer-events: auto;
+    display: flex;
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.7);
+
+    .cruise-plan-config-box {
+      @include border_radius('border-radius-8');
+      @include background_color('background-color-theme');
+      @include el_dialog_header_styles();
+      @include cg_button_styles();
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: px-to-rem(800);
+      pointer-events: auto;
+      z-index: 1099;
+      ::v-deep .base-card-content:before{
+        display: none;
+      }
+
+      .el-dialog__header .name {
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            justify-content: center;
+            padding-left: 0;
+          }
+        }
+
+        &:before {
+          @include themeify(false) {
+            @if $theme-name == "theme-aquamarine" {
+              content: "";
+              width: 100%;
+              height: 100%;
+              opacity: 0.96;
+              background: url("~@component-gallery/assets/image/history-video-tree/popup-header-xx.png") no-repeat center / auto 100%,
+              url("~@component-gallery/assets/image/history-video-tree/popup-header-k.png") no-repeat top center;
+              pointer-events: none;
+              position: absolute;
+              left: 0;
+              bottom: auto;
+              top: -1px;
+              box-shadow: none;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+
+      ::v-deep .base-card-content-header {
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            background: linear-gradient(90deg, rgba(2, 137, 109, 0) 0%, rgba(2, 137, 109, 0.2) 51%, rgba(2, 137, 109, 0) 100%);
+            text-shadow: 0 0 px-to-rem(18) rgba(0, 245, 193, 0.7);
+          }
+        }
+      }
+
+      .cruise-plan-config-body {
+        padding: px-to-rem(12);
+        @include themeify(false) {
+          .top-box {
+            height: px-to-rem(32);
+            background: themed('cruise-plan-config-body-top-box-background');
+            border-radius: px-to-rem(8);
+            margin-bottom: px-to-rem(12);
+
+            .cruise-title-box {
+              font-size: px-to-rem(14);
+              font-weight: 400;
+              color: themed('cruise-plan-config-body-cruise-title-box-color');
+            }
+
+            .text-box {
+              font-size: px-to-rem(14);
+              font-weight: 400;
+              color: themed('cruise-plan-config-body-text-box-color');
+              white-space: nowrap;
+              display: inline-block;
+              max-width: px-to-rem(300);
+              overflow: hidden;
+              text-overflow: ellipsis;
+              vertical-align: bottom;
+            }
+
+            .icon-box {
+              margin-left: px-to-rem(6);
+              color: themed('cruise-plan-config-body-icon-box-color');
+              cursor: pointer;
+              font-size: px-to-rem(20);
+            }
+          }
+        }
+
+        .query-box {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: px-to-rem(12);
+
+          .query-left-box {
+            display: flex;
+            height: px-to-rem(32);
+            line-height: px-to-rem(32);
+
+            .date-box {
+              margin-right: px-to-rem(12);
+              width: px-to-rem(200);
+              display: flex;
+              @include el_date-picker_styles();
+            }
+
+            .input-box {
+              @include themeify(false) {
+                margin-right: px-to-rem(12);
+                width: px-to-rem(204);
+                display: flex;
+                ::v-deep .search-input {
+                  width: px-to-rem(204);
+                  display: flex;
+                  align-items: center;
+                  height: px-to-rem(32);
+                  line-height: px-to-rem(32);
+                  background: themed('ar-top-function-input-background');
+                  border: 0;
+                  border-radius: px-to-rem(4);
+                  opacity: 1;
+
+                  &:not(.readonly):not(.disabled):hover:before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    border: themed('ar-top-function-input-hover-border');
+                    border-radius: inherit;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    z-index: 2;
+                    pointer-events: none;
+                  }
+
+                  &:not(.readonly):not(.disabled):focus-within:before, &.active:before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    border: themed('ar-top-function-input-active-border');
+                    border-radius: inherit;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    z-index: 2;
+                    pointer-events: none;
+                  }
+
+                  .el-input__inner {
+                    height: 100%;
+                    line-height: inherit;
+                    background: none;
+                    border: 0;
+                    border-radius: inherit;
+                    color: themed('ar-top-function-input-color');
+                    font-size: px-to-rem(14);
+                    transition: border-color 0s;
+                    padding: 0 px-to-rem(32) 0 px-to-rem(12);
+
+                    &::placeholder {
+                      color: themed('ar-top-function-input-placeholder-color');
+                    }
+                  }
+
+                  .el-input__icon {
+                    color: themed('ar-top-function-input-icon-color');
+                    font-size: 14px;
+                    margin: 0;
+                    padding: 0;
+                    display: inline-block;
+                    line-height: inherit;
+                    float: right;
+                    overflow: hidden;
+
+                    &.el-icon-circle-close {
+                      &:before {
+                        content: "\ec12";
+                        font-family: 'iconfont_tools';
+                        color: themed('ar-top-function-input-icon-close-color');
+                        font-size: 20px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .searchButton-box {
+              display: flex;
+
+              button {
+                width: px-to-rem(108);
+              }
+
+              @include cg_button_styles();
+            }
+          }
+        }
+
+        .table-box-contain {
+          @include themeify(false) {
+            height: px-to-rem(281);
+            min-height: px-to-rem(100);
+            position: relative;
+            ::v-deep .el-table {
+              background-color: transparent;
+              border: none;
+              overflow-y: hidden;
+
+              &:before {
+                height: 0;
+              }
+
+              .el-table__header-wrapper,
+              .el-table__fixed-header-wrapper {
+                th.is-leaf.el-table__cell {
+                  background: themed('cruise-plan-config-body-table-th-background');
+                  height: px-to-rem(32);
+                  padding: px-to-rem(8) 0;
+                  border-bottom: themed('cruise-plan-config-body-table-th-border-bottom');
+
+                  .cell {
+                    font-size: px-to-rem(14);
+                    font-weight: 700;
+                    color: themed('cruise-plan-config-body-table-cell-color');
+                    line-height: px-to-rem(15);
+                  }
+                }
+              }
+
+              .el-table__fixed-header-wrapper {
+                th.is-leaf.el-table__cell {
+                  background: themed('cruise-plan-config-body-table-th-background1');
+                }
+              }
+              .el-table__fixed-body-wrapper {
+                td.el-table__cell {
+                  background: themed('cruise-plan-config-body-table-td-background');
+                }
+              }
+
+              .el-table__body-wrapper,
+              .el-table__fixed-body-wrapper {
+                td.el-table__cell {
+                  border-bottom: themed('cruise-plan-config-body-table-td-border-bottom');
+                  padding: 0.08rem 0;
+
+                  .cell {
+                    color: themed('cruise-plan-config-body-table-cell-color');
+                    font-size: px-to-rem(14);
+                    line-height: 0.15rem;
+
+                    .name-box {
+                      color: themed('cruise-plan-config-body-table-name-box-color');
+                      cursor: pointer;
+                    }
+
+                    .button-box {
+                      color: themed('cruise-plan-config-body-table-name-box-color');
+                      cursor: pointer;
+                      margin: 0 px-to-rem(2);
+                    }
+                  }
+                }
+
+                tr.hover-row > td.el-table__cell {
+                  background: themed('cruise-plan-config-body-table-td-background');
+                }
+              }
+
+              .el-table__fixed-right {
+                box-shadow: themed('cruise-plan-config-body-table-fixed-right-box-shadow');
+
+                &:before {
+                  height: 0;
+                }
+
+                .column-right-box {
+                  border-left: themed('cruise-plan-config-body-table-column-right-box-border-left')
+                }
+              }
+
+              tr {
+                background: themed('cruise-plan-config-body-table-tr-background');
+              }
+
+              .name-box {
+                color: themed('cruise-plan-config-body-name-box-color');
+                cursor: pointer;
+
+                &:hover {
+                  opacity: themed('cruise-plan-config-body-name-box-opacity');
+                }
+              }
+            }
+            .no-datas {
+              font-size: px-to-rem(14);
+              width: 100%;
+              height: auto;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              color: themed('ar-cruise-plan-list-no-datas-color');
+              font-style: normal;
+              font-weight: 400;
+              margin: 0 auto;
+              overflow: hidden;
+              padding: px-to-rem(12);
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+
+              &:before {
+                content: "";
+                background: themed('ar-cruise-plan-list-no-datas-before-background');
+                background-size: 100% 100%;
+                width: px-to-rem(68);
+                height: px-to-rem(68);
+                display: block;
+                margin-bottom: px-to-rem(12);
+              }
+            }
+          }
+        }
+
+        .pagination-box {
+          @include themeify(false) {
+            display: flex;
+            justify-content: end;
+            height: px-to-rem(22);
+            margin-top: px-to-rem(16);
+            align-items: center;
+            .pageTextClass {
+              font-size: px-to-rem(13);
+              font-weight: 400;
+              color: themed('ar-cruise-plan-pagination-pageTextClass-color');
+              line-height: px-to-rem(22);
+              opacity: themed('ar-cruise-plan-pagination-pageTextClass-opacity');
+              margin-right: 1px;
+            }
+            ::v-deep .cruise-pagination {
+              height: px-to-rem(22);
+              padding: 0 px-to-rem(5);
+
+              .btn-prev,
+              .btn-next {
+                width: px-to-rem(22);
+                margin: 0 px-to-rem(6) 0 0;
+                background: none;
+                min-width: unset;
+                color: themed('ar-cruise-plan-pagination-btn-prev-color');
+                border-radius: px-to-rem(4);
+                padding: px-to-rem(5);
+
+                &:disabled {
+                  color: themed('ar-cruise-plan-pagination-btn-prev-disabled-color');
+                }
+              }
+
+              .el-pager {
+                .number {
+                  margin: 0 px-to-rem(6) 0 0;
+                  background: none;
+                  color: themed('ar-cruise-plan-pagination-number-color');
+                  border-radius: px-to-rem(4);
+                  line-height: px-to-rem(22);
+                  padding: 0 px-to-rem(4);
+                  font-size: px-to-rem(12);
+
+                  &.active {
+                    background: themed('ar-cruise-plan-pagination-number-active-background');
+                    color: themed('ar-cruise-plan-pagination-number-color');
+                    box-shadow: themed('ar-cruise-plan-pagination-number-active-box-shadow');
+                  }
+                }
+
+                .more {
+                  margin: 0 px-to-rem(6) 0 0;
+                  width: px-to-rem(22);
+                  background: none;
+                  min-width: unset;
+                  color: themed('ar-cruise-plan-pagination-number-color');
+                  border-radius: px-to-rem(4);
+                  line-height: px-to-rem(22);
+                  padding: 0;
+                  font-size: px-to-rem(12);
+
+                  &:not(.disabled):hover {
+                    color: themed('ar-cruise-plan-pagination-number-color');
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

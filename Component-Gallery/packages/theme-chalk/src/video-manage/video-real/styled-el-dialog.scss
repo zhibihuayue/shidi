@@ -1,0 +1,119 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.styledElDialog.iwhale-industrystyle {
+  @include themeify() {
+    ::v-deep .el-loading-spinner {
+      i {
+        color: #00a9ff;
+      }
+
+      ::v-deep .el-loading-text {
+        color: #00a9ff;
+      }
+    }
+
+    &.nohorizontalpadding {
+      ::v-deep .el-dialog {
+        ::v-deep .el-dialog__body {
+          padding: px-to-rem(12) 0;
+        }
+      }
+    }
+
+    ::v-deep .el-dialog {
+      background: rgb(23 37 55 / 90%);
+      border-radius: px-to-rem(8);
+
+      ::v-deep .el-dialog__header {
+        position: relative;
+        height: px-to-rem(48);
+      }
+
+      ::v-deep .el-dialog__headerbtn {
+        top: px-to-rem(-10);
+        right: px-to-rem(-8);
+      }
+
+      ::v-deep .el-dialog__headerbtn ::v-deep .el-dialog__close {
+        position: relative;
+        top: px-to-rem(-5);
+        right: px-to-rem(-6);
+        width: px-to-rem(30);
+        height: px-to-rem(30);
+        background: url('~@component-gallery/assets/image/video/close.png');
+        background-size: contain;
+        color: #c5d9f7;
+        font-size: px-to-rem(30);
+        cursor: pointer;
+      }
+
+      ::v-deep .el-dialog__headerbtn ::v-deep .el-dialog__close::before {
+        background: none !important;
+        content: ' ';
+      }
+
+      ::v-deep .el-dialog__body {
+        padding: px-to-rem(12);
+        background: transparent !important;
+        border-radius: 0 0 px-to-rem(8) px-to-rem(8);
+      }
+    }
+
+    ::v-deep .el-dialog > .el-dialog__header {
+      padding: 0;
+      border: none;
+      border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+    }
+
+    .closeAlarmTs {
+      margin-top: px-to-rem(18);
+      height: px-to-rem(16);
+      border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+      color: var(--iw-text-color);
+      font-size: px-to-rem(16);
+      font-weight: 500;
+      line-height: px-to-rem(16);
+
+      &.highlighttitle {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+        width: 100%;
+        height: px-to-rem(48);
+        background: linear-gradient(
+          180deg,
+          rgb(132 180 250 / 70%) 0%,
+          rgb(132 180 250 / 24.5%) 100%
+        );
+        color: var(--iw-text-color);
+        font-size: px-to-rem(16);
+        font-family: 'Alibaba PuHuiTi';
+        text-align: left;
+        line-height: px-to-rem(24);
+        font-weight: 500;
+      }
+    }
+
+    ::v-deep &.el-dialog__wrapper {
+      pointer-events: none;
+
+      // 弹窗层元素不可穿透点击事件（不影响弹窗层元素的点击事件）
+      ::v-deep .el-dialog {
+        pointer-events: auto;
+      }
+    }
+
+    // 用于表单样式覆盖
+    .vue-treeselect__control {
+      background-color: rgb(130 181 255 / 20%);
+    }
+
+    ::v-deep .el-dialog__body ::v-deep .el-form-item__label {
+      font-weight: 400;
+    }
+  }
+}

@@ -1,0 +1,619 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+.timeLineTreeBox {
+  overflow: hidden;
+  padding: 0;
+  width: px-to-rem(200);
+  height: px-to-rem(256);
+  border-radius: 4px;
+  @include themeify(false) {
+    @if $theme-name == "theme-aquamarine" {
+      background: linear-gradient( 180deg, rgba(0,67,63,0.85) 0%, rgba(0,19,30,0.74) 21%, #00131E 100%);
+      border: 1px solid #075B4A;
+    }
+    @if $theme-name == "theme-terracotta" {
+      background: rgba(23,20,11,0.9);
+      border: 1px solid #6E674E;
+    }
+    @if $theme-name == "theme-wiseblue" {
+      background: #0F1926;
+      border: 1px solid transparent;
+    }
+  }
+  margin-top: px-to-rem(6) !important;
+
+  .el-tree {
+    background: transparent;
+    .el-tree__empty-block {
+      height: px-to-rem(250);
+      width: 100% !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      .el-tree__empty-text {
+        color: #e8f3fe;
+        font-size: px-to-rem(14);
+        line-height: px-to-rem(30);
+      }
+      .el-tree__empty-text::before {
+        content: '';
+        display: block;
+        width: px-to-rem(68);
+        height: px-to-rem(68);
+        margin: auto !important;
+        @include themeify(false) {
+          background: themed('alarm-today-statistics-no-data') !important;
+          background-size: cover !important;
+        }
+      }
+    }
+    .el-tree-node__children {
+      .el-tree-node__content {
+        padding-left: 0.09rem !important;
+      }
+    }
+    .el-tree-node__label {
+      color: #e8f3fe;
+    }
+    .el-tree-node__expand-icon {
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          color: #fff !important;
+        }
+        @if $theme-name == "theme-terracotta" {
+          color: #E4E7C1 !important;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          color: #E8F3FE !important;
+        }
+      }
+    }
+    .el-tree-node__expand-icon.is-leaf {
+      color: transparent !important;;
+    }
+    .el-tree-node__content {
+      height: px-to-rem(32);
+      line-height: px-to-rem(32);
+    }
+    .el-tree-node__content:hover,
+    .el-upload-list__item:hover {
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          background: rgba(2,137,109,0.4);
+        }
+        @if $theme-name == "theme-terracotta" {
+          background: #64562E;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          background: rgba(79,159,255,0.4);
+        }
+      }
+      .el-tree-node__label {
+        // color: #4f9fff;
+      }
+    }
+    .el-tree-node:focus > .el-tree-node__content {
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          background: rgba(2,137,109,0.4);
+        }
+        @if $theme-name == "theme-terracotta" {
+          background: #64562E;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          background: rgba(79,159,255,0.4);
+        }
+      }
+    }
+    .customName {
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          color: #fff !important;
+        }
+        @if $theme-name == "theme-terracotta" {
+          color: #E4E7C1 !important;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          color: #E8F3FE !important;
+        }
+      }
+      .key-word {
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            color: #FFFA28;
+          }
+          @if $theme-name == "theme-terracotta" {
+            color: #FFFA28;
+          }
+          @if $theme-name == "theme-wiseblue" {
+            color: #4F9FFF;
+          }
+        }
+      }
+    }
+    .isChoice {
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          color: #FFFA28;
+        }
+        @if $theme-name == "theme-terracotta" {
+          color: #FFFA28;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          color: #4F9FFF;
+        }
+      }
+      // background: rgb(79 159 255 / 40%);
+    }
+    .el-tree-node__content:has(.isChoice) {
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          background: rgba(2,137,109,0.4);
+        }
+        @if $theme-name == "theme-terracotta" {
+          background: #64562E;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          background: rgba(79,159,255,0.4);
+        }
+      }
+    }
+    .el-tree-node__content:has(.expanded) {
+      // background-color: transparent !important;
+    }
+  }
+  .el-scrollbar__wrap {
+    // margin-right: px-to-rem(-10) !important;
+  }
+  .popper__arrow {
+    display: none;
+  }
+  .custom-class-1 {
+    background: rgb(79 159 255 / 40%);
+    color: #4f9fff;
+  }
+}
+.el-form-item__error {
+  padding-left: px-to-rem(36);
+  margin-left: 0;
+  width: 100%;
+  height: px-to-rem(32);
+  background: rgb(237 81 88 / 20%);
+  border-radius: px-to-rem(4);
+  color: #ed5158;
+  font-size: px-to-rem(14);
+  line-height: px-to-rem(27);
+
+  &::before {
+    position: absolute;
+    top: px-to-rem(3);
+    left: px-to-rem(12);
+    font-size: px-to-rem(18);
+    font-family: 'iconfont_tools';
+    content: '\ed70';
+  }
+}
+
+.timeLinePickerOptions {
+  background: #0f1926;
+  border-color: #0f1926;
+  border-radius: px-to-rem(4);
+
+  .el-picker-panel__body {
+    td:not(.disabled) .cell :hover {
+      background-color: rgb(79 159 255 / 40%);
+      border-radius: px-to-rem(14);
+      color: #e8f3fe !important;
+    }
+    .current {
+      .cell {
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            background: #02896D;
+            color: #ffffff !important;
+          }
+          @if $theme-name == "theme-terracotta" {
+            background: #9F9853;
+            color: #E4E7C1 !important;
+          }
+          @if $theme-name == "theme-wiseblue" {
+            background: #4F9FFF;
+            color: #e8f3fe !important;
+          }
+        }
+        border-radius: px-to-rem(14);
+      }
+    }
+    button {
+      color: #fff;
+      font-size: px-to-rem(16);
+    }
+  }
+
+  .el-date-picker__header-label {
+    @include themeify(false) {
+      @if $theme-name == "theme-aquamarine" {
+        color: #ffffff;
+      }
+      @if $theme-name == "theme-terracotta" {
+        color: #E4E7C1;
+      }
+      @if $theme-name == "theme-wiseblue" {
+        color: #e8f3fe;
+      }
+    }
+  }
+
+  .el-date-table th {
+    color: #e8f3fe;
+    border-bottom-color: rgba(232, 243, 254, 0.2);
+  }
+
+  .el-date-table td,
+  .el-year-table td,
+  .el-month-table td {
+    color: #e8f3fe;
+  }
+
+  .el-date-table td .cell,
+  .el-year-table td .cell,
+  .el-month-table td .cell {
+    color: #e8f3fe;
+    font-weight: 400;
+  }
+
+  .el-date-table td.disabled div,
+  .el-year-table td.disabled a,
+  .el-month-table td.disabled a {
+    background-color: transparent;
+    color: rgb(232 243 254 / 40%) !important;
+  }
+
+  .el-date-table td div,
+  .el-year-table td div,
+  .el-month-table td div {
+    padding: 0;
+  }
+
+  .el-date-table td:not(.disabled) span:hover {
+    width: px-to-rem(32);
+    height: px-to-rem(32);
+    background: rgb(79 159 255 / 20%);
+    border-radius: 50%;
+    color: #fff;
+    line-height: px-to-rem(32);
+  }
+  .el-month-table td:not(.disabled) .cell:hover ,
+  .el-year-table td:not(.disabled) .cell:hover{
+    @include themeify(false) {
+      @if $theme-name == "theme-aquamarine" {
+        background: rgba(2,137,109,0.4);
+      }
+      @if $theme-name == "theme-terracotta" {
+        background: #64562E;
+      }
+      @if $theme-name == "theme-wiseblue" {
+        background: rgba(79,159,255,0.4);
+      }
+    }
+    border-radius: px-to-rem(14);
+    color: #fff;
+  }
+
+  .el-date-table .prev-month {
+    color: rgb(232 243 254 / 40%);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .el-year-table td.disabled .cell,
+  .el-month-table td.disabled .cell {
+    background-color: transparent;
+  }
+}
+
+.timeLinePickerMonth,
+.timeLinePickerDay {
+  .el-picker-panel__body {
+    button {
+      width: px-to-rem(20);
+      cursor: not-allowed;
+      pointer-events: none;
+      color: rgb(232 243 254 / 40%);
+      margin-top: px-to-rem(5);
+    }
+  }
+}
+.timeLinePickerYear {
+  width: px-to-rem(280);
+  height: px-to-rem(186);
+  @include themeify(false) {
+    @if $theme-name == "theme-aquamarine" {
+      background: linear-gradient( 180deg, rgba(0,67,63,0.85) 0%, rgba(0,19,30,0.74) 21%, #00131E 100%);
+      border: 1px solid #075B4A;
+    }
+    @if $theme-name == "theme-terracotta" {
+      background: rgba(23,20,11,0.9);
+      border: 1px solid #6E674E;
+    }
+    @if $theme-name == "theme-wiseblue" {
+      background: #0F1926;
+      border: 1px solid transparent;
+    }
+  }
+  .el-date-picker__header--bordered {
+    padding-bottom: 0;
+    border-bottom: 1px solid #e8f3fe33;
+  }
+  .el-date-picker__header {
+    position: relative;
+    height: px-to-rem(32);
+    .el-picker-panel__icon-btn {
+      margin-top: px-to-rem(3);
+    }
+  }
+  .el-date-picker__header-label {
+    position: absolute;
+    top: calc(50% - px-to-rem(16));
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  .el-picker-panel__content {
+    width: 100%;
+    margin: 0;
+    padding: px-to-rem(12);
+    .el-year-table {
+      tr {
+        display: flex;
+        margin-bottom: px-to-rem(12);
+      }
+      .available {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        width: px-to-rem(56);
+        height: px-to-rem(32);
+      }
+      .cell {
+        width: px-to-rem(52);
+        height: px-to-rem(28);
+        line-height: px-to-rem(28);
+      }
+      .cell:not(.disabled) {
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            color: #ffffff;
+          }
+          @if $theme-name == "theme-terracotta" {
+            color: #E4E7C1;
+          }
+          @if $theme-name == "theme-wiseblue" {
+            color: #e8f3fe;
+          }
+        }
+      }
+    }
+  }
+}
+.timeLinePickerMonth {
+  width: px-to-rem(280);
+  height: px-to-rem(186);
+  @include themeify(false) {
+    @if $theme-name == "theme-aquamarine" {
+      background: linear-gradient( 180deg, rgba(0,67,63,0.85) 0%, rgba(0,19,30,0.74) 21%, #00131E 100%);
+      border: 1px solid #075B4A;
+    }
+    @if $theme-name == "theme-terracotta" {
+      background: rgba(23,20,11,0.9);
+      border: 1px solid #6E674E;
+    }
+    @if $theme-name == "theme-wiseblue" {
+      background: #0F1926;
+      border: 1px solid transparent;
+    }
+  }
+  .el-date-picker__header--bordered {
+    padding-bottom: 0;
+    border-bottom: 1px solid rgba(232, 243, 254, 0.2);
+  }
+  .el-date-picker__header {
+    position: relative;
+    height: px-to-rem(32);
+    .el-picker-panel__icon-btn {
+      cursor: not-allowed;
+      pointer-events: none;
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          color: #ffffff;
+        }
+        @if $theme-name == "theme-terracotta" {
+          color: #E4E7C1;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          color: #e8f3fe;
+        }
+      }
+      margin-top: px-to-rem(3);
+    }
+  }
+  .el-date-picker__header-label {
+    position: absolute;
+    top: calc(50% - px-to-rem(16));
+    left: 0;
+    width: 100%;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .el-picker-panel__content {
+    width: 100%;
+    margin: 0;
+    padding: px-to-rem(12);
+  }
+  .el-month-table {
+    tr {
+      display: flex;
+      margin-bottom: px-to-rem(12);
+    }
+    td {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      width: px-to-rem(56);
+      height: px-to-rem(32);
+      div {
+        width: 100%;
+        height: 100%;
+        .cell {
+          width: px-to-rem(52);
+          height: px-to-rem(28);
+          line-height: px-to-rem(28);
+        }
+      }
+    }
+    .cell:not(.disabled) {
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          color: #ffffff;
+        }
+        @if $theme-name == "theme-terracotta" {
+          color: #E4E7C1;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          color: #e8f3fe;
+        }
+      }
+    }
+  }
+}
+.timeLinePickerDay {
+  width: px-to-rem(280);
+  height: px-to-rem(280);
+  @include themeify(false) {
+    @if $theme-name == "theme-aquamarine" {
+      background: linear-gradient( 180deg, rgba(0,67,63,0.85) 0%, rgba(0,19,30,0.74) 21%, #00131E 100%);
+      border: 1px solid #075B4A;
+    }
+    @if $theme-name == "theme-terracotta" {
+      background: rgba(23,20,11,0.9);
+      border: 1px solid #6E674E;
+    }
+    @if $theme-name == "theme-wiseblue" {
+      background: #0F1926;
+      border: 1px solid transparent;
+    }
+  }
+  .el-picker-panel__body {
+    padding: px-to-rem(12);
+  }
+  .el-date-picker__header--bordered {
+    padding-bottom: 0;
+  }
+  .el-date-picker__header {
+    margin: 0;
+    position: relative;
+    height: px-to-rem(32);
+  }
+  .el-date-picker__header-label {
+    float: left;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .el-date-picker__header-label:nth-child(3) {
+    margin-left: px-to-rem(35);
+  }
+  .el-picker-panel__content {
+    margin: 0;
+    width: 100%;
+  }
+  .el-date-table {
+    th {
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          color: #ffffff;
+        }
+        @if $theme-name == "theme-terracotta" {
+          color: #E4E7C1;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          color: #e8f3fe;
+        }
+      }
+    }
+    td {
+      padding: 0;
+      width: px-to-rem(32);
+      height: px-to-rem(32);
+      div {
+        width: 100%;
+        height: 100%;
+        span {
+          width: px-to-rem(32);
+          height: px-to-rem(32);
+          line-height: px-to-rem(32);
+        }
+      }
+    }
+    .current  {
+      div {
+        span {
+          @include themeify(false) {
+            @if $theme-name == "theme-aquamarine" {
+              background: #02896D;
+              color: #ffffff !important;
+            }
+            @if $theme-name == "theme-terracotta" {
+              background: #9F9853;
+              color: #E4E7C1 !important;
+            }
+            @if $theme-name == "theme-wiseblue" {
+              background: #4F9FFF;
+              color: #e8f3fe !important;
+            }
+          }
+        }
+      }
+    }
+    .available div span {
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          color: #ffffff;
+        }
+        @if $theme-name == "theme-terracotta" {
+          color: #E4E7C1;
+        }
+        @if $theme-name == "theme-wiseblue" {
+          color: #e8f3fe;
+        }
+      }
+    }
+    .available div span:hover {
+        @include themeify(false) {
+          @if $theme-name == "theme-aquamarine" {
+            background: rgba(2,137,109,0.4);
+          }
+          @if $theme-name == "theme-terracotta" {
+            background: #64562E;
+          }
+          @if $theme-name == "theme-wiseblue" {
+            background: rgba(79,159,255,0.4);
+          }
+        }
+      }
+  }
+}
+.timeLinePickerYear,
+.timeLinePickerMonth,
+.timeLinePickerDay {
+  margin-top: px-to-rem(6) !important;
+  .popper__arrow::after {
+    border: none !important;
+  }
+  .popper__arrow {
+    border: none !important;
+  }
+}

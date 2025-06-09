@@ -1,0 +1,33 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+@import '../mixins/theme-button-mixins';
+
+.chart-modal {
+  @include themeify(false) {
+    position: relative;
+    width: px-to-rem(370);
+    height: px-to-rem(308);
+    pointer-events: auto;
+    @if $theme-name == 'theme-aquamarine' {
+    }
+    @if $theme-name == 'theme-terracotta' {
+      background-image: url("~@component-gallery/assets/image/device-statistics/terracotta/card-bg.png");
+      background-size: px-to-rem(100) px-to-rem(40);
+      background-repeat: no-repeat;
+      background-position: top left;
+    }
+    @if $theme-name == 'theme-wiseblue' {
+    }
+    .chart-body {
+      .chart-body-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: px-to-rem(12);
+        line-height: px-to-rem(14);
+        cursor: pointer;
+      }
+    }
+  }
+}

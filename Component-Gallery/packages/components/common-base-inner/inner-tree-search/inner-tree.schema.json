@@ -1,0 +1,14 @@
+{
+  "$schema": "v0.0.1",
+  "title": "inner tree search",
+  "description": "inner tree search vue template",
+  "type": "object",
+  "properties": {
+    "search": {
+      "showIcon1": "string",
+      "showIcon2": "string",
+      "showIcon3": "string"
+    }
+  },
+  "required": ["search"]
+}

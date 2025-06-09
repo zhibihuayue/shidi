@@ -1,0 +1,132 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.box-pos {
+  .right-section {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    .status-btn {
+      padding: px-to-rem(4) px-to-rem(13);
+      border-radius: px-to-rem(6);
+      background: linear-gradient(90deg, #15bd94 0%, #00a179 100%);
+      font-size: px-to-rem(14);
+      &.status--red {
+        background: linear-gradient(90deg, #bd1515 0%, #a10008 100%);
+      }
+    }
+
+    .iconfont_tools {
+      font-size: px-to-rem(24);
+      margin-left: px-to-rem(8);
+    }
+  }
+
+  .detail-list {
+    padding: px-to-rem(20) px-to-rem(25) 0;
+    .detail-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: px-to-rem(17);
+      margin-bottom: px-to-rem(12);
+      gap: px-to-rem(16);
+
+      .label-name {
+        width: px-to-rem(80);
+        text-align: right;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .right-box {
+        color: rgba(255, 255, 255, 1);
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: px-to-rem(10);
+
+        .common-icon {
+          cursor: copy;
+        }
+      }
+    }
+
+    .line {
+      width: 100%;
+      height: px-to-rem(1);
+      margin-top: px-to-rem(24);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-section {
+      display: flex;
+      gap: px-to-rem(6);
+      margin-top: px-to-rem(16);
+
+      .img-size {
+        width: px-to-rem(40);
+        height: px-to-rem(40);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.cdivider {
+  width: 100%;
+  height: px-to-rem(1);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 176, 140, 0.1) 0%,
+    #00b08c 51%,
+    rgba(0, 176, 140, 0) 100%
+  );
+  opacity: 0.7;
+  margin-bottom: px-to-rem(15);
+}
+
+//拖动弹窗虚线
+.dragResize {
+  &::before {
+    outline: none;
+  }
+
+  .pop {
+    font-size: px-to-rem(14);
+    // position: absolute;
+    // right: px-to-rem(49);
+    width: 100%;
+    height: 100%;
+    // top: px-to-rem(60);
+    z-index: 100;
+    color: #fff;
+    .popArea {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      .selfArea {
+        .close {
+          position: absolute;
+          width: px-to-rem(38);
+          height: px-to-rem(38);
+          right: px-to-rem(-20);
+          top: px-to-rem(-20);
+          transform: scale(0.7);
+          cursor: pointer;
+          z-index: 1;
+        }
+      }
+      .mainContent {
+        height: px-to-rem(401);
+        display: flex;
+        flex-direction: column;
+        padding: px-to-rem(10) px-to-rem(11.25) 0 px-to-rem(11.25);
+        box-sizing: border-box;
+      }
+    }
+    ::v-deep .boxClassTop .arrow {
+      display: none;
+    }
+  }
+}

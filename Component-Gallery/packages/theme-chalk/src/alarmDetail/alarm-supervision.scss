@@ -1,0 +1,227 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.supervision-wrapper {
+  @include themeify(false) {
+    position: absolute;
+    top: px-to-rem(0);
+    left: px-to-rem(380);
+    width: 100%;
+    height: 100%;
+    min-height: px-to-rem(170);
+    background: themed('alarm-list-bg-module');
+    @if $theme-name == 'theme-aquamarine' {
+      border: px-to-rem(1) solid;
+      border-image: themed('alarm-detail-border-image');
+    }
+    @if $theme-name == 'theme-terracotta' {
+      border: px-to-rem(1) solid #6e674e;
+    }
+    @if $theme-name != 'theme-aquamarine' {
+      border-radius: px-to-rem(8);
+    }
+
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+      background: themed('fire-warning-bg-dialog-con-before');
+      content: '';
+    }
+
+    &::after {
+      position: absolute;
+      top: unset;
+      right: 0;
+      bottom: 0;
+      left: unset;
+      display: block;
+      width: px-to-rem(21);
+      height: px-to-rem(25);
+      background: themed('fire-warning-bg-dialog-con-after');
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      content: '';
+    }
+    @if $theme-name == 'theme-aquamarine' {
+      .span-top-line {
+        &::before {
+          position: absolute;
+          top: px-to-rem(-1);
+          left: px-to-rem(-1);
+          display: block;
+          width: px-to-rem(8);
+          height: px-to-rem(1);
+          background: #fff;
+          box-shadow: 0 0 px-to-rem(6) 0 #02896d, inset 0 0 2px 0 #00fff8;
+          content: '';
+        }
+
+        &::after {
+          position: absolute;
+          top: px-to-rem(-1);
+          right: px-to-rem(-1);
+          display: block;
+          width: px-to-rem(8);
+          height: px-to-rem(1);
+          background: #fff;
+          box-shadow: 0 0 px-to-rem(6) 0 #02896d, inset 0 0 2px 0 #00fff8;
+          content: '';
+        }
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: px-to-rem(-12);
+      right: px-to-rem(-10);
+      z-index: 2;
+
+      // 关闭按钮
+      width: px-to-rem(22);
+      height: px-to-rem(22);
+      background: themed('base-card-close-bg');
+      background-size: 150% 150%;
+      background-position: 50% 50%;
+      cursor: pointer;
+    }
+
+    .supervision-title {
+      position: relative;
+      width: 100%;
+      height: px-to-rem(48);
+      background: themed('alarm-detail-header-bg-color');
+      @if $theme-name == 'theme-aquamarine' {
+        border-radius: 0;
+      } @else {
+        border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+      }
+      text-shadow: themed('alarm-detail-text-shadow') !important;
+      color: themed('alarm-detail-compare-arrow-color');
+      font-size: px-to-rem(16);
+      text-align: center;
+      font-weight: 600;
+      line-height: px-to-rem(48);
+
+      &::before {
+        position: absolute;
+        top: px-to-rem(-1);
+        bottom: auto;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @if $theme-name == 'theme-aquamarine' {
+          background: url('~@component-gallery/assets/image/alarm-detail/aquamarine/singleTabSel.png')
+              no-repeat
+              bottom
+              center,
+            url('~@component-gallery/assets/image/alarm-detail/aquamarine/popup-header-xx.png')
+              no-repeat
+              center /
+              auto
+              100%,
+            url('~@component-gallery/assets/image/alarm-detail/aquamarine/popup-header-k.png')
+              no-repeat
+              top
+              center /
+              px-to-rem(38)
+              px-to-rem(8);
+        }
+        @if $theme-name == 'theme-terracotta' {
+          background: url('~@component-gallery/assets/image/alarm-detail/terracotta/popup-title-guang.png')
+            no-repeat
+            bottom
+            center;
+          width: 44.4%;
+          left: 50%;
+          transform: translateX(-50%);
+          border-bottom: 1px solid;
+          border-image: linear-gradient(
+              90deg,
+              rgba(228, 231, 193, 0),
+              rgba(228, 231, 193, 1),
+              rgba(228, 231, 193, 0)
+            )
+            1
+            1;
+        }
+        opacity: 0.96;
+        content: '';
+        pointer-events: none;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: px-to-rem(1);
+        left: 50%;
+        width: 100%;
+        height: px-to-rem(1);
+        background: themed('alarm-detail-header-line');
+        content: '';
+        transform: translateX(-50%);
+        pointer-events: none;
+        @if $theme-name == 'theme-terracotta' {
+          opacity: 0.35;
+        }
+      }
+    }
+
+    .supervision-body {
+      color: themed('alarm-info-data-content-color');
+      font-size: px-to-rem(14);
+      text-align: center;
+      line-height: px-to-rem(20);
+      padding: px-to-rem(12);
+
+      .supervision-item {
+        display: flex;
+        font-weight: 400;
+        margin-bottom: px-to-rem(6);
+        color: themed('alarm-info-data-title-color');
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .supervision-item-title {
+          width: px-to-rem(70);
+          white-space: nowrap;
+          text-align: right;
+        }
+
+        .supervision-item-content {
+          text-align: justify;
+          word-break: break-word;
+          @if $theme-name == 'theme-aquamarine' {
+            color: #ffffff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #e4e7c1;
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            color: #e8f2fe;
+          }
+        }
+      }
+    }
+
+    ::v-deep .el-loading-mask {
+      background: none !important;
+      .el-loading-spinner {
+        transform: translateY(-50%);
+        margin-top: 0 !important;
+        svg {
+          .path {
+            stroke: themed('alarm-detail-input-hover-border') !important;
+          }
+        }
+        .el-loading-text {
+          color: themed('global-text-color') !important;
+        }
+      }
+    }
+  }
+}

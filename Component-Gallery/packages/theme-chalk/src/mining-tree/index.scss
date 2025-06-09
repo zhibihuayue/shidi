@@ -1,0 +1,158 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.common-theme {
+  @include themeify(false) {
+
+    ::-webkit-scrollbar {
+      width: px-to-rem(6) !important;
+      height: px-to-rem(6) !important;
+      border-radius: px-to-rem(3) !important;
+    }
+
+    .miningTreeBox {
+      @if $theme-name == 'theme-wiseblue' {
+        background: rgba(23,20,11,0.9) !important;
+      }
+      .real-mining-tree {
+        height: calc(100% - px-to-rem(95)) !important;
+      }
+
+      .searchBox {
+        position: relative;
+        margin: px-to-rem(12) !important;
+      }
+
+      .mining-filter-box {
+        top: px-to-rem(38) !important;
+        left: px-to-rem(0) !important;
+        margin: 0 !important;
+        @if $theme-name == 'theme-terracotta' {
+          background: rgba(23, 20, 11, 0.9) !important;
+          border-radius: px-to-rem(4) !important;
+          border: px-to-rem(1) solid #6e674e !important;
+        }
+
+        .filterTitle {
+          font-size: px-to-rem(16) !important;
+          font-weight: 400 !important;
+          @if $theme-name == 'theme-wiseblue' {
+            text-shadow: 0 0 px-to-rem(10) rgba(74, 141, 254, 0.7) !important;
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            text-shadow: 0 0 px-to-rem(18) rgba(0, 245, 193, 0.7) !important;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #ffffff !important;
+            text-shadow: 0 px-to-rem(1) px-to-rem(4) #dcd277 !important;
+          }
+        }
+
+        .typeBtn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .tj_footer_btns {
+          justify-content: center;
+          button {
+            width: px-to-rem(108) !important;
+            height: px-to-rem(32) !important;
+          }
+        }
+      }
+    }
+
+    .el-tree-node .tree-name-guoqi {
+      color: themed('mining-tree-guoqi-color');
+    }
+
+    .el-tree-node.is-current .tree-name-guoqi {
+      color: inherit !important;
+    }
+
+    .custom-tree-left {
+
+      ::v-deep .key-word {
+        color: themed('tree-primary-font_active_color');
+      }
+
+      .mining-tree-img {
+        margin-right: 0 !important;
+        width: px-to-rem(21) !important;
+        height: px-to-rem(18);
+        font-size: px-to-rem(18);
+        flex-shrink: 0;
+
+        .icon-no-guoqi {
+          @if $theme-name == 'theme-wiseblue' {
+            color: #e8f3fe;
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            color: #ffffff;
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: #ffeeb1;
+          }
+        }
+
+        .icon-guoqi {
+          color: rgba(222, 222, 222, 0.6);
+        }
+
+        ::v-deep .ct-icon__inline-block {
+          padding-right: 0 !important;
+          height: 100%;
+          line-height: px-to-rem(16);
+          .ct-icon {
+            width: auto !important;
+            height: 100%;
+            color: inherit !important;
+            .icon-ctw {
+              font-size: px-to-rem(17) !important;
+              color: inherit !important;
+            }
+          }
+        }
+
+        .tree-name-guoqi {
+          @if $theme-name == 'theme-wiseblue' {
+            color: rgba(232, 243, 254, 0.4);
+          }
+          @if $theme-name == 'theme-aquamarine' {
+            color: rgba(255, 255, 255, 0.4);
+          }
+          @if $theme-name == 'theme-terracotta' {
+            color: rgba(228, 231, 193, 0.4);
+          }
+        }
+      }
+    }
+
+    .mining-tree-no-data {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      padding-bottom: px-to-rem(8);
+      color: themed('global-text-color');
+      font-size: px-to-rem(14);
+      text-align: center;
+      transform: translate(-50%, -50%);
+      font-style: normal;
+      font-weight: normal;
+
+      &::before {
+        content: themed('no-data-img');
+        display: block;
+        margin: 0 !important;
+      }
+    }
+
+    .loading-datas {
+      color: var(--text-ordinary-color) !important;
+    }
+  }
+}

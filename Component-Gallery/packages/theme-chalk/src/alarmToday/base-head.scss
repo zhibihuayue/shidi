@@ -1,0 +1,93 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+@import '../mixins/theme-button-mixins';
+
+.base-header {
+  position: relative;
+  padding: px-to-rem(0) px-to-rem(12) px-to-rem(0) px-to-rem(45);
+  width:  px-to-rem(368);
+  height:  px-to-rem(48);
+  line-height:  px-to-rem(48);
+  color: #FFF;
+  font-size: px-to-rem(16);
+  background-size: cover;
+  @include themeify(false) {
+    @if $theme-name == 'theme-aquamarine' {
+      text-shadow: 0px 0px 18px rgba(0,245,193,0.9);
+      padding-left: px-to-rem(26);
+      font-weight: 600;
+      background-image: url("~@component-gallery/assets/image/base-header/aquamarine/header-bg-new.png");
+    }
+    @if $theme-name == 'theme-terracotta' {
+      padding-left: px-to-rem(24);
+      font-weight: 500;
+      text-shadow: 0px 1px 4px #DCD277;
+    }
+    @if $theme-name == 'theme-wiseblue' {
+      font-weight: 500;
+      background-image: url("~@component-gallery/assets/image/base-header/wiseblue/header-bg-new.png");
+    }
+    .head-point {
+      background-size: cover;
+      width: px-to-rem(8);
+      height: px-to-rem(8);
+      position: absolute;
+      top: px-to-rem(20);
+      left: px-to-rem(12);
+      @if $theme-name == 'theme-aquamarine' {
+        background-image: url("~@component-gallery/assets/image/base-header/aquamarine/header-bg-point-new.png");
+      }
+      @if $theme-name == 'theme-terracotta' {
+        opacity: 0;
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        opacity: 0;
+      }
+    }
+    .head-line {
+      background-size: cover;
+      width: px-to-rem(168);
+      height: px-to-rem(10);
+      bottom: px-to-rem(0);
+      left: px-to-rem(0);
+      position: absolute;
+      @if $theme-name == 'theme-aquamarine' {
+        background-image: url("~@component-gallery/assets/image/base-header/aquamarine/header-bg-line-new.png");
+      }
+      @if $theme-name == 'theme-terracotta' {
+        opacity: 0;
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        opacity: 0;
+      }
+    }
+    .head-yellow-line {
+      background-size: cover;
+      width: px-to-rem(358);
+      height: px-to-rem(16);
+      top: px-to-rem(25);
+      left: px-to-rem(7);
+      position: absolute;
+      @if $theme-name == 'theme-aquamarine' {
+        opacity: 0;
+      }
+      @if $theme-name == 'theme-terracotta' {
+        background-image: url("~@component-gallery/assets/image/base-header/terracotta/header-bg-new.png");
+        
+      }
+      @if $theme-name == 'theme-wiseblue' {
+        opacity: 0;
+      }
+      
+
+    }
+    .base-head-title-txt {
+      font-weight: 500;
+      @if $theme-name == 'theme-terracotta' {
+        position: relative;
+        top: px-to-rem(-4);
+      }
+    }
+  }
+}

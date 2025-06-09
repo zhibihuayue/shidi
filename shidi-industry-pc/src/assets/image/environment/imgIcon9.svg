@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="166px" height="15px" viewBox="0 0 166 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>7图表/图例/bg_图例_蓝</title>
+    <defs>
+        <radialGradient cx="-19.373723%" cy="100%" fx="-19.373723%" fy="100%" r="200.827078%" gradientTransform="translate(-0.193737,1.000000),scale(0.084988,1.000000),rotate(-87.791873),scale(1.000000,4.437797),translate(0.193737,-1.000000)" id="radialGradient-1">
+            <stop stop-color="#3A77E5" stop-opacity="0.303348995" offset="0%"></stop>
+            <stop stop-color="#3A77E5" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="0%" cy="100.315302%" fx="0%" fy="100.315302%" r="102.743478%" gradientTransform="translate(0.000000,1.003153),scale(0.084988,1.000000),rotate(90.000000),scale(1.000000,6.518277),translate(-0.000000,-1.003153)" id="radialGradient-2">
+            <stop stop-color="#3A77E5" stop-opacity="0.45664882" offset="0%"></stop>
+            <stop stop-color="#3A77E5" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.49874442">
+        <g id="1.2湿地保护-生态环境" transform="translate(-1528.000000, -365.555556)" fill="url(#radialGradient-1)" stroke="url(#radialGradient-2)">
+            <g id="编组-5" transform="translate(1516.000000, 86.000000)">
+                <g id="7图表/图例/环形图_基础" transform="translate(12.000000, 272.000000)">
+                    <g id="bg_图例_蓝" transform="translate(0.000000, 4.000000)">
+                        <g id="编组" transform="translate(0.000000, 3.555556)">
+                            <path d="M3.27150964,14 C2.16694014,14 1.27150964,13.1045695 1.27150964,12 C1.27150964,11.6829409 1.34688982,11.3704247 1.4914323,11.0882299 L6.61351359,1.08822992 C6.95567669,0.420214155 7.64304402,4.35720647e-15 8.39359092,1.77635684e-15 L166,1.77635684e-15 L166,14 L3.27150964,14 Z" id="形状结合"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

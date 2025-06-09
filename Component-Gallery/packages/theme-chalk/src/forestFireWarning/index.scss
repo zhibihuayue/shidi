@@ -1,0 +1,195 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem';
+
+.common-comp-fire-warning_func_area {
+  @include themeify(false) {
+    width: px-to-rem(370);
+    .fire-warn-box {
+      // z-index: 102;
+      width: 100%;
+      height: 100%;
+      .tree-div {
+        &::before {
+          background: themed('fire-warning-bg-tree-div-before');
+        }
+      }
+      .fire-warn {
+        width: 100%;
+        height: 100%;
+        .chart-modal {
+          height: px-to-rem(180);
+          .fire-title-box {
+            display: flex;
+            justify-content: space-between;
+            .title-box {
+              display: flex;
+              width: 100%;
+              height: px-to-rem(48);
+
+              .title {
+                width: px-to-rem(315);
+                height: px-to-rem(48);
+                color: themed('fire-warning-color-title');
+                font-size: px-to-rem(16);
+                font-weight: 600;
+                line-height: px-to-rem(48);
+                // text-shadow: themed('fire-warning-text-shadow');
+              }
+              .war-animation {
+                margin-left: px-to-rem(12);
+                width: px-to-rem(28);
+                height: px-to-rem(28);
+                cursor: pointer;
+              }
+              .war-animation i {
+                font-size: 24px;
+              }
+              .war-animation.yellow * {
+                color: #F9FF6C;
+              }
+              .war-animation.orange * {
+                color: #ff6600;
+              }
+              .war-animation.red * {
+                color: #FF5858;
+              }
+              .war-animation.default * {
+                color: #d2ffef;
+              }
+
+              .war-animation.yellow:before,
+              .war-animation.orange:before,
+              .war-animation.red:before,
+              .war-animation.default:before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                border-radius: inherit;
+                pointer-events: none;
+                opacity: 1;
+              }
+
+              .war-animation.yellow:before {
+                box-shadow: 0 0 30px #F9FF6C inset;
+              }
+              .war-animation.orange:before {
+                box-shadow: 0 0 30px #ff6600 inset;
+              }
+              .war-animation.red:before {
+                box-shadow: 0 0 30px #FF5858 inset;
+              }
+              .war-animation.default:before {
+                box-shadow: 0 0 30px #d2ffef inset;
+              }
+              .fire-warn .chart-modal .war-animation:before {
+                animation: warnStyle 2s infinite;
+              }
+              @keyframes warnStyle {
+                0% {
+                  opacity: 1;
+                }
+                50% {
+                  opacity: 0.3;
+                }
+                100% {
+                  opacity: 1;
+                }
+              }
+              ::v-deep .expand-fold {
+                position: absolute;
+                top: px-to-rem(14);
+                right: px-to-rem(12);
+                width: px-to-rem(20);
+                height: px-to-rem(20);
+                color: themed('fire-warning-color-expand-fold');
+                font-size: px-to-rem(20);
+                line-height: px-to-rem(20);
+                cursor: pointer;
+                .ct-icon {
+                  .icon {
+                    color: themed('fire-warning-color-heatmap') !important;
+                    font-size: px-to-rem(13) !important;
+                  }
+                }
+              }
+
+              ::v-deep .heatmap {
+                position: absolute;
+                top: px-to-rem(14);
+                right: px-to-rem(45);
+                width: px-to-rem(20);
+                height: px-to-rem(20);
+                font-size: px-to-rem(20);
+                line-height: px-to-rem(20);
+                cursor: pointer;
+                .ct-icon {
+                  .icon {
+                    color: themed('fire-warning-color-heatmap') !important;
+                    font-size: px-to-rem(20) !important;
+                  }
+                }
+              }
+
+              ::v-deep .heatmap.choose {
+                .ct-icon {
+                  .icon {
+                    color: themed(
+                      'fire-warning-color-heatmap-choose'
+                    ) !important;
+                    font-size: px-to-rem(20) !important;
+                  }
+                }
+              }
+
+              .fold {
+                top: px-to-rem(15);
+                transform: rotate(270deg);
+              }
+
+              .expand {
+                top: px-to-rem(13);
+                transform: rotate(90deg);
+              }
+            }
+          }
+        }
+      }
+
+      .tree-div {
+        overflow: hidden;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: px-to-rem(1);
+          opacity: 0.7;
+          content: '';
+        }
+      }
+      .data-content {
+        height: calc(100% - px-to-rem(180));
+      }
+    }
+  }
+}
+.open-fire-list {
+  // 火险列表展开
+  // height: calc(100% - px-to-rem(60));
+  height: px-to-rem(888);
+}
+.half-open-fire-list {
+  // 火险列表半展开
+  // height: calc(100% - px-to-rem(332));
+  height: px-to-rem(628);
+}
+.close-fire-list {
+  // 火险列表关闭
+  height: px-to-rem(180);
+}

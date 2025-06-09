@@ -1,0 +1,17 @@
+{
+  "name": "@component-gallery/build-full",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "gulp",
+    "build-dev": "cross-env PACKAGEMODE=development gulp",
+    "build-prod": "cross-env PACKAGEMODE=prod gulp",
+    "packages": "node ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "5.5.4",
+    "@types/node": "^18.11.9"
+  }
+}

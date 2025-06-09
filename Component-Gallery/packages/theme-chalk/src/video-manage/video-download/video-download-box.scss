@@ -1,0 +1,175 @@
+@import '../../mixins/mixins';
+@import "../../mixins/theme-mixins";
+@import '../../mixins/px-to-rem';
+
+.video-download-box__wrapper {
+  @include themeify() {
+    .popup-body {
+      width: px-to-rem(770);
+      height: auto;
+    }
+
+    .content-box {
+      padding: px-to-rem(12) px-to-rem(20);
+
+      /* 表格盒子 */
+      .content-table-box {
+        overflow: hidden;
+        width: 100%;
+        height: px-to-rem(290);
+
+        ::v-deep .el-table {
+          background: transparent;
+
+          &::before {
+            background: transparent;
+          }
+
+          /* 表格头部 */
+          .el-table__header-wrapper {
+            .el-table__header {
+              width: 100% !important;
+
+              .has-gutter {
+                .is-leaf {
+                  padding: 0;
+                  background: rgb(79 159 255 / 20%);
+                  color: #e8f3fe;
+                  border-bottom: 1px solid rgb(255 255 255 / 20%);
+
+                  .cell {
+                    height: px-to-rem(36);
+
+                    //font-weight: bold;
+                    color: #e8f3fe;
+                    font-size: px-to-rem(14);
+                    line-height: px-to-rem(36);
+                  }
+                }
+              }
+            }
+          }
+
+          /* 表格内容 */
+          .el-table__body-wrapper {
+            overflow: hidden auto;
+            height: px-to-rem(250);
+
+            /* 有数据 */
+            .el-table__body {
+              width: 100% !important;
+
+              .el-table__row {
+                height: px-to-rem(32);
+                line-height: px-to-rem(32);
+
+                td {
+                  border-bottom: 1px solid rgb(255 255 255 / 20%);
+                }
+              }
+
+              .current-row {
+                td {
+                  background: transparent;
+
+                  div {
+                    color: #e8f3fe !important;
+                    font-size: px-to-rem(14);
+                    font-weight: normal;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        ::v-deep .el-table--enable-row-hover .el-table__body tr:hover > td {
+          background: transparent;
+        }
+
+        ::v-deep .el-table th.el-table__cell.is-leaf {
+          background: transparent;
+          color: #e8f3fe !important;
+        }
+
+        ::v-deep .el-table th.el-table__cell > .cell {
+          color: #e8f3fe !important;
+        }
+
+        ::v-deep .el-table tr {
+          background: transparent !important;
+        }
+
+        ::v-deep .el-table .cell {
+          padding: 0;
+          color: #e8f3fe !important;
+        }
+      }
+
+      .table-name-div {
+        overflow: hidden;
+        padding-right: px-to-rem(10);
+        width: 100%;
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      /* 日期控件图标替换，间距调整 */
+      ::v-deep .y-data-editor-picker {
+        padding: 0 px-to-rem(8) !important;
+        width: calc(100% - px-to-rem(30)) !important;
+
+        .el-range__icon {
+          margin-left: px-to-rem(-4) !important;
+
+          &::before {
+            content: '\e974';
+            font-family: iconfont;
+          }
+        }
+
+        .el-range__close-icon {
+          display: none !important;
+        }
+      }
+
+      /* 列表按钮 */
+      .y-table-btn {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        .table-btn {
+          color: #e8f3fe;
+
+          .table-btn-icon {
+            &::before {
+              font-size: px-to-rem(18);
+            }
+          }
+        }
+
+        .disable-table-btn {
+          opacity: 0.4;
+        }
+      }
+
+      //底部按钮
+      .bottom-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: px-to-rem(12);
+        width: 100%;
+
+        .btn {
+          width: px-to-rem(107);
+          height: px-to-rem(32);
+        }
+      }
+    }
+  }
+}

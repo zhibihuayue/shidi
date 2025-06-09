@@ -1,0 +1,8 @@
+{
+  "packages/components/**/*.{vue,js,jsx,ts,tsx}": [
+  ],
+  "packages/components/**/*.{json,md}": [
+  ],
+  "packages/components/**/*.{scss,css,vue,html}": [
+  ]
+}

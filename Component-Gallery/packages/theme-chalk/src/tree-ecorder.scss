@@ -1,0 +1,184 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/theme-button-mixins';
+@import 'mixins/px-to-rem';
+
+.common-theme {
+  .filterBox {
+
+    width: 100%; 
+    height: px-to-rem(126);
+    padding:px-to-rem(9) px-to-rem(12) px-to-rem(12);
+    background: rgba(23,37,55,0.9);
+    border-radius: px-to-rem(8);
+    position: absolute;
+    z-index: 1;
+    left: 0;  
+    
+    .title {
+
+      margin-bottom: px-to-rem(9);
+      height: px-to-rem(20);
+      font-family: PingFangSC, PingFang SC;
+      font-weight: 400;
+      font-size: px-to-rem(14);
+      color: #E8F3FE;
+      line-height: px-to-rem(20);
+      text-align: left;
+      font-style: normal; 
+    }
+    .label-bar {
+
+      display: grid;
+      grid-template-columns: px-to-rem(110);
+      grid-template-rows: px-to-rem(32);
+      grid-auto-flow: column;
+      gap: px-to-rem(6);
+      margin-bottom: px-to-rem(12);
+
+      .label {
+
+        line-height: px-to-rem(32);
+        text-align: center;
+        border-radius: px-to-rem(4);
+        border: px-to-rem(1) solid rgba(232,243,254,0.2);
+        color: #fff;
+        &.active {
+          border-color: #4F9FFF;
+          color: #4F9FFF;
+        }
+      }
+    }
+    .action-bar {
+      display: grid;
+      grid-template-columns: px-to-rem(166);
+      grid-template-rows: px-to-rem(32);
+      grid-auto-flow: column;
+      gap: px-to-rem(12);
+      ::v-deep .el-button {
+        padding: 0;
+        border: none;
+        line-height: px-to-rem(32);
+        background: linear-gradient( 90deg, #4F9FFF 0%, #1373E6 100%);
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, PingFang SC;
+        color: #E8F3FE;
+        font-weight: 400;
+        font-style: normal;
+
+
+        &+.el-button {
+          margin-left: 0;
+          background: rgba(79,159,255,0.2);
+        }            
+        &:first-of-type::after {
+          pointer-events: none;
+          position: absolute;
+          content: '';
+          top: 0;
+          left: 0;
+          width:100%;
+          height:100%;
+        } 
+        &:hover{
+          opacity: 0.6;
+        }
+              
+      }
+    }
+  }
+  .filterCheck {
+    color: rgb(79, 159, 255);
+  }
+  .ft18 {
+    font-size: px-to-rem(18);
+    padding-top: px-to-rem(2);
+  }
+}
+
+[data-theme=theme-aquamarine] .common-theme {
+  .filterBox {
+    background: linear-gradient( 180deg, rgba(0,67,63,0.85) 0%, rgba(0,19,30,0.74) 21%, #00131E 100%);
+    .title {
+      text-shadow: 0 0 18px rgba(0, 245, 193, 0.7);
+    }
+    .label-bar {
+      .label {
+        color: #fff;
+        border: px-to-rem(1) solid #02896D;
+        &.active {
+          border-color: #F9FF6C;
+          color: #F9FF6C;
+        }
+      }
+    }
+    .action-bar {
+
+      ::v-deep .el-button {
+        position: relative;
+        border-radius: unset;
+        background: rgba(2,137,109,0.3);
+        color: #fff;
+        border: px-to-rem(1) dashed rgba(2, 137, 109, 0.15);
+       
+        &+.el-button {
+          color: #fff;
+          border-radius: unset;
+          background: rgba(2,137,109,0.1);
+          box-shadow: inset 0px 0px 3px 0px rgba(2,137,109,0.6);
+        }
+        &:first-of-type::after {
+          inset: 0;
+          border: px-to-rem(4) solid transparent;
+          border-image-source: url('~@component-gallery/assets/image/common/aquamarine/btn_primarybg.png');
+          border-image-slice: 9 fill;        
+        }         
+      }
+    }  
+  }
+  .filterCheck {
+    color: #F9FF6C;
+  }
+}
+
+[data-theme=theme-terracotta] .common-theme {
+  .filterBox {
+    background: linear-gradient( 180deg, #423B1D 0%, #28210E 11%, #000000 100%);    
+    .title {
+      color: #E4E7C1;
+    }
+    .label-bar {
+      .label {
+        color: #E4E7C1;
+        border: px-to-rem(1) solid #9F9853;
+        &.active {
+          border-color: #FFFA28;
+          background: linear-gradient( 180deg, rgba(255,241,126,0.1) 0%, rgba(255,224,72,0.34) 100%);
+          color: #FFFA28;;
+        }
+      }
+    }
+    .action-bar {
+
+      ::v-deep .el-button {
+        position: relative;
+        border-radius: px-to-rem(4);
+        background: #64562E;
+        color: #E4E7C1;
+        &+.el-button {
+          border: px-to-rem(1) solid #6E674E;
+          background: #64562E;
+        }
+        &:first-of-type::after {
+          background: url('~@component-gallery/assets/image/video-inspection/btn_l_t.png') no-repeat 0 0,
+            url('~@component-gallery/assets/image/video-inspection/btn_l_b.png') no-repeat 0 100%,
+            url('~@component-gallery/assets/image/video-inspection/btn_r_t.png') no-repeat 100% 0,
+            url('~@component-gallery/assets/image/video-inspection/btn_r_b.png') no-repeat 100% 100%;
+        }          
+      }
+    }  
+  }
+  .filterCheck {
+    color: #FFFA28;
+  }  
+}

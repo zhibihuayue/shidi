@@ -1,0 +1,236 @@
+
+@import "mixins/px-to-rem";
+
+.inspection-tasks{
+  &-container {
+    width: px-to-rem(370);
+
+    &__searchBox {
+      display: grid;
+      margin: px-to-rem(12) 0;
+      width: 100%;
+      height: px-to-rem(32);
+      line-height: px-to-rem(32);
+      grid-template-columns: px-to-rem(92) px-to-rem(272);
+      gap: px-to-rem(6);
+
+      ::v-deep .el-select {
+        .el-input__inner {
+          height: px-to-rem(32);
+        }
+      }
+
+      .timeTypeCollection {
+        display: flex;
+
+        ::v-deep .el-date-editor {
+          width: 100%;
+
+          .el-input {
+            &__inner {
+              padding-left: px-to-rem(47);
+              height: px-to-rem(32);
+              font-size: px-to-rem(14);
+            }
+
+            &__prefix {
+              color:#FFF;
+
+              .el-input__icon{
+                line-height: px-to-rem(32);
+              }
+            }
+          }
+        }
+
+      }
+
+      ::v-deep .el-date-editor .el-range-separator {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__treeBox {
+      display: grid;
+      margin-bottom: px-to-rem(12);
+      height: px-to-rem(32);
+      grid-template-columns: px-to-rem(28) px-to-rem(330);
+      gap: px-to-rem(12);
+
+      ::v-deep .el-select {
+        .el-input__inner {
+          height: px-to-rem(32);
+
+          &::placeholder {
+            color: rgb(232 243 254 / 70%);
+          }
+        }
+      }
+
+      span {
+        color: #FFF;
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, "PingFang SC";
+        text-align: right;
+        font-weight: 400;
+        line-height: px-to-rem(32);
+        font-style: normal;
+      }
+    }
+
+    &__cardBox {
+      display: grid;
+      grid-template-columns: repeat(3, px-to-rem(119));
+      grid-template-rows: px-to-rem(160);
+      gap: px-to-rem(6);
+
+      div {
+      position: relative;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      &.nspectionTaskNum {
+        background-image: url('~@component-gallery/assets/image/inspection-tasks/tasks@2x.png');
+
+        b {
+          text-shadow: 0 px-to-rem(1) px-to-rem(4) #245995;
+        }
+      }
+
+      &.taskCompletedNum {
+        background-image: url('~@component-gallery/assets/image/inspection-tasks/Completed@2x.png');
+
+        b {
+          text-shadow: 0 px-to-rem(1) px-to-rem(4) #43C88F;
+        }
+
+        span {
+          text-shadow: 0 0 px-to-rem(5) rgb(13 201 133 / 50%);
+        }
+      }
+
+      &.taskIncompleteNum {
+        background-image: url('~@component-gallery/assets/image/inspection-tasks/incomplete@2x.png');
+
+        b {
+          text-shadow: 0 px-to-rem(1) px-to-rem(4) #F9FF6C;
+        }
+
+        span {
+          text-shadow: 0 0 px-to-rem(5) rgb(255 152 129 / 50%);
+        }
+      }
+
+      span {
+        position: absolute;
+        bottom: px-to-rem(38);
+        left: 50%;
+        text-shadow: 0 0 px-to-rem(5) rgb(255 245 61 / 50%);
+        color: #FFF;
+        font-size: px-to-rem(14);
+        font-family: PingFangSC, "PingFang SC";
+        text-align: center;
+        transform: translateX(-50%);
+        font-weight: 400;
+        line-height: px-to-rem(14);
+        font-style: normal;
+      }
+
+      b {
+        position: absolute;
+        top: px-to-rem(50);
+        right: px-to-rem(22);
+        text-shadow: 0 px-to-rem(1) px-to-rem(4) #DCD277;
+        color: #FFF;
+        font-size: px-to-rem(20);
+        font-family: PingFangSC, "PingFang SC";
+        text-align: left;
+        font-weight: 600;
+        line-height: px-to-rem(16);
+        font-style: normal;
+      }
+      }
+
+    }
+  }
+
+}
+
+  ::v-deep span {
+    &.iconfont_tools.icon-tongyong_gongnengtubiao_icon_wangge {
+      margin-right: px-to-rem(10);
+    }
+  }
+
+  ::v-deep .el-input__inner {
+    font-size: px-to-rem(14)!important; // 覆盖common-base的12像素字号
+  }
+
+// 林业
+[data-theme="theme-aquamarine"] .inspection-tasks{
+  &-container {
+    &__searchBox {
+      ::v-deep .el-input__inner {
+        padding-left: px-to-rem(12);
+      }
+      .timeTypeCollection {
+        ::v-deep .el-date-editor {
+          .el-input {
+            &__prefix {
+              padding-top: px-to-rem(1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme="theme-terracotta"] .inspection-tasks{
+  &-container {
+    &__treeBox {
+      grid-template-columns: px-to-rem(28) px-to-rem(326);
+
+      span {
+        color: #E4E7C1;
+      }
+    }
+
+    &__searchBox {
+      grid-template-columns: px-to-rem(92) px-to-rem(268);
+    }
+
+    &__cardBox {
+      grid-template-columns: repeat(3, px-to-rem(119));
+      gap: px-to-rem(6);
+
+      div {
+        &.nspectionTaskNum {
+          background-image: url('~@component-gallery/assets/image/inspection-tasks/tasks@2x-gt.png');
+
+          b {
+            text-shadow: 0 px-to-rem(1) px-to-rem(4) #F9FF6C;
+          }
+        }
+
+        &.taskCompletedNum {
+          background-image: url('~@component-gallery/assets/image/inspection-tasks/Completed@2x-gt.png');
+
+          b {
+            text-shadow: 0 px-to-rem(1) px-to-rem(4) #43C88F;
+          }
+        }
+
+        &.taskIncompleteNum {
+          background-image: url('~@component-gallery/assets/image/inspection-tasks/incomplete@2x-gt.png');
+
+          b {
+            text-shadow: 0 px-to-rem(1) px-to-rem(4) #FFA76C;
+          }
+        }
+      }
+    }
+  }
+}

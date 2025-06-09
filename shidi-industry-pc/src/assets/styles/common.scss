@@ -1,0 +1,284 @@
+@import "~@/assets/styles/px-to-rem";
+
+// 临时覆盖rem方案。集成工程工作在一个banner下，它的实际“屏幕”高度基准单位是1080 - 48 = 1032
+// 因此如果还是用原版的计算方法的话，会导致各种尺寸恰好缺约5%
+html {
+  font-size: 9.68992248062vh;
+}
+
+// FIXME集成工程临时覆盖的el-message样式。这个样式应当在组件库处理，这里是因为通用样式发版较慢的临时处置方案。
+// 组件库处理后请删除这部分
+.el-message {
+  &.el-message--error,
+  &.el-message--info,
+  &.el-message--success,
+  &.el-message--warning {
+    padding: px-to-rem(9) px-to-rem(6) px-to-rem(9) px-to-rem(12) !important;
+  }
+}
+
+// 修改大屏全局的el-select 为了不影响工作台的样式 使用时添加hh-css类
+.hh-css {
+  // 全局修改el-select
+  .el-select {
+    display: block;
+    width: 100%;
+    position: absolute;
+    .el-input{
+      .el-select__caret {
+        font-size: px-to-rem(14);
+        position: relative;
+        top: px-to-rem(0);
+        color: #ffffff;
+      }
+    }
+    .el-input__inner {
+      padding: px-to-rem(5) px-to-rem(10);
+      height: px-to-rem(30);
+      line-height: px-to-rem(30);
+      border-radius: px-to-rem(4) !important;
+      font-size: px-to-rem(14);
+      color: #ffffff;
+      background: rgba(2, 137, 109, 0.3);
+      border-color: transparent;
+      box-shadow: inset 0px 0px px-to-rem(0.5) 0px rgba(2, 137, 109, 0.6);
+    }
+    .el-input__inner:focus{
+      border-color: #02896d;
+    }
+    .el-input.is-focus {
+      .el-input__inner {
+        border-color: #02896d;
+      }
+    }
+    // .el-input__inner:hover,.el-input__inner:focus{
+    //   border: px-to-rem(1) solid #02896D;
+    //  }
+    .is-reverse {
+      position: relative;
+      top: px-to-rem(-1);
+    }
+  }
+  .el-select:hover {
+    .el-input__inner {
+      border-color: #02896d;
+    }
+  }
+
+  // 全局修改el-select下拉框选项样式修改
+  .el-popper[x-placement^="bottom"] {
+    margin-top: px-to-rem(8);
+  }
+  .el-select-dropdown {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 67, 63, 0.85) 0%,
+      rgba(0, 19, 30, 0.74) 100%
+    );
+    border-radius: px-to-rem(4);
+    left: 0 !important;
+    border: px-to-rem(1) solid #075b4a;
+    .el-select-dropdown__list {
+      padding: 0 ;
+      .el-select-dropdown__item {
+        color: #ffffff;
+        height: px-to-rem(32);
+        line-height: px-to-rem(32);
+        font-size: px-to-rem(14);
+        padding: 0 px-to-rem(20);
+      }
+      .el-select-dropdown__item.hover {
+        background: rgba(2, 137, 109, 0.4);
+        color: #ffffff;
+      }
+      .el-select-dropdown__item.selected {
+        background: rgba(2, 137, 109, 0.4);
+        color: #f9ff6c;
+      }
+    }
+    .el-select-dropdown__empty {
+      padding: px-to-rem(10) 0;
+      font-size: px-to-rem(14);
+    }
+
+    .popper__arrow {
+      display: none;
+    }
+  }
+}
+.datePickerDrop {
+  color: #ffffff !important;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 67, 63, 0.9) 0%,
+    rgba(0, 19, 30, 0.9) 100%
+  ) !important;
+  border: 1px solid #075b4a !important;
+  box-shadow: inset 0px 0px px-to-rem(0.5) 0px rgba(2, 137, 109, 0.6) !important;
+  .el-range-input {
+    margin: 0 !important;
+  }
+  .el-date-picker__header {
+    display: flex !important;
+    justify-content: space-between !important;
+    .el-date-picker__header-label {
+      // height:px-top-rem(46);
+      color: #ffffff !important;
+    }
+  }
+  .el-year-table td .cell {
+    color: #ffffff !important;
+    border-radius: 24px !important;
+    &:hover {
+      background: rgba(2, 137, 109, 0.4) !important;
+    }
+  }
+  .el-year-table td.disabled .cell {
+    background: rgba(255, 255, 255, 0.5) !important;
+  }
+  .el-year-table td.current:not(.disabled) .cell {
+    color: #ffffff !important;
+    border-radius: 24px !important;
+    background: linear-gradient(270deg, #00a179 0%, #15bd94 100%) !important;
+  }
+
+  .el-picker-panel__icon-btn {
+    color: #fff !important;
+  }
+  .in-range {
+    > div {
+      background-color: #00a179 !important;
+      opacity: 0.35 !important;
+      .cell {
+        color: #fff !important;
+        background: transparent !important;
+      }
+    }
+  }
+  .start-date,
+  .end-date {
+    border-top-left-radius: 24px !important;
+    border-bottom-left-radius: 24px !important;
+    > div {
+      opacity: 1 !important;
+      background: linear-gradient(270deg, #00a179 0%, #15bd94 100%) !important;
+    }
+  }
+  .el-month-table td .cell {
+    color: #fff !important;
+    &:hover {
+      background-color: rgba(2, 137, 109, 0.4) !important;
+    }
+  }
+  .el-date-range-picker__content.is-left {
+    border: 1px solid #075b4a !important;
+  }
+  .el-month-table td.disabled .cell {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+  }
+}
+
+[data-theme="theme-wiseblue"] .el-message {
+  // 按照要求，设计师认为所有提示的图标和字色保持一致
+  &.el-message--error,
+  &.el-message--info,
+  &.el-message--success,
+  &.el-message--warning {
+    .el-message__icon {
+      color: #4f9fff;
+    }
+    .el-message__content {
+      color: #e8f3fe;
+    }
+    padding: px-to-rem(9) px-to-rem(6) px-to-rem(9) px-to-rem(12) !important;
+    background-color: #172537 !important;
+    border-color: #172537 !important;
+  }
+}
+
+// FIXME集成工程临时覆盖的el-checkbox样式。这个样式应当在组件库处理，这里是因为通用样式发版较慢的临时处置方案。
+// 组件库处理后请删除这部分
+.common-iw-s .el-tree .el-tree-node__expand-icon.el-icon-caret-right::before {
+  font-size: px-to-rem(20);
+}
+[data-theme="theme-wiseblue"] .allalarm-container .tool-camera-filte-container,
+[data-theme="theme-wiseblue"] .common-iw-s {
+  // 按钮覆写
+  .el-button {
+    &.el-button--primary {
+      background: linear-gradient(90deg, #4f9fff 0%, #1373e6 100%);
+    }
+  }
+
+  .el-tree {
+    .el-tree-node__expand-icon {
+      margin-right: px-to-rem(6);
+    }
+  }
+
+  .el-select-dropdown__item {
+    height: px-to-rem(32);
+  }
+
+  .el-checkbox {
+    .el-checkbox__input {
+      .el-checkbox__inner {
+        width: px-to-rem(16);
+        height: px-to-rem(16);
+        border-radius: px-to-rem(3);
+      }
+
+      &.is-indeterminate {
+        .el-checkbox__inner {
+          border: none;
+          &::before {
+            position: initial;
+            background-color: transparent;
+            font-family: "iconfont_p";
+            font-size: px-to-rem(16);
+            content: "\ed95";
+            border: none;
+            transform: none;
+            color: var(--iw-text-color);
+          }
+        }
+      }
+    }
+
+    &.is-checked {
+      .el-checkbox__input {
+        .el-checkbox__inner {
+          border: none;
+          &::after {
+            top: 0;
+            left: 0;
+            font-family: "iconfont_p";
+            font-size: px-to-rem(16);
+            content: "\ed96";
+            border: none;
+            transform: none;
+            color: var(--iw-text-color);
+          }
+        }
+      }
+    }
+  }
+
+  // 测距侧面tooltip覆写
+  &.small-box-startTip,
+  &.small-box-measureTip {
+    display: flex;
+    align-items: center;
+    padding: px-to-rem(6) px-to-rem(12);
+    border-radius: px-to-rem(4);
+  }
+
+  &.small-box-measureTip {
+    .iconfont {
+      cursor: pointer;
+      &.trash {
+        margin-left: px-to-rem(6);
+      }
+    }
+  }
+}

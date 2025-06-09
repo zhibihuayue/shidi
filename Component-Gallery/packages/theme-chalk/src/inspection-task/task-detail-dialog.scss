@@ -1,0 +1,548 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/bem-mixins.scss';
+@import '../mixins/theme-checkbox-mixins';
+
+@include b('task-detail-dialog') {
+  .alarm-info-top-box {
+    &.m-head {
+      b,
+      &::before {
+        background: #61fffb;
+        @include only_display_in_one_theme('only-show-in-aquamarine');
+      }
+    }
+  }
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed !important;
+  z-index: 12;
+  top: 0;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  .alarm-info-box {
+    @include themeify() {
+      //详情盒子
+      position: relative;
+      width: px-to-rem(500);
+      z-index: 101;
+      max-height: calc(100% - px-to-rem(70));
+      pointer-events: all;
+      background: themed('inspection-task-track-popup-map-dialog-bg');
+      border-radius: themed('border-radius-8');
+      @if $theme-name == 'theme-aquamarine' {
+        border: 1px solid !important;
+        border-image: linear-gradient(
+            360deg,
+            rgba(7, 91, 74, 0.75),
+            rgba(7, 91, 74, 0.3)
+          )
+          1
+          1 !important;
+      }
+      @if $theme-name != 'theme-aquamarine' {
+        outline: themed('border-1');
+      }
+
+      .close-btn {
+        //关闭按钮
+        position: absolute;
+        top: px-to-rem(-19);
+        right: px-to-rem(-19);
+        width: px-to-rem(38);
+        height: px-to-rem(38);
+        background: themed('base-card-close-bg');
+        background-size: 100% 100%;
+        line-height: px-to-rem(38);
+        cursor: pointer;
+        z-index: 7;
+      }
+      .alarm-info-top-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 px-to-rem(12);
+        height: px-to-rem(48);
+        background: themed('inspection-task-header-bg-color') !important;
+        border-bottom: themed(
+          'inspection-task-header-border-bottom'
+        ) !important;
+        border-image: themed('inspection-task-header-border-image') !important;
+        border-radius: px-to-rem(8) px-to-rem(8) 0 0;
+        color: themed('global-text-color');
+        line-height: px-to-rem(46);
+        font-weight: 600;
+        @if $theme-name == 'theme-wiseblue' {
+          &.m-head {
+            background: url('~@component-gallery/assets/image/head_img.png')
+              no-repeat -3px /
+              100%
+              100% !important;
+          }
+        }
+        // title样式
+        &.m-head {
+          b,
+          &::before {
+            position: absolute;
+            top: 0;
+            width: px-to-rem(8);
+            height: 1px;
+            content: '';
+          }
+          &::before {
+            left: 0;
+          }
+          b {
+            right: 0;
+          }
+          &::after {
+            position: absolute;
+            top: px-to-rem(-7);
+            left: px-to-rem(45);
+            width: px-to-rem(36);
+            height: px-to-rem(14);
+            background: themed('inspection-task-header-after-bg');
+            background-size: contain !important;
+            content: '';
+          }
+        }
+        .left-alarm-top-title {
+          height: px-to-rem(48);
+          line-height: px-to-rem(48);
+          width: calc(100% - px-to-rem(76));
+          display: flex;
+          @if $theme-name != 'theme-wiseblue' {
+            ::v-deep .ct-icon__inline-block {
+              display: none;
+            }
+          }
+          @if $theme-name == 'theme-wiseblue' {
+            ::v-deep .ct-icon__inline-block .ct-icon {
+              .icon {
+                display: inline-block;
+                margin-top: -0.03rem;
+                font-size: px-to-rem(14) !important;
+              }
+            }
+          }
+          .left-alarm-top-alarm {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: px-to-rem(48);
+            font-weight: 600;
+            color: themed('inspection-task-tab-text-active-color');
+            text-shadow: themed('inspection-task-title-text-shadow');
+            padding-left: themed('inspection-task-title-name-left');
+            background: themed('inspection-task-title-bg');
+            background-size: contain;
+            font-size: px-to-rem(16);
+            @if $theme-name == 'theme-wiseblue' {
+              padding-left: px-to-rem(6);
+            }
+            span {
+              display: inline-block;
+              width: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              margin-left: px-to-rem(-20);
+              padding-left: px-to-rem(20);
+              font-weight: 600;
+            }
+            &::before {
+              position: absolute;
+              top: themed('inspection-task-title-before-top');
+              left: px-to-rem(0);
+              display: block;
+              width: themed('inspection-task-title-before-width');
+              height: themed('inspection-task-title-before-height');
+              background: themed('inspection-task-title-before');
+              // <ct-icon name="enlarge-3d" size="30" />
+              @if $theme-name == 'theme-wiseblue' {
+                display: none;
+              }
+              background-size: 100% 100%;
+              content: '';
+            }
+
+            &::after {
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              width: px-to-rem(170);
+              left: px-to-rem(-13);
+              height: px-to-rem(10);
+              background-position: left 100%;
+              background-repeat: no-repeat;
+              background-size: px-to-rem(120) px-to-rem(10);
+              content: '';
+              background: themed('inspection-task-title-name-after');
+            }
+          }
+        }
+      }
+
+      .done,
+      .undone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: px-to-rem(52);
+        font-weight: 500;
+        color: #fff;
+        height: px-to-rem(20);
+        line-height: px-to-rem(20);
+        border-radius: px-to-rem(4);
+        text-align: center;
+        font-size: px-to-rem(12);
+      }
+      .done {
+        background: linear-gradient(90deg, #15bd94 0%, #00a179 100%);
+      }
+      .undone {
+        background: linear-gradient(90deg, #d4b02d 0%, #bd9400 100%);
+      }
+      .iconTrajectory {
+        width: px-to-rem(30);
+        height: px-to-rem(30);
+        line-height: px-to-rem(30);
+        color: themed('global-icon-color');
+        margin: px-to-rem(12) 0 px-to-rem(12) px-to-rem(12);
+        display: flex;
+        align-items: center;
+        gap: px-to-rem(6);
+        position: relative;
+        z-index: 11;
+        i {
+          font-size: px-to-rem(30);
+        }
+        ::v-deep .ct-icon__inline-block .ct-icon .icon {
+          font-size: 0.24rem !important;
+        }
+      }
+      .alarm-item-line {
+        width: px-to-rem(472);
+        height: px-to-rem(1);
+        margin: 0 px-to-rem(12);
+        border-bottom: themed('inspection-task-item-border-bottom');
+      }
+      .iconYellow {
+        color: themed('global-icon-active-color') !important;
+        width: px-to-rem(30);
+        height: px-to-rem(30);
+        background-size: 100% 100%;
+        @if $theme-name == 'theme-aquamarine' {
+          background: url('~@component-gallery/assets/image/tool-box/aquamarine/funcicon-bg.png')
+            no-repeat
+            center;
+          background-size: contain;
+        }
+
+        @if $theme-name == 'theme-terracotta' {
+          background: url('~@component-gallery/assets/image/tool-box/terracotta/funcicon-bg.png')
+            no-repeat
+            center;
+          background-size: contain;
+        }
+      }
+    }
+  }
+
+  //特殊共用样式
+  .btn-active-class {
+    //文字颜色变黄
+    color: #f9ff6c !important;
+  }
+
+  .fun-btn-active-class {
+    //按钮点击后效果 文字变黄 背景增加
+    font-size: px-to-rem(18);
+    color: #f9ff6c !important;
+    opacity: 0.97 !important;
+    // background: url("~@/assets/image/monitorWarnNew/alarmList/ly-map-xz.png") center no-repeat !important;
+  }
+
+  //功能按钮组
+  .alarm-info-fun-btn {
+    width: 100%;
+    height: auto;
+    padding: px-to-rem(12) px-to-rem(12);
+    display: flex;
+    flex-wrap: wrap;
+
+    .fun-btn-class {
+      width: px-to-rem(32);
+      height: px-to-rem(32);
+      font-size: px-to-rem(26);
+      color: #ffffff;
+      line-height: px-to-rem(32);
+      text-align: center;
+      margin-left: px-to-rem(2);
+      cursor: pointer;
+    }
+  }
+
+  //告警内容盒子
+  .alarm-info-content-box {
+    width: 100%;
+    overflow-x: hidden;
+
+    //告警详情标签
+    .alarm-info-tag-box {
+      width: 100%;
+      height: auto;
+      padding: 0 px-to-rem(12) px-to-rem(12);
+
+      .alarm-info-tag {
+        display: flex;
+        flex-wrap: wrap;
+
+        .alarm-info-tag-item {
+          padding: 0 px-to-rem(14);
+          overflow: initial;
+          position: relative;
+          height: px-to-rem(24);
+          background: none;
+          font-size: px-to-rem(12);
+          font-weight: 400;
+          color: #f9ff6c;
+          line-height: px-to-rem(24);
+          margin: px-to-rem(2) px-to-rem(-4);
+
+          &:before {
+            width: px-to-rem(14);
+            height: px-to-rem(24);
+            // background: url("~@/assets/image/monitorWarnNew/alarmList/bg_bq-left.png") center no-repeat;
+            position: absolute;
+            content: '';
+            display: block;
+            left: 0;
+            top: 0;
+            background-size: 100% 100%;
+          }
+
+          &:after {
+            width: px-to-rem(14);
+            height: px-to-rem(24);
+            // background: url("~@/assets/image/monitorWarnNew/alarmList/bg_bq-right.png") center no-repeat;
+            position: absolute;
+            content: '';
+            display: block;
+            right: 0;
+            top: 0;
+            background-size: 100% 100%;
+          }
+
+          > div {
+            // background: url("~@/assets/image/monitorWarnNew/alarmList/bg_bq-center.png") center repeat-x;
+            color: #f9ff6c;
+            position: relative;
+            line-height: px-to-rem(24);
+            max-width: px-to-rem(240);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+
+    //告警详情信息
+    .alarm-info-content {
+      width: 100%;
+      height: auto;
+      padding: 0 px-to-rem(12);
+    }
+  }
+
+  //底部按钮盒子
+  .alarm-bottom-btn-box {
+    width: 100%;
+    padding: px-to-rem(0) px-to-rem(12) px-to-rem(12) px-to-rem(12);
+    // position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .alarm-bottom-btn-div {
+      display: flex;
+      flex-wrap: wrap;
+
+      //底部按钮通用样式
+      .bottom-public-btn-class {
+        width: px-to-rem(104);
+        margin: px-to-rem(0) px-to-rem(5);
+      }
+    }
+  }
+
+  .alarm-share-box {
+    width: px-to-rem(440);
+    height: px-to-rem(165);
+  }
+
+  .ol-overlay-watermarkImage.isTop {
+    z-index: 10;
+  }
+
+  .cesium-inforWindow[class*='imgId_'],
+  .ol-overlay-watermarkImage > .watermarkImage {
+    > div[id^='watermarkImage'] {
+      position: relative;
+      width: px-to-rem(30);
+      height: px-to-rem(30);
+      user-select: none;
+
+      .abbreviate {
+        position: relative;
+        color: #0dc985;
+        font-size: 0;
+        cursor: pointer;
+
+        &.select {
+          color: #f9ff6c;
+        }
+
+        img {
+          position: relative;
+          width: px-to-rem(30);
+          height: px-to-rem(30);
+          border: px-to-rem(2) solid currentColor;
+          border-radius: px-to-rem(4);
+          z-index: 1;
+        }
+
+        .arrow {
+          position: absolute;
+          top: px-to-rem(15);
+          left: px-to-rem(14);
+          height: px-to-rem(34);
+          width: px-to-rem(2);
+          background-color: currentColor;
+          transform-origin: 50% 0;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: px-to-rem(-4);
+            left: 50%;
+            width: px-to-rem(14);
+            height: px-to-rem(7);
+            transform: translateX(-50%);
+            background-color: currentColor;
+            clip-path: polygon(0 0, 50% px-to-rem(2), 100% 0, 50% 100%);
+          }
+        }
+      }
+
+      .largeImageBox {
+        display: none;
+        position: absolute;
+        bottom: px-to-rem(36);
+        left: 50%;
+        width: px-to-rem(380);
+        height: px-to-rem(214);
+        transform: translateX(-50%);
+        z-index: 2;
+
+        .closeVideoBtn {
+          width: px-to-rem(18);
+          line-height: px-to-rem(18);
+          background: rgba(0, 0, 0, 0.48) !important;
+          position: absolute;
+          top: px-to-rem(6);
+          right: px-to-rem(6);
+          font-size: px-to-rem(12);
+          font-weight: bold;
+          color: #fff;
+          border-radius: 50%;
+          text-align: center;
+          cursor: pointer;
+          z-index: 2;
+        }
+
+        .switchBtn {
+          width: px-to-rem(30);
+          line-height: px-to-rem(30);
+          background-color: rgba(23, 37, 55, 0.5);
+          border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: px-to-rem(16);
+          color: #fff;
+          text-align: center;
+          cursor: pointer;
+          z-index: 2;
+
+          i {
+            font-weight: bold;
+            pointer-events: none;
+          }
+
+          &.prevLeft {
+            left: px-to-rem(6);
+          }
+
+          &.nextRight {
+            right: px-to-rem(6);
+          }
+        }
+
+        .fullScreenBtn {
+          position: absolute;
+          bottom: px-to-rem(6);
+          right: px-to-rem(6);
+          width: px-to-rem(30);
+          line-height: px-to-rem(30);
+          background-color: rgba(23, 37, 55, 0.5);
+          border-radius: px-to-rem(4);
+          color: #fff;
+          text-align: center;
+          cursor: pointer;
+          z-index: 2;
+
+          i {
+            pointer-events: none;
+          }
+        }
+
+        .scrollBox {
+          height: 100%;
+          overflow: hidden;
+          border-radius: px-to-rem(10);
+
+          .imgList {
+            width: 100%;
+            display: flex;
+            transition: -webkit-transform 0.3s, transform 0.3s;
+
+            .imgItem {
+              flex-shrink: 0;
+              position: relative;
+              width: px-to-rem(380);
+              height: px-to-rem(214);
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+  }
+}

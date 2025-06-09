@@ -1,0 +1,155 @@
+@import 'mixins/mixins';
+@import 'mixins/theme-mixins';
+@import 'mixins/px-to-rem';
+
+.base-collapse-item {
+  @include themeify(false) {
+    position: relative;
+
+    &-header {
+      &__margin {
+        margin: 0 0 px-to-rem(12) !important;
+      }
+
+      &__title {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+
+        margin: 0 0 px-to-rem(9);
+        width: 100%;
+        height: px-to-rem(26);
+        background: themed('alarm-info-title-box-bg');
+        color: themed('alarm-info-data-content-head-color');
+        font-size: px-to-rem(14);
+        font-weight: 500;
+        line-height: px-to-rem(26);
+        .title {
+          font-size: px-to-rem(14);
+          font-weight: 500;
+        }
+        @if $theme-name != 'theme-terracotta' {
+          padding: 0 px-to-rem(12);
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: px-to-rem(2);
+            height: 100%;
+            background: #e8f2fe;
+            @if $theme-name == 'theme-aquamarine' {
+              box-shadow: 0 0 px-to-rem(6) 0 #02896d,
+                inset 0 0 px-to-rem(2) 0 #02896d;
+            }
+            content: '';
+          }
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: px-to-rem(72);
+            height: 100%;
+            background: linear-gradient(
+              90deg,
+              #b0d4ff 0%,
+              rgba(19, 115, 230, 0.18) 51%,
+              rgba(19, 115, 230, 0) 100%
+            );
+            content: '';
+            opacity: 0.24;
+          }
+        } @else {
+          padding: 0 0 0 px-to-rem(27);
+          text-shadow: 0px 1px 4px #dcd277;
+          .collapse-icon {
+            display: flex;
+            align-items: center;
+          }
+          i {
+            position: relative;
+            width: px-to-rem(20);
+            display: block;
+            height: px-to-rem(20);
+            color: #ffeeb1;
+            background: themed('alarm-info-video-icon-bg-new');
+            &::before {
+              position: absolute;
+              top: px-to-rem(-2.5);
+              left: px-to-rem(0.5);
+            }
+          }
+          &::after {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: px-to-rem(95);
+            right: px-to-rem(25);
+            height: px-to-rem(2);
+            background: linear-gradient(
+              90deg,
+              #eee380 0%,
+              rgba(76, 66, 24, 0) 100%
+            );
+            content: '';
+            opacity: 0.92;
+            border-radius: 2px 0 0 0;
+          }
+
+          b {
+            &::before {
+              position: absolute;
+              top: 50%;
+              left: px-to-rem(7);
+              width: px-to-rem(4);
+              height: px-to-rem(5);
+              transform: skew(-35deg) translateY(-50%);
+              background: linear-gradient(
+                180deg,
+                #fffb7f 0%,
+                rgba(176, 160, 99, 0.38) 100%
+              );
+              content: '';
+            }
+            &::after {
+              position: absolute;
+              top: 50%;
+              left: px-to-rem(13);
+              width: px-to-rem(4);
+              height: px-to-rem(5);
+              transform: skew(-35deg) translateY(-50%);
+              background: linear-gradient(
+                180deg,
+                #fffb7f 0%,
+                rgba(176, 160, 99, 0.38) 100%
+              );
+              content: '';
+            }
+          }
+        }
+
+        .iconfont_tools {
+          font-size: px-to-rem(20);
+          color: '#E8F3FE';
+        }
+      }
+    }
+
+    &-body {
+      position: relative;
+    }
+
+    // 前导占位, 用于左上/右上角装饰
+    .previous-vacancies {
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    // 后导占位, 暂时预留
+    .subsequent-vacancies {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}

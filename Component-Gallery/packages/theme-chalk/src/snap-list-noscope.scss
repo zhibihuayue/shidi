@@ -1,0 +1,7 @@
+@import "mixins/px-to-rem";
+
+.el-picker-panel.el-date-range-picker.common-iw-s {
+  .el-picker-panel__shortcut {
+    font-size: px-to-rem(14);
+  }
+}

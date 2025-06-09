@@ -1,0 +1,209 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/bem-mixins.scss';
+@import '../mixins/theme-checkbox-mixins';
+
+@include b('feedback-comp') {
+  @include themeify(false) {
+    // 内容盒子
+    width: 100%;
+    // 公共样式
+    .dispose-item-label {
+      color: themed('global-text-color') !important;
+    }
+    .dispose-item-box {
+      display: flex;
+      margin-bottom: px-to-rem(12);
+      width: 100%;
+      flex-wrap: wrap;
+
+      .dispose-item-left {
+        display: flex;
+        justify-content: flex-end;
+        width: px-to-rem(112);
+        height: px-to-rem(32);
+
+        .dispose-xinghao {
+          margin-right: px-to-rem(2);
+          height: px-to-rem(32);
+          color: #ed5158;
+          font-size: px-to-rem(14);
+          font-weight: 400;
+          line-height: px-to-rem(32);
+        }
+
+        .dispose-item-label {
+          margin-right: px-to-rem(12);
+          height: px-to-rem(32);
+          font-size: px-to-rem(14);
+          text-align: right;
+          font-weight: 400;
+          line-height: px-to-rem(32);
+        }
+
+        .dispose-tip {
+          display: flex;
+          place-content: center center;
+          flex-wrap: wrap;
+          margin-right: px-to-rem(8);
+          margin-left: px-to-rem(-6);
+          .question-icon {
+            color: themed('weather-card-question-icon-color');
+            font-size: px-to-rem(22);
+          }
+        }
+      }
+
+      .dispose-item-right {
+        width: auto;
+        flex: 1;
+        padding-right: px-to-rem(12);
+      }
+      .peopleSelectTree-div {
+        ::v-deep .el-select {
+          .el-select__caret::before {
+            font-size: px-to-rem(20);
+            font-family: iconfont;
+            content: '\ea6b';
+          }
+        }
+      }
+      .close-dispose-left {
+        width: calc(100% - px-to-rem(396));
+      }
+
+      .close-dispose-right {
+        margin-right: px-to-rem(12);
+        width: px-to-rem(384);
+      }
+
+      // .dispose-item-left-suppress {
+      //   display: flex;
+      //   width: 100%;
+
+      //   .dispose-item-label {
+      //     height: px-to-rem(32);
+      //     font-size: px-to-rem(14);
+      //     font-weight: 400;
+      //     line-height: px-to-rem(32);
+      //   }
+
+      //   .dispose-tip {
+      //     display: flex;
+      //     align-content: center;
+      //     flex-wrap: wrap;
+      //     .question-icon {
+      //       color: themed('weather-card-question-icon-color');
+      //       font-size: px-to-rem(22);
+      //     }
+      //     // .text-source {
+      //     //   float: left;
+      //     //   margin: 0 px-to-rem(3) 0 px-to-rem(3);
+      //     //   width: px-to-rem(18);
+      //     //   height: px-to-rem(18);
+      //     //   background-repeat: no-repeat;
+      //     //   background-size: 100% 100%;
+      //     //   background-image: url('~@component-gallery/assets/image/inspection-task/hint-ly.png');
+      //     // }
+      //   }
+
+      //   .suppress-switch-box {
+      //     display: flex;
+      //     flex-wrap: wrap;
+      //     align-content: center;
+
+      //     ::v-deep .el-switch span.el-switch__core {
+      //       height: px-to-rem(18);
+      //     }
+
+      //     ::v-deep .el-switch.is-checked .el-switch__core::after {
+      //       margin-left: px-to-rem(-14);
+      //       width: px-to-rem(14);
+      //       height: px-to-rem(14);
+      //     }
+
+      //     ::v-deep .el-switch__core::after {
+      //       width: px-to-rem(14);
+      //       height: px-to-rem(14);
+      //     }
+      //   }
+      // }
+
+      .dispose-item-right-suppress {
+        margin-left: calc(100% - px-to-rem(340));
+        width: auto;
+      }
+    }
+
+    .text-tip {
+      margin: px-to-rem(12) 0 px-to-rem(24) 0;
+      width: 100%;
+      height: px-to-rem(20);
+      color: #fff;
+      font-size: px-to-rem(14);
+      text-align: center;
+      font-weight: 400;
+      line-height: px-to-rem(20);
+    }
+
+    .el-tooltip__popper.is-dark.dispose-tooltip {
+      max-width: px-to-rem(400);
+      background-color: #00131e;
+      color: #fff;
+      font-size: px-to-rem(14);
+
+      .popper__arrow,
+      .popper__arrow::after {
+        border-top-color: #00131e;
+      }
+    }
+
+    .y-ly-tip {
+      &.el-tooltip__popper.is-dark {
+        padding: px-to-rem(6) px-to-rem(12);
+        background: #00131e;
+
+        &.el-tooltip__popper[x-placement^='top'] {
+          .popper__arrow {
+            border-top-color: #00131e;
+
+            &::after {
+              border-top-color: #00131e;
+            }
+          }
+        }
+
+        &.el-tooltip__popper[x-placement^='left'] {
+          .popper__arrow {
+            border-left-color: #00131e;
+
+            &::after {
+              border-left-color: #00131e;
+            }
+          }
+        }
+
+        &.el-tooltip__popper[x-placement^='right'] {
+          .popper__arrow {
+            border-right-color: #00131e;
+
+            &::after {
+              border-right-color: #00131e;
+            }
+          }
+        }
+
+        &.el-tooltip__popper[x-placement^='bottom'] {
+          .popper__arrow {
+            border-bottom-color: #00131e;
+
+            &::after {
+              border-bottom-color: #00131e;
+            }
+          }
+        }
+      }
+    }
+  }
+}

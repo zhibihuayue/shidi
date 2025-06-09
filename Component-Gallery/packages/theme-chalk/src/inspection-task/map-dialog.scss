@@ -1,0 +1,156 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+
+.trajectoryPopupInfoBoxTask {
+  @include themeify() {
+    position: relative;
+    transform-origin: bottom left;
+    width: px-to-rem(368);
+    height: px-to-rem(70);
+    font-size: px-to-rem(14);
+    background: themed('inspection-task-track-popup-map-dialog-bg');
+    border-radius: themed(
+      'inspection-task-track-popup-map-dialog-border-radius'
+    );
+    border: themed('inspection-task-track-popup-map-dialog-border');
+    border-image: themed('inspection-task-track-popup-map-dialog-border-image');
+
+    .trajectoryInfoTask::after,
+    .trajectoryInfoTask::before {
+      width: themed('inspection-task-track-popup-map-dialog-top-width');
+      height: themed('inspection-task-track-popup-map-dialog-top-height');
+      background: themed('inspection-task-track-popup-map-dialog-top-bg');
+      background-size: contain;
+    }
+
+    &::after,
+    &::before {
+      width: themed('inspection-task-track-popup-map-dialog-bottom-width');
+      height: themed('inspection-task-track-popup-map-dialog-bottom-height');
+      background: themed('inspection-task-track-popup-map-dialog-bottom-bg');
+      background-size: contain;
+    }
+
+    &::after,
+    &::before,
+    .trajectoryInfoTask::after,
+    .trajectoryInfoTask::before {
+      position: absolute;
+      z-index: 10;
+      content: '';
+    }
+    .trajectoryInfoTask {
+      position: relative;
+      &::after {
+        top: themed('inspection-task-track-popup-map-dialog-position-bottom');
+        right: themed('inspection-task-track-popup-map-dialog-position-left');
+        transform: rotateX(180deg) rotateY(180deg);
+      }
+      &::before {
+        top: themed('inspection-task-track-popup-map-dialog-position-bottom');
+        left: themed('inspection-task-track-popup-map-dialog-position-left');
+        transform: rotateX(180deg);
+      }
+    }
+    &::after {
+      right: themed('inspection-task-track-popup-map-dialog-position-left');
+      bottom: themed('inspection-task-track-popup-map-dialog-position-bottom');
+      transform: rotateY(180deg);
+    }
+    &::before {
+      left: themed('inspection-task-track-popup-map-dialog-position-left');
+      bottom: themed('inspection-task-track-popup-map-dialog-position-bottom');
+    }
+
+    .trajectoryFlexBoxTask {
+      display: flex;
+      flex-direction: row;
+      padding: px-to-rem(12);
+
+      &::before {
+        position: absolute;
+        top: px-to-rem(-1);
+        left: 0;
+        width: px-to-rem(8);
+        height: px-to-rem(1);
+        background: #00fff8;
+        content: themed('track-popup-attribute-name-background');
+      }
+    }
+    // 关闭按钮
+    .closeImg.InfoWindowCloseBtn {
+      position: absolute;
+      top: px-to-rem(-20);
+      right: px-to-rem(-20);
+      width: px-to-rem(38);
+      height: px-to-rem(38);
+      z-index: 11;
+      background: themed('track-popup-attribute-close-icon');
+      background-size: 100% 100%;
+      line-height: px-to-rem(38);
+      cursor: pointer;
+    }
+
+    .labelBox {
+      color: themed('inspection-task-filter-text-placeholder-color');
+      text-align: right;
+    }
+
+    .valueBox {
+      color: themed('global-text-color');
+    }
+
+    .tvalue {
+      line-height: px-to-rem(20);
+
+      & + .tvalue {
+        margin-top: px-to-rem(6);
+      }
+    }
+
+    .tlabel {
+      line-height: px-to-rem(20);
+
+      & + .tlabel {
+        margin-top: px-to-rem(6);
+      }
+    }
+  }
+}
+
+.startEndPopupWinInfoBoxTask {
+  @include themeify(false) {
+    padding: px-to-rem(6) px-to-rem(10);
+    min-width: px-to-rem(206);
+    height: px-to-rem(36);
+    background: themed('track-popup-attribute-background');
+    border: themed('track-popup-grid-track-pop-border');
+    border-radius: px-to-rem(4);
+    color: themed('global-text-color');
+    font-size: px-to-rem(14);
+    text-align: center;
+    user-select: none;
+    transform-origin: bottom center;
+    line-height: px-to-rem(24);
+    box-sizing: border-box;
+    font-weight: 400;
+
+    label {
+      color: themed('inspection-task-filter-text-placeholder-color');
+      font-weight: 400;
+    }
+    .triangle_wgy_wc {
+      position: absolute;
+      bottom: px-to-rem(-3);
+      left: px-to-rem(99);
+      width: px-to-rem(8);
+      height: px-to-rem(8);
+      background: themed('track-popup-date-picker-panel-background');
+      border: themed('track-popup-grid-track-pop-border');
+      transform: rotate(-45deg);
+      transform-origin: center;
+      clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    }
+  }
+}

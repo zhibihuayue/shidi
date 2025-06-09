@@ -1,0 +1,12 @@
+@import '../../mixins/mixins';
+@import '../../mixins/theme-mixins';
+@import '../../mixins/px-to-rem';
+
+.video {
+  @include themeify(false) {
+    @if $theme-name == 'theme-terracotta' {
+    }
+    @if $theme-name == 'theme-aquamarine' {
+    }
+  }
+}

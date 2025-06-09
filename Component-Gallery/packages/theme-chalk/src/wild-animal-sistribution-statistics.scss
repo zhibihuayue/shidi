@@ -1,0 +1,50 @@
+@import 'mixins/px-to-rem';
+
+.wild-animal-sistribution-statistics {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    width: px-to-rem(370);
+    height: px-to-rem(308);
+    ::v-deep {
+      .innercomp-sccontainer-body {
+        flex-grow: 1;
+        overflow: hidden;
+      }
+    }
+  }
+  &-titleBox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .el-select {
+      margin-right: px-to-rem(6);
+      width: px-to-rem(64);
+      height: px-to-rem(32);
+      ::v-deep {
+        .el-input__inner {
+          height: px-to-rem(32);
+        }
+      }
+    }
+  }
+  &-listBox {
+    padding-top: px-to-rem(12);
+    height: 100%;
+  }
+}
+
+// 林业
+[data-theme='theme-aquamarine'] .wild-animal-sistribution-statistics {
+  &-container {
+    ::v-deep {
+      .scroll-ranking-list-item__num {
+        color: #fff;
+      }
+    }
+  }
+}
+
+// 国土
+[data-theme='theme-terracotta'] .wild-animal-sistribution-statistics {
+}

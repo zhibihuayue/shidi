@@ -1,0 +1,53 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins';
+@import '../mixins/px-to-rem.scss';
+.card-head {
+  display: flex;
+  flex-direction: column;
+  @include themeify(false) {
+    .info-row {
+      width: 100%;
+      display: flex;
+      margin-bottom: px-to-rem(6);
+      .info-title {
+        width: px-to-rem(98);
+        height: px-to-rem(20);
+        color: themed('alarm-atlas-info-title-color');
+        line-height: px-to-rem(20);
+        text-align: right;
+        font-style: normal;
+        font-size: px-to-rem(14);
+        flex-shrink: 0;
+      }
+      .info-content {
+        flex: 1;
+        min-width: 0;
+        font-weight: 400;
+        font-size: px-to-rem(14);
+        color: themed('alarm-atlas-info-content-color');
+        line-height: px-to-rem(20);
+        text-align: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .info-tag {
+        margin-left: px-to-rem(15);
+        border-radius: px-to-rem(4);
+        padding: px-to-rem(1) px-to-rem(8);
+        font-weight: 500;
+        font-size: px-to-rem(12);
+        color: #ffffff;
+        line-height: px-to-rem(18);
+        text-align: center;
+        flex-shrink: 0;
+      }
+      .base-tag {
+        background: linear-gradient(90deg, #d4b02d 0%, #bd9400 100%);
+      }
+      .special-tag {
+        background: linear-gradient(135deg, #ff8458 0%, #ff694c 100%);
+      }
+    }
+  }
+}

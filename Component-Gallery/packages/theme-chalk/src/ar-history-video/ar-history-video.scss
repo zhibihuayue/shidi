@@ -1,0 +1,174 @@
+@import '../mixins/mixins';
+@import '../mixins/theme-mixins.scss';
+@import '../mixins/theme-button-mixins';
+@import '../mixins/theme-date-picker-mixins';
+@import '../mixins/bem-mixins.scss';
+@import "../mixins/theme-tooltip-mixins";
+@import "../mixins/theme-dialog-header-mixins";
+
+
+.common-theme {
+  height: 100% !important;
+  @include b('ar-history-view') {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 981;
+    padding: 0 0 px-to-rem(12);
+    background: rgba(21, 19, 12, 1);
+    color: #e8f3fe;
+    font-size: px-to-rem(14);
+    user-select: none;
+
+    .option-right{
+      z-index: 2005;
+      width: px-to-rem(65);
+      right: px-to-rem(20);
+      position: absolute;
+      top: px-to-rem(42) !important;
+      bottom: px-to-rem(158) !important;
+      font-size: px-to-rem(14);
+      font-weight: 400;
+      color: #DEEBFF;
+      pointer-events: none;
+
+    }
+    .to-left{
+      right: px-to-rem(400) !important;
+    }
+    .to-bottom{
+      bottom: px-to-rem(66) !important;
+    }
+    .to-left-close{
+      right: px-to-rem(410) !important;
+    }
+    .close-view{
+      pointer-events: auto;
+      position: absolute;
+      border-radius: px-to-rem(6);
+      bottom: px-to-rem(136);
+      right: px-to-rem(30);
+      width: px-to-rem(40);
+      height: px-to-rem(40);
+      z-index: 2002;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      >i{
+        color: #E8F3FE;
+        font-size: px-to-rem(22);
+      }
+
+      @include themeify(false) {
+        @if $theme-name == "theme-aquamarine" {
+          background: linear-gradient(180deg, #132C2C 0%, #070E0D 100%);
+          opacity: 0.9;
+          border: px-to-rem(1) solid #075B4A;
+          border-radius: px-to-rem(8);
+          >i{
+            color:#fff;
+          }
+        }
+        @if $theme-name == "theme-terracotta" {
+          background: linear-gradient(360deg, #000 0%, #493A14 100%) rgba(0,0,0,0.5);
+          border: 1px solid #6E674E;
+          opacity: 0.9;
+          border-radius: px-to-rem(8);
+          >i{
+            color:#FFEEB1;
+          }
+        }
+        @if $theme-name == "theme-wiseblue" {
+          background: rgba(23,37,55,0.9);
+        }
+      }
+
+      .close-view{
+        background: linear-gradient(360deg, #000 0%, #493A14 100%) rgba(0,0,0,0.5);
+        border: 1px solid #6E674E;
+        border-radius: 8px;
+        opacity: 0.9;
+        >i{
+          color:#FFEEB1
+        }
+        .back-btn{
+          transform: translateX(-10000px);
+          filter: drop-shadow(#FFEEB1 10000px 0);
+        }
+      }
+
+    }
+
+    ::v-deep .easy-player {
+      .vjs-control-bar,
+      .vjs-progress-control,
+      .vjs-big-play-button,
+      .video-tools,
+      .logo,
+      .loading-text {
+        display: none !important;
+      }
+      .vjs-error {
+        .easy-player-loading {
+          display: none !important;
+        }
+      }
+      .vjs-error-display {
+        .vjs-modal-dialog-description,
+        .vjs-modal-dialog-content {
+          display: none !important;
+        }
+      }
+    }
+    @include b('labelfilter-box') {
+      position: fixed;
+      top: px-to-rem(38) !important;
+      bottom: px-to-rem(24) !important;
+      right: px-to-rem(20);
+      width: px-to-rem(370);
+      height: calc(100% - px-to-rem(173)) !important;
+    }
+
+    .label-to-height{
+      height: calc(100% - px-to-rem(103)) !important;
+    }
+    .label-zIndex{
+      z-index: 2001;
+    }
+
+    .label-box{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  @include b('record-wall-box') {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+
+  @include cg_button_styles();
+
+
+  ::v-deep .el-scrollbar__thumb {
+    @include themeify(false) {
+      background: themed('scroll-bar-primary-color');
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @include themeify(false) {
+      background: themed('scroll-bar-primary-color');
+    }
+    border: 0;
+    border-radius: px-to-rem(3);
+  }
+}

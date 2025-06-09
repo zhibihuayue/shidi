@@ -1,0 +1,10 @@
+{
+  "name": "@component-gallery/base-circle-selection",
+  "version": "0.0.1",
+  "description": "工具箱-圈选",
+  "dependencies": {
+    "@component-gallery/build-event-bus-path": "workspace:^",
+    "@component-gallery/theme-chalk": "workspace:^",
+    "@component-gallery/utils": "workspace:^"
+  }
+}
